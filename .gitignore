@@ -221,3 +221,7 @@ TSWLatexianTemp*
 
 # compile script build directory
 build/
+
+# others
+*.xmpi
+*.xmpdata
