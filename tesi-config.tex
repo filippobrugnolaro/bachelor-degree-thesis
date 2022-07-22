@@ -7,8 +7,12 @@
 %**************************************************************
 
 % Autore
-\newcommand{\myName}{Riccardo Montagnin}                                    
-\newcommand{\myTitle}{Titolo della tesi}
+\newcommand{\myName}{Filippo Brugnolaro}
+
+% Matricola
+\newcommand{\myFreshman}{1217321}
+
+\newcommand{\myTitle}{Sviluppo di un modulo software per la gestione degli ordini di acquisto con l'utilizzo di metodi euristici di ottimizzazione}
 
 % Tipo di tesi                   
 \newcommand{\myDegree}{Tesi di laurea}
@@ -26,16 +30,19 @@
 \newcommand{\profTitle}{Prof.}
 
 % Relatore
-\newcommand{\myProf}{Tullio Vardanega}
+\newcommand{\myProf}{Luigi De Giovanni}
 
 % Luogo
 \newcommand{\myLocation}{Padova}
 
 % Anno accademico
-\newcommand{\myAA}{2016-2017}
+\newcommand{\myAA}{2021-2022}
 
 % Data discussione
-\newcommand{\myTime}{Luglio 2017}
+\newcommand{\myTime}{Settembre 2022}
+
+% Azienda
+\newcommand{\myCompany}{Ergon Informatica srl}
 
 
 %**************************************************************
@@ -54,7 +61,7 @@
 
 \defbibheading{bibliography} {
     \cleardoublepage
-    \phantomsection 
+    \phantomsection
     \addcontentsline{toc}{chapter}{\bibname}
     \chapter*{\bibname\markboth{\bibname}{\bibname}}
 }
@@ -162,7 +169,7 @@
     breaklines=true,
     frameround=ftff,
     frame=single
-} 
+}
 
 
 %**************************************************************
@@ -187,7 +194,7 @@
 
 \newcommand{\sectionname}{sezione}
 \addto\captionsitalian{\renewcommand{\figurename}{Figura}
-                       \renewcommand{\tablename}{Tabella}}
+    \renewcommand{\tablename}{Tabella}}
 
 \newcommand{\glsfirstoccur}{\ap{{[g]}}}
 
@@ -205,7 +212,7 @@
     \refstepcounter{riskcounter}        % increment counter
     \par \noindent                      % start new paragraph
     \textbf{\arabic{riskcounter}. #1}   % display the title before the 
-                                        % content of the environment is displayed 
+    % content of the environment is displayed 
 }{
     \par\medskip
 }
@@ -227,12 +234,12 @@
 % #2: Nome
 \newenvironment{usecase}[2]{
     \renewcommand{\theusecasecounter}{\usecasename #1}  % this is where the display of 
-                                                        % the counter is overwritten/modified
+    % the counter is overwritten/modified
     \refstepcounter{usecasecounter}             % increment counter
     \vspace{10pt}
     \par \noindent                              % start new paragraph
     {\large \textbf{\usecasename #1: #2}}       % display the title before the 
-                                                % content of the environment is displayed 
+    % content of the environment is displayed 
     \medskip
 }{
     \medskip
@@ -253,8 +260,8 @@
 \newenvironment{namespacedesc}{
     \vspace{10pt}
     \par \noindent                              % start new paragraph
-    \begin{description} 
-}{
+    \begin{description}
+        }{
     \end{description}
     \medskip
 }

@@ -22,11 +22,12 @@
 % PDF/A filecontents
 \RequirePackage{filecontents}
 \begin{filecontents*}{\jobname.xmpdata}
-  \Title{Document’s title}
-  \Author{Author’s name}
+  \Title{Sviluppo di un modulo software per la gestione degli ordini di acquisto con l'utilizzo di metodi euristici di ottimizzazione ​}
+  \Author{Filippo Brugnolaro}
   \Language{it-IT}
-  \Subject{The abstract, or short description.}
-  \Keywords{keyword1\sep keyword2\sep keyword3}
+  \Subject{ In questo documento viene presentata l'esperienza di stage fatta da Brugnolaro Filippo presso l'azienda Ergon Informatica srl
+            alla fine del percorso di laurea triennale ​}
+  \Keywords{ottimizzazione\sep euristica\sep algoritmi\sep gestione ordini\sep development ​\sep}
 \end{filecontents*}
 
 \documentclass[10pt,                    % corpo del font principale
@@ -49,7 +50,7 @@
                                         % configurazione PDF/A
                                         % validare in https://www.pdf-online.com/osa/validate.aspx
 
-%\usepackage{amsmath,amssymb,amsthm}    % matematica
+\usepackage{amsmath,amssymb,amsthm}    % matematica
 
 \usepackage[T1]{fontenc}                % codifica dei font:
                                         % NOTA BENE! richiede una distribuzione *completa* di LaTeX
@@ -70,11 +71,11 @@
 
 \usepackage{emptypage}                  % pagine vuote senza testatina e piede di pagina
 
-\usepackage{epigraph}			% per epigrafi
+\usepackage{epigraph}			              % per epigrafi
 
 \usepackage{eurosym}                    % simbolo dell'euro
 
-%\usepackage{indentfirst}               % rientra il primo paragrafo di ogni sezione
+\usepackage{indentfirst}                % rientra il primo paragrafo di ogni sezione
 
 \usepackage{graphicx}                   % immagini
 
@@ -125,8 +126,8 @@
 \frontmatter
 \input{inizio-fine/frontespizio}
 \input{inizio-fine/colophon}
-\input{inizio-fine/dedica}
-\input{inizio-fine/sommario}
+%\input{inizio-fine/dedica}
+%\input{inizio-fine/sommario}
 \input{inizio-fine/ringraziamenti}
 \input{inizio-fine/indici}
 \cleardoublepage
@@ -142,7 +143,7 @@
 \input{capitoli/capitolo-5}             % Product Prototype
 \input{capitoli/capitolo-6}             % Product Design Freeze e SOP
 \input{capitoli/capitolo-7}             % Conclusioni
-\appendix                               
+\appendix
 \input{capitoli/capitolo-A}             % Appendice A
 
 %**************************************************************
