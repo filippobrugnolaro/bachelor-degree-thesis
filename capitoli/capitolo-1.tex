@@ -25,30 +25,55 @@
 
 \noindent{\myCompany}\footnote{Sito ufficiale: \url{https://www.ergon.it/}}(da qui in poi "\textit{Ergon}") è un'azienda italiana, fondata nel 1988, 
 situata a Castelfranco Veneto.\\
-Essa si occupa principalmente dello sviluppo di software \gls{erpg} per i settori dell'alimentare e dei trasporti, ma offre anche servizi di assistenza
-che variano dalla sicurezza in ambito web alla vendita e installazione di software di terze parti.\\
+Essa si occupa principalmente soluzioni gestionali per piccole e medie imprese e dello sviluppo di \textit{software} \gls{erpg} per i settori dell'alimentare e dei trasporti,
+ma completa l'offerta con la vendita di prodotti hardware, servizi web e hosting, nonché con progetti di \textit{\gls{serverconsolidationg}} e virtualizzazione di
+sistemi.
 L'azienda inoltre si è sviluppata in maniera costante negli anni e oggi può vantare una posizione di tutto rispetto tra le aziende dello stesso settore.
 Attualmente fanno parte della stessa gestione:
+
 \begin{itemize}
-    \item \textit{Ergon Informatica S.R.L.}: che si occupa del software;
+    \item \textit{Ergon Informatica S.R.L.}: che si occupa del \textit{software};
     \item \textit{Ergon S.R.L.}: che si occupa dei servizi tecnologici;
     \item \textit{Ergon Servizi S.R.L.}: che si occupa dei servizi amministrativi, logistici e di marketing delle altre due parti.
 \end{itemize}
-%Il logo dell'azienda è illustrato in figura.
-%\includegraphics{}
-Il prodotto proprietario e interamente sviluppato dall'azienda è \textit{ERGDIS}, sistema \gls{erpg}
-il cui insieme dei moduli copre ogni aspetto della conduzione aziendale.\\
-In particolare vengono gestiti vari aspetti che si dislocano dall'area amministrativa al controllo direzionale,
+Il logo dell'azienda è illustrato in \hyperref[fig:logo]{Figura 1.1}.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Ergon_Logo.pdf}
+    \caption{Logo \myCompany}
+    \label{fig:logo}
+\end{figure}
+\newline
+\noindent Il prodotto proprietario dell'azienda è \textit{ERGDIS}, sistema \gls{erpg}
+il cui insieme dei moduli copre ogni aspetto della conduzione aziendale.\newline
+
+\noindent In particolare vengono gestiti vari compiti che si dislocano dall'area amministrativa al controllo direzionale,
 dall'area commerciale alla pianificazione e al controllo della produzione, dalla gestione acquisti alla logistica di magazzino, 
 all'archiviazione ottica alla gestione della qualità.\\
 Alcuni di essi, inoltre, si possono interfacciare con dispositivi automatici presenti in azienda, come, ad esempio,
 linee di confezionamento o robot.\\
+
+Paragrafo riguardo alle funzionalità di ERGDIS\\
+
+Paragrafo riguardo agli obiettivi generali dell'azienda
  
 
 %**************************************************************
 \section{L'idea}
+\noindent Lo \textit{stage} proposto consiste nella progettazione e nello sviluppo di un modulo \textit{software} volto
+ad assistere l'azienda nella fase di approvvigionamento dei prodotti dai propri fornitori, supportandola nel scegliere
+da quale fornitore e quando acquistare i prodotti.\\
 
-Introduzione all'idea dello stage.
+\noindent Questa nuova funzionalità andrebbe ad ottimizzare un modulo già esistente che però, per ogni prodotto da ordinare, prende in
+considerazione l'ultima data d'ordine disponibile prima dell'inizio
+dell'effettiva copertura del fabbisogno del prodotto stesso. Questo dunque non garantirebbe con certezza una scelta ottimale
+in relazione alle possibilità d'ordine fornite dagli appositi listini e calendario dei fornitori.\\
+Data la natura combinatoria del problema, il modulo dovrà fornire in tempi ragionevoli una "buona soluzione"
+del problema, ovvero tendente il più possibile all'ottimo, e dovrà integrarsi con l'intero sistema \textit{ERGDIS}.\\
+
+\noindent È previsto inoltre che i dati su cui si è fatta l'ottimizzazione e il confronto dei risultati vengano visualizzati tramite un'apposita
+interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo dell'azienda (\gls{.netg} e \gls{devexpressg}).
+
 
 %**************************************************************
 \section{Descrizione dello stage}
@@ -59,29 +84,49 @@ Introduzione all'idea dello stage.
 %**************************************************************
 \subsection{Obiettivi}
 
+\noindent Di seguito vengono elencati tutti gli obiettivi previsti dallo \textit{stage}:
+\begin{itemize}
+    \item Analisi del contesto \textit{ERGDIS};
+    \item Studio dei principali algoritmi di ricerca operativa e ottimizzazione combinatoria;
+    \item Redazione di uno studio di fattibilità con integrazione di micro-moduli di test;
+    \item Redazione di un'analisi dei requisiti;
+    \item Sviluppo e codifica del modulo \textit{software} con le tecnologie utilizzate dall'azienda;
+    \item Redazione di documentazione tecnica riguardante le scelte implementative e architetturali effettuate;
+    \item \textit{Report} finale sui risultati ottenuti.
+\end{itemize}
 %**************************************************************
 \subsection{Analisi preventiva dei rischi}
 
+\noindent
 %**************************************************************
 \section{Organizzazione del testo}
-
+\noindent Di seguito viene illustrata l'organizzazione dei capitoli successivi:
 \begin{description}
-    \item[{\hyperref[cap:studio-fattibilita]{Il secondo capitolo}}] descrive ...
+    \item[{\hyperref[cap:studio-fattibilita]{Il secondo capitolo}}] 
+    approfondice lo studio di fattibilità effettuato, utile per entrare a conoscenza
+    delle più utilizzate tecniche di ottimizzazione combinatoria e per analizzare
+    quali siano i vantaggi e svantaggi di ognuno di essi.
     
-    \item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce ...
+    \item[{\hyperref[cap:analisi-requisiti]{Il terzo capitolo}}]
+    descrive l'analisi dei requisiti del progetto, comprensiva di diagrammi dei
+    casi d'uso e raccolta dei requisiti derivanti dall'analisi di questi ultimi.
     
-    \item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce ...
+    \item[{\hyperref[cap:progettazione-codifica]{Il quarto capitolo}}]
+    approfondisce le fasi di progettazione e codifica, comprensiva di diagrammi delle classi
+    e di approfondimenti a livello implementativo.
     
-    \item[{\hyperref[cap:progettazione-codifica]{Il quinto capitolo}}] approfondisce ...
+    \item[{\hyperref[cap:verifica-validazione]{Il quinto capitolo}}]
+    espone tutte verifiche effettuate durante il progetto e la validazione
+    finale a conferma dei requisiti inizialmente stilati nella fase di
+    \hyperref[cap:analisi-requisiti]{analisi dei requisiti}.
     
-    \item[{\hyperref[cap:verifica-validazione]{Il sesto capitolo}}] approfondisce ...
-    
-    \item[{\hyperref[cap:conclusioni]{Nel settimo capitolo}}] descrive ...
+    \item[{\hyperref[cap:conclusioni]{Il sesto capitolo}}]
+    presenta le conclusione tratte dallo \textit{stage}, comprensivo di conoscenze
+    acquisite e considerazioni di carattere personale.
 \end{description}
 
-Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
+\noindent Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
 \begin{itemize}
 	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
-	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
 	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
 \end{itemize}
