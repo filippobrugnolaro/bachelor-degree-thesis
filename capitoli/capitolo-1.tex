@@ -25,8 +25,8 @@
 
 \noindent{\myCompany}\footnote{Sito ufficiale: \url{https://www.ergon.it/}}(da qui in poi "\textit{Ergon}") è un'azienda italiana, fondata nel 1988, 
 situata a Castelfranco Veneto.\\
-Essa si occupa principalmente soluzioni gestionali per piccole e medie imprese e dello sviluppo di \textit{software} \gls{erpg} per i settori dell'alimentare e dei trasporti,
-ma completa l'offerta con la vendita di prodotti hardware, servizi web e hosting, nonché con progetti di \textit{\gls{serverconsolidationg}} e virtualizzazione di
+Essa si occupa principalmente soluzioni gestionali per piccole e medie imprese e dello sviluppo di \textit{software \gls{erpg}} per i settori dell'alimentare e dei trasporti,
+ma completa l'offerta con la vendita di prodotti hardware, servizi \textit{web} e \textit{hosting}, nonché con progetti di \textit{\gls{serverconsolidationg}} e virtualizzazione di
 sistemi.
 L'azienda inoltre si è sviluppata in maniera costante negli anni e oggi può vantare una posizione di tutto rispetto tra le aziende dello stesso settore.
 Attualmente fanno parte della stessa gestione:
@@ -34,12 +34,12 @@ Attualmente fanno parte della stessa gestione:
 \begin{itemize}
     \item \textit{Ergon Informatica S.R.L.}: che si occupa del \textit{software};
     \item \textit{Ergon S.R.L.}: che si occupa dei servizi tecnologici;
-    \item \textit{Ergon Servizi S.R.L.}: che si occupa dei servizi amministrativi, logistici e di marketing delle altre due parti.
+    \item \textit{Ergon Servizi S.R.L.}: che si occupa dei servizi amministrativi, logistici e di \textit{marketing} delle altre due parti.
 \end{itemize}
 Il logo dell'azienda è illustrato in \hyperref[fig:logo]{Figura 1.1}.
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.9\columnwidth]{Ergon_Logo.pdf}
+    \includegraphics[width=0.8\columnwidth]{Ergon_Logo.pdf}
     \caption{Logo \myCompany}
     \label{fig:logo}
 \end{figure}
@@ -51,7 +51,7 @@ il cui insieme dei moduli copre ogni aspetto della conduzione aziendale.\newline
 dall'area commerciale alla pianificazione e al controllo della produzione, dalla gestione acquisti alla logistica di magazzino, 
 all'archiviazione ottica alla gestione della qualità.\\
 Alcuni di essi, inoltre, si possono interfacciare con dispositivi automatici presenti in azienda, come, ad esempio,
-linee di confezionamento o robot.\\
+linee di confezionamento o \textit{robot}.\\
 
 Paragrafo riguardo alle funzionalità di ERGDIS\\
 
@@ -72,7 +72,7 @@ Data la natura combinatoria del problema, il modulo dovrà fornire in tempi ragi
 del problema, ovvero tendente il più possibile all'ottimo, e dovrà integrarsi con l'intero sistema \textit{ERGDIS}.\\
 
 \noindent È previsto inoltre che i dati su cui si è fatta l'ottimizzazione e il confronto dei risultati vengano visualizzati tramite un'apposita
-interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo dell'azienda (\gls{.netg} e \gls{devexpressg}).
+interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo dell'azienda (\textit{\gls{.netg}} e \textit{\gls{devexpressg}}).
 
 
 %**************************************************************
@@ -96,6 +96,36 @@ interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo de
 \end{itemize}
 %**************************************************************
 \subsection{Analisi preventiva dei rischi}
+Durante la fase iniziale dello \textit{stage}, sono stati rilevati dei possibili rischi che avrebbero potuto presentarsi
+durante il percorso del progetto.\\
+Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In particolare:
+\begin{enumerate}
+    \item \textbf{Comprensione e confronto degli algoritmi}\\[0.2cm]
+    \textbf{Problema:} il progetto richiede un'ampia fase di studio che riguarda principalmente la teoria
+    di tecniche per la risoluzione di problemi di ricerca operativa e ottimizzazione combinatoria.
+    Questo poteva portare a presentarsi la possibilità di non comprendere fino in fondo l'algoritmo, e poteva essere difficile cogliere e confrontare
+    i pregi e difetti di ciascuno di essi.\\[0.2cm]
+    \textbf{Soluzione:} è stato organizzato un incontro iniziale con il tutor per fornire una base da cui poi iniziare una ricerca più approfondita.
+    Sono stati forniti anche delle dispense utili per rafforzare la base di partenza.
+    \item \textbf{Tecnologie e ambiente di sviluppo}\\[0.2cm]
+    \textbf{Problema:} venivano richieste alcune tecnologie, come per esempio \textit{Entity Framework} o \textit{\gls{devexpressg}} a me assolutamente ignote.
+    Sebbene avessi delle basi abbastanza solide di \textit{C\#} derivanti dalla conoscenza di altri linguaggi quali \textit{C++} e \textit{Java}, venivano richieste tuttavia
+    alcune tecnologie integrate nel linguaggio (\textit{LINQ}) anch'esse ignote. L'ambiente di sviluppo e l'\textit{IDE} non erano mai stati utilizzati.\\[0.2cm]
+    \textbf{Soluzione:} sono stati forniti dei riferimenti consigliati per l'autoapprendimento. Tuttavia qualsiasi dubbio ragionevolmente particolare
+    poteva essere richiesto al tutor. È stato effettuato insieme al tutor il \textit{setup} dell'ambiente di sviluppo e la conseguente creazione dei \textit{database}.
+    \item \textbf{Calibrazione dei parametri e funzione obiettivo}\\[0.2cm]
+    \textbf{Problema:} dopo la scelta e l'implementazione dell'algoritmo, è molto importante:
+    \begin{itemize}
+        \item definire una funzione obiettivo che vada a descrivere in maniera "buona" l'andamento dell'algoritmo stesso;
+        \item calibrare i parametri in base allo spazio delle soluzioni del problema preso in esame.
+    \end{itemize}
+    Tuttavia entrambe sono azioni molto delicate che possono compromettere il funzionamento stesso dell'algoritmo anche
+    se implementato correttamente.\\[0.2cm]
+    \textbf{Soluzione:} cercare una costruzione e calibrazione per passi ed empiricamente dimostrabili e presentarle in una discussione con il tutor,
+    in modo tale da creare una \textit{baseline} su cui basarsi per continuare con i passi successivi.
+
+
+\end{enumerate}
 
 \noindent
 %**************************************************************
@@ -118,7 +148,7 @@ interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo de
     \item[{\hyperref[cap:verifica-validazione]{Il quinto capitolo}}]
     espone tutte verifiche effettuate durante il progetto e la validazione
     finale a conferma dei requisiti inizialmente stilati nella fase di
-    \hyperref[cap:analisi-requisiti]{analisi dei requisiti}.
+    analisi dei requisiti.
     
     \item[{\hyperref[cap:conclusioni]{Il sesto capitolo}}]
     presenta le conclusione tratte dallo \textit{stage}, comprensivo di conoscenze

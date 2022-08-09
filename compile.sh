@@ -118,7 +118,8 @@ main() {
   fi
 
   # Move generated pdf to the same level of the source file
-  mv $BUILD_DIR/$THESIS.pdf ./"$PDF_NAME.pdf"
+  cp $BUILD_DIR/$THESIS.pdf ./"$PDF_NAME.pdf"
+  mv $BUILD_DIR/$THESIS.pdf ./output/"$PDF_NAME.pdf"
 }
 
 main "$@"
