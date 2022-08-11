@@ -11,74 +11,1068 @@
 
 \section{Casi d'uso}
 
-Per lo studio dei casi di utilizzo del prodotto sono stati creati dei diagrammi.
+\noindent Per lo studio dei casi di utilizzo del prodotto sono stati creati dei diagrammi.
 I diagrammi dei casi d'uso (in inglese \emph{Use Case Diagram}) sono diagrammi di tipo \gls{umlg} dedicati alla descrizione delle funzioni o servizi offerti da un sistema, così come sono percepiti e utilizzati dagli attori che interagiscono col sistema stesso.
-Essendo il progetto finalizzato alla creazione di un tool per l'automazione di un processo, le interazioni da parte dell'utilizzatore devono essere ovviamente ridotte allo stretto necessario. Per questo motivo i diagrammi d'uso risultano semplici e in numero ridotto.
+Essendo il progetto finalizzato alla creazione di un tool per l'automazione di un processo, le interazioni da parte dell'utilizzatore devono essere ovviamente ridotte allo stretto necessario. Per questo motivo i diagrammi dei casi d'uso risultano semplici e in numero ridotto.\\
 
+\noindent A livello formale, i diagrammi dei casi d'uso avranno la seguente forma:
+\begin{center}
+    \textbf{UC<CodicePadre>.<CodiceFiglio>}
+\end{center}
+\noindent È importante ribadire come questo formalismo sia gerarchico, ovvero un codice figlio
+può essere codice padre di un suo eventuale codice figlio. Possono essere figli le generalizzazioni e i sottocasi d'uso.\\
+
+\noindent Nella figura illustrata di seguito verrà illustrato il diagramma del sistema principale con tutti i casi d'uso.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[width=0.9\columnwidth]{usecase/scenario-principale} 
     \caption{Use Case - UC0: Scenario principale}
 \end{figure}
 
-\begin{usecase}{0}{Scenario principale}
-\usecaseactors{Sviluppatore applicativi}
-\usecasepre{Lo sviluppatore è entrato nel plug-in di simulazione all'interno dell'IDE}
-\usecasedesc{La finestra di simulazione mette a disposizione i comandi per configurare, registrare o eseguire un test}
-\usecasepost{Il sistema è pronto per permettere una nuova interazione}
-\label{uc:scenario-principale}
-\end{usecase}
+\noindent \textbf{\large UC 1 - Inserimento dati}
+\label{uc:inserimento-dati}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e non ha ancora inserito alcun dato.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente inserisce i dati.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente ha inserito i dati correttamente.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+
+\noindent \textbf{\large UC 1.1 - Inserimento data di inizio previsione}
+\label{uc:inserimento-data-inizio-prev}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e non ha ancora inserito la data di inizio previsione.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente seleziona la data di inizio previsione.
+		\end{enumerate}
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente ha inserito la data di inizio previsione correttamente.
+
+	\item \textbf{Scenario alternativo: }
+		\begin{itemize}
+		    \item La \textit{form} segnala un errore di immissione dati.
+		\end{itemize}
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 1.2 - Inserimento data di fine previsione}
+\label{uc:inserimento-data-fine-prev}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e non ha ancora inserito la data di fine previsione.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente inserisce la data di fine previsione;
+		\end{enumerate}
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente ha inserito la data di fine previsione correttamente.
+
+	\item \textbf{Scenario alternativo: }
+		\begin{itemize}
+		    \item La \textit{form} segnala un errore di immissione dati.
+		\end{itemize}
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 1.3 - Errore: data di inizio previsione antecedente alla data odierna}
+\label{uc:err-inserimento-data-inizio-prev}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e ha inserito una data di inizio previsione antecedente
+		alla data odierna.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente inserisce la data di inizio previsione;
+			\item L'utente visualizza un errore generato dalla \textit{form}.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente viene avvisato dell'errore di immissione.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 1.4 - Errore: data di fine previsione antecedente alla data di \\\hspace*{56pt}inizio previsione}
+\label{uc:err-inserimento-fine-fine-prev}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e ha inserito una data di fine previsione antecedente
+		alla data odierna.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente inserisce la data di fine previsione;
+			\item L'utente visualizza un errore generato dalla \textit{form}.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente viene avvisato dell'errore di immissione.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 2 - Inizio analisi di ottimizzazione}
+\label{uc:inizio-analisi-ottimizzazione}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e ha inserito una data di inizio e fine previsione valide.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente conferma l'inizio dell'analisi di ottimizzazione.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente ha effettuato l'analisi di ottimizzazione per le date di inizio e fine previsione e visualizza correttamente i risultati.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 3 - Visualizzazione risultati}
+\label{uc:visualizzazione-risultati}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e ha effettuato l'analisi di ottimizzazione correttamente.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza il totale non ottimizzato;
+			\item L'utente visualizza il totale ottimizzato;
+			\item L'utente visualizza lo scostamento percentuale dei totali.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti i risultati.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 3.1 - Visualizzazione totale non ottimizzato}
+\label{uc:visualizzazione-totale-non-ottimizzato}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e ha effettuato l'analisi di ottimizzazione correttamente.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza il totale non ottimizzato.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il totale non ottimizzato.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 3.2 - Visualizzazione totale ottimizzato}
+\label{uc:visualizzazione-totale-ottimizzato}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e ha effettuato l'analisi di ottimizzazione correttamente.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza il totale ottimizzato.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il totale ottimizzato.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 3.3 - Visualizzazione scostamento percentuale dei totali}
+\label{uc:visualizzazione-scostamento-percentuale-totali}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e ha effettuato l'analisi di ottimizzazione correttamente.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza lo scostamento percentuale dei totali.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente lo scostamento percentuale dei totali.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 4 - Visualizzazione lista degli ordini}
+\label{uc:visualizzazione-lista-ordini}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente è dentro la \textit{form} e ha effettuato l'analisi di ottimizzazione correttamente.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza la lista degli ordini da effettuare.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini da effettuare.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 4.1 - Visualizzazione singolo ordine}
+\label{uc:visualizzazione-singolo-ordine}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza il singolo ordine con tutte le informazioni.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il singolo ordine.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 4.1.1 - Visualizzazione codice articolo dell'ordine}
+\label{uc:visualizzazione-codice-articolo}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il singolo ordine.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza il codice articolo del singolo ordine.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il codice articolo del singolo ordine.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 4.1.2 - Visualizzazione codice fornitore dell'ordine}
+\label{uc:visualizzazione-codice-fornitore}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il singolo ordine.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza il codice fornitore del singolo ordine.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il codice fornitore del singolo ordine.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 4.1.3 - Visualizzazione data d'ordine dell'ordine}
+\label{uc:visualizzazione-data-ordine}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il singolo ordine.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza la data d'ordine del singolo ordine.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la data d'ordine del singolo ordine.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 4.1.4 - Visualizzazione data iniziale di copertura dell'ordine}
+\label{uc:visualizzazione-data-iniziale-copertura}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il singolo ordine.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza la data iniziale di copertura del singolo ordine.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la data iniziale di copertura del singolo ordine.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 4.1.5 - Visualizzazione data finale di copertura dell'ordine}
+\label{uc:visualizzazione-data-finale-copertura}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il singolo ordine.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza la data finale di copertura del singolo ordine.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la data finale di copertura del singolo ordine.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 4.1.6 - Visualizzazione quantità ordinata dell'ordine}
+\label{uc:visualizzazione-quantità-ordinata}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il singolo ordine.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza la quantità ordinata del singolo ordine.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la quantità ordinata del singolo ordine.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 4.1.7 - Visualizzazione prezzo totale dell'ordine}
+\label{uc:visualizzazione-prezzo-totale-ord}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il singolo ordine.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente visualizza il prezzo totale del singolo ordine.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente il prezzo totale del singolo ordine.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 5 - Filtraggio dati}
+\label{uc:filtraggio-dati}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente sceglie un filtro da applicare alla lista.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 5.1 - Filtraggio per ricerca generica}
+\label{uc:filtraggio-ricerca-generica}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini tramite una ricerca.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 5.2 - Filtraggio per codice articolo}
+\label{uc:filtraggio-codice-articolo}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini per codice articolo.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 5.3 - Filtraggio per codice fornitore}
+\label{uc:filtraggio-codice-fornitore}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini per codice fornitore.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 5.4 - Filtraggio per data d'ordine}
+\label{uc:filtraggio-data-ordine}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini per data d'ordine.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 5.5 - Filtraggio per data iniziale di copertura}
+\label{uc:filtraggio-data-iniziale-copertura}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini per data iniziale di copertura.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 5.6 - Filtraggio per data finale di copertura}
+\label{uc:filtraggio-data-finale-copertura}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini per data finale di copertura.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 5.7 - Filtraggio per quantità ordinata}
+\label{uc:filtraggio-quantità-ordinata}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini per quantità ordinata.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 5.8 - Filtraggio per prezzo totale del singolo ordine}
+\label{uc:filtraggio-prezzo-totale-ord}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini per prezzo totale del singolo ordine.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 6 - Ordinamento elementi della lista}
+\label{uc:ordinamento-elementi-lista}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente sceglie l'ordinamento da applicare alla lista.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi ordinati secondo la sua scelta.
+    
+    \item \textbf{Generalizzazioni: }
+        \begin{itemize}
+            \item Ordinamento per codice articolo;
+            \item Ordinamento per codice fornitore;
+            \item Ordinamento per data d'ordine;
+            \item Ordinamento per data previsione inizio copertura;
+            \item data previsione fine copertura;
+            \item quantità ordinata;
+            \item prezzo totale del singolo ordine.
+        \end{itemize}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 6.1 - Ordinamento per codice articolo }
+\label{uc:ordinamento-codice-articolo}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente ordina la lista per codice articolo.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 6.2 - Ordinamento per codice fornitore }
+\label{uc:ordinamento-codice-fornitore}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente ordina la lista per codice fornitore.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 6.3 - Ordinamento per data d'ordine }
+\label{uc:ordinamento-data-ordine}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente ordina la lista per data d'ordine.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 6.4 - Ordinamento per data iniziale di copertura }
+\label{uc:ordinamento-data-iniziale-copertura}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini per data iniziale di copertura.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 6.5 - Ordinamento per data finale di copertura}
+\label{uc:ordinamento-data-finale-copertura}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini per data finale di copertura.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 6.6 - Ordinamento per quantità ordinata}
+\label{uc:ordinamento-quantità-ordinata}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente filtra uno o più ordini per quantità ordinata.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi che soddisfano il filtro.
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent \textbf{\large UC 6.7 - Ordinamento per prezzo totale del singolo ordine}
+\label{uc:ordinamento-prezzo-totale-ord}
+\begin{itemize}
+
+	\item \textbf{Attori primari: }
+		\begin{itemize}
+			\item Utente.
+		\end{itemize}
+
+	\item \textbf{Precondizione: }\\[0.3cm]
+		L'utente visualizza correttamente la lista degli ordini.
+
+	\item \textbf{Scenario principale: }
+		\begin{enumerate}
+			\item L'utente ordina gli elementi.
+		\end{enumerate}
+		
+
+	\item \textbf{Postcondizione: }\\[0.3cm]
+		L'utente visualizza correttamente tutti gli elementi rispetto al prezzo totale del singolo ordine.
+
+\end{itemize}
+
+\vspace{0.5cm}
 
 \section{Tracciamento dei requisiti}
 
-Da un'attenta analisi dei requisiti e degli use case effettuata sul progetto è stata stilata la tabella che traccia i requisiti in rapporto agli use case.\\
-Sono stati individuati diversi tipi di requisiti e si è quindi fatto utilizzo di un codice identificativo per distinguerli.\\
-Il codice dei requisiti è così strutturato R(F/Q/V)(N/D/O) dove:
-\begin{enumerate}
-	\item[R =] requisito
-    \item[F =] funzionale
-    \item[Q =] qualitativo
-    \item[V =] di vincolo
-    \item[N =] obbligatorio (necessario)
-    \item[D =] desiderabile
-    \item[Z =] opzionale
-\end{enumerate}
-Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi} e \ref{tab:requisiti-vincolo} sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
+\noindent Da un'attenta analisi dei requisiti e degli use case effettuata sul progetto è stata stilata la tabella che traccia i requisiti in rapporto agli use case.\\
+Sono stati individuati diversi tipi di requisiti e si è dunque utilizzato un codice identificativo univoco per distinguerli.\\
+Il codice dei requisiti è così strutturato:
+\begin{center}
+    \textbf{R<NumeroRequisito>-<Tipo>-<Classificazione>}
+\end{center}
+In particolare il tipo può assumere 4 valori, quali:
+\begin{itemize}
+    \item \textbf{F} = funzionale
+    \item \textbf{Q} = qualitativo
+    \item \textbf{P} = performance
+    \item \textbf{V} = vincolo
+\end{itemize}
+Per quanto riguarda la classificazione, invece, si hanno 3 valori possibili:
+\begin{itemize}
+    \item \textbf{O} = obbligatorio
+    \item \textbf{D} = desiderabile
+    \item \textbf{F} = facoltativo
+\end{itemize}
+Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \ref{tab:requisiti-di-performance} \ref{tab:requisiti-di-vincolo} suddivise per tipo sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
 
-\newpage
+%comando arraystretch
+\renewcommand{\arraystretch}{1.6}
+% tab funzionali
 
-\begin{table}%
-\caption{Tabella del tracciamento dei requisti funzionali}
+\begin{center}
+%\rowcolors{2}{lightest-grayest}{white}
+\begin{longtable}{|p{2cm}|p{9cm}|p{2cm}|}
+\caption{Tabella del tracciamento dei requisiti funzionali}
 \label{tab:requisiti-funzionali}
-\begin{tabularx}{\textwidth}{lXl}
-\hline\hline
-\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-\hline
-RFN-1     & L'interfaccia permette di configurare il tipo di sonde del test & UC1 \\
-\hline
-\end{tabularx}
-\end{table}%
+\\ \hline
+\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
+\hline 
+\req{R1-F-O}{L'utente deve poter inserire i dati necessari per l'ottimizzazione}{\hyperref[uc:inserimento-dati]{UC1}}
+\req{R2-F-O}{L'utente deve poter inserire la data di inizio previsione}{\hyperref[uc:inserimento-data-inizio-prev]{UC1.1}}
+\req{R3-F-O}{L'utente deve poter inserire la data di fine previsione}{\hyperref[uc:inserimento-data-fine-prev]{UC1.2}}
+\req{R4-F-O}{L'utente deve poter essere avvisato dell'errore di inserimento della data di inizio previsione}{\hyperref[uc:err-inserimento-data-inizio-prev]{UC1.3}}
+\req{R5-F-O}{L'utente deve poter essere avvisato dell'errore di inserimento della data di fine previsione}{\hyperref[uc:err-inserimento-fine-fine-prev]{UC1.4}}
+\req{R6-F-O}{L'utente deve poter iniziare l'analisi di ottimizzazione}{\hyperref[uc:inizio-analisi-ottimizzazione]{UC2}}
+\req{R7-F-O}{L'utente deve poter visualizzare i risultati}{\hyperref[uc:visualizzazione-risultati]{UC3}}
+\req{R8-F-O}{L'utente deve poter visualizzare il totale non ottimizzato}{\hyperref[uc:visualizzazione-totale-non-ottimizzato]{UC3.1}}
+\req{R9-F-O}{L'utente deve poter visualizzare il totale ottimizzato}{\hyperref[uc:visualizzazione-totale-ottimizzato]{UC3.2}}
+\req{R10-F-O}{L'utente deve poter visualizzare lo scostamento tra i totali}{\hyperref[uc:visualizzazione-scostamento-percentuale-totali]{UC3.3}}
+\req{R11-F-O}{L'utente deve poter visualizzare la lista degli ordini in maniera decrescente rispetto al codice articolo}{\hyperref[uc:visualizzazione-lista-ordini]{UC4}}
+\req{R12-F-O}{L'utente deve poter visualizzare un singolo ordine della lista}{\hyperref[uc:visualizzazione-singolo-ordine]{UC4.1}}
+\req{R13-F-O}{L'utente deve poter visualizzare il codice articolo di un ordine}{\hyperref[uc:visualizzazione-codice-articolo]{UC4.1.1}}
+\req{R14-F-O}{L'utente deve poter visualizzare il codice fornitore di un ordine}{\hyperref[uc:visualizzazione-codice-fornitore]{UC4.1.2}}
+\req{R15-F-O}{L'utente deve poter visualizzare la data d'ordine di un ordine}{\hyperref[uc:visualizzazione-data-ordine]{UC4.1.3}}
+\req{R16-F-O}{L'utente deve poter visualizzare la data iniziale di copertua di un ordine}{\hyperref[uc:visualizzazione-data-iniziale-copertura]{UC4.1.4}}
+\req{R17-F-O}{L'utente deve poter visualizzare la data finale di copertura di un ordine}{\hyperref[uc:visualizzazione-data-finale-copertura]{UC4.1.5}}
+\req{R18-F-O}{L'utente deve poter visualizzare la quantità ordinata di un ordine}{\hyperref[uc:visualizzazione-quantità-ordinata]{UC4.1.6}}
+\req{R19-F-O}{L'utente deve poter visualizzare il prezzo totale di un ordine}{\hyperref[uc:visualizzazione-prezzo-totale-ord]{UC4.1.7}}
+\req{R20-F-O}{L'utente deve poter filtrare la lista tramite una ricerca}{\hyperref[uc:filtraggio-dati]{UC5}}
+\req{R21-F-O}{L'utente deve poter filtrare la lista tramite una ricerca generica}{\hyperref[uc:filtraggio-ricerca-generica]{UC5.1}}
+\req{R22-F-O}{L'utente deve poter filtrare la lista per codice articolo}{\hyperref[uc:filtraggio-codice-articolo]{UC5.2}}
+\req{R23-F-O}{L'utente deve poter filtrare la lista per codice fornitore}{\hyperref[uc:filtraggio-codice-fornitore]{UC5.3}}
+\req{R24-F-O}{L'utente deve poter filtrare la lista per data d'ordine}{\hyperref[uc:filtraggio-data-ordine]{UC5.4}}
+\req{R25-F-O}{L'utente deve poter filtrare la lista per data iniziale di copertura}{\hyperref[uc:filtraggio-data-iniziale-copertura]{UC5.5}}
+\req{R26-F-O}{L'utente deve poter filtrare la lista per data finale di copertura}{\hyperref[uc:filtraggio-data-finale-copertura]{UC5.6}}
+\req{R27-F-O}{L'utente deve poter filtrare la lista per quantità ordinata}{\hyperref[uc:filtraggio-quantità-ordinata]{UC5.7}}
+\req{R28-F-O}{L'utente deve poter filtrare la lista per prezzo totale del singolo ordine}{\hyperref[uc:filtraggio-prezzo-totale-ord]{UC5.8}}
+\req{R29-F-O}{L'utente deve poter ordinare gli elementi della lista}{\hyperref[uc:ordinamento-elementi-lista]{UC6}}
+\req{R30-F-O}{L'utente deve poter ordinare la lista rispetto al codice articolo}{\hyperref[uc:ordinamento-codice-articolo]{UC6.1}}
+\req{R31-F-O}{L'utente deve poter ordinare la lista rispetto al codice fornitore}{\hyperref[uc:ordinamento-codice-fornitore]{UC6.2}}
+\req{R32-F-O}{L'utente deve poter ordinare la lista rispetto alla data d'ordine}{\hyperref[uc:ordinamento-data-ordine]{UC6.3}}
+\req{R33-F-O}{L'utente deve poter ordinare la lista in rispetto alla data iniziale di coppertura}{\hyperref[uc:ordinamento-data-iniziale-copertura]{UC6.4}}
+\req{R34-F-O}{L'utente deve poter ordinare la lista in rispetto alla data finale di copertura}{\hyperref[uc:ordinamento-data-finale-copertura]{UC6.5}}
+\req{R35-F-O}{L'utente deve poter ordinare la lista in rispetto alla quantità ordinata}{\hyperref[uc:ordinamento-quantità-ordinata]{UC6.6}}
+\req{R36-F-O}{L'utente deve poter ordinare la lista in rispetto al prezzo totale del singolo ordine}{\hyperref[uc:ordinamento-prezzo-totale-ord]{UC6.7}}
+\end{longtable}
+\end{center}%
 
-\begin{table}%
+%tab qualità
+\begin{center}
+%\rowcolors{2}{lightest-grayest}{white}
+\begin{longtable}{|p{2cm}|p{9cm}|p{2cm}|}
 \caption{Tabella del tracciamento dei requisiti qualitativi}
 \label{tab:requisiti-qualitativi}
-\begin{tabularx}{\textwidth}{lXl}
-\hline\hline
-\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-\hline
-RQD-1    & Le prestazioni del simulatore hardware deve garantire la giusta esecuzione dei test e non la generazione di falsi negativi & - \\
-\hline
-\end{tabularx}
-\end{table}%
+\\ \hline
+\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
+\hline 
+\req{R37-Q-O}{Deve essere redatto un documento che descrive l'architettura del modulo}{-}
+\req{R38-Q-O}{Deve essere redatto un documento che spieghi le scelte implementative effettuate}{-}
+\req{R39-Q-O}{Il codice deve essere documentato tramite commenti}{-}
+\req{R40-Q-D}{L'algoritmo finale scelto deve generare dei log di chiamata per manutenzioni future}{-}
+\req{R41-Q-D}{L'algoritmo di ottimizzazione deve essere estensibile}{-}
+\req{R42-Q-O}{I test devono coprire il 60\% del codice}{-}
+\req{R43-Q-D}{L'algoritmo utilizza differenti tecniche di ottimizzazione}{-}
+\req{R44-Q-F}{L'algoritmo utlizza il multithreading per cercare più soluzioni ammissibili}{-}
+\end{longtable}
+\end{center}%
 
-\begin{table}%
+%tab performance
+\begin{center}
+%\rowcolors{2}{lightest-grayest}{white}
+\begin{longtable}{|p{2cm}|p{9cm}|p{2cm}|}
+\caption{Tabella del tracciamento dei requisiti di performance}
+\label{tab:requisiti-di-performance}
+\\ \hline
+\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
+\hline 
+\req{R45-P-O}{L'algoritmo di ottimizzazione deve restituire un risultato entro 10 minuti dal tempo di lancio dello stesso}{-}
+\end{longtable}
+\end{center}%
+
+%tab vincolo
+\begin{center}
+%\rowcolors{2}{lightest-grayest}{white}
+\begin{longtable}{|p{2cm}|p{9cm}|p{2cm}|}
 \caption{Tabella del tracciamento dei requisiti di vincolo}
-\label{tab:requisiti-vincolo}
-\begin{tabularx}{\textwidth}{lXl}
-\hline\hline
-\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-\hline
-RVO-1    & La libreria per l'esecuzione dei test automatici deve essere riutilizzabile & - \\
-\hline
-\end{tabularx}
-\end{table}%
+\label{tab:requisiti-di-vincolo}
+\\ \hline
+\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
+\hline  
+\req{R46-V-O}{La \textit{form} deve essere eseguita sull'ambiente di esecuzione \textit{.NET Framework}}{-}
+\req{R47-V-O}{La \textit{form} e l'algoritmo devono essere codificate in $C\#$}{-}
+\req{R48-V-O}{La versione utilizzata di $C\#$ deve essere $7.3$}{-}
+\req{R49-V-O}{La versione utilizzata di \textit{.NET Framework} deve essere $4.8$}{-}
+\req{R50-V-O}{L'algoritmo finale deve fonire una soluzione ammissibile}{-}
+\end{longtable}
+\end{center}%
