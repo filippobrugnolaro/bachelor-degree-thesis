@@ -37,26 +37,49 @@ Attualmente fanno parte della stessa gestione:
     \item \textit{Ergon Servizi S.R.L.}: che si occupa dei servizi amministrativi, logistici e di \textit{marketing} delle altre due parti.
 \end{itemize}
 Il logo dell'azienda è illustrato in \hyperref[fig:logo]{Figura 1.1}.
+\vfill
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\columnwidth]{Ergon_Logo.pdf}
     \caption{Logo \myCompany}
     \label{fig:logo}
 \end{figure}
-\newline
+\vfill
 \noindent Il prodotto proprietario dell'azienda è \textit{ERGDIS}, sistema \gls{erpg}
-il cui insieme dei moduli copre ogni aspetto della conduzione aziendale.\newline
-
-\noindent In particolare vengono gestiti vari compiti che si dislocano dall'area amministrativa al controllo direzionale,
-dall'area commerciale alla pianificazione e al controllo della produzione, dalla gestione acquisti alla logistica di magazzino, 
-all'archiviazione ottica alla gestione della qualità.\\
+il cui insieme dei moduli copre ogni aspetto della conduzione aziendale.\\
 Alcuni di essi, inoltre, si possono interfacciare con dispositivi automatici presenti in azienda, come, ad esempio,
-linee di confezionamento o \textit{robot}.\\
+linee di confezionamento o \textit{robot}.
+\newpage
+\noindent In particolare  vengono gestiti compiti che si dislocano in vari ambiti e
+i moduli vengono dunque raggruppati nelle seguenti categorie:
+\begin{multicols}{2}
+\begin{itemize}
+    \item Amministrazione e Finanza
+    \item Controllo di Gestione
+    \item Area Acquisti
+    \item Logistica
+    \item Vendite
+    \item Produzione
+\end{itemize}
+\begin{itemize}
+    \item Web
+    \item Business Intelligence
+    \item Qualità
+    \item Gestione Archivi e Documentazione
+    \item Pianificazione Consegne
+    \item Area Mobile
+\end{itemize}
+\end{multicols}
 
-Paragrafo riguardo alle funzionalità di ERGDIS\\
+\noindent In generale l'azienda può contare su una vasta gamma di clienti,
+in quanto i prodotti vengono sviluppati in base alle esigenze di ognuno di essi.
+Infatti il prodotto viene prima creato a partire da uno \textit{standard}
+e vengono poi aggiunte le varie funzionalità successivamente.\\
+Il fatto di poter creare dei prodotti \textit{custom}, rende l'azienda altamente competitiva
+e proprio per questo motivo dunque il contatto
+continuo con gli \textit{stakeholders} è molto importante sia per accontentare le loro richieste che per
+far evolvere \textit{ERGDIS} in una maniera tale da essere sempre in linea con le esigenze di mercato.
 
-Paragrafo riguardo agli obiettivi generali dell'azienda
- 
 
 %**************************************************************
 \section{L'idea}
@@ -64,11 +87,13 @@ Paragrafo riguardo agli obiettivi generali dell'azienda
 ad assistere l'azienda nella fase di approvvigionamento dei prodotti dai propri fornitori, supportandola nel scegliere
 da quale fornitore e quando acquistare i prodotti.\\
 
-\noindent Questa nuova funzionalità andrebbe ad ottimizzare un modulo già esistente che però, per ogni prodotto da ordinare, prende in
-considerazione l'ultima data d'ordine disponibile prima dell'inizio
+\noindent Questa nuova funzionalità andrebbe ad ottimizzare un modulo già esistente facente parte della
+gestione dell'\textit{Area Acquisti}.\\
+In pratica, per ogni prodotto da ordinare, viene presa in considerazione l'ultima data d'ordine disponibile prima dell'inizio
 dell'effettiva copertura del fabbisogno del prodotto stesso. Questo dunque non garantirebbe con certezza una scelta ottimale
 in relazione alle possibilità d'ordine fornite dagli appositi listini e calendario dei fornitori.\\
-Data la natura combinatoria del problema, il modulo dovrà fornire in tempi ragionevoli una "buona soluzione"
+
+\noindent Data la natura combinatoria del problema, il modulo dovrà fornire in tempi ragionevoli una "buona soluzione"
 del problema, ovvero tendente il più possibile all'ottimo, e dovrà integrarsi con l'intero sistema \textit{ERGDIS}.\\
 
 \noindent È previsto inoltre che i dati su cui si è fatta l'ottimizzazione e il confronto dei risultati vengano visualizzati tramite un'apposita
@@ -81,6 +106,72 @@ interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo de
 %**************************************************************
 \subsection{Introduzione}
 
+\noindent Lo \textit{stage} richiede che venga sviluppato un algoritmo di ottimizzazione che riesca a diminuire l'eventuale spesa che l'azienda andrebbe
+a sostenere.\\
+L'algoritmo dovrà ottimizzare i risultati calcolati da un modulo preesistente, facente parte della gestione dell' \textit{Area Acquisti}, il quale
+consiglia l'ordinamento della merce basandosi sull'ultima data d'ordine disponibile.\\
+\newpage
+\noindent La scelta dell'attuale modulo infatti porterebbe queste conseguenze:
+\begin{itemize}
+    \item \textbf{Inconsiderazione dell'andamento del mercato}: i prezzi sono variabili e dipendono dal periodo nel quale si comprano i prodotti.
+    \item \textbf{Inconsiderazione dei bonus}: i fornitori possono garantire dei bonus in base al raggiungimento di determinati obiettivi di rapporti commerciali.
+\end{itemize}
+
+\noindent Facciamo un esempio per chiarire in maniera esplicita perchè si devono andare a considerare parametri come questi. Il problema
+è molto semplificato e verrà discusso nei capitoli successivi.\\
+\begin{table}[!h]
+    \begin{center}
+        \begin{tabular}{c c c c}
+            Articolo & Quantità & Data inizio copertura & Data fine copertura\\
+            FEG10 & 2 & 01/07/2022 & 07/07/2022\\
+            FRE02 & 3 & 06/07/2022 & 07/07/2022\\
+        \end{tabular}
+        \vspace{0.3cm}
+        \caption{Esempio - Fabbisogni}
+    \end{center}
+\end{table}
+\begin{table}[!h]
+        \begin{center}
+            \begin{tabular}{c c c c c}
+                Articolo & Fornitore & Data inizio validità & Data fine validità & Prezzo(€)\\
+                FEG10 & 47040 & 15/06/2022 & 21/06/2022 & 9.50\\
+                FRE02 & 47040 & 15/06/2022 & 21/06/2022 & 10.00\\
+                FEG10 & 46613 & 22/06/2022 & 31/12/9999 & 10.00\\
+                FRE02 & 46613 & 22/06/2022 & 31/12/9999 & 9.50
+            \end{tabular}
+            \vspace{0.3cm}
+            \caption{Esempio - Listino Prezzi}
+        \end{center}
+\end{table}
+\begin{table}[!h]
+    \begin{center}
+        \begin{tabular}{c c c}
+            Articolo & Fornitore & Data spedizione\\
+            FEG10 & 47040 & 17/06/2022\\
+            FRE02 & 47040 & 19/06/2022\\
+            FEG10 & 46613 & 31/06/2022\\
+            FRE02 & 46613 & 03/07/2022\\
+        \end{tabular}
+        \vspace{0.3cm}
+        \caption{Esempio - Calendario spedizioni}
+    \end{center}
+\end{table}
+
+\noindent Il modulo attuale avrebbe sicuramente ordinato entrambi gli articoli dal fornitore 46613,
+per un totale di 48.50€. Tuttavia è evidente che non è la soluzione ottima.
+Infatti sarrebbe stato opportuno ordinare l'articolo FEG10 dal fornitore 47040 e il
+FRE02 dal fornitore 46613, ottenendo dunque un totale di 47.50€.\\
+Sebbene possa sembrare un risparmio infimo e trascurabile, se applicato a enormi quantità
+diventare un notevole risparmio di risorse.\\
+
+\noindent Dopo queste considerazioni, è evidente come il modulo preesistente non garantisca necessariamente una soluzione ottima in termini economici ed è il motivo per il quale
+si è deciso di realizzare un nuovo modulo che andasse a considerare determinati parametri.\\
+
+\noindent Oltre a ciò, i risultati devono poter essere visualizzati tramite una WinForm in cui si dovrà far scegliere all'utente
+anche le date entro cui si vuole fare l'analisi.\\
+
+\noindent Per l'azienda questo stage rappresenta un'opportunità per fornire un servizio aggiuntivo ai propri clienti, ma serve anche per avere una base
+dalla quale poter eventualmente estendere il modulo con nuovi algoritmi più efficienti.
 %**************************************************************
 \subsection{Obiettivi}
 
