@@ -7,7 +7,7 @@
 \label{cap:introduzione}
 %**************************************************************
 
-\intro{Nel seguente capitolo si introduce brevemente l'azienda ospitante e il progetto affrontato.}\\
+\noindent \intro{Nel seguente capitolo si introduce brevemente l'azienda ospitante e il progetto affrontato.}\\
 
 %Introduzione al contesto applicativo.\\
 
@@ -23,7 +23,7 @@
 %**************************************************************
 \section{L'azienda}
 
-\noindent{\myCompany}\footnote{Sito ufficiale: \url{https://www.ergon.it/}}(da qui in poi "\textit{Ergon}") è un'azienda italiana, fondata nel 1988, 
+\noindent{\myCompany}\footnote[1]{Sito ufficiale: \url{https://www.ergon.it/}}(da qui in poi "\textit{Ergon}") è un'azienda italiana, fondata nel 1988, 
 situata a Castelfranco Veneto.\\
 Essa si occupa principalmente soluzioni gestionali per piccole e medie imprese e dello sviluppo di \textit{software \gls{erpg}} per i settori dell'alimentare e dei trasporti,
 ma completa l'offerta con la vendita di prodotti hardware, servizi \textit{web} e \textit{hosting}, nonché con progetti di \textit{\gls{serverconsolidationg}} e virtualizzazione di
@@ -119,6 +119,10 @@ consiglia l'ordinamento della merce basandosi sull'ultima data d'ordine disponib
 
 \noindent Facciamo un esempio per chiarire in maniera esplicita perchè si devono andare a considerare parametri come questi. Il problema
 è molto semplificato e verrà discusso nei capitoli successivi.\\
+
+%comando arraystretch
+\renewcommand{\arraystretch}{1.2}
+
 \begin{table}[!h]
     \begin{center}
         \begin{tabular}{c c c c}
@@ -145,12 +149,12 @@ consiglia l'ordinamento della merce basandosi sull'ultima data d'ordine disponib
 \end{table}
 \begin{table}[!h]
     \begin{center}
-        \begin{tabular}{c c c}
-            Articolo & Fornitore & Data spedizione\\
-            FEG10 & 47040 & 17/06/2022\\
-            FRE02 & 47040 & 19/06/2022\\
-            FEG10 & 46613 & 31/06/2022\\
-            FRE02 & 46613 & 03/07/2022\\
+        \begin{tabular}{c c c c}
+            Articolo & Fornitore & Data spedizione & Data di arrivo\\
+            FEG10 & 47040 & 17/06/2022 & 17/06/2022\\
+            FRE02 & 47040 & 19/06/2022 & 19/06/2022\\
+            FEG10 & 46613 & 31/06/2022 & 31/06/2022\\
+            FRE02 & 46613 & 03/07/2022 & 03/07/2022\\
         \end{tabular}
         \vspace{0.3cm}
         \caption{Esempio - Calendario spedizioni}
@@ -161,10 +165,10 @@ consiglia l'ordinamento della merce basandosi sull'ultima data d'ordine disponib
 per un totale di 48.50€. Tuttavia è evidente che non è la soluzione ottima.
 Infatti sarrebbe stato opportuno ordinare l'articolo FEG10 dal fornitore 47040 e il
 FRE02 dal fornitore 46613, ottenendo dunque un totale di 47.50€.\\
-Sebbene possa sembrare un risparmio infimo e trascurabile, se applicato a enormi quantità
+Sebbene possa sembrare un risparmio infimo e trascurabile, se applicato a enormi quantità, può
 diventare un notevole risparmio di risorse.\\
 
-\noindent Dopo queste considerazioni, è evidente come il modulo preesistente non garantisca necessariamente una soluzione ottima in termini economici ed è il motivo per il quale
+\noindent Dopo queste considerazioni, è chiaro come il modulo preesistente non garantisca necessariamente una soluzione ottima in termini economici ed è il motivo per il quale
 si è deciso di realizzare un nuovo modulo che andasse a considerare determinati parametri.\\
 
 \noindent Oltre a ciò, i risultati devono poter essere visualizzati tramite una WinForm in cui si dovrà far scegliere all'utente
@@ -212,7 +216,7 @@ Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In par
     \end{itemize}
     Tuttavia entrambe sono azioni molto delicate che possono compromettere il funzionamento stesso dell'algoritmo anche
     se implementato correttamente.\\[0.2cm]
-    \textbf{Soluzione:} cercare una costruzione e calibrazione per passi ed empiricamente dimostrabili e presentarle in una discussione con il tutor,
+    \textbf{Soluzione:} cercare una costruzione e calibrazione per passi e presentarle in una discussione con il tutor,
     in modo tale da creare una \textit{baseline} su cui basarsi per continuare con i passi successivi.
 
 

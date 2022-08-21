@@ -39,3 +39,33 @@ Descrizione namespace 1.
 
 %**************************************************************
 \section{Codifica}
+
+% Pseudocodice algoritmo greedy
+
+% \begin{algorithm}
+%     \captionsetup{labelformat=empty}
+%     \caption{Pseudocodice - Algoritmo Greedy}
+%     \vspace{0.1cm}
+%     \hspace*{\algorithmicindent} \textbf{Input:} {$lista\_articoli$}, {$lista\_vincoli$}\\
+%     \hspace*{\algorithmicindent} \textbf{Output:} {$lista\_articoli\_opt$}
+%     \begin{algorithmic}[1]
+%         \Procedure{My\_Greedy\_Algorithm}{$lista\_articoli$, $lista\_vincoli$}
+%         \State {$l \gets lista\_vuota$}
+%         \State {$l_{tmp} \gets lista\_vuota$}
+%         \State $l_{cod\_art} \gets genera\_lista\_decisione(lista\_articoli)$
+%         \State $n_{cod\_art} \gets$ Lunghezza di $l_{cod\_art}$
+%         \While {$count < n_{cod\_art}$}
+%             \State {$cod\_art \gets decisione(l_{cod\_art})$}
+%             \ForAll {$art \in lista\_articoli$}
+%                 \State {$b \gets controllo\_vincoli(art$, $cod\_art$, $lista\_vincoli)$}
+%                 \If {$b = true$}
+%                     \State Aggiungi $art$ a $l_{tmp}$
+%                 \EndIf
+%             \EndFor
+%             \State {$count \gets count+1$}
+%         \EndWhile
+%         \State $l \gets filtra\_articoli\_per\_min(l_{tmp})$
+%         \State \Return $l$
+%         \EndProcedure
+%     \end{algorithmic}
+% \end{algorithm}
