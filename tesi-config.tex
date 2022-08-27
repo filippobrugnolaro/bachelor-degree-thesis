@@ -276,3 +276,24 @@
 \renewcommand{\listalgorithmname}{Lista degli algoritmi}
 
 \renewcommand{\algorithmicforall}{\textbf{for each}}
+
+\usepackage{fancyhdr}                   % per modificare dimensioni,margini, intestazioni e righe a piè di pagina
+\fancypagestyle{plain}{
+    
+    \fancyhf{}                          % cancella tutti i campi di intestazione e piè di pagina
+
+    \fancyhead[LO]{\leftmark}           % nome del capitolo per le pagine sinistre
+    \fancyhead[RE]{\leftmark}           % nome del capitolo per le pagine destre
+
+    \fancyfoot[C]{\thepage{}}           % numero della pagina nel footer
+
+    \renewcommand{\headrulewidth}{0pt}  % linea orizzontale in posizione top della pagina (se è 0, non c'è la linea)
+    \renewcommand{\footrulewidth}{0pt}  % linea orizzontale in posizione bottom della pagina (se è 0, non c'è la linea)
+}
+\pagestyle{plain}
+
+\fancyhf{}
+\fancyhead{}
+\fancyhead[RO, LE]{\leftmark}
+\fancyfoot[C]{\thepage}
+\fancypagestyle{plain}{\fancyhead{}}
