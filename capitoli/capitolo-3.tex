@@ -24,13 +24,18 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \noindent Nella figura di seguito verrà illustrato il diagramma del sistema principale con tutti i casi d'uso.
 \begin{figure}[!h] 
-    \centering 
-    \includegraphics[width=0.9\columnwidth]{usecase/scenario-principale} 
-    \caption{Use Case - UC0: Scenario principale}
+   \centering 
+   \includegraphics[width=0.95\columnwidth]{usecase/winform.pdf} 
+   \caption{Use case - sistema principale}
 \end{figure}
 
 \noindent \textbf{\large UC 1 - Inserimento dati}
 \label{uc:inserimento-dati}
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[width=0.95\columnwidth]{usecase/UC 1.pdf} 
+    \caption{UC1 - Inserimento dati}
+\end{figure}
 \begin{itemize}
 
 	\item \textbf{Attori primari: }
@@ -52,8 +57,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
-
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 1.1 - Inserimento data di inizio previsione}
 \label{uc:inserimento-data-inizio-prev}
@@ -82,7 +86,10 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
+
+
+\newpage
 
 \noindent \textbf{\large UC 1.2 - Inserimento data di fine previsione}
 \label{uc:inserimento-data-fine-prev}
@@ -111,7 +118,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 1.3 - Errore: data di inizio previsione antecedente alla data odierna}
 \label{uc:err-inserimento-data-inizio-prev}
@@ -138,7 +145,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 1.4 - Errore: data di fine previsione antecedente alla data di \\\hspace*{56pt}inizio previsione}
 \label{uc:err-inserimento-data-fine-prev}
@@ -165,7 +172,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 2 - Inizio analisi di ottimizzazione}
 \label{uc:inizio-analisi-ottimizzazione}
@@ -191,10 +198,15 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 3 - Visualizzazione risultati}
 \label{uc:visualizzazione-risultati}
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[width=0.95\columnwidth]{usecase/UC 3.pdf} 
+    \caption{UC3 - Visualizzazione risultati}
+\end{figure}
 \begin{itemize}
 
 	\item \textbf{Attori primari: }
@@ -218,7 +230,9 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
+
+\newpage
 
 \noindent \textbf{\large UC 3.1 - Visualizzazione totale non ottimizzato}
 \label{uc:visualizzazione-totale-non-ottimizzato}
@@ -243,7 +257,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 3.2 - Visualizzazione totale ottimizzato}
 \label{uc:visualizzazione-totale-ottimizzato}
@@ -268,7 +282,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 3.3 - Visualizzazione scostamento percentuale dei totali}
 \label{uc:visualizzazione-scostamento-percentuale-totali}
@@ -293,9 +307,16 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
+
+\newpage
 
 \noindent \textbf{\large UC 4 - Visualizzazione lista degli ordini}
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[width=0.65\columnwidth]{usecase/UC 4.pdf} 
+    \caption{UC4 - Visualizzazione lista degli ordini}
+\end{figure}
 \label{uc:visualizzazione-lista-ordini}
 \begin{itemize}
 
@@ -318,9 +339,16 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
+
+\vspace*{\fill}
 
 \noindent \textbf{\large UC 4.1 - Visualizzazione singolo ordine}
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[width=0.95\columnwidth]{usecase/UC 4.1.pdf} 
+    \caption{UC4 - Visualizzazione lista degli ordini}
+\end{figure}
 \label{uc:visualizzazione-singolo-ordine}
 \begin{itemize}
 
@@ -331,7 +359,11 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Precondizione: }\\[0.3cm]
 		L'utente visualizza correttamente la lista degli ordini.
+		
+	\vspace*{\fill}
 
+		\newpage
+	
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
 			\item L'utente visualizza il singolo ordine con tutte le informazioni tra cui:
@@ -352,7 +384,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 4.1.1 - Visualizzazione codice articolo dell'ordine}
 \label{uc:visualizzazione-codice-articolo}
@@ -377,7 +409,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 4.1.2 - Visualizzazione codice fornitore dell'ordine}
 \label{uc:visualizzazione-codice-fornitore}
@@ -402,7 +434,9 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
+
+\newpage
 
 \noindent \textbf{\large UC 4.1.3 - Visualizzazione data d'ordine dell'ordine}
 \label{uc:visualizzazione-data-ordine}
@@ -427,7 +461,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 4.1.4 - Visualizzazione data iniziale di copertura dell'ordine}
 \label{uc:visualizzazione-data-iniziale-copertura}
@@ -452,7 +486,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 4.1.5 - Visualizzazione data finale di copertura dell'ordine}
 \label{uc:visualizzazione-data-finale-copertura}
@@ -477,7 +511,9 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
+
+\newpage
 
 \noindent \textbf{\large UC 4.1.6 - Visualizzazione quantità ordinata dell'ordine}
 \label{uc:visualizzazione-quantita-ordinata}
@@ -502,7 +538,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 4.1.7 - Visualizzazione prezzo parziale dell'ordine}
 \label{uc:visualizzazione-prezzo-parziale-ord}
@@ -527,10 +563,15 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 5 - Filtraggio dati}
 \label{uc:filtraggio-dati}
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[width=0.95\columnwidth]{usecase/UC 5.pdf} 
+    \caption{UC4 - Visualizzazione lista degli ordini}
+\end{figure}
 \begin{itemize}
 
 	\item \textbf{Attori primari: }
@@ -563,7 +604,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 5.1 - Filtraggio per ricerca generica}
 \label{uc:filtraggio-ricerca-generica}
@@ -588,7 +629,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 5.2 - Filtraggio per codice articolo}
 \label{uc:filtraggio-codice-articolo}
@@ -613,7 +654,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 5.3 - Filtraggio per codice fornitore}
 \label{uc:filtraggio-codice-fornitore}
@@ -638,7 +679,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 5.4 - Filtraggio per data d'ordine}
 \label{uc:filtraggio-data-ordine}
@@ -663,7 +704,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 5.5 - Filtraggio per data iniziale di copertura}
 \label{uc:filtraggio-data-iniziale-copertura}
@@ -688,7 +729,9 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
+
+\newpage
 
 \noindent \textbf{\large UC 5.6 - Filtraggio per data finale di copertura}
 \label{uc:filtraggio-data-finale-copertura}
@@ -713,7 +756,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 5.7 - Filtraggio per quantità ordinata}
 \label{uc:filtraggio-quantita-ordinata}
@@ -738,7 +781,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 5.8 - Filtraggio per prezzo parziale}
 \label{uc:filtraggio-prezzo-parziale-ord}
@@ -763,10 +806,17 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
+
+\newpage
 
 \noindent \textbf{\large UC 6 - Ordinamento della lista degli ordini}
 \label{uc:ordinamento-elementi-lista}
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[width=0.95\columnwidth]{usecase/UC 6.pdf} 
+    \caption{UC4 - Visualizzazione lista degli ordini}
+\end{figure}
 \begin{itemize}
 
 	\item \textbf{Attori primari: }
@@ -798,7 +848,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
         \end{itemize}
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 6.1 - Ordinamento per codice articolo }
 \label{uc:ordinamento-codice-articolo}
@@ -822,7 +872,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 6.2 - Ordinamento per codice fornitore }
 \label{uc:ordinamento-codice-fornitore}
@@ -847,7 +897,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 6.3 - Ordinamento per data d'ordine }
 \label{uc:ordinamento-data-ordine}
@@ -872,7 +922,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 6.4 - Ordinamento per data iniziale di copertura }
 \label{uc:ordinamento-data-iniziale-copertura}
@@ -897,7 +947,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 6.5 - Ordinamento per data finale di copertura}
 \label{uc:ordinamento-data-finale-copertura}
@@ -922,7 +972,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 6.6 - Ordinamento per quantità ordinata}
 \label{uc:ordinamento-quantita-ordinata}
@@ -947,7 +997,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \noindent \textbf{\large UC 6.7 - Ordinamento per prezzo parziale}
 \label{uc:ordinamento-prezzo-parziale-ord}
@@ -972,7 +1022,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \end{itemize}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
 \section{Tracciamento dei requisiti}
 
