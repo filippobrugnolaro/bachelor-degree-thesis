@@ -15,7 +15,7 @@ soluzioni analizzate}\\
 \section{Introduzione allo studio}
 \noindent Lo studio di fattibilità rappresenta una delle parti più corpose
 del progetto in quanto viene richiesto un ampio periodo di autoapprendimento
-riguardo i principali algoritmi di ricerca operativa e di ottimizzazione combinatoria,
+dei i principali algoritmi di ricerca operativa e di ottimizzazione combinatoria,
 seguito da un'ulteriore approfondimento attraverso la consultazione di vari \textit{paper}\footnote[2]{Verranno citati nella bibliografia solo quelli ritenuti più significativi}
 disponibili online.\\
 
@@ -46,7 +46,7 @@ Vengono elencati in seguito i parametri:
 %**************************************************************
 \section{Soluzioni proposte}
 \noindent Per ogni soluzione proposta viene effettuata una breve introduzione, seguita da vantaggi e svantaggi.
-Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di test si basano su un problema di \textit{string replacement},
+Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di test si basano su un problema di \textit{string replacement}
 con input di lunghezza uguale.\\
 Si è volutamente scelto questo tipo di problema molto semplice poichè, se i micro-moduli fossero stati sviluppati intercalandoli all'interno del contesto,
 si avrebbe avuto un enorme spreco di risorse temporali.
@@ -172,18 +172,17 @@ esplorare il vicinato corrente ed è dunque necessario crearne uno nuovo a parti
 \noindent L'algoritmo genetico è un metodo, classifcato come \textit{population based}, basato sul concetto che la natura
 abbia la tendenza ad organizzarsi in strutture ottimizzate, in gran parte ispirato
 alle teorie sull'evoluzione di Charles Darwin\footnote[4]{Scienzato conosciuto
-per le sue teorie sull'evoluazione secondo le quali gli individui di una
+per le sue teorie sull'evoluzione secondo le quali gli individui di una
 popolazione sono in competizione fra loro e, in questa
 lotta per la sopravvivenza, l'ambiente opera una selezione naturale tramite la quale
-vengono eliminati gli individui più deboli, cioè quelli
-che meno adatti a sopravvivere a determinate
+vengono eliminati gli individui più deboli, cioè quelli meno adatti a sopravvivere a determinate
 condizioni. Solo i più adatti sopravvivono e trasmettono i loro
 caratteri ai figli.}.\\
 \noindent In particolare, ad ogni iterazione, non viene mantenuta una sola soluzione, ma un'insieme di soluzioni, definita anche come popolazione.
 Gli individui (soluzioni) vengono codificati tramite un cromosoma contenente una serie di geni (variabili decisionali del problema) e, per
 ogni individuo appartente alla popolazione, viene associata quella che viene definita come la sua idoneità, tramite l'utilizzo di una
 funzione di fitness, che guida il processo di selezione, basato su metodi probabilistici (es: \textit{metodo Montecarlo}, \textit{linear ranking}, \textit{torneo-n}).\\
-Prima di ogni iterazione, vengono dunque presi gli individui e verranno accoppiati tramite degli operatori di ricombinazione
+Prima di ogni iterazione vengono dunque presi gli individui e verranno accoppiati tramite degli operatori di ricombinazione
 (es: \textit{crossover uniforme}, \textit{cut-point crossover}, \textit{mutazione}...)
 per generare dei figli che assumeranno le migliori caratteristiche dei genitori. Alla fine dell'algoritmo verrà scelta la soluzione con la maggior fitness possibile.\\
 

@@ -24,7 +24,7 @@
 \section{L'azienda}
 
 \noindent{\myCompany}\footnote[1]{Sito ufficiale: \url{https://www.ergon.it/}}(da qui in poi "\textit{Ergon}") è un'azienda italiana, fondata nel 1988, 
-situata a Castelfranco Veneto.\\
+con sede a Castelfranco Veneto.\\
 Essa si occupa principalmente di soluzioni gestionali per piccole e medie imprese e dello sviluppo di \textit{software \gls{erpg}} per i settori dell'alimentare e dei trasporti,
 ma completa l'offerta con la vendita di prodotti hardware, servizi \textit{web} e \textit{hosting}, nonché con progetti di \textit{\gls{serverconsolidationg}} e virtualizzazione di
 sistemi.
@@ -45,8 +45,8 @@ Il logo dell'azienda è illustrato in \hyperref[fig:logo]{Figura 1.1}.
     \label{fig:logo}
 \end{figure}
 \vfill
-\noindent Il prodotto proprietario dell'azienda è \textit{ERGDIS}, sistema \gls{erpg}
-il cui insieme dei moduli copre ogni aspetto della conduzione aziendale.\\
+\noindent Il prodotto di proprietà dell'azienda è \textit{ERGDIS}, sistema \gls{erpg}
+il cui insieme dei moduli copre ogni aspetto della conduzione aziendale.
 Alcuni di essi, inoltre, si possono interfacciare con dispositivi automatici presenti in azienda, come, ad esempio,
 linee di confezionamento o \textit{robot}.
 \newpage
@@ -73,10 +73,10 @@ i moduli vengono dunque raggruppati nelle seguenti categorie:
 
 \noindent In generale l'azienda può contare su una vasta gamma di clienti,
 in quanto i prodotti vengono sviluppati in base alle esigenze di ognuno di essi.
-Infatti il prodotto viene prima creato a partire da uno \textit{standard}
-e vengono poi aggiunte le varie funzionalità successivamente.\\
+Il prodotto viene prima creato a partire da uno \textit{standard}
+a cui vengono successivamente aggiunte le varie funzionalità.\\
 Il fatto di poter creare dei prodotti \textit{custom}, rende l'azienda altamente competitiva
-e proprio per questo motivo dunque il contatto
+e proprio per questo motivo il contatto
 continuo con gli \textit{stakeholders} è molto importante sia per accontentare le loro richieste che per
 far evolvere \textit{ERGDIS} in una maniera tale da essere sempre in linea con le esigenze di mercato.
 
@@ -85,8 +85,7 @@ far evolvere \textit{ERGDIS} in una maniera tale da essere sempre in linea con l
 \section{L'idea}
 \noindent Lo \textit{stage} proposto consiste nella progettazione e nello sviluppo di un modulo \textit{software} volto
 ad assistere l'azienda nella fase di approvvigionamento dei prodotti dai propri fornitori, supportandola nel scegliere
-da quale fornitore e quando acquistare i prodotti.\\
-
+da quale fornitore e quando acquistare i prodotti.
 \noindent Questa nuova funzionalità andrebbe ad ottimizzare un modulo già esistente facente parte della
 gestione dell'\textit{Area Acquisti}.\\
 In pratica, per ogni prodotto da ordinare, viene presa in considerazione l'ultima data d'ordine disponibile prima dell'inizio
@@ -96,7 +95,7 @@ in relazione alle possibilità d'ordine fornite dagli appositi listini e calenda
 \noindent Data la natura combinatoria del problema, il modulo dovrà fornire in tempi ragionevoli una "buona soluzione"
 del problema, ovvero tendente il più possibile all'ottimo, e dovrà integrarsi con l'intero sistema \textit{ERGDIS}.\\
 
-\noindent È previsto inoltre che i dati su cui si è fatta l'ottimizzazione e il confronto dei risultati vengano visualizzati tramite un'apposita
+\noindent È previsto inoltre che i dati su cui si è eseguita l'ottimizzazione e il confronto dei risultati vengano visualizzati tramite un'apposita
 interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo dell'azienda (\textit{\gls{.netg}} e \textit{\gls{devexpressg}}).
 
 
@@ -106,7 +105,7 @@ interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo de
 %**************************************************************
 \subsection{Introduzione}
 
-\noindent Lo \textit{stage} richiede che venga sviluppato un algoritmo di ottimizzazione che riesca a diminuire l'eventuale spesa che l'azienda andrebbe
+\noindent Lo \textit{stage} consiste nello sviluppo di un algoritmo di ottimizzazione che riesca a diminuire l'eventuale spesa che l'azienda andrebbe
 a sostenere.\\
 L'algoritmo dovrà ottimizzare i risultati calcolati da un modulo preesistente, facente parte della gestione dell' \textit{Area Acquisti}, il quale
 consiglia l'ordinamento della merce basandosi sull'ultima data d'ordine disponibile.\\
@@ -165,11 +164,11 @@ consiglia l'ordinamento della merce basandosi sull'ultima data d'ordine disponib
 per un totale di 48.50€. Tuttavia è evidente che non è la soluzione ottima.
 Infatti sarrebbe stato opportuno ordinare l'articolo FEG10 dal fornitore 47040 e il
 FRE02 dal fornitore 46613, ottenendo dunque un totale di 47.50€.\\
-Sebbene possa sembrare un risparmio infimo e trascurabile, se applicato a enormi quantità, può
+Sebbene possa sembrare un risparmio minimo e trascurabile, se applicato a enormi quantità, può
 diventare un notevole risparmio di risorse.\\
 
-\noindent Dopo queste considerazioni, è chiaro come il modulo preesistente non garantisca necessariamente una soluzione ottima in termini economici ed è il motivo per il quale
-si è deciso di realizzare un nuovo modulo che andasse a considerare determinati parametri.\\
+\noindent Dopo queste considerazioni è chiaro come il modulo preesistente non garantisca necessariamente una soluzione ottima in termini economici ed è il motivo per il quale
+si è deciso di realizzare un nuovo modulo che vada a considerare determinati parametri.\\
 
 \noindent Oltre a ciò, i risultati devono poter essere visualizzati tramite una WinForm in cui si dovrà far scegliere all'utente
 anche le date entro cui si vuole fare l'analisi.\\
@@ -191,21 +190,21 @@ dalla quale poter eventualmente estendere il modulo con nuovi algoritmi più eff
 \end{itemize}
 %**************************************************************
 \subsection{Analisi preventiva dei rischi}
-Durante la fase iniziale dello \textit{stage}, sono stati rilevati dei possibili rischi che avrebbero potuto presentarsi
+Durante la fase iniziale dello \textit{stage} sono stati rilevati dei possibili rischi che avrebbero potuto presentarsi
 durante il percorso del progetto.\\
 Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In particolare:
 \begin{enumerate}
     \item \textbf{Comprensione e confronto degli algoritmi}\\[0.2cm]
     \textbf{Problema:} il progetto richiede un'ampia fase di studio che riguarda principalmente la teoria
     di tecniche per la risoluzione di problemi di ricerca operativa e ottimizzazione combinatoria.
-    Questo poteva portare a presentarsi la possibilità di non comprendere fino in fondo l'algoritmo, e poteva essere difficile cogliere e confrontare
+    Questo poteva portare a presentarsi la possibilità di non comprendere fino in fondo l'algoritmo e poteva essere difficile cogliere e confrontare
     i pregi e difetti di ciascuno di essi.\\[0.2cm]
     \textbf{Soluzione:} è stato organizzato un incontro iniziale con il tutor per fornire una base da cui poi iniziare una ricerca più approfondita.
-    Sono stati forniti anche delle dispense utili per rafforzare la base di partenza.
+    Sono state fornite anche delle dispense utili per rafforzare la base di partenza.
     \item \textbf{Tecnologie e ambiente di sviluppo}\\[0.2cm]
     \textbf{Problema:} venivano richieste alcune tecnologie, come per esempio \textit{Entity Framework} o \textit{\gls{devexpressg}} a me assolutamente ignote.
     Sebbene avessi delle basi abbastanza solide di \textit{C\#} derivanti dalla conoscenza di altri linguaggi quali \textit{C++} e \textit{Java}, venivano richieste tuttavia
-    alcune tecnologie integrate nel linguaggio (\textit{LINQ}) anch'esse ignote. L'ambiente di sviluppo e l'\textit{IDE} non erano mai stati utilizzati.\\[0.2cm]
+    alcune tecnologie integrate nel linguaggio (\textit{LINQ}), anch'esse ignote. L'ambiente di sviluppo e l'\textit{IDE} non erano mai stati utilizzati.\\[0.2cm]
     \textbf{Soluzione:} sono stati forniti dei riferimenti consigliati per l'autoapprendimento. Tuttavia qualsiasi dubbio ragionevolmente particolare
     poteva essere richiesto al tutor. È stato effettuato insieme al tutor il \textit{setup} dell'ambiente di sviluppo e la conseguente creazione dei \textit{database}.
     \item \textbf{Calibrazione dei parametri e funzione obiettivo}\\[0.2cm]
@@ -214,7 +213,7 @@ Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In par
         \item definire una funzione obiettivo che vada a descrivere in maniera "buona" l'andamento dell'algoritmo stesso;
         \item calibrare i parametri in base allo spazio delle soluzioni del problema preso in esame.
     \end{itemize}
-    Tuttavia entrambe sono azioni molto delicate che possono compromettere il funzionamento stesso dell'algoritmo anche
+    Entrambe sono azioni molto delicate che possono compromettere il funzionamento stesso dell'algoritmo anche
     se implementato correttamente.\\[0.2cm]
     \textbf{Soluzione:} cercare una costruzione e calibrazione per passi e presentarle in una discussione con il tutor,
     in modo tale da creare una \textit{baseline} su cui basarsi per continuare con i passi successivi.
@@ -241,17 +240,17 @@ Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In par
     e di approfondimenti a livello implementativo.
     
     \item[{\hyperref[cap:verifica-validazione]{Il quinto capitolo}}]
-    espone tutte verifiche effettuate durante il progetto e la validazione
+    espone tutte le verifiche effettuate durante il progetto e la validazione
     finale a conferma dei requisiti inizialmente stilati nella fase di
     analisi dei requisiti.
     
     \item[{\hyperref[cap:conclusioni]{Il sesto capitolo}}]
-    presenta le conclusione tratte dallo \textit{stage}, comprensivo di conoscenze
+    presenta le conclusioni tratte dallo \textit{stage}, comprensivo di conoscenze
     acquisite e considerazioni di carattere personale.
 \end{description}
 
 \noindent Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
 \begin{itemize}
-	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
+	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario alla fine del presente documento;
 	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
 \end{itemize}
