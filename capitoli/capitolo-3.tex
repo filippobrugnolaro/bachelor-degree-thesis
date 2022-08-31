@@ -2,12 +2,13 @@
 % !TEX TS-program = pdflatex
 % !TEX root = ../tesi.tex
 
+\newgeometry{a4paper, left=30mm, right=30mm, top=5mm, bottom=30mm}
 %**************************************************************
 \chapter{Analisi dei requisiti}
 \label{cap:analisi-requisiti}
 %**************************************************************
 
-\noindent \intro{Breve introduzione al capitolo}\\
+\noindent \intro{In questo capitolo viene sposta l'analisi dei requisiti effettuata durante lo stage, nella quale vengono descritte le funzionalità tramite i casi d'uso.}\\
 
 \section{Casi d'uso}
 
@@ -23,11 +24,14 @@ Essendo il progetto finalizzato alla creazione di un tool per l'automazione di u
 può essere codice padre di un suo eventuale codice figlio. Possono essere figli le generalizzazioni e i sottocasi d'uso.\\
 
 \noindent Nella figura di seguito verrà illustrato il diagramma del sistema principale con tutti i casi d'uso.
+\vspace*{\fill}
 \begin{figure}[!h] 
    \centering 
-   \includegraphics[width=0.95\columnwidth]{usecase/winform.pdf} 
+   \includegraphics[width=0.91\columnwidth]{usecase/winform.pdf} 
    \caption{Use case - sistema principale}
 \end{figure}
+\vspace*{\fill}
+\newgeometry{a4paper, left=30mm, right=30mm, top=31mm, bottom=30mm}
 
 \noindent \textbf{\large UC 1 - Inserimento dati}
 \label{uc:inserimento-dati}
@@ -1058,6 +1062,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \caption{Tabella del tracciamento dei requisiti funzionali}
 \label{tab:requisiti-funzionali}
 \\ \hline
+\rowcolor{lighter-grayer}
 \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
 \hline 
 \req{R1-F-O}{L'utente deve poter inserire i dati necessari per l'ottimizzazione}{\hyperref[uc:inserimento-dati]{UC1}}
@@ -1099,6 +1104,8 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \end{longtable}
 \end{center}%
 
+\vspace*{\fill}
+
 %tab qualità
 \begin{center}
 \rowcolors{2}{lightest-grayest}{white}
@@ -1106,6 +1113,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \caption{Tabella del tracciamento dei requisiti qualitativi}
 \label{tab:requisiti-qualitativi}
 \\ \hline
+\rowcolor{lighter-grayer}
 \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
 \hline 
 \req{R37-Q-O}{Deve essere redatto un documento che descrive l'architettura del modulo}{-}
@@ -1119,6 +1127,9 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \end{longtable}
 \end{center}%
 
+\vspace*{\fill}
+\vspace*{\fill}
+
 %tab performance
 \begin{center}
 \rowcolors{2}{lightest-grayest}{white}
@@ -1126,11 +1137,16 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \caption{Tabella del tracciamento dei requisiti di performance}
 \label{tab:requisiti-di-performance}
 \\ \hline
+\rowcolor{lighter-grayer}
 \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
 \hline 
 \req{R45-P-O}{L'algoritmo di ottimizzazione deve restituire un risultato entro 10 minuti dal tempo di lancio dello stesso}{-}
 \end{longtable}
 \end{center}%
+
+\vspace*{\fill}
+
+\newpage
 
 %tab vincolo
 \begin{center}
@@ -1139,6 +1155,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \caption{Tabella del tracciamento dei requisiti di vincolo}
 \label{tab:requisiti-di-vincolo}
 \\ \hline
+\rowcolor{lighter-grayer}
 \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
 \hline  
 \req{R46-V-O}{La \textit{form} deve essere eseguita sull'ambiente di esecuzione \textit{.NET Framework}}{-}

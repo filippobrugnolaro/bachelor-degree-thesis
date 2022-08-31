@@ -280,14 +280,14 @@
 \usepackage{fancyhdr}                   % per modificare dimensioni,margini, intestazioni e righe a piè di pagina
 
 % mettere sottosezioni negli header
-\renewcommand{\subsectionmark}[1]{\markright{\MakeUppercase{\thesubsection.\ #1}}}
+%\renewcommand{\subsectionmark}[1]{\markright{\MakeUppercase{\thesubsection.\ #1}}}
 
 \fancypagestyle{plain}{
     
     \fancyhf{}                          % cancella tutti i campi di intestazione e piè di pagina
 
     \fancyhead{}
-    \fancyhead[LO, RE]{\rightmark}
+%    \fancyhead[LO, RE]{\leftmark}
     \fancyfoot[C]{\thepage}
     \fancypagestyle{plain}{\fancyhead{}}
 

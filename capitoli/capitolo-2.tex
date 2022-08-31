@@ -3,6 +3,7 @@
 % !TEX root = ../tesi.tex
 
 %**************************************************************
+\newgeometry{a4paper, left=30mm, right=30mm, top=5mm, bottom=30mm}
 \chapter{Studio di fattibilità}
 \label{cap:studio-fattibilita}
 %**************************************************************
@@ -42,6 +43,8 @@ Vengono elencati in seguito i parametri:
     \item \textbf{Complessità implementativa}: quantitavo di risorse temporali impiegate per sviluppare l'algoritmo.
     \item \textbf{Paper}: dichiarazioni o dati di esperimenti già effettuati.
 \end{itemize}
+
+\newgeometry{a4paper, left=30mm, right=30mm, top=31mm, bottom=30mm}
 
 %**************************************************************
 \section{Soluzioni proposte}
@@ -104,7 +107,7 @@ in quel momento, ovvero $y$ stesso.
 \end{itemize}
 %**************************************************************
 \subsection{Tabu Search}
-\noindent La Tabu Search\footnote[3]{Per una descrizione più accurata si legga la sezione x} è un metodo, classificato come \textit{Trajectory Method}, basato su ricerca locale
+\noindent La Tabu Search\footnote[3]{Per una descrizione più accurata si legga la sezione \hyperref[sec:tabu-search]{4.4}} è un metodo, classificato come \textit{Trajectory Method}, basato su ricerca locale
 in grado di eludere l'intrappolamento del metodo in un minimo locale sfruttando costantemente la memoria.\\
 In particolare, oltre a ricordare la migliore soluzione corrente, vengono salvate, in quella che viene definita \textit{Tabu List},
 anche le {$k$} mosse precedentemente effettuate in modo tale da non incombere nel rischio di un ciclo nel breve periodo.\\
