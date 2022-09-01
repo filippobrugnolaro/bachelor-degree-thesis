@@ -13,19 +13,78 @@
 %**************************************************************
 \section{Architettura}
 \label{sec:progettazione}
+\noindent Prima di descrivere più in particolare l'algoritmo, è necessario
+fornire un’idea dell’architettura sulla quale si basa l'intero progetto.
+Di seguito è presentato uno schema ad alto livello di come sono strutturate le varie
+componenti che formano il sistema.
+
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[width=0.95\columnwidth]{architettura/architettura.pdf} 
+    \caption{Architettura generale}
+    \label{architettura-generale}
+\end{figure}
+
+\noindent Come si può notare in figura \ref{architettura-generale},
+il flusso del sistema è circolare.
+Si parte dal database, dal quale vengono estratti i dati di interesse dalle varie
+tabelle. Successivamente viene fatto il pre-processing dei dati,
+in modo tale da poter poi eseguire l'ottimizzazione solo su
+ciò che è di interesse dell'analisi.
+Viene effettuato il controllo dei vincoli al termine
+dell'algoritmo così da generare
+una soluzione ammissibile. Se si vuole effettuare una nuova
+analisi è necessario estrarre nuovamente i dati dal
+database ed eseguire nuovamente il ciclo. Questo è necessario
+in quanto i dati all'interno del database possono variare
+(esempio: prezzi, date di spedizione...).
+
+\newpage
 
 \newgeometry{a4paper, left=30mm, right=30mm, top=31mm, bottom=30mm}
 
-%**************************************************************
-\section{Rappresentazione della soluzione}
-\label{sec:rappresentazione-della-soluzione}
+\section{Funzionamento generale}
+In questa sezione viene descritta una classica interazione dell'utente con il programma.
+Nella figura \ref{diagramma-attivita-winform} si riassume il flusso delle interazioni.
 
-\section{Spazio delle soluzioni}
-\label{sec:spazio-delle-soluzioni}
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[scale = 0.75]{diagrammi attivita/Diagramma di attivita winform.pdf} 
+    \caption{Diagramma di attività della WinForm}
+    \label{diagramma-attivita-winform}
+\end{figure}
+
+\noindent L'utente, all'apertura della WinForm, modifica i parametri di input che sono:
+\begin{itemize}
+    \item data di previsione iniziale
+    \item data di previsione finale
+    \item metodo di risoluzione dei vincoli
+\end{itemize}
+\noindent Dopo aver scelto gli input, questi vengono validati in modo tale da bloccare anzitempo
+l'esecuzione in caso di input errati.
+Se la validazione va a buon fine allora l'algoritmo calcola la soluzione e vengono visualizzati i risultati.
+A questo punto la ricerca può terminare oppure può continuare con la possibilità di variare i parametri di input.
 
 %**************************************************************
 \section{Tabu Search}
 \label{sec:tabu-search}
+\noindent Nella sezione §\ref{conclusione-studio-fattibilita}
+riguardante lo studio di fattibilità è emerso come la tabu search
+sia il giusto compromesso in termini di efficacia, efficienza
+e complessità a livello implementativo.
+In figura \ref{diagramma-attivita-tabu-search}
+viene rappresentato il funzionamento generale dell'algoritmo.
+
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[width=0.8\columnwidth]{diagrammi attivita/diagramma attivita tabusearch.pdf} 
+    \caption{Diagramma di attività della WinForm}
+    \label{diagramma-attivita-tabu-search}
+\end{figure}
+
+%**************************************************************
+\subsection{Rappresentazione della soluzione}
+\label{sec:rappresentazione-della-soluzione}
 
 %**************************************************************
 \subsection{Soluzione iniziale}
@@ -60,28 +119,28 @@
 \end{algorithm}
 
 %**************************************************************
-\subsection{Funzione di valutazione}
-\label{sec:funzione-valutazione}
+\subsection{Esplorazione del vicinato}
+\label{sec:esplorazione-vicinato}
 
 %**************************************************************
 \subsection{Mosse}
 \label{sec:mosse}
 
 %**************************************************************
-\subsection{Controllo dei vincoli}
-\label{sec:controllo-vincoli}
-
-%**************************************************************
-\subsection{Randomizzazione delle scelte}
-\label{sec:randomizzazione-scelte}
-
-%**************************************************************
 \subsection{Tabu List}
 \label{sec:tabu-list}
 
 %**************************************************************
+\subsection{Funzione di valutazione}
+\label{sec:funzione-valutazione}
+
+%**************************************************************
 \subsection{Condizioni di arresto}
 \label{sec:condizioni-arresto}
+
+%**************************************************************
+\subsection{Controllo dei vincoli}
+\label{sec:controllo-vincoli}
 
 %**************************************************************
 \section{Codifica}

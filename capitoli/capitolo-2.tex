@@ -147,14 +147,15 @@ Di seguito viene presentato lo pseudocodice della tabu search.
         \EndProcedure
     \end{algorithmic}
 \end{algorithm}
-
+\vspace*{\fill}
 \noindent \paragraph{Osservazioni}\hfill\\
 Notiamo come il ruolo della {$tabu\_list$} sia fondamentale in quanto, in caso di appartenza della mossa alla {$tabu\_list$}, non fa calcolare e
 conseguentemente fare il confronto con {$funzione\_obiettivo_{best}$}. Inoltre se la {$funzione\_obiettivo_{curr}$} non è migliorante, l'iterazione
 viene comunque contata.\\
 Per quanto riguarda la condizione di {$\textbf{break}$}, essa viene messa poichè, avendo trovato una soluzione migliorante, non è più necessario
 esplorare il vicinato corrente ed è dunque necessario crearne uno nuovo a partire dalla nuova soluzione.\\
-
+\vspace*{\fill}
+\newpage
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
     \item Bassa complessità implementativa
@@ -258,19 +259,41 @@ variare il patrimonio genetico, in modo tale da avere più possibilità di trova
     \item Difficile codifica degli individui in alcuni problemi
     \item Numero di iterazioni necessario può essere molto alto
 \end{itemize}
-
+\newpage
 %**************************************************************
 \section{Conclusioni dello studio}
+\label{conclusione-studio-fattibilita}
 \noindent Lo studio è servito per capire come funzionassero gli algoritmi e quali fossero i loro pregi e difetti.
 Di seguito si hanno i risultati dell'analisi dei 3 algoritmi eseguiti singolarmente.\\
 
-% tabella con i risultati
+\renewcommand{\arraystretch}{1.6}
 
-\noindent Si è optato per l'utilizzo della tabu search in quanto rappresentava un buon compromesso sia a livello
+% tabella con i risultati
+\begin{center}
+    \begin{longtable}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
+    \caption{Tabella dei risultati dell'analisi degli algoritmi dopo 10 esecuzioni}
+    \label{tab:risultati-studio-fattibilita}
+    \\ \hline
+    \centering \textbf{Tipologia} & \centering \textbf{Efficacia (\%)} & \centering \textbf{Efficienza (ms)} & \centering \textbf{Tempo di realizzazione (h)} \arraybackslash \\
+    \hline
+    \centering Algoritmo Greedy & \centering 100 & \centering 0.45 & \centering 0.5 \arraybackslash \\
+    \hline
+    \centering Tabu Search & \centering 98 & \centering 1289.76 & \centering 2.5 \arraybackslash \\
+    \hline
+    \centering Algortimo Genetico & \centering 92 & \centering 5127.24 & \centering 5 \arraybackslash \\
+    \hline
+    \end{longtable}
+\end{center}%
+
+\noindent L'algoritmo greedy risulta il più efficiente ed efficace in questo specifico caso, ma per il problema che si andrà a risolvere non può essere considerato
+molto soddisfacente in quanto le scelte
+non vengono mai rimesse in discussione e potrebbero dunque escludere soluzioni potenzialmente migliori
+(esempio \hyperref[cap:introduzione]{Introduzione}).\\
+Per quanto riguarda l'algoritmo genetico, sebbene fosse interessante per il mantenimento di più soluzioni ad ogni iterazione, si è dimostrato
+molto più lento rispetto ai due precedenti. Inoltre una maggiore complessità realizzativa lo ha portato all'esclusione.\\
+Si è optato quindi per l'utilizzo della tabu search in quanto rappresentava un buon compromesso sia a livello
 di efficacia ed efficienza che a livello implementativo. Per quanto riguarda la soluzione iniziale,
-questa, data la sua bassa complessità computazionale, può essere generata a partire da un algoritmo greedy,
-in modo tale da avere già a disposizione una buona soluzione di base.\\
-Sebbene l'algoritmo genetico fosse interessante per quanto ne concerne il mantenimento di più soluzioni ad ogni iterazione, in realtà l'algoritmo si è dimostrato
-molto più lento rispetto ai due precedenti. Inoltre un'alta complessità realizzativa lo ha portato dunque all'esclusione.\\
-Tuttavia, sebbene la tabu search, ad ogni iterazione, possieda una sola soluzione, è stato pensato che l'algoritmo possa essere lanciato in più thread,
-riuscendo dunque a simulare il mantenimento di più soluzioni dell'algoritmo genetico, passando ai thread chiaramente soluzioni iniziali differenti.
+questa può essere generata a partire da un algoritmo greedy, data la sua bassa complessità computazionale.
+In questo modo è possibile avere già a disposizione una buona soluzione di base.\\
+Tuttavia, sebbene la tabu search possieda una sola soluzione ad ogni iterazione, è stato pensato che l'algoritmo possa essere lanciato in più thread,
+riuscendo dunque in un certo senso a simulare il mantenimento di più soluzioni dell'algoritmo genetico, passando ai thread chiaramente soluzioni iniziali differenti.
