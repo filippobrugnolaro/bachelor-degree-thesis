@@ -225,59 +225,145 @@ avere invece un peggioramento della funzione di valutazione causato dalla diminu
 ordinati, come spiegato nella sezione §\ref{sec:mosse}.\\
 La funzione di valutazione, in questo caso, non può rappresentare perfettamente il
 comportamento dell'algoritmo e definisce dunque un'approssimazione del suo andamento.\\
-Di seguito vengono riportati i test effettuati per capire empiricamente quale fosse la funzione di valutazione
+Durante la ricerca sono state provate empiricamente 4 funzioni che vengono elencate qui sotto:
+\begin{center}
+    \begin{multicols}{2}
+        \begin{itemize}
+            \item[] \text{\large $f = \frac{PT \cdot (1-R)}{e^{R}}$}
+            \item[] \text{\large $g=\begin{cases} \frac{ln(PT) \cdot (1-R)}{e^{R}} & \mbox{se }R\neq 1 \\ -\frac{1}{PT} & \mbox{se }R=1\end{cases}$}
+        \end{itemize}
+        \begin{itemize}
+            \item[] \text{\large $h=\begin{cases} \frac{ln(PT+1) \cdot (1-R)}{e^{R}} & \mbox{se }R\neq 1 \\ -\frac{1}{PT} & \mbox{se }R=1\end{cases}$}
+        \end{itemize}
+    \end{multicols}
+\end{center}
+
+\noindent Nelle tabelle \ref{tab:risultati-f}, \ref{tab:risultati-g} e \ref{tab:risultati-h} vengono riportati i risultati che sono stati calcolati
+per capire empiricamente quale fosse la funzione di valutazione
 che approssimasse meglio il comportamento dell'algoritmo.
 
-%tab vincolo
-\begin{center}
+\begin{table}[!h]
+    \begin{minipage}{.5\linewidth}
+        \caption{Tabella dei risultati di $f$}
+        \label{tab:risultati-f}
+        \rowcolors{2}{lightest-grayest}{white}
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        \rowcolor{lighter-grayer}
+        \centering \textbf{PT} & \multicolumn{2}{c}{\centering \textbf{Rapporto $\frac{OE}{OT}$}} & \centering \textbf{FV} \arraybackslash \\
+        \hline
+        
+        \fval{250.000}{30}{0,0230}{238.659,21}
+        \fval{400.000}{40}{0,0307}{375.944,97}
+        \fval{500.000}{50}{0,0384}{462.629,19}
+        \fval{600.000}{60}{0,0461}{546.493,78}
+        \fval{350.000}{21}{0,0161}{338.828,33}
+        \fval{350.000}{22}{0,0169}{338.303,08}
+        \fval{350.000}{23}{0,0176}{337.778,43}
+        \fval{400.000}{23}{0,0176}{386.032,50}
+        \fval{400.000}{24}{0,0184}{385.433,60}
+        \fval{500.000}{1300}{1,0000}{0,00000000}
+        \fval{450.000}{1300}{1,0000}{0,00000000}
+        \end{tabular}
+    \end{minipage}
+    \begin{minipage}{.5\linewidth}
+        \caption{Tabella dei risultati di $g$ }
+        \label{tab:risultati-g}
+        \rowcolors{2}{lightest-grayest}{white}
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        \rowcolor{lighter-grayer}
+        \centering \textbf{PT} & \multicolumn{2}{c}{\centering \textbf{Rapporto $\frac{OE}{OT}$}} & \centering \textbf{FV} \arraybackslash \\
+        \hline
+        \fval{250.000}{30}{0,0230}{11,8653876}
+        \fval{400.000}{40}{0,0307}{12,1234920}
+        \fval{500.000}{50}{0,0384}{12,1415767}
+        \fval{600.000}{60}{0,0461}{12,1182126}
+        \fval{350.000}{22}{0,0169}{12,3390619}
+        \fval{350.000}{23}{0,0176}{12,3199264}
+        \fval{400.000}{23}{0,0176}{12,4487951}
+        \fval{400.000}{24}{0,0184}{12,4294818}
+        \fval{0,75}{1}{0,0008}{-0,2872397}
+        \fval{500.000}{1300}{1,0000}{-0,0000020}
+        \fval{450.000}{1300}{1,0000}{-0,0000022}
+        \end{tabular}
+    \end{minipage}
+\end{table}
+
+
+\begin{table}[!h]
+    \centering
+    \caption{Tabella dei risultati di $h$}
+    \label{tab:risultati-h}
     \rowcolors{2}{lightest-grayest}{white}
-    \begin{longtable}{|m{1.2cm}|m{1.6cm}|m{1cm}|m{1.7cm}|}
-    \caption{Tabella dei risultati della funzione }
-    \label{tab:risultati-funzione-lineare}
-    \\ \hline
+    \begin{tabular}{|c|c|c|c|}
+    \hline
     \rowcolor{lighter-grayer}
     \centering \textbf{PT} & \multicolumn{2}{c}{\centering \textbf{Rapporto $\frac{OE}{OT}$}} & \centering \textbf{FV} \arraybackslash \\
     \hline
-    \fval{100.000}{10}{0,0076}{11,3368318}
-    \fval{200.000}{20}{0,0153}{11,8348101}
-    \fval{300.000}{30}{0,0230}{11,8653914}
+    \fval{250.000}{30}{0,0230}{11,8653914}
     \fval{400.000}{40}{0,0307}{12,1234943}
     \fval{500.000}{50}{0,0384}{12,1415785}
     \fval{600.000}{60}{0,0461}{12,1182141}
-    \fval{350.000}{21}{0,0161}{12,3582223}
     \fval{350.000}{22}{0,0169}{12,3390647}
     \fval{350.000}{23}{0,0176}{12,3199292}
     \fval{400.000}{23}{0,0176}{12,4487975}
     \fval{400.000}{24}{0,0184}{12,4294842}
+    \fval{0,75}{1}{0,0008}{0,55875534}
     \fval{500.000}{1300}{1,0000}{-0,0000020}
     \fval{450.000}{1300}{1,0000}{-0,0000022}
-    \end{longtable}
-\end{center}
-\begin{center}
-    %tab vincolo
-    \rowcolors{2}{lightest-grayest}{white}
-    \begin{longtable}{|m{1.2cm}|m{1.6cm}|m{1cm}|m{1.7cm}|}
-    \caption{Tabella dei risultati della funzione }
-    \label{tab:risultati-funzione-lineare}
-    \\ \hline
-    \rowcolor{lighter-grayer}
-    \centering \textbf{PT} & \multicolumn{2}{c}{\centering \textbf{Rapporto $\frac{OE}{OT}$}} & \centering \textbf{FV} \arraybackslash \\
-    \hline
-    \fval{100.000}{10}{0,0076}{11,3368318}
-    \fval{200.000}{20}{0,0153}{11,8348101}
-    \fval{300.000}{30}{0,0230}{11,8653914}
-    \fval{400.000}{40}{0,0307}{12,1234943}
-    \fval{500.000}{50}{0,0384}{12,1415785}
-    \fval{600.000}{60}{0,0461}{12,1182141}
-    \fval{350.000}{21}{0,0161}{12,3582223}
-    \fval{350.000}{22}{0,0169}{12,3390647}
-    \fval{350.000}{23}{0,0176}{12,3199292}
-    \fval{400.000}{23}{0,0176}{12,4487975}
-    \fval{400.000}{24}{0,0184}{12,4294842}
-    \fval{500.000}{1300}{1,0000}{-0,0000020}
-    \fval{450.000}{1300}{1,0000}{-0,0000022}
-    \end{longtable}
-\end{center}
+    \end{tabular}
+\end{table}
+\noindent É evidente dalla tabella \ref{tab:risultati-f}
+come la funzione $f$ sia migliorativa se il prezzo totale
+degli ordini è minore, ma non lo sia nel caso
+di aumento del numero di articoli ordinati. Questo problema accade
+perchè il rapporto tra $R$ e $PT$ è troppo sbilanciato.\\
+Altra problematica è il fatto che la funzione, una volta ordinati
+tutti gli articoli, non riesce a valutare la variabile $PT$
+in quanto $1-R$ è uguale a $0$.\\
+Si è optato quindi per la modifica della funzione di valutazione
+e si è ottenuta la funzione $g$.\\
+
+\noindent Si osservi ora la tabella \ref{tab:risultati-g}.
+Per cercare di risolvere il primo problema, si è deciso di
+adottare un compromesso andando ad utilizzare il logaritmo naturale.\\
+Dal quinto all'ottavo risultato si può evincere che:
+\begin{enumerate}
+    \item a parità di $PT$ $\rightarrow$ $FV$ è migliore per
+    un $R$ minore
+    \item a parità di $R$ $\rightarrow$ $FV$ è migliore per
+    un $PT$ minore
+\end{enumerate}
+Tuttavia si può notare come non sia stato comunque completamente
+risolto il problema perchè nei primi tre risultati
+$FV$ aumenta e solo nel quarto inizia a decrescere.
+Questo potrebbe sembrare un problema, ma in realtà non lo è in
+quanto la mossa disponibile nella tabu search inserisce
+un elemento per volta riconducendoci quindi
+più verosimilmente alle casistiche dell'intervallo che va dal quinto all'ottavo risultato.\\
+
+\noindent Per il secondo problema invece si è dovuto procedere per casi in
+base al valore assunto da $R$. In questo modo, non appena
+tutti gli articoli sono stati ordinati ($R=1$), è possibile operare
+un confronto.
+Data dunque $FV$ definita come il negativo del reciproco di $R$,
+è facile vedere come al diminuire di $R$ diminuisce anche $FV$
+risolvendo dunque completamente il problema.\\
+
+\noindent Il decimo risultato è stato determinante poichè ha permesso di
+scoprire un altro problema che è principalmente di dominio.
+Infatti la funzione $g$ valuta tutte i risultati con $0 < PT < 1$
+e $R<1$ come miglioranti persino rispetto a quei
+risultati con $R=1$. Per risolvere questo problema si è andati
+a rimodificare la funzione di valutazione ottenendo $h$.\\
+
+\noindent Si osservi ora la tabella \ref{tab:risultati-g}.
+Per risolvere il problema esposto precedentemente si è andato
+a modificare il dominio della funzione aggiungendo una unità.
+In questo modo per ogni valore di $PT$ si avrà che
+$ln(PT+1)>0$ facendo in modo che $FV$ sia negativa se e solo se
+$R=1$.
 
 %**************************************************************
 \subsection{Condizioni di arresto}
