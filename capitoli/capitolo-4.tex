@@ -190,7 +190,16 @@ motivo per il quale si è deciso di procedere randomizzando le scelte.
 In particolare ogni mossa viene selezionata in maniera casuale cosicché tutte le scelte
 abbiano la stessa probabilità di essere selezionate.\\
 Per lo stesso motivo è stato applicato lo stesso principio anche per la scelta dell'articolo su cui applicare
-la mossa.
+la mossa.\\
+É importante sottolineare come l'oggetto \textit{Random} in C\#
+debba essere inizializzato tramite un numero, ovvero
+ciò che viene definito come seed. Infatti se non si dichiara
+il seed all'interno del costruttore, viene utilizzato il
+Current System Time. Questo risultava un problema poichè essendo le
+iterazioni molto rapide (a volte anche $<1ms$) si andava ad inizializzare la nuova istanza
+di Random allo stesso valore e dunque veniva generato lo stesso
+numero, cosa assolutamente indesiderata.
+
 
 %**************************************************************
 \subsection{Tabu List}
@@ -225,22 +234,31 @@ avere invece un peggioramento della funzione di valutazione causato dalla diminu
 ordinati, come spiegato nella sezione §\ref{sec:mosse}.\\
 La funzione di valutazione, in questo caso, non può rappresentare perfettamente il
 comportamento dell'algoritmo e definisce dunque un'approssimazione del suo andamento.\\
-Durante la ricerca sono state provate empiricamente 4 funzioni che vengono elencate qui sotto:
+Durante la ricerca sono state provate empiricamente 3 funzioni che vengono elencate qui sotto:
+\vspace{1cm}
 \begin{center}
-    \begin{multicols}{2}
+    \begin{minipage}{.5\textwidth}
         \begin{itemize}
             \item[] \text{\large $f = \frac{PT \cdot (1-R)}{e^{R}}$}
             \item[] \text{\large $g=\begin{cases} \frac{ln(PT) \cdot (1-R)}{e^{R}} & \mbox{se }R\neq 1 \\ -\frac{1}{PT} & \mbox{se }R=1\end{cases}$}
-        \end{itemize}
-        \begin{itemize}
             \item[] \text{\large $h=\begin{cases} \frac{ln(PT+1) \cdot (1-R)}{e^{R}} & \mbox{se }R\neq 1 \\ -\frac{1}{PT} & \mbox{se }R=1\end{cases}$}
         \end{itemize}
-    \end{multicols}
+    \end{minipage}
 \end{center}
+\vspace*{1cm}
+\noindent dove:
+\begin{itemize}
+    \item $PT = $ Prezzo totale
+    \item $OE = $ numero di articoli ordinati
+    \item $OT = $ numero di articoli da ordinare
+    \item $R =$ \text{\large $\frac{OE}{OT}$} $=$ rapporto tra gli articoli ordinati e quelli da ordinare
+\end{itemize}
+
+\newpage
 
 \noindent Nelle tabelle \ref{tab:risultati-f}, \ref{tab:risultati-g} e \ref{tab:risultati-h} vengono riportati i risultati che sono stati calcolati
 per capire empiricamente quale fosse la funzione di valutazione
-che approssimasse meglio il comportamento dell'algoritmo.
+che approssimasse meglio il comportamento dell'algoritmo.\\
 
 \begin{table}[!h]
     \begin{minipage}{.5\linewidth}
@@ -314,6 +332,7 @@ che approssimasse meglio il comportamento dell'algoritmo.
     \fval{450.000}{1300}{1,0000}{-0,0000022}
     \end{tabular}
 \end{table}
+
 \noindent É evidente dalla tabella \ref{tab:risultati-f}
 come la funzione $f$ sia migliorativa se il prezzo totale
 degli ordini è minore, ma non lo sia nel caso
@@ -349,7 +368,7 @@ tutti gli articoli sono stati ordinati ($R=1$), è possibile operare
 un confronto.
 Data dunque $FV$ definita come il negativo del reciproco di $R$,
 è facile vedere come al diminuire di $R$ diminuisce anche $FV$
-risolvendo dunque completamente il problema.\\
+risolvendo dunque completamente il problema.\\\\
 
 \noindent Il decimo risultato è stato determinante poichè ha permesso di
 scoprire un altro problema che è principalmente di dominio.
@@ -358,7 +377,7 @@ e $R<1$ come miglioranti persino rispetto a quei
 risultati con $R=1$. Per risolvere questo problema si è andati
 a rimodificare la funzione di valutazione ottenendo $h$.\\
 
-\noindent Si osservi ora la tabella \ref{tab:risultati-g}.
+\noindent Si osservi ora la tabella \ref{tab:risultati-h}.
 Per risolvere il problema esposto precedentemente si è andato
 a modificare il dominio della funzione aggiungendo una unità.
 In questo modo per ogni valore di $PT$ si avrà che
@@ -384,6 +403,76 @@ $R=1$.
 %**************************************************************
 \subsection{Controllo dei vincoli}
 \label{sec:controllo-vincoli}
+\noindent Nel programma i vincoli vengono sempre controllati alla fine dell'esecuzione dell'algoritmo
+tramite due funzioni:
+\begin{itemize}
+    \item $control\_Min\_Order\_Articles()$, con input la
+    lista di ordini effettuati e la lista dei bound rispetto
+    al singolo ordine
+    \item $control\_Mins\_Forn()$, con input la lista di
+    ordini effettuati, la lista delle date di spedizione,
+    la lista dei bound dei fornitori e la scelta della
+    modalità di risoluzione dei vincoli
+\end{itemize}
+\newpage
+\noindent La prima funzione controlla per ogni range di
+copertura di ogni articolo che l'ordine:
+\begin{enumerate}
+    \item rispetti il quantitativo minimo
+    da ordinare in quella specifica data d'ordine;
+    \item venga effettuato per multipli se il quantità
+    dell'ordine supera il quantitativo minimo da ordinare
+\end{enumerate}
+Il primo vincolo viene risolto aggiungendo la differenza alla quantità attuale
+in modo tale da arrivare al minimo.
+Il secondo viene risolto in questo modo:
+\begin{enumerate}
+    \item si trova la differenza tra la quantità attuale
+    e quella minima richiesta
+    \item viene eseguito il modulo tra la differenza calcolata al punto 1 e il valore del multiplo
+    \item viene aggiunta alla quantità attuale la differenza tra il valore del multiplo e il valore calcolato al punto precedente 
+\end{enumerate}
+\vspace*{0.5cm}
+\noindent La seconda funzione, invece, controlla per ogni 
+periodo e per ogni fornitore a cui si abbia fatto
+almeno un ordine che:
+\begin{itemize}
+    \item il numero degli articoli totali comprati all'interno
+    del determinato periodo sia maggiore del bound
+    \item l'importo totale all'interno del periodo sia
+    maggiore del bound
+\end{itemize}
+Per la soddisfazione di questi due vincoli, l'utente ha la
+possibilità di scegliere quale tra le seguenti tecniche adottare:
+\begin{enumerate}
+    \item \textbf{Min/Max:} per il primo (risp. secondo) vincolo
+    consiste nel scegliere l'articolo minimo (risp. massimo)
+    da aumentare e appartente al periodo per arrivare al
+    minimo dichiarato dal bound
+    \item \textbf{Proporzionale:} consiste nel continuare a ciclare
+    tutti gli articoli appartenti al periodo e aumentarli di
+    una unità finchè non si è raggiunto il minimo
+    dichiarato dal bound.
+    \item \textbf{Ricompattamento:} consiste nel selezionare l'ordine
+    successivo con lo stesso fornitore, con il prezzo minimo e
+    non appartenente al periodo in modo tale anticipare l'acquisto
+    e non ordinare articoli in più.
+\end{enumerate}
+\vspace*{0.5cm}
+\noindent Questi controlli vengono effettuati solo alla fine dall'algoritmo.
+Questo implica che la tabu search può potenzialmente avere in
+una qualsiasi iterazione una soluzione non ammissibile e
+continuare ad operare con essa. Tuttavia poichè alla fine
+l'algoritmo restituisce una soluzione ottima, che corrisponde
+alla miglior combinazione per ogni range di copertura di
+ogni articolo tra data d'ordine e fornitore, l'ottimo non viene
+influenzato, ma vincolato.\\
+Inoltre se si volessero fare i controlli durante l'esecuzione dell'algoritmo,
+oltre a rallentarlo notevolmente, si avrebbe un importante aumento di
+complessità in quanto sarebbe necessario salvare le quantità realmente
+necessarie in un'altra lista e operare altri controlli.
+
+\newpage
 
 %**************************************************************
 \section{Codifica}

@@ -1049,7 +1049,7 @@ Per quanto riguarda la classificazione, invece, si hanno 3 valori possibili:
     \item \textbf{D} = desiderabile
     \item \textbf{F} = facoltativo
 \end{itemize}
-Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \ref{tab:requisiti-di-performance} \ref{tab:requisiti-di-vincolo} suddivise per tipo sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
+Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \ref{tab:requisiti-di-performance} e \ref{tab:requisiti-di-vincolo} suddivise per tipo sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
 
 %comando arraystretch
 \renewcommand{\arraystretch}{1.6}
@@ -1121,14 +1121,11 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \req{R39-Q-O}{Il codice deve essere documentato tramite commenti}{-}
 \req{R40-Q-D}{L'algoritmo finale scelto deve generare dei log di chiamata per manutenzioni future}{-}
 \req{R41-Q-D}{L'algoritmo di ottimizzazione deve essere estensibile}{-}
-\req{R42-Q-O}{I test devono coprire il 60\% del codice}{-}
-\req{R43-Q-D}{L'algoritmo utilizza differenti tecniche di ottimizzazione}{-}
-\req{R44-Q-F}{L'algoritmo utilizza il multithreading per cercare più soluzioni ammissibili}{-}
+\req{R42-Q-D}{L'algoritmo utilizza differenti tecniche di ottimizzazione}{-}
+\req{R43-Q-F}{L'algoritmo utilizza il multithreading per cercare più soluzioni ammissibili}{-}
 \end{longtable}
 \end{center}%
 
-\vspace*{\fill}
-\vspace*{\fill}
 
 %tab performance
 \begin{center}
@@ -1140,13 +1137,11 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \rowcolor{lighter-grayer}
 \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
 \hline 
-\req{R45-P-O}{L'algoritmo di ottimizzazione deve restituire un risultato entro 10 minuti dal tempo di lancio dello stesso}{-}
+\req{R44-P-O}{L'algoritmo di ottimizzazione deve restituire un risultato entro 10 minuti dal tempo di lancio dello stesso}{-}
 \end{longtable}
 \end{center}%
 
-\vspace*{\fill}
 
-\newpage
 
 %tab vincolo
 \begin{center}
@@ -1158,10 +1153,10 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \rowcolor{lighter-grayer}
 \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
 \hline  
-\req{R46-V-O}{La \textit{form} deve essere eseguita sull'ambiente di esecuzione \textit{.NET Framework}}{-}
-\req{R47-V-O}{La \textit{form} e l'algoritmo devono essere codificate in $C\#$}{-}
-\req{R48-V-O}{La versione utilizzata di $C\#$ deve essere $7.3$}{-}
-\req{R49-V-O}{La versione utilizzata di \textit{.NET Framework} deve essere $4.8$}{-}
-\req{R50-V-O}{L'algoritmo finale deve fonire una soluzione ammissibile}{-}
+\req{R45-V-O}{La \textit{form} deve essere eseguita sull'ambiente di esecuzione \textit{.NET Framework}}{-}
+\req{R46-V-O}{La \textit{form} e l'algoritmo devono essere codificate in $C\#$}{-}
+\req{R47-V-O}{La versione utilizzata di $C\#$ deve essere $7.3$}{-}
+\req{R48-V-O}{La versione utilizzata di \textit{.NET Framework} deve essere $4.8$}{-}
+\req{R49-V-O}{L'algoritmo finale deve fornire una soluzione ammissibile}{-}
 \end{longtable}
 \end{center}%
