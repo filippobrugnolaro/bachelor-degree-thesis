@@ -31,7 +31,7 @@ Si parte dal database, dal quale vengono estratti i dati di interesse dalle vari
 tabelle. Successivamente viene fatto il pre-processing dei dati,
 in modo tale da poter poi eseguire l'ottimizzazione solo su
 ciò che è di interesse dell'analisi.
-Viene effettuato il controllo dei vincoli al termine
+Di seguito viene effettuato il controllo dei vincoli di minimo al termine
 dell'algoritmo così da generare
 una soluzione ammissibile. Se si vuole effettuare una nuova
 analisi è necessario estrarre nuovamente i dati dal
@@ -61,43 +61,71 @@ Nella figura \ref{diagramma-attivita-winform} si riassume il flusso delle intera
     \item metodo di risoluzione dei vincoli
 \end{itemize}
 \noindent Dopo aver scelto gli input, questi vengono validati in modo tale da bloccare anzitempo
-l'esecuzione in caso di input errati.
+l'esecuzione in caso di errori.
 Se la validazione va a buon fine allora l'algoritmo calcola la soluzione e vengono visualizzati i risultati.
 A questo punto la ricerca può terminare oppure può continuare con la possibilità di variare i parametri di input.
 
 %**************************************************************
 \section{Tabu Search}
 \label{sec:tabu-search}
-\noindent Nella sezione §\ref{conclusione-studio-fattibilita}
+\noindent Nella sezione § \ref{conclusione-studio-fattibilita}
 riguardante lo studio di fattibilità è emerso come la tabu search
 sia il giusto compromesso in termini di efficacia, efficienza
-e complessità a livello implementativo.
+e complessità a livello implementativo.\\
 In figura \ref{diagramma-attivita-tabu-search}
-viene rappresentato il funzionamento generale dell'algoritmo.
-
+viene rappresentato il funzionamento dell'algoritmo ad alto livello.
+\vspace*{\fill}
 \begin{figure}[!h] 
     \centering 
     \includegraphics[width=0.8\columnwidth]{diagrammi attivita/diagramma attivita tabusearch.pdf} 
-    \caption{Diagramma di attività della WinForm}
+    \caption{Diagramma di attività della tabu search}
     \label{diagramma-attivita-tabu-search}
 \end{figure}
+\noindent \paragraph{}\hfill\\
+Come si può notare, prima viene effettuato un controllo per vedere se la mossa
+appartiene o meno alla tabu list e poi viene verificato se la soluzione è migliorante.
+Se i controlli venissero invertiti, si rischierebbe, calcolando
+la funzione di valutazione e confrontandola con quella della soluzione corrente,
+di simulare inutilmente una mossa che potenzialmente potrebbe appartenere alla tabu list.
+\vspace*{\fill}
+
+\newpage
 
 %**************************************************************
 \subsection{Rappresentazione della soluzione}
 \label{sec:rappresentazione-della-soluzione}
+\noindent Definire una buona rappresentazione della soluzione è fondamentale
+poichè è legata alla creazione del vicinato.\\
+In primis è stata creata una classe che rappresentasse
+il singolo ordine (dataSourceItem) e, dato che gli ordini solitamente sono molteplici,
+si è deciso di mettere ognuno di essi all'interno di una lista.
+Questo approccio è sufficiente per un algoritmo greedy, ma non per la tabu search.\\
+Infatti è necessario associare alla soluzione anche una funzione di valutazione, in modo tale
+da poter operare il confronto tra la soluzione corrente e quella migliore.\\
+In figura \ref{rappresentazione-soluzione} viene illustrata la forma della soluzione della tabu search.
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[width=0.8\columnwidth]{soluzione/soluzione rappresentazione.pdf} 
+    \caption{Rappresentazione della soluzione per la tabu search}
+    \label{rappresentazione-soluzione}
+\end{figure}
 
 %**************************************************************
 \subsection{Soluzione iniziale}
 \label{sec:soluzione-iniziale}
-
+\noindent Nella figura \ref{diagramma-attivita-tabu-search} il primo step è la creazione di una soluzione iniziale che
+però la tabu search, a contrario di altri algoritmi, non è in grado di generare da sola. Per ovviare a questo inconveniente
+si può generare una soluzione abbastanza buona tramite un algoritmo greedy.\\
+Di seguito viene presentato lo pseudocodice.
+\vspace*{\fill}
 \begin{algorithm}
     \captionsetup{labelformat=empty}
     \caption{Pseudocodice soluzione iniziale - Algoritmo Greedy}
     \vspace{0.1cm}
-    \hspace*{\algorithmicindent} \textbf{Input:} {$lista\_articoli$}, {$lista\_vincoli$}\\
+    \hspace*{\algorithmicindent} \textbf{Input:} {$lista\_articoli$}, {$lista\_spedizioni$}, {$lista\_prezzi$}\\
     \hspace*{\algorithmicindent} \textbf{Output:} {$lista\_articoli\_opt$}
     \begin{algorithmic}[1]
-        \Procedure{My\_Greedy\_Algorithm}{$lista\_articoli$, $lista\_vincoli$}
+        \Procedure{My\_Greedy\_Algorithm}{$lista\_articoli$, $lista\_spedizioni$, $lista\_prezzi$}
         \State {$l \gets lista\_vuota$}
         \State {$l_{tmp} \gets lista\_vuota$}
         \State $l_{cod\_art} \gets genera\_lista\_decisione(lista\_articoli)$
@@ -105,7 +133,7 @@ viene rappresentato il funzionamento generale dell'algoritmo.
         \While {$count < n_{cod\_art}$}
             \State {$cod\_art \gets decisione(l_{cod\_art})$}
             \ForAll {$art \in lista\_articoli$}
-                \State {$b \gets controllo\_vincoli(art$, $cod\_art$, $lista\_vincoli)$}
+                \State {$b \gets controllo\_condizioni(art$, $cod\_art$, $lista\_spedizioni$, $lista\_prezzi)$}
                 \If {$b = true$}
                     \State Aggiungi $art$ a $l_{tmp}$
                 \EndIf
@@ -117,27 +145,156 @@ viene rappresentato il funzionamento generale dell'algoritmo.
         \EndProcedure
     \end{algorithmic}
 \end{algorithm}
+\vspace*{\fill}
+\newpage
+\noindent Si può notare come la funzione $controllo\_condizioni()$ abbia lo scopo di escludere tutte le casistiche relative a tutti i $cod\_art$ in cui:
+\begin{itemize}
+    \item la data di spedizione è minore del giorno attuale
+    \item la data di arrivo della spedizione è maggiore della data di inizio copertura
+    \item dato un fornitore, non esiste un prezzo associato ad alcuna spedizione
+    \item dato un fornitore, non esiste alcuna spedizione associata ad un prezzo
+\end{itemize}
 
-%**************************************************************
-\subsection{Esplorazione del vicinato}
-\label{sec:esplorazione-vicinato}
+\noindent La funzione $filtra\_articoli\_per\_min()$, avente come parametro di input $l_{tmp}$ (lista con tutti i record che soddisfano i vincoli),
+serve invece a filtrare per prezzo minimo tutti i range di copertura associati ad ogni codice articolo.
+In pratica per ogni range di copertura di ogni articolo viene preso il record con il fornitore che offre il fabbisogno al prezzo più vantaggioso.\\
+
+\noindent É possibile avere anche un'inizializzazione della soluzione che non sia stata soggetta ad alcuna ottimizzazione.
+In questo caso è stata creata una funzione $initialise\_solution()$ che, dati in input gli stessi parametri dell'algoritmo greedy, fornisce
+come soluzione iniziale proprio quella generata dal modulo già esistente. 
 
 %**************************************************************
 \subsection{Mosse}
 \label{sec:mosse}
+\noindent Le mosse create per la Tabu Search sono le seguenti:
+\begin{enumerate}
+    \item Inserimento di un nuovo ordine d'acquisto
+    \item Cambio di fornitore di un ordine d'acquisto
+    \item Pre-ordine di un ordine d'acquisto
+    \item Post-ordine di un ordine d'acquisto
+\end{enumerate}
+Come si può notare non è stata creata la mossa inversa dell'inserimento, ovvero la rimozione di un ordine d'acquisto.
+Il motivo sta nel fatto che rimuovere un ordine di un articolo di cui si ha bisogno non porta sicuramente a un miglioramento
+della funzione di valutazione poichè, essendo l'articolo una necessità, prima o poi verrà aggiunto nuovamente.
+
+%**************************************************************
+\subsection{Esplorazione del vicinato}
+\label{sec:esplorazione-vicinato}
+\noindent Il vicinato è quell'insieme di soluzioni che possono essere raggiunte
+tramite l'applicazione di una mossa sulla soluzione corrente (chiamata anche centro del vicinato).\\
+Si può notare come la dimensione del vicinato in questo problema sia dell'ordine di $O(n!)$ e sia dettata dal fatto che
+per ogni range di copertura di ogni articolo sia necessario scegliere la miglior
+combinazione tra data d'ordine e fornitore.\\
+Data la sua alta complessità non è dunque possibile visitare l'intero vicinato,
+motivo per il quale si è deciso di procedere randomizzando le scelte.
+In particolare ogni mossa viene selezionata in maniera casuale cosicché tutte le scelte
+abbiano la stessa probabilità di essere selezionate.\\
+Per lo stesso motivo è stato applicato lo stesso principio anche per la scelta dell'articolo su cui applicare
+la mossa.
 
 %**************************************************************
 \subsection{Tabu List}
 \label{sec:tabu-list}
+\noindent La tabu list è una lista che memorizza le k mosse precedenti, dove k è uguale
+alla lunghezza della lista che viene definita alla creazione dell'oggetto \textit{TabuSearch}.\\
+Permette di evitare dunque cicli infiniti in corrispondenza
+di minimi locali. Questo accade perché tramite le funzione $generate\_move\_string()$ ogni mossa
+viene prima codificata, poi viene effettuata una ricerca nella tabu list, impedendo potenzialmente all’algoritmo di riprovarla,
+e infine viene aggiunta nella lista sia nel caso in cui venga effettuata che nel caso in cui non venga effettuata perchè non migliorante.\\
+Per semplificare la codifica si salva solamente la stringa generata dalla funzione che rappresenta la mossa e non l’intera
+soluzione come previsto dalla teoria.
+Si è deciso inoltre di memorizzare, oltre alla mossa eseguita, anche la sua inversa
+(per esempio l'inversa del pre-ordine è il post-ordine). Così facendo si
+evitano le inversioni immediate che risulterebbero poco sensate e rallenterebbero la ricerca.
 
 %**************************************************************
 \subsection{Funzione di valutazione}
 \label{sec:funzione-valutazione}
+\noindent I parametri da considerare per valutare la bontà di una soluzione, vista dal lato utente,
+sono i seguenti:
+\begin{itemize}
+    \item il numero di articoli ordinati rispetto a quelli totali
+    \item il prezzo totale di tutti gli ordini effettuati
+\end{itemize}
+Chiaramente la funzione di valutazione deve migliorare
+se aumenta il numero di articoli ordinati
+oppure il prezzo totale diminuisce a parità di articoli ordinati.
+Al contrario si ha un peggioramento nel caso in cui a parità di articoli ordinati
+corrisponde un prezzo totale maggiore. Non si potrà mai
+avere invece un peggioramento della funzione di valutazione causato dalla diminuzione del numero di articoli
+ordinati, come spiegato nella sezione §\ref{sec:mosse}.\\
+La funzione di valutazione, in questo caso, non può rappresentare perfettamente il
+comportamento dell'algoritmo e definisce dunque un'approssimazione del suo andamento.\\
+Di seguito vengono riportati i test effettuati per capire empiricamente quale fosse la funzione di valutazione
+che approssimasse meglio il comportamento dell'algoritmo.
+
+%tab vincolo
+\begin{center}
+    \rowcolors{2}{lightest-grayest}{white}
+    \begin{longtable}{|m{1.2cm}|m{1.6cm}|m{1cm}|m{1.7cm}|}
+    \caption{Tabella dei risultati della funzione }
+    \label{tab:risultati-funzione-lineare}
+    \\ \hline
+    \rowcolor{lighter-grayer}
+    \centering \textbf{PT} & \multicolumn{2}{c}{\centering \textbf{Rapporto $\frac{OE}{OT}$}} & \centering \textbf{FV} \arraybackslash \\
+    \hline
+    \fval{100.000}{10}{0,0076}{11,3368318}
+    \fval{200.000}{20}{0,0153}{11,8348101}
+    \fval{300.000}{30}{0,0230}{11,8653914}
+    \fval{400.000}{40}{0,0307}{12,1234943}
+    \fval{500.000}{50}{0,0384}{12,1415785}
+    \fval{600.000}{60}{0,0461}{12,1182141}
+    \fval{350.000}{21}{0,0161}{12,3582223}
+    \fval{350.000}{22}{0,0169}{12,3390647}
+    \fval{350.000}{23}{0,0176}{12,3199292}
+    \fval{400.000}{23}{0,0176}{12,4487975}
+    \fval{400.000}{24}{0,0184}{12,4294842}
+    \fval{500.000}{1300}{1,0000}{-0,0000020}
+    \fval{450.000}{1300}{1,0000}{-0,0000022}
+    \end{longtable}
+\end{center}
+\begin{center}
+    %tab vincolo
+    \rowcolors{2}{lightest-grayest}{white}
+    \begin{longtable}{|m{1.2cm}|m{1.6cm}|m{1cm}|m{1.7cm}|}
+    \caption{Tabella dei risultati della funzione }
+    \label{tab:risultati-funzione-lineare}
+    \\ \hline
+    \rowcolor{lighter-grayer}
+    \centering \textbf{PT} & \multicolumn{2}{c}{\centering \textbf{Rapporto $\frac{OE}{OT}$}} & \centering \textbf{FV} \arraybackslash \\
+    \hline
+    \fval{100.000}{10}{0,0076}{11,3368318}
+    \fval{200.000}{20}{0,0153}{11,8348101}
+    \fval{300.000}{30}{0,0230}{11,8653914}
+    \fval{400.000}{40}{0,0307}{12,1234943}
+    \fval{500.000}{50}{0,0384}{12,1415785}
+    \fval{600.000}{60}{0,0461}{12,1182141}
+    \fval{350.000}{21}{0,0161}{12,3582223}
+    \fval{350.000}{22}{0,0169}{12,3390647}
+    \fval{350.000}{23}{0,0176}{12,3199292}
+    \fval{400.000}{23}{0,0176}{12,4487975}
+    \fval{400.000}{24}{0,0184}{12,4294842}
+    \fval{500.000}{1300}{1,0000}{-0,0000020}
+    \fval{450.000}{1300}{1,0000}{-0,0000022}
+    \end{longtable}
+\end{center}
 
 %**************************************************************
 \subsection{Condizioni di arresto}
 \label{sec:condizioni-arresto}
-
+\noindent La Tabu Search si ferma se si verifica almeno una delle seguenti condizioni:
+\begin{itemize}
+    \item \textbf{Numero massimo di iterazioni:} numero di mosse eseguibili dall'algoritmo, deciso
+    dal programmatore, che permette di evitare la possibilità di eventuali cicli infiniti;
+    \item \textbf{Numero massimo di iterazioni non migliorative:} numero di mosse non migliorative
+    consecutive eseguibili dall'algoritmo, deciso dal programmatore, che permette
+    di rilevare in maniera approssimativa un minimo
+    locale e terminare la procedura;
+    \item \textbf{Tempo massimo di esecuzione:}  durata temporale oltre
+    la quale il programma si ferma automaticamente. Questo serve per venire incontro a
+    bisogni di rapidità di risposta da parte dell’azienda.
+    
+\end{itemize}
 %**************************************************************
 \subsection{Controllo dei vincoli}
 \label{sec:controllo-vincoli}
@@ -159,8 +316,8 @@ viene rappresentato il funzionamento generale dell'algoritmo.
 \label{sec:problematiche-riscontrate}
 
 %**************************************************************
-\subsection{Estensioni degli algoritmi}
-\label{sec:estensioni-algoritmi}
+\subsection{Estensioni del progetto}
+\label{sec:estensioni-progetto}
 
 \newpage
 
