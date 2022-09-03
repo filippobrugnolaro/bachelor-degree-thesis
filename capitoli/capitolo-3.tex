@@ -1058,7 +1058,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 
 \begin{center}
 \rowcolors{2}{lightest-grayest}{white}
-\begin{longtable}{|p{2cm}|p{9cm}|p{2cm}|}
+\begin{longtable}{|p{2cm}|p{7cm}|p{2cm}|}
 \caption{Tabella del tracciamento dei requisiti funzionali}
 \label{tab:requisiti-funzionali}
 \\ \hline
@@ -1109,7 +1109,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 %tab qualità
 \begin{center}
 \rowcolors{2}{lightest-grayest}{white}
-\begin{longtable}{|p{2cm}|p{9cm}|p{2cm}|}
+\begin{longtable}{|p{2cm}|p{7cm}|p{2cm}|}
 \caption{Tabella del tracciamento dei requisiti qualitativi}
 \label{tab:requisiti-qualitativi}
 \\ \hline
@@ -1121,42 +1121,60 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \req{R39-Q-O}{Il codice deve essere documentato tramite commenti}{-}
 \req{R40-Q-D}{L'algoritmo finale scelto deve generare dei log di chiamata per manutenzioni future}{-}
 \req{R41-Q-D}{L'algoritmo di ottimizzazione deve essere estensibile}{-}
-\req{R42-Q-D}{L'algoritmo utilizza differenti tecniche di ottimizzazione}{-}
-\req{R43-Q-F}{L'algoritmo utilizza il multithreading per cercare più soluzioni ammissibili}{-}
+\req{R42-Q-D}{I test devono coprire il 60\% del codice}{-}
+\req{R43-Q-D}{L'algoritmo utilizza differenti tecniche di ottimizzazione}{-}
+\req{R44-Q-F}{L'algoritmo utilizza il multithreading per cercare più soluzioni ammissibili}{-}
 \end{longtable}
 \end{center}%
 
+\vspace*{\fill}
+
+\newpage
 
 %tab performance
 \begin{center}
 \rowcolors{2}{lightest-grayest}{white}
-\begin{longtable}{|p{2cm}|p{9cm}|p{2cm}|}
+\begin{longtable}{|p{2cm}|p{7cm}|p{2cm}|}
 \caption{Tabella del tracciamento dei requisiti di performance}
 \label{tab:requisiti-di-performance}
 \\ \hline
 \rowcolor{lighter-grayer}
 \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
 \hline 
-\req{R44-P-O}{L'algoritmo di ottimizzazione deve restituire un risultato entro 10 minuti dal tempo di lancio dello stesso}{-}
+\req{R45-P-O}{L'algoritmo di ottimizzazione deve restituire un risultato entro 10 minuti dal tempo di lancio dello stesso}{-}
 \end{longtable}
 \end{center}%
-
-
 
 %tab vincolo
 \begin{center}
 \rowcolors{2}{lightest-grayest}{white}
-\begin{longtable}{|p{2cm}|p{9cm}|p{2cm}|}
+\begin{longtable}{|p{2cm}|p{7cm}|p{2cm}|}
 \caption{Tabella del tracciamento dei requisiti di vincolo}
 \label{tab:requisiti-di-vincolo}
 \\ \hline
 \rowcolor{lighter-grayer}
 \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
 \hline  
-\req{R45-V-O}{La \textit{form} deve essere eseguita sull'ambiente di esecuzione \textit{.NET Framework}}{-}
-\req{R46-V-O}{La \textit{form} e l'algoritmo devono essere codificate in $C\#$}{-}
-\req{R47-V-O}{La versione utilizzata di $C\#$ deve essere $7.3$}{-}
-\req{R48-V-O}{La versione utilizzata di \textit{.NET Framework} deve essere $4.8$}{-}
-\req{R49-V-O}{L'algoritmo finale deve fornire una soluzione ammissibile}{-}
+\req{R46-V-O}{La \textit{form} deve essere eseguita sull'ambiente di esecuzione \textit{.NET Framework}}{-}
+\req{R47-V-O}{La \textit{form} e l'algoritmo devono essere codificate in $C\#$}{-}
+\req{R48-V-O}{La versione utilizzata di $C\#$ deve essere $7.3$}{-}
+\req{R49-V-O}{La versione utilizzata di \textit{.NET Framework} deve essere $4.8$}{-}
+\req{R50-V-O}{L'algoritmo finale deve fonire una soluzione ammissibile}{-}
 \end{longtable}
+\end{center}%
+
+\begin{center}
+	\rowcolors{2}{lightest-grayest}{white}
+	\begin{longtable}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+	\caption{Riepilogo dei requisiti}
+	\label{tab:requisiti-riepilogo}
+	\\ \hline
+	\rowcolor{lighter-grayer}
+	\centering \textbf{Tipo} & \centering \textbf{Obbligatori} & \centering \textbf{Desiderabili} & \centering \textbf{Facoltativi}\arraybackslash \\
+	\hline  
+	\reqsum{Funzionali}{36}{0}{0}
+	\reqsum{Qualitativi}{3}{4}{1}
+	\reqsum{Prestazionali}{1}{0}{0}
+	\reqsum{Vincolo}{5}{0}{0}
+	\end{longtable}
 \end{center}%

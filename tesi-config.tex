@@ -273,6 +273,10 @@
 
 \newcommand{\req}[3]{\centering #1 & #2 & \centering #3 \arraybackslash\\ \hline}
 
+\newcommand{\reqval}[4]{\centering #1 & #2 & \centering #3 & \centering #4 \arraybackslash\\ \hline}
+
+\newcommand{\reqsum}[4]{\centering #1 & \centering #2 & \centering #3 & \centering #4 \arraybackslash\\ \hline}
+
 \renewcommand{\listalgorithmname}{Lista degli algoritmi}
 
 \renewcommand{\algorithmicforall}{\textbf{for each}}
@@ -299,3 +303,7 @@
 \pagestyle{plain}
 
 \newcommand{\fval}[4]{\centering#1 & \centering #2/1300 & \centering #3 & \centering #4 \arraybackslash\\ \hline}
+
+\usepackage{multirow}
+
+\newcommand{\valtest}[3]{\centering #1 & & \centering #2 & \centering #3 \arraybackslash\\ \cline{1-1} \cline{3-4}}
