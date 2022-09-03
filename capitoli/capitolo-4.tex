@@ -477,22 +477,117 @@ necessarie in un'altra lista e operare altri controlli.
 %**************************************************************
 \section{Codifica}
 \label{sec:codifica}
+\noindent In questa sezione verranno trattate le parti principali e più interessanti riguardo l'attività
+di codifica e realizzazione dell'algoritmo.
 
 %**************************************************************
 \subsection{Organizzazione dello sviluppo}
 \label{sec:organizzazione-sviluppo}
+\noindent Il servizio e le sue funzionalità sono state sviluppate in un
+ordine preciso. Si è cercato di implementare il prodotto
+con un approccio incrementale, in modo tale da avere
+sempre un prodotto funzionante.\\
+In particolare, lo sviluppo è stato svolto nel seguente ordine:
+\begin{itemize}
+    \item creazione della winform
+    \item lettura dei dati dal database
+    \item pre-processing dei dati
+    \item costruzione dell'algoritmo greedy
+    \item costruzione di altre scelte greedy
+    \item costruzione della tabu search
+    \item lettura dei vincoli
+    \item costruzione dei vari metodi risolutivi
+    per il soddisfacimento dei vincoli
+\end{itemize}
 
+\noindent Quest'ordine ha permesso di concentrarsi su obiettivi specifici,
+facilitandone dunque l'implementazione sia a livello logico che a livello pratico.\\
+
+\noindent Al raggiungimento di ogni \textit{milestone} veniva
+organizzata un brevissima discussione con il tutor
+in cui veniva verificata la correttezza e la coerenza di quanto
+sviluppato in relazione agli obiettivi preposti.
 %**************************************************************
 \subsection{Log}
 \label{sec:log}
+\noindent Su richiesta di Ergon Informatica è stato aggiunto successivamente il requisito \hyperref[tab:requisiti-qualitativi]{R40-Q-D}
+riguardante lo svolgimento da parte del programma di attività di scrittura
+su file. Ad ogni avvio della tabu search viene creato un nuovo
+file denominato come \textit{"Log\_aaaa\_mm\_gg\_hh\_mm\_ss"}
+dove vengono salvati dati ad ogni iterazione, quali:
+\begin{itemize}
+    \item l'iterazione corrente
+    \item cosa è accaduto all'interno dell'iterazione (mossa tabu, non migliorante, effettuata)
+    \item il numero di iterazioni non miglioranti
+    \item il tempo di esecuzione corrente
+    \item valore della funzione di valutazione della migliore soluzione corrente
+\end{itemize}
+Il salvataggio di queste informazioni ha
+l’obiettivo di facilitare il debug
+del codice e la rilevazione dei dati ottenuti
+dall’algoritmo ad ogni iterazione.\\
+Inoltre questi dati possono essere utilizzati anche in futuro
+per operare confronti fra esecuzioni della tabu search con
+tipologie di inizializzazione differenti.
 
-%**************************************************************
-\subsection{Problematiche riscontrate}
-\label{sec:problematiche-riscontrate}
+\newpage
 
 %**************************************************************
 \subsection{Estensioni del progetto}
 \label{sec:estensioni-progetto}
+\noindent Alla fine del percorso di stage è stato richiesto di
+elencare eventuali feature ed estensioni che si possono
+applicare al progetto.
+\vspace*{0.3cm}
+\noindent \paragraph{Nuovo algoritmo}\hfill\\
+La creazione della tabu search e dell'algoritmo greedy non esclude
+lo sviluppo di un nuovo algoritmo. Infatti grazie all'utilizzo del design
+pattern \textit{strategy} è possibile estendere l'interfaccia
+\textit{AlgorithmStrategy} e nella classe \textit{Program}
+creare il corrispondente oggetto del nuovo algoritmo.
+Chiaramente, affinchè la classe sia istanziabile, è necessario
+implementare tutte le funzioni dell'interfaccia.\\
+Si potrebbe valutare, in base alle risorse a disposizione, la creazione di un algoritmo genetico oppure di una combinazione tra la tabu search e un altro algoritmo
+e provare a mettere i risultati a confronto.
+\vspace*{0.3cm}
+\noindent \paragraph{Nuova scelta greedy}\hfill\\
+Le scelte greedy esistenti sono utilizzate per andare
+a creare degli algoritmi che forniscono buone soluzioni.
+Tuttavia possono esistere delle scelte che non sono state ancora
+considerate e che portino alla creazione di un algoritmo
+che genera soluzioni migliori.\\
+Grazie all'utilizzo del design pattern strategy è possibile estendere
+la classe astratta \textit{GreedyAlgorithm}, quest'ultima derivante dall'interfaccia
+\textit{AlgorithmStrategy}.\\
+Una possibile scelta potrebbe essere quella di selezionare
+l'articolo più economico del fornitore che ha più richieste d'ordine
+oppure l'articolo più richiesto del fornitore
+che ha la minor media delle variazioni dei suoi articoli.
+\vspace*{0.3cm}
+\noindent \paragraph{Nuova mossa della tabu search}\hfill\\
+Le mosse attuali della tabu search sono semplici e rapide,
+creando una bassa perturbazione della miglior soluzione
+(o centro del vicinato). Tuttavia potrebbe essere necessaria
+una qualche mossa più complessa in modo tale da visitare
+più velocemente lo spazio delle soluzioni.\\
+Per esempio si potrebbe pensare di aumentare la molteplicità
+di applicazione della mossa.\\ Per esempio se precedentemente
+la mossa veniva applicata a un solo codice articolo, si potrebbe
+pensare di applicarla a $k$ codici articolo, con $k$
+deciso dal programmatore. Rimane comunque fondamentale mantenere
+la randomicità delle scelte.
+\vspace*{0.3cm}
+\noindent \paragraph{Multi-threading}\hfill\\
+Questa estensione del progetto andrebbe a considerare la
+creazione di più tabu search e di farle eseguire su più thread.
+L'idea si basa sul fatto che ogni tabu search viene inizializzata
+con una diversa soluzione iniziale in modo tale da diversificare
+la ricerca e intensificarla durante l'esecuzione dell'algoritmo
+vero e proprio. Ciò potrebbe essere paragonabile alla popolazione
+dell'algoritmo genetico dove però non viene effettuata alcuna
+ricombinazione, ma ogni soluzione viene trattata singolarmente.
+Dopo che tutti i thread hanno terminato l'esecuzione si andrà
+a scegliere la soluzione con la funzione di valutazione minore.
 
 \newpage
 
