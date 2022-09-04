@@ -50,7 +50,7 @@ Il logo dell'azienda è illustrato in \hyperref[fig:logo]{Figura 1.1}.
     \label{fig:logo}
 \end{figure}
 \vfill
-\noindent Il prodotto di proprietà dell'azienda è \textit{ERGDIS}, sistema \textit{\gls{erpg}}
+\noindent Il prodotto di proprietà dell'azienda è \textit{\gls{ergdisg}}, sistema \textit{\gls{erpg}}
 il cui insieme dei moduli copre ogni aspetto della conduzione aziendale.
 Alcuni di essi, inoltre, si possono interfacciare con dispositivi automatici presenti in azienda, come, ad esempio,
 linee di confezionamento o \textit{robot}.
@@ -70,11 +70,11 @@ i moduli vengono dunque raggruppati nelle seguenti categorie:
 \end{itemize}
 \begin{itemize}
     \item \textit{Web}
-    \item \textit{Business Intelligence}
+    \item \textit{\gls{businessintelligenceg}}
     \item Qualità
     \item Gestione Archivi e Documentazione
     \item Pianificazione Consegne
-    \item Area Mobile
+    \item Area \textit{Mobile}
 \end{itemize}
 \end{multicols}
 
@@ -84,14 +84,14 @@ Il prodotto viene prima creato a partire da uno \textit{standard}
 a cui vengono successivamente aggiunte le varie funzionalità.\\
 Il fatto di poter creare dei prodotti \textit{custom}, rende l'azienda altamente competitiva
 e proprio per questo motivo il contatto
-continuo con gli \textit{stakeholders} è molto importante sia per accontentare le loro richieste che per
-far evolvere \textit{ERGDIS} in una maniera tale da essere sempre in linea con le esigenze di mercato.
+continuo con gli \textit{\gls{stakeholdersg}} è molto importante sia per accontentare le loro richieste che per
+far evolvere \textit{\gls{ergdisg}} in una maniera tale da essere sempre in linea con le esigenze di mercato.
 
 
 %**************************************************************
 \section{L'idea}
 \noindent Lo \textit{stage} proposto consiste nella progettazione e nello sviluppo di un modulo \textit{software} volto
-ad assistere l'azienda nella fase di approvvigionamento dei prodotti dai propri fornitori, supportandola nel scegliere
+ad assistere l'azienda nella fase di approvvigionamento dei prodotti dai propri fornitori, supportandola nello scegliere
 da quale fornitore e quando acquistare i prodotti.
 \noindent Questa nuova funzionalità andrebbe ad ottimizzare un modulo già esistente facente parte della
 gestione dell'\textit{Area Acquisti}.\\
@@ -100,7 +100,7 @@ dell'effettiva copertura del fabbisogno del prodotto stesso. Questo dunque non g
 in relazione alle possibilità d'ordine fornite dagli appositi listini e calendario dei fornitori.\\
 
 \noindent Data la natura combinatoria del problema, il modulo dovrà fornire in tempi ragionevoli una "buona soluzione"
-del problema, ovvero tendente il più possibile all'ottimo, e dovrà integrarsi con l'intero sistema \textit{ERGDIS}.\\
+del problema, ovvero tendente il più possibile all'ottimo, e dovrà integrarsi con l'intero sistema \textit{\gls{ergdisg}}.\\
 
 \noindent È previsto inoltre che i dati su cui si è eseguita l'ottimizzazione e il confronto dei risultati vengano visualizzati tramite un'apposita
 interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo dell'azienda (\textit{\gls{.netg}} e \textit{\gls{devexpressg}}).
@@ -165,17 +165,17 @@ consiglia l'ordinamento della merce basandosi sull'ultima data d'ordine disponib
     \end{center}
 \end{table}
 
-\noindent Il modulo attuale avrebbe sicuramente ordinato entrambi gli articoli dal fornitore 46613,
+\noindent Il modulo attuale avrebbe sicuramente ordinato entrambi gli articoli dal fornitore \textit{46613},
 per un totale di 48.50€. Tuttavia è evidente che non è la soluzione ottima.
-Infatti sarrebbe stato opportuno ordinare l'articolo FEG10 dal fornitore 47040 e il
-FRE02 dal fornitore 46613, ottenendo dunque un totale di 47.50€.\\
+Infatti sarrebbe stato opportuno ordinare l'articolo \textit{FEG10} dal fornitore \textit{47040} e il
+\textit{FRE02} dal fornitore \textit{46613}, ottenendo dunque un totale di 47.50€.\\
 Sebbene possa sembrare un risparmio minimo e trascurabile, se applicato a enormi quantità, può
 diventare un notevole risparmio di risorse.\\
 
 \noindent Dopo queste considerazioni è chiaro come il modulo preesistente non garantisca necessariamente una soluzione ottima in termini economici ed è il motivo per il quale
 si è deciso di realizzare un nuovo modulo che vada a considerare determinati parametri.\\
 
-\noindent Oltre a ciò, i risultati devono poter essere visualizzati tramite una \textit{Windows form} in cui si dovrà far scegliere all'utente
+\noindent Oltre a ciò, i risultati devono poter essere visualizzati tramite una \textit{\gls{windowsformg}} in cui si dovrà far scegliere all'utente
 anche le date entro cui si vuole fare l'analisi.\\
 
 \noindent Per l'azienda questo \textit{stage} rappresenta un'opportunità per fornire un servizio aggiuntivo ai propri clienti, ma serve anche per avere una base
@@ -186,8 +186,8 @@ dalla quale poter eventualmente estendere il modulo con nuovi algoritmi più eff
 
 \noindent Di seguito vengono elencati tutti gli obiettivi previsti dallo \textit{stage}:
 \begin{itemize}
-    \item Analisi del contesto \textit{ERGDIS};
-    \item Studio dei principali algoritmi di ricerca operativa e ottimizzazione combinatoria;
+    \item Analisi del contesto \textit{\gls{ergdisg}};
+    \item Studio dei principali algoritmi di \gls{ricercaoperativag} e ottimizzazione combinatoria;
     \item Redazione di uno studio di fattibilità con integrazione di micro-moduli di \textit{test};
     \item Redazione di un'analisi dei requisiti;
     \item Sviluppo e codifica del modulo \textit{software} con le tecnologie utilizzate dall'azienda;
@@ -202,7 +202,7 @@ Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In par
 \begin{enumerate}
     \item \textbf{Comprensione e confronto degli algoritmi}\\[0.2cm]
     \textbf{Problema:} il progetto richiede un'ampia fase di studio che riguarda principalmente la teoria
-    delle tecniche per la risoluzione di problemi di ricerca operativa e ottimizzazione combinatoria.
+    delle tecniche per la risoluzione di problemi di \gls{ricercaoperativag} e ottimizzazione combinatoria.
     Questo poteva portare a presentarsi la possibilità di non comprendere fino in fondo l'algoritmo e poteva essere difficile cogliere e confrontare
     i pregi e difetti di ciascuno di essi.\\[0.2cm]
     \textbf{Soluzione:} è stato organizzato un incontro iniziale con il \textit{tutor}
@@ -214,7 +214,7 @@ Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In par
     Sebbene avessi delle basi abbastanza solide di \textit{C\#} derivanti dalla conoscenza di altri linguaggi
     quali \textit{C++} e \textit{Java}, venivano richieste tuttavia
     alcune tecnologie integrate nel linguaggio (\textit{LINQ}), anch'esse ignote. L'ambiente di sviluppo e
-    l'\textit{IDE} non erano mai stati utilizzati.\\[0.2cm]
+    l'\textit{\gls{ideg}} non erano mai stati utilizzati.\\[0.2cm]
     \textbf{Soluzione:} sono stati forniti dei riferimenti consigliati per l'autoapprendimento.
     Tuttavia qualsiasi dubbio ragionevolmente particolare
     poteva essere richiesto al \textit{tutor}. È stato effettuato insieme al \textit{tutor} il \textit{setup} dell'ambiente di sviluppo e la conseguente creazione dei \textit{database}.

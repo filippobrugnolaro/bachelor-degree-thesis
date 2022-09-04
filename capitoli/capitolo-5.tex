@@ -19,23 +19,23 @@ per verificare la correttezza del prodotto durante il progetto.
 sorgente che documentali.\\
 
 \noindent Il \textit{tutor} successivamente ha consigliato un piano di \textit{test} basato su una semplice
-esecuzione del programma variando i suoi parametri e su un'analisi
-dei risultati comparandoli con le rispettive query effettuate tramite
+esecuzione del programma, variando i suoi parametri, e su un'analisi
+dei risultati, comparandoli con le rispettive query effettuate tramite
 l'apposito sistema di interrogazione del \textit{database}.\\
 Questo perché l’attività di prova tramite dati reali comprendeva il lavoro
-di \textit{debug} permettendo di risparmiare tempo che sarebbe stato altrimenti
+di \textit{\gls{debugg}} permettendo di risparmiare tempo che sarebbe stato altrimenti
 impiegato nella scrittura di tutti \textit{test}.\\
 
 \noindent Tuttavia, non volendo rinunciare a una parte a mio avviso molto importante dello
-sviluppo, si è deciso di comune accordo di procedere nel seguente modo.\\
-Al termine di ogni milestone veniva effettuato il \textit{testing} tramite l'esecuzione del
+sviluppo, si è deciso di comune accordo di procedere nel seguente modo:
+al termine di ogni \textit{milestone} veniva effettuato il \textit{testing} tramite l'esecuzione del
 programma, venivano corretti tutti i \textit{bug} e venivano poi scritti i \textit{test} per tutte
 quelle parti di codice con i casi \textit{border line} in modo tale da riuscire a trovare anche
 piccoli errori non visibili durante l'esecuzione.\\
 
 \noindent Questa modalità è sembrata il giusto compromesso per non sprecare molto tempo nella
-fase di \textit{testing} e per fornire allo stesso tempo delle dimostrazione sotto forma di
-codice dei casi limite.
+fase di \textit{testing} e per fornire allo stesso tempo delle dimostrazioni, sotto forma di
+codice, dei casi limite.
 
 %**************************************************************
 \subsection{\textit{Testing} del modulo}
@@ -44,8 +44,8 @@ Essi sono stati scritti utilizzando il \textit{framework} di \textit{Microsoft} 
 in \textit{Visual Studio} e come metodologia di approccio è stato usato il \textit{pattern AAA} (\textit{Arrange}, \textit{Act}, \textit{Assert}).\\
 Ogni \textit{test} effettua i seguenti passi:
 \begin{enumerate}
-    \item \textbf{\textit{Arrange}:} vengono definite e riempite le struttura dati del problema con dei
-    dai creati \textit{ad hoc};
+    \item \textbf{\textit{Arrange}:} vengono definite e riempite le strutture dati del problema con dei
+    dati creati \textit{ad hoc};
     \item \textbf{\textit{Act}:} viene effettuata la chiamata che agisce sulle strutture create;
     \item \textbf{\textit{Assert}:} vengono fatte delle asserzioni, verificando dunque che i valori di \textit{output} 
     siano quelli attesi.
@@ -73,8 +73,8 @@ durante l'analisi iniziale.
 Tutti i requisiti obbligatori sono stati raggiunti e rappresentavano la condizione
 necessaria per superare l'attività di \textit{stage}.\\
 Alcuni requisiti desiderabili e facoltativi non sono stati soddisfatti a causa della mancanza di tempo.
-Tuttavia si è preferito concentrarsi su alcuni requisiti e soddisfarli pienamente
-piuttosto che eseguirli tutti in maniera non esaustiva.
+Tuttavia si è preferito concentrarsi solo su alcuni di essi e soddisfarli pienamente
+piuttosto che eseguirli tutti in modo non esaustivo.\\
 Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qualitativi-validazione}, \ref{tab:requisiti-di-performance-validazione} e \ref{tab:requisiti-di-vincolo-validazione} esposte di seguito viene presentato il risultato della validazione.
 
 \begin{center}
@@ -183,7 +183,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qua
     \reqval{R47-V-O}{La \textit{form} e l'algoritmo devono essere codificate in $C\#$}{-}{Soddisfatto}
     \reqval{R48-V-O}{La versione utilizzata di $C\#$ deve essere $7.3$}{-}{Soddisfatto}
     \reqval{R49-V-O}{La versione utilizzata di \textit{.NET Framework} deve essere $4.8$}{-}{Soddisfatto}
-    \reqval{R50-V-O}{L'algoritmo finale deve fonire una soluzione ammissibile}{-}{Soddisfatto}
+    \reqval{R50-V-O}{L'algoritmo finale deve fonire una soluzione \gls{ammissibileg}}{-}{Soddisfatto}
     \end{longtable}
     \end{center}%
 
@@ -198,7 +198,7 @@ Dato che il \textit{database} fornitomi dall'azienda conteneva delle incongruenz
 delle rispettive tabelle, si è deciso di raccogliere le rilevazioni su un circoscritto
 numero di articoli.\\
 Questi infatti sono stati prima verificati tramite l'utilizzo del
-sistema di query integrato in \textit{ERGDIS} in modo tale da non ritrovarsi risultati errati
+sistema di query integrato in \textit{\gls{ergdisg}} in modo tale da non ritrovarsi risultati errati
 a causa di circostanze non dipendenti dall'algoritmo.
 \paragraph{Variazione numero massimo di iterazioni}\hfill\\
 Dati in \textit{input}:
@@ -231,9 +231,10 @@ Dati in \textit{input}:
  \end{figure}
  \newpage
 \noindent Si osservi la tabella \ref{tab:test-max-it}.\\
+
 Lo scostamento percentuale dei
-totali inizialmente aumenta per poi rimanere in stallo raggiunto un certo numero di iterazioni.
-Questo accade poichè molto probabilmente si è raggiunto un buon minimo locale e la probabilità
+totali inizialmente aumenta, per poi rimanere in stallo raggiunto un certo numero di iterazioni.
+Questo accade poichè, molto probabilmente, si è raggiunto un buon minimo locale e la probabilità
 di trovare una mossa migliorante diminuisce vertiginosamente all'aumentare del numero di
 iterazioni effettuate.
 
@@ -273,11 +274,12 @@ Dati in \textit{input}:
 \noindent Si osservi la tabella \ref{tab:test-risoluzione}.\\
 
 \noindent La scelta peggiore per
-la risoluzione dei minimi è l'utilizzo del metodo proporzionale. Questo risultato non dovrebbe essere una sorpresa. Infatti, nel controllo del minimo relativo
-al singolo ordine, si ha una più alta probabilità di aumentare di uno la quantità di un ordine
+la risoluzione dei minimi è l'utilizzo del metodo proporzionale. Questo risultato non dovrebbe essere una sorpresa.
+Infatti, nel controllo del minimo relativo
+al singolo ordine, si ha una più alta probabilità di aumentare di una unità la quantità di un ordine
 con prezzo unitario che non corrisponde al minimo.\\
 
 \noindent Il ricompattamento invece provoca lo scostamento maggiore di tutti e questo
-è abbastanza ovvio in quanto il ricompattamento è una mossa che è utile per evitare di comprare
-articoli in eccesso andando così a ridurre le scorte di magazzino (e conseguentemente anche
+è abbastanza ovvio in quanto è una mossa utile per evitare di comprare
+articoli in eccesso, andando così a ridurre le scorte di magazzino (e conseguentemente anche
 il prezzo totale speso).\\
