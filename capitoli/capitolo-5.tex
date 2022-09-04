@@ -7,7 +7,7 @@
 \chapter{Verifica e validazione}
 \label{cap:verifica-validazione}
 
-\noindent \intro{In questo capitolo vengono descritti i processi di verifica e validazione del prodotto, descrivendo i tool utilizzati e le metodologie applicate per valutare il corretto funzionamento e la qualità del prodotto.}\\
+\noindent \intro{In questo capitolo vengono descritti i processi di verifica e validazione del prodotto, descrivendo i \textit{tool} utilizzati e le metodologie applicate per valutare il corretto funzionamento e la qualità del prodotto.}\\
 
 %**************************************************************
 \section{Verifica}
@@ -15,40 +15,40 @@
 per verificare la correttezza del prodotto durante il progetto.
 
 \subsection{Modalità}
-\noindent Il progetto di stage prevedeva inizialmente lo sviluppo di test sia in codice
+\noindent Il progetto di \textit{stage} prevedeva inizialmente lo sviluppo di \textit{test} sia in codice
 sorgente che documentali.\\
 
-\noindent Il tutor successivamente ha consigliato un piano di test basato su una semplice
+\noindent Il \textit{tutor} successivamente ha consigliato un piano di \textit{test} basato su una semplice
 esecuzione del programma variando i suoi parametri e su un'analisi
 dei risultati comparandoli con le rispettive query effettuate tramite
-l'apposito sistema di interrogazione del database.\\
+l'apposito sistema di interrogazione del \textit{database}.\\
 Questo perché l’attività di prova tramite dati reali comprendeva il lavoro
-di debug permettendo di risparmiare tempo che sarebbe stato altrimenti
-impiegato nella scrittura di tutti test.\\
+di \textit{debug} permettendo di risparmiare tempo che sarebbe stato altrimenti
+impiegato nella scrittura di tutti \textit{test}.\\
 
 \noindent Tuttavia, non volendo rinunciare a una parte a mio avviso molto importante dello
 sviluppo, si è deciso di comune accordo di procedere nel seguente modo.\\
-Al termine di ogni milestone veniva effettuato il testing tramite l'esecuzione del
-programma, venivano corretti tutti i bug e venivano poi scritti i test per tutte
-quelle parti di codice con i casi border line in modo tale da riuscire a trovare anche
+Al termine di ogni milestone veniva effettuato il \textit{testing} tramite l'esecuzione del
+programma, venivano corretti tutti i \textit{bug} e venivano poi scritti i \textit{test} per tutte
+quelle parti di codice con i casi \textit{border line} in modo tale da riuscire a trovare anche
 piccoli errori non visibili durante l'esecuzione.\\
 
 \noindent Questa modalità è sembrata il giusto compromesso per non sprecare molto tempo nella
-fase di testing e per fornire allo stesso tempo delle dimostrazione sotto forma di
+fase di \textit{testing} e per fornire allo stesso tempo delle dimostrazione sotto forma di
 codice dei casi limite.
 
 %**************************************************************
-\subsection{Testing del modulo}
-\noindent Per verificare la correttezza del codice sono stati definiti dei test di unità.\\
-Essi sono stati scritti utilizzando il framework di Microsoft MSTest integrato tramite estensioni
-in Visual Studio e come metodologia di approccio è stato usato il pattern AAA (Arrange, Act, Assert).\\
-Ogni test effettua i seguenti passi:
+\subsection{\textit{Testing} del modulo}
+\noindent Per verificare la correttezza del codice sono stati definiti dei \textit{test} di unità.\\
+Essi sono stati scritti utilizzando il \textit{framework} di \textit{Microsoft} \textit{MSTest} integrato tramite estensioni
+in \textit{Visual Studio} e come metodologia di approccio è stato usato il \textit{pattern AAA} (\textit{Arrange}, \textit{Act}, \textit{Assert}).\\
+Ogni \textit{test} effettua i seguenti passi:
 \begin{enumerate}
-    \item \textbf{Arrange:} vengono definite e riempite le struttura dati del problema con dei
-    dai creati ad hoc 
-    \item \textbf{Act:} viene effettuata la chiamata che agisce sulle strutture create
-    \item \textbf{Assert:} vengono fatte delle asserzioni, verificando dunque che i valori di output 
-    siano quelli attesi
+    \item \textbf{\textit{Arrange}:} vengono definite e riempite le struttura dati del problema con dei
+    dai creati \textit{ad hoc};
+    \item \textbf{\textit{Act}:} viene effettuata la chiamata che agisce sulle strutture create;
+    \item \textbf{\textit{Assert}:} vengono fatte delle asserzioni, verificando dunque che i valori di \textit{output} 
+    siano quelli attesi.
 \end{enumerate}
 
 
@@ -61,17 +61,17 @@ Ogni test effettua i seguenti passi:
 \noindent In questa sezione viene descritto il processo di validazione del progetto.
 %**************************************************************
 \subsection{Codice}
-\noindent La validazione del codice è stata effettuata dal \textit{tutor} aziendale,
+\noindent La validazione del codice è stata effettuata dal \textit{\textit{tutor}} aziendale,
 al quale veniva periodicamente illustrato il codice ad alto livello.
 In ogni fase venivano effettuate delle critiche costruttive e dati dei consigli
 da applicare nella fase successiva. Questo tipo di validazione mirava a verificare che il codice avesse certe caratteristiche in termini di leggibilità e correttezza.
 %**************************************************************
 \subsection{Requisiti}
 \label{sec:validazione-requisiti}
-\noindent Attraverso l’attività di testing è stato validato anche il raggiungimento dei requisiti rilevati
+\noindent Attraverso l’attività di \textit{testing} è stato validato anche il raggiungimento dei requisiti rilevati
 durante l'analisi iniziale.
 Tutti i requisiti obbligatori sono stati raggiunti e rappresentavano la condizione
-necessaria per superare l'attività di stage.\\
+necessaria per superare l'attività di \textit{stage}.\\
 Alcuni requisiti desiderabili e facoltativi non sono stati soddisfatti a causa della mancanza di tempo.
 Tuttavia si è preferito concentrarsi su alcuni requisiti e soddisfarli pienamente
 piuttosto che eseguirli tutti in maniera non esaustiva.
@@ -84,7 +84,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qua
     \label{tab:requisiti-funzionali-validazione}
     \\ \hline
     \rowcolor{lighter-grayer}
-    \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} & \centering \textbf{Risultato} \arraybackslash \\
+    \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{\textit{Use Case}} & \centering \textbf{Risultato} \arraybackslash \\
     \hline 
     \reqval{R1-F-O}{L'utente deve poter inserire i dati necessari per l'ottimizzazione}{\hyperref[uc:inserimento-dati]{UC1}}{Soddisfatto}
     \reqval{R2-F-O}{L'utente deve poter inserire la data di inizio previsione}{\hyperref[uc:inserimento-data-inizio-prev]{UC1.1}}{Soddisfatto}
@@ -135,16 +135,16 @@ Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qua
     \label{tab:requisiti-qualitativi-validazione}
     \\ \hline
     \rowcolor{lighter-grayer}
-    \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} & \centering \textbf{Risultato} \arraybackslash \\
+    \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{\textit{Use Case}} & \centering \textbf{Risultato} \arraybackslash \\
     \hline 
     \reqval{R37-Q-O}{Deve essere redatto un documento che descrive l'architettura del modulo}{-}{Soddisfatto}
     \reqval{R38-Q-O}{Deve essere redatto un documento che spieghi le scelte implementative effettuate}{-}{Soddisfatto}
     \reqval{R39-Q-O}{Il codice deve essere documentato tramite commenti}{-}{Soddisfatto}
-    \reqval{R40-Q-D}{L'algoritmo finale scelto deve generare dei log di chiamata per manutenzioni future}{-}{Soddisfatto}
+    \reqval{R40-Q-D}{L'algoritmo finale scelto deve generare dei \textit{log} di chiamata per manutenzioni future}{-}{Soddisfatto}
     \reqval{R41-Q-D}{L'algoritmo di ottimizzazione deve essere estensibile}{-}{Soddisfatto}
-    \reqval{R42-Q-D}{I test devono coprire il 60\% del codice}{-}{Non Soddisfatto}
+    \reqval{R42-Q-D}{I \textit{test} devono coprire il 60\% del codice}{-}{Non Soddisfatto}
     \reqval{R43-Q-D}{L'algoritmo utilizza differenti tecniche di ottimizzazione}{-}{Non Soddisfatto}
-    \reqval{R44-Q-F}{L'algoritmo utilizza il multithreading per cercare più soluzioni ammissibili}{-}{Non Soddisfatto}
+    \reqval{R44-Q-F}{L'algoritmo utilizza il \textit{multithreading} per cercare più soluzioni ammissibili}{-}{Non Soddisfatto}
     \end{longtable}
     \end{center}%
     
@@ -159,7 +159,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qua
     \label{tab:requisiti-di-performance-validazione}
     \\ \hline
     \rowcolor{lighter-grayer}
-    \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} & \centering \textbf{Risultato} \arraybackslash \\
+    \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{\textit{Use Case}} & \centering \textbf{Risultato} \arraybackslash \\
     \hline 
     \reqval{R45-P-O}{L'algoritmo di ottimizzazione deve restituire un risultato entro 10 minuti dal tempo di lancio dello stesso}{-}{Soddisfatto}
     \end{longtable}
@@ -177,7 +177,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qua
     \label{tab:requisiti-di-vincolo-validazione}
     \\ \hline
     \rowcolor{lighter-grayer}
-    \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} & \centering \textbf{Risultato} \arraybackslash \\
+    \centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{\textit{Use Case}} & \centering \textbf{Risultato} \arraybackslash \\
     \hline  
     \reqval{R46-V-O}{La \textit{form} deve essere eseguita sull'ambiente di esecuzione \textit{.NET Framework}}{-}{Soddisfatto}
     \reqval{R47-V-O}{La \textit{form} e l'algoritmo devono essere codificate in $C\#$}{-}{Soddisfatto}
@@ -187,29 +187,29 @@ Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qua
     \end{longtable}
     \end{center}%
 
-\subsection{Risultati dei test}
-\noindent Di seguito vengono illustrati alcuni risultati riguardanti i test effettuati sulla
-tabu search.  cercando di variare:
+\subsection{Risultati dei \textit{test}}
+\noindent Di seguito vengono illustrati alcuni risultati riguardanti i \textit{test} effettuati sulla
+\textit{Tabu search}, cercando di variare:
 \begin{enumerate}
     \item il numero di iterazioni massime
     \item la scelta della risoluzione dei minimi
 \end{enumerate}
-Dato che il database fornitomi dall'azienda conteneva delle incongruenze fra i campi dati
+Dato che il \textit{database} fornitomi dall'azienda conteneva delle incongruenze fra i campi dati
 delle rispettive tabelle, si è deciso di raccogliere le rilevazioni su un circoscritto
 numero di articoli.\\
 Questi infatti sono stati prima verificati tramite l'utilizzo del
-sistema di query integrato in Ergdis in modo tale da non ritrovarsi risultati errati
+sistema di query integrato in \textit{ERGDIS} in modo tale da non ritrovarsi risultati errati
 a causa di circostanze non dipendenti dall'algoritmo.
 \paragraph{Variazione numero massimo di iterazioni}\hfill\\
-Dati in input:
+Dati in \textit{input}:
 \begin{itemize}
     \item numero massimo di iterazioni non miglioranti: 2500
-    \item grandezza della tabu list: 200
+    \item grandezza della \textit{Tabu list}: 200
     \item tempo di esecuzione massimo: 10 minuti (da requisito \hyperref[tab:requisiti-di-performance]{R45-P-O})
 \end{itemize}
 \begin{table}[!h]
     \centering
-    \caption{Test - variazione del \\numero massimo di iterazioni}
+    \caption{\textit{Test} - variazione del \\numero massimo di iterazioni}
     \label{tab:test-max-it}
     \begin{tabular}{|c|c|c|c|}
     \hline
@@ -238,26 +238,25 @@ di trovare una mossa migliorante diminuisce vertiginosamente all'aumentare del n
 iterazioni effettuate.
 
 \paragraph{Confronto fra le scelte di risoluzione dei minimi}\hfill\\\\
-Dati in input:
+Dati in \textit{input}:
 \begin{itemize}
-    \item tipo di inizializzazione: HighestArtRequestByArt
+    \item tipo di inizializzazione: \textit{HighestArtRequestByArt}
     \item numero massimo di iterazioni: 20000
     \item numero massimo di iterazioni non miglioranti: 2500
-    \item grandezza della tabu list: 200
-    \item scelta di risoluzione dei minimi: Min/Max
+    \item grandezza della \textit{Tabu list}: 200
     \item tempo di esecuzione massimo: 10 minuti (da requisito \hyperref[tab:requisiti-di-performance]{R45-P-O})
 \end{itemize}
 
 \begin{table}[!h]
     \centering
-    \caption{Test - scelta di risoluzione dei minimi}
+    \caption{\textit{Test} - scelta di risoluzione dei minimi}
     \label{tab:test-risoluzione}
     \begin{tabular}{|c|c|c|c|}
     \hline
     \rowcolor{lighter-grayer}
     \textbf{Risoluzione} & \textbf{PreTot (€)} & \centering \textbf{PostTot (€)} & \centering \textbf{Scostamento (\%)} \arraybackslash \\
     \hline
-    Min/Max & \multirow{3}{*}{24.876,15} & 24.418,43 & 1,84 \arraybackslash \\ \cline{1-1} \cline{3-4}
+    \textit{Min/Max} & \multirow{3}{*}{24.876,15} & 24.418,43 & 1,84 \arraybackslash \\ \cline{1-1} \cline{3-4}
     \valtest{Proporzionale}{24.465,69}{1,65}
     Ricompattamento & & 24.386,09 & 1,97 \arraybackslash \\ \hline
     \end{tabular}

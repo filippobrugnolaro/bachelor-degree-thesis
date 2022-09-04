@@ -25,10 +25,13 @@
 %**************************************************************
 \section{L'azienda}
 
-\noindent{\myCompany}\footnote[1]{Sito ufficiale: \url{https://www.ergon.it/}}(da qui in poi "\textit{Ergon}") è un'azienda italiana, fondata nel 1988, 
+\noindent{\myCompany}\footnote[1]{Sito ufficiale: \url{https://www.ergon.it/}}(da qui in poi
+\textit{"Ergon Informatica"}) è un'azienda italiana, fondata nel 1988, 
 con sede a Castelfranco Veneto.\\
-Essa si occupa principalmente di soluzioni gestionali per piccole e medie imprese e dello sviluppo di \textit{software \gls{erpg}} per i settori dell'alimentare e dei trasporti,
-ma completa l'offerta con la vendita di prodotti hardware, servizi \textit{web} e \textit{hosting}, nonché con progetti di \textit{\gls{serverconsolidationg}} e virtualizzazione di
+Essa si occupa principalmente di soluzioni gestionali per piccole e medie imprese e dello sviluppo di
+\textit{software \gls{erpg}} per i settori dell'alimentare e dei trasporti,
+ma completa l'offerta con la vendita di prodotti
+\textit{hardware}, servizi \textit{web} e \textit{hosting}, nonché con progetti di \textit{\gls{serverconsolidationg}} e virtualizzazione di
 sistemi.
 L'azienda inoltre si è sviluppata in maniera costante negli anni e oggi può vantare una posizione di tutto rispetto tra le aziende dello stesso settore.
 Attualmente fanno parte della stessa gestione:
@@ -47,7 +50,7 @@ Il logo dell'azienda è illustrato in \hyperref[fig:logo]{Figura 1.1}.
     \label{fig:logo}
 \end{figure}
 \vfill
-\noindent Il prodotto di proprietà dell'azienda è \textit{ERGDIS}, sistema \gls{erpg}
+\noindent Il prodotto di proprietà dell'azienda è \textit{ERGDIS}, sistema \textit{\gls{erpg}}
 il cui insieme dei moduli copre ogni aspetto della conduzione aziendale.
 Alcuni di essi, inoltre, si possono interfacciare con dispositivi automatici presenti in azienda, come, ad esempio,
 linee di confezionamento o \textit{robot}.
@@ -104,7 +107,7 @@ interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo de
 
 
 %**************************************************************
-\section{Descrizione dello stage}
+\section{Descrizione dello \textit{stage}}
 
 %**************************************************************
 \subsection{Introduzione}
@@ -113,10 +116,10 @@ interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo de
 a sostenere.\\
 L'algoritmo dovrà ottimizzare i risultati calcolati da un modulo preesistente, facente parte della gestione dell' \textit{Area Acquisti}, il quale
 consiglia l'ordinamento della merce basandosi sull'ultima data d'ordine disponibile.\\
-\noindent La scelta dell'attuale modulo infatti porterebbe queste conseguenze:
+\noindent La scelta dell'attuale modulo infatti porterebbe a non considerare:
 \begin{itemize}
-    \item \textbf{Inconsiderazione dell'andamento del mercato}: i prezzi sono variabili e dipendono dal periodo nel quale si comprano i prodotti.
-    \item \textbf{Inconsiderazione dei bonus}: i fornitori possono garantire dei bonus in base al raggiungimento di determinati obiettivi di rapporti commerciali.
+    \item \textbf{l'andamento del mercato}: i prezzi sono variabili e dipendono dal periodo nel quale si comprano i prodotti.
+    \item \textbf{i bonus}: i fornitori possono garantire dei bonus in base al raggiungimento di determinati obiettivi di rapporti commerciali.
 \end{itemize}
 \noindent Facciamo un esempio per chiarire in maniera esplicita perchè si devono andare a considerare parametri come questi. Il problema
 è molto semplificato e verrà discusso nei capitoli successivi.\\
@@ -172,10 +175,10 @@ diventare un notevole risparmio di risorse.\\
 \noindent Dopo queste considerazioni è chiaro come il modulo preesistente non garantisca necessariamente una soluzione ottima in termini economici ed è il motivo per il quale
 si è deciso di realizzare un nuovo modulo che vada a considerare determinati parametri.\\
 
-\noindent Oltre a ciò, i risultati devono poter essere visualizzati tramite una WinForm in cui si dovrà far scegliere all'utente
+\noindent Oltre a ciò, i risultati devono poter essere visualizzati tramite una \textit{Windows form} in cui si dovrà far scegliere all'utente
 anche le date entro cui si vuole fare l'analisi.\\
 
-\noindent Per l'azienda questo stage rappresenta un'opportunità per fornire un servizio aggiuntivo ai propri clienti, ma serve anche per avere una base
+\noindent Per l'azienda questo \textit{stage} rappresenta un'opportunità per fornire un servizio aggiuntivo ai propri clienti, ma serve anche per avere una base
 dalla quale poter eventualmente estendere il modulo con nuovi algoritmi più efficienti.
 %**************************************************************
 \newpage
@@ -185,7 +188,7 @@ dalla quale poter eventualmente estendere il modulo con nuovi algoritmi più eff
 \begin{itemize}
     \item Analisi del contesto \textit{ERGDIS};
     \item Studio dei principali algoritmi di ricerca operativa e ottimizzazione combinatoria;
-    \item Redazione di uno studio di fattibilità con integrazione di micro-moduli di test;
+    \item Redazione di uno studio di fattibilità con integrazione di micro-moduli di \textit{test};
     \item Redazione di un'analisi dei requisiti;
     \item Sviluppo e codifica del modulo \textit{software} con le tecnologie utilizzate dall'azienda;
     \item Redazione di documentazione tecnica riguardante le scelte implementative e architetturali effettuate;
@@ -193,32 +196,37 @@ dalla quale poter eventualmente estendere il modulo con nuovi algoritmi più eff
 \end{itemize}
 %**************************************************************
 \subsection{Analisi preventiva dei rischi}
-Durante la fase iniziale dello \textit{stage} sono stati rilevati dei possibili rischi che avrebbero potuto presentarsi
+\noindent Durante la fase iniziale dello \textit{stage} sono stati rilevati dei possibili rischi che avrebbero potuto presentarsi
 durante il percorso del progetto.\\
 Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In particolare:
 \begin{enumerate}
     \item \textbf{Comprensione e confronto degli algoritmi}\\[0.2cm]
     \textbf{Problema:} il progetto richiede un'ampia fase di studio che riguarda principalmente la teoria
-    di tecniche per la risoluzione di problemi di ricerca operativa e ottimizzazione combinatoria.
+    delle tecniche per la risoluzione di problemi di ricerca operativa e ottimizzazione combinatoria.
     Questo poteva portare a presentarsi la possibilità di non comprendere fino in fondo l'algoritmo e poteva essere difficile cogliere e confrontare
     i pregi e difetti di ciascuno di essi.\\[0.2cm]
-    \textbf{Soluzione:} è stato organizzato un incontro iniziale con il tutor per fornire una base da cui poi iniziare una ricerca più approfondita.
+    \textbf{Soluzione:} è stato organizzato un incontro iniziale con il \textit{tutor}
+    per fornire una base da cui poi iniziare una ricerca più approfondita.
     Sono state fornite anche delle dispense utili per rafforzare la base di partenza.
     \item \textbf{Tecnologie e ambiente di sviluppo}\\[0.2cm]
-    \textbf{Problema:} venivano richieste alcune tecnologie, come per esempio \textit{Entity Framework} o \textit{\gls{devexpressg}} a me assolutamente ignote.
-    Sebbene avessi delle basi abbastanza solide di \textit{C\#} derivanti dalla conoscenza di altri linguaggi quali \textit{C++} e \textit{Java}, venivano richieste tuttavia
-    alcune tecnologie integrate nel linguaggio (\textit{LINQ}), anch'esse ignote. L'ambiente di sviluppo e l'\textit{IDE} non erano mai stati utilizzati.\\[0.2cm]
-    \textbf{Soluzione:} sono stati forniti dei riferimenti consigliati per l'autoapprendimento. Tuttavia qualsiasi dubbio ragionevolmente particolare
-    poteva essere richiesto al tutor. È stato effettuato insieme al tutor il \textit{setup} dell'ambiente di sviluppo e la conseguente creazione dei \textit{database}.
-    \item \textbf{Calibrazione dei parametri e funzione obiettivo}\\[0.2cm]
+    \textbf{Problema:} venivano richieste alcune tecnologie, come per esempio \textit{Entity Framework} o
+    \textit{\gls{devexpressg}} a me assolutamente ignote.
+    Sebbene avessi delle basi abbastanza solide di \textit{C\#} derivanti dalla conoscenza di altri linguaggi
+    quali \textit{C++} e \textit{Java}, venivano richieste tuttavia
+    alcune tecnologie integrate nel linguaggio (\textit{LINQ}), anch'esse ignote. L'ambiente di sviluppo e
+    l'\textit{IDE} non erano mai stati utilizzati.\\[0.2cm]
+    \textbf{Soluzione:} sono stati forniti dei riferimenti consigliati per l'autoapprendimento.
+    Tuttavia qualsiasi dubbio ragionevolmente particolare
+    poteva essere richiesto al \textit{tutor}. È stato effettuato insieme al \textit{tutor} il \textit{setup} dell'ambiente di sviluppo e la conseguente creazione dei \textit{database}.
+    \item \textbf{Calibrazione dei parametri e funzione di valutazione}\\[0.2cm]
     \textbf{Problema:} dopo la scelta e l'implementazione dell'algoritmo, è molto importante:
     \begin{itemize}
-        \item definire una funzione obiettivo che vada a descrivere in maniera "buona" l'andamento dell'algoritmo stesso;
+        \item definire una funzione di valutazione che vada a descrivere in maniera "buona" l'andamento dell'algoritmo stesso;
         \item calibrare i parametri in base allo spazio delle soluzioni del problema preso in esame.
     \end{itemize}
     Entrambe sono azioni molto delicate che possono compromettere il funzionamento stesso dell'algoritmo anche
     se implementato correttamente.\\[0.2cm]
-    \textbf{Soluzione:} cercare una costruzione e calibrazione per passi e presentarle in una discussione con il tutor,
+    \textbf{Soluzione:} cercare una costruzione e calibrazione per passi e presentarle in una discussione con il \textit{tutor},
     in modo tale da creare una \textit{baseline} su cui basarsi per continuare con i passi successivi.
 
 

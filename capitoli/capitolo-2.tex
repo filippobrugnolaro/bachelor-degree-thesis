@@ -16,20 +16,20 @@ soluzioni analizzate}\\
 \section{Introduzione allo studio}
 \noindent Lo studio di fattibilità rappresenta una delle parti più corpose
 del progetto in quanto viene richiesto un ampio periodo di autoapprendimento
-dei i principali algoritmi di ricerca operativa e di ottimizzazione combinatoria,
+dei principali algoritmi di ricerca operativa e di ottimizzazione combinatoria,
 seguito da un'ulteriore approfondimento attraverso la consultazione di vari \textit{paper}\footnote[2]{Verranno citati nella bibliografia solo quelli ritenuti più significativi}
-disponibili online.\\
+disponibili \textit{online}.\\
 
 \noindent Questa prima parte definirà una prima scelta tra gli algoritmi disponibili in base alle informazioni reperite.\\
 
-\noindent La seconda parte invece consiste nello sviluppo di micro-moduli di test sulle scelte effettuate
+\noindent La seconda parte invece consiste nello sviluppo di micro-moduli di \textit{test} sulle scelte effettuate
 precedentemente in modo tale da poter effettuare una analisi ed un confronto accurati basati su parametri che verranno
 definiti successivamente.\\
 
 \noindent Considerando anche il rapporto tra costi e risorse, le soluzioni che sono state identificate come le più plausibili e sottoposte a uno studio più approfondito sono:
 \begin{enumerate}
-    \item Algoritmo greedy
-    \item Tabu search
+    \item Algoritmo \textit{greedy}
+    \item \textit{Tabu search}
     \item Algoritmo genetico
 \end{enumerate}
 
@@ -49,24 +49,24 @@ Vengono elencati in seguito i parametri:
 %**************************************************************
 \section{Soluzioni proposte}
 \noindent Per ogni soluzione proposta viene effettuata una breve introduzione, seguita da vantaggi e svantaggi.
-Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di test si basano su un problema di \textit{string replacement}
-con input di lunghezza uguale.\\
+Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di \textit{test} si basano su un problema di \textit{string replacement}
+con \textit{input} di lunghezza uguale.\\
 Si è volutamente scelto questo tipo di problema molto semplice poichè, se i micro-moduli fossero stati sviluppati intercalandoli all'interno del contesto,
 si avrebbe avuto un enorme spreco di risorse temporali.
 
 %**************************************************************
-\subsection{Algoritmo Greedy}
+\subsection{Algoritmo \textit{Greedy}}
 \noindent L'algoritmo \textit{greedy} ("\textit{goloso}") viene così chiamato poichè basa la ricerca di una
 soluzione ammissibile ottima sulla scelta, secondo un criterio predefinto, della miglior soluzione disponibile ad ogni passo senza
 rimettere in discussione la scelta appena effettuata.\\
-Di seguito viene presentato lo pseudocodice dell'algoritmo greedy.
+Di seguito viene presentato lo pseudocodice dell'algoritmo \textit{greedy}.
 
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
-    \caption{Pseudocodice string replacement - Algoritmo Greedy}
+    \caption{Pseudocodice \textit{string replacement} - Algoritmo \textit{greedy}}
     \vspace{0.1cm}
-    \hspace*{\algorithmicindent} \textbf{Input:} {$stringa\_corretta$}, {$stringa\_errata$}\\
-    \hspace*{\algorithmicindent} \textbf{Output:} {$funzione\_obiettivo$}
+    \hspace*{\algorithmicindent} \textbf{\textit{Input}:} {$stringa\_corretta$}, {$stringa\_errata$}\\
+    \hspace*{\algorithmicindent} \textbf{\textit{Output}:} {$funzione\_obiettivo$}
     \begin{algorithmic}[1]
         \Procedure{My\_Greedy\_Algorithm}{$stringa\_corretta$, $stringa\_errata$}
         \State {$array_{str\_err} \gets generate\_array(stringa\_errata)$}
@@ -86,7 +86,7 @@ Di seguito viene presentato lo pseudocodice dell'algoritmo greedy.
 \end{algorithm}
 
 \noindent \paragraph{Osservazioni}\hfill\\
-Come si può notare, l'algoritmo greedy è molto intuitivo e, in questo caso,
+Come si può notare, l'algoritmo \textit{greedy} è molto intuitivo e, in questo caso,
 anche banale.
 Infatti, ad ogni iterazione, definiti $x$ come l'elemento in posizione $pos$ nella
 stringa errata e $y$ come l'elemento, nella stessa posizione, nella stringa corretta,
@@ -95,30 +95,30 @@ in quel momento, ovvero $y$ stesso.
 
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
-    \item Bassa complessità implementativa
-    \item Bassa complessità computazionale dell'algoritmo
-    \item Possibilità di effettuare scelte greedy differenti in problemi di vaste dimensioni
+    \item Bassa complessità implementativa;
+    \item Bassa complessità computazionale dell'algoritmo;
+    \item Possibilità di effettuare scelte \textit{greedy} differenti in problemi di vaste dimensioni.
 \end{itemize}
 \noindent \paragraph{Aspetti negativi}
 \begin{itemize}
     \item Possibilmente inefficace, può non raggiungere l'ottimo globale a causa
-    delle scelte greedy effettuate ad ogni iterazione che possono scartare soluzioni
-    migliori nel lungo periodo
+    delle scelte \textit{greedy} effettuate ad ogni iterazione che possono scartare soluzioni
+    migliori nel lungo periodo.
 \end{itemize}
 %**************************************************************
-\subsection{Tabu Search}
-\noindent La Tabu Search\footnote[3]{Per una descrizione più accurata si legga la sezione \hyperref[sec:tabu-search]{4.4}} è un metodo, classificato come \textit{Trajectory Method}, basato su ricerca locale
+\subsection{\textit{Tabu search}}
+\noindent La \textit{Tabu search}\footnote[3]{Per una descrizione più accurata si legga la sezione \hyperref[sec:tabu-search]{4.4}} è un metodo, classificato come \textit{Trajectory Method}, basato su ricerca locale
 in grado di eludere l'intrappolamento del metodo in un minimo locale sfruttando costantemente la memoria.\\
-In particolare, oltre a ricordare la migliore soluzione corrente, vengono salvate, in quella che viene definita \textit{Tabu List},
+In particolare, oltre a ricordare la migliore soluzione corrente, vengono salvate, in quella che viene definita \textit{Tabu list},
 anche le {$k$} mosse precedentemente effettuate in modo tale da non incombere nel rischio di un ciclo nel breve periodo.\\
 Viene dunque orientata la ricerca tramite la modifica del vicinato in funzione della storia dell'esplorazione, ma anche tramite la diversificazione dei sottospazi di ricerca tramite il passaggio per soluzioni non ammissibili.\\
-Di seguito viene presentato lo pseudocodice della tabu search.
+Di seguito viene presentato lo pseudocodice della \textit{Tabu search}.
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
-    \caption{Pseudocodice string replacement - Tabu Search}
+    \caption{Pseudocodice \textit{string replacement} - \textit{Tabu search}}
     \vspace{0.1cm}
-    \hspace*{\algorithmicindent} \textbf{Input:} {$stringa\_corretta$}, {$stringa\_errata$}, {$capienza\_tabu\_list$}, {$max\_iterazioni$}\\
-    \hspace*{\algorithmicindent} \textbf{Output:} {$funzione\_obiettivo$}
+    \hspace*{\algorithmicindent} \textbf{\textit{Input}:} {$stringa\_corretta$}, {$stringa\_errata$}, {$capienza\_tabu\_list$}, {$max\_iterazioni$}\\
+    \hspace*{\algorithmicindent} \textbf{\textit{Output}:} {$funzione\_obiettivo$}
     \begin{algorithmic}[1]
         \Procedure{My\_Tabu\_Search}{$stringa\_corretta$, $stringa\_errata$, $capienza\_tabu\_list$, $max\_iterazioni$}
         \State {$sol_{curr} \gets stringa\_errata$}
@@ -158,24 +158,24 @@ esplorare il vicinato corrente ed è dunque necessario crearne uno nuovo a parti
 \newpage
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
-    \item Bassa complessità implementativa
-    \item Bassa complessità computazionale dell'algoritmo
-    \item Velocità di raggiungimento del minimo locale
-    \item Fuga da ottimi locali
+    \item Bassa complessità implementativa;
+    \item Bassa complessità computazionale dell'algoritmo;
+    \item Velocità di raggiungimento del minimo locale;
+    \item Fuga da ottimi locali;
 \end{itemize}
 
 \noindent \paragraph{Aspetti negativi}
 \begin{itemize}
-    \item Possibilmente inefficace, può non raggiungere l'ottimo globale
-    \item Difficile calibrazione dei parametri
-    \item Numero di iterazioni necessario può essere molto alto
-    \item Necessità di una soluzione iniziale
+    \item Possibilmente inefficace, può non raggiungere l'ottimo globale;
+    \item Difficile calibrazione dei parametri;
+    \item Numero di iterazioni necessario può essere molto alto;
+    \item Necessità di una soluzione iniziale.
 \end{itemize}
 %**************************************************************
-\subsection{Algoritmo Genetico}
+\subsection{\textit{Algoritmo genetico}}
 \noindent L'algoritmo genetico è un metodo, classifcato come \textit{population based}, basato sul concetto che la natura
 abbia la tendenza ad organizzarsi in strutture ottimizzate, in gran parte ispirato
-alle teorie sull'evoluzione di Charles Darwin\footnote[4]{Scienzato conosciuto
+alle teorie sull'evoluzione di \textit{Charles Darwin}\footnote[4]{Scienzato conosciuto
 per le sue teorie sull'evoluzione secondo le quali gli individui di una
 popolazione sono in competizione fra loro e, in questa
 lotta per la sopravvivenza, l'ambiente opera una selezione naturale tramite la quale
@@ -185,17 +185,17 @@ caratteri ai figli.}.\\
 \noindent In particolare, ad ogni iterazione, non viene mantenuta una sola soluzione, ma un'insieme di soluzioni, definita anche come popolazione.
 Gli individui (soluzioni) vengono codificati tramite un cromosoma contenente una serie di geni (variabili decisionali del problema) e, per
 ogni individuo appartente alla popolazione, viene associata quella che viene definita come la sua idoneità, tramite l'utilizzo di una
-funzione di fitness, che guida il processo di selezione, basato su metodi probabilistici (es: \textit{metodo Montecarlo}, \textit{linear ranking}, \textit{torneo-n}).\\
+funzione di \textit{fitness}, che guida il processo di selezione, basato su metodi probabilistici (es: \textit{metodo Montecarlo}, \textit{linear ranking}, \textit{torneo-n}).\\
 Prima di ogni iterazione vengono dunque presi gli individui e verranno accoppiati tramite degli operatori di ricombinazione
 (es: \textit{crossover uniforme}, \textit{cut-point crossover}, \textit{mutazione}...)
-per generare dei figli che assumeranno le migliori caratteristiche dei genitori. Alla fine dell'algoritmo verrà scelta la soluzione con la maggior fitness possibile.\\
+per generare dei figli che assumeranno le migliori caratteristiche dei genitori. Alla fine dell'algoritmo verrà scelta la soluzione con la maggior \textit{fitness} possibile.\\
 
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
-    \caption{Pseudocodice string replacement - Algoritmo Genetico}
+    \caption{Pseudocodice \textit{string replacement} - \textit{Algoritmo genetico}}
     \vspace{0.1cm}
-    \hspace*{\algorithmicindent} \textbf{Input:} {$stringa\_corretta$}, {$crossover\_rate$}, {$mutation\_rate$}, \\\hspace*{54pt}{$max\_iterazioni$}\\
-    \hspace*{\algorithmicindent} \textbf{Output:} {$sol_{best}, fitness_{best}$}
+    \hspace*{\algorithmicindent} \textbf{\textit{Input}:} {$stringa\_corretta$}, {$crossover\_rate$}, {$mutation\_rate$}, \\\hspace*{54pt}{$max\_iterazioni$}\\
+    \hspace*{\algorithmicindent} \textbf{\textit{Output}:} {$sol_{best}, fitness_{best}$}
     \begin{algorithmic}[1]
         \Procedure{My\_Genetic\_Algorithm}{$stringa\_corretta$, \par$stringa\_errata$, $crossover\_rate$, $mutation\_rate$, $max\_iterazioni$}
         \State {$arr_{str\_corr} \gets codifica(stringa\_corretta)$}
@@ -239,25 +239,24 @@ per generare dei figli che assumeranno le migliori caratteristiche dei genitori.
 
 \noindent \paragraph{Osservazioni}\hfill\\
 Si noti come, per ogni popolazione, vengano scelti un numero di individui dipendente dal {$crossover\_rate$}
-e vengano effettuati {$num_{crossover}$} crossover scegliendo 2 individui dalla popolazione che fungono da genitori.
-Viene dunque creata una nuova popolazione di figli a cui viene anche applicata una mutazione a un figlio random per
+e vengano effettuati {$num_{crossover}$} \textit{crossover} scegliendo 2 individui dalla popolazione che fungono da genitori.
+Viene dunque creata una nuova popolazione di figli a cui viene anche applicata una mutazione a un figlio \textit{random} per
 variare il patrimonio genetico, in modo tale da avere più possibilità di trovare buone caratteristiche.
 
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
-    \item Fuga da ottimi locali
-    \item Analisi di più sottospazi delle soluzioni, grazie alla varietà della popolazione
-    \item Utilizzo modelli probabilistici
+    \item Fuga da ottimi locali;
+    \item Analisi di più sottospazi delle soluzioni, grazie alla varietà della popolazione;
+    \item Utilizzo modelli probabilistici.
 \end{itemize}
 
 \noindent \paragraph{Aspetti negativi}
 \begin{itemize}
-    \item Modesta complessità implementativa
-    \item Complessità computazionale dell'algoritmo
-    \item Possibilmente inefficace, può non raggiungere l'ottimo globale
-    \item Difficile calibrazione dei parametri
-    \item Difficile codifica degli individui in alcuni problemi
-    \item Numero di iterazioni necessario può essere molto alto
+    \item Modesta complessità implementativa;
+    \item Possibilmente inefficace, può non raggiungere l'ottimo globale;
+    \item Difficile calibrazione dei parametri;
+    \item Difficile codifica degli individui in alcuni problemi;
+    \item Numero di iterazioni necessario può essere molto alto.
 \end{itemize}
 \newpage
 %**************************************************************
@@ -276,24 +275,27 @@ Di seguito si hanno i risultati dell'analisi dei 3 algoritmi eseguiti singolarme
     \\ \hline
     \centering \textbf{Tipologia} & \centering \textbf{Efficacia (\%)} & \centering \textbf{Efficienza (ms)} & \centering \textbf{Tempo di realizzazione (h)} \arraybackslash \\
     \hline
-    \centering Algoritmo Greedy & \centering 100 & \centering 0,45 & \centering 0,5 \arraybackslash \\
+    \centering Algoritmo \textit{greedy} & \centering 100 & \centering 0,45 & \centering 0,5 \arraybackslash \\
     \hline
-    \centering Tabu Search & \centering 98 & \centering 1289,76 & \centering 2,5 \arraybackslash \\
+    \centering \textit{Tabu search} & \centering 98 & \centering 1289,76 & \centering 2,5 \arraybackslash \\
     \hline
     \centering Algortimo Genetico & \centering 92 & \centering 5127,24 & \centering 5 \arraybackslash \\
     \hline
     \end{longtable}
 \end{center}%
 
-\noindent L'algoritmo greedy risulta il più efficiente ed efficace in questo specifico caso, ma per il problema che si andrà a risolvere non può essere considerato
+\noindent L'algoritmo \textit{greedy} risulta il più efficiente ed efficace in questo specifico caso,
+ma per il problema che si andrà a risolvere non può essere considerato
 molto soddisfacente in quanto le scelte
 non vengono mai rimesse in discussione e potrebbero dunque escludere soluzioni potenzialmente migliori
 (esempio \hyperref[cap:introduzione]{Introduzione}).\\
 Per quanto riguarda l'algoritmo genetico, sebbene fosse interessante per il mantenimento di più soluzioni ad ogni iterazione, si è dimostrato
 molto più lento rispetto ai due precedenti. Inoltre una maggiore complessità realizzativa lo ha portato all'esclusione.\\
-Si è optato quindi per l'utilizzo della tabu search in quanto rappresentava un buon compromesso sia a livello
+Si è optato quindi per l'utilizzo della \textit{Tabu search} in quanto rappresentava un buon compromesso sia a livello
 di efficacia ed efficienza che a livello implementativo. Per quanto riguarda la soluzione iniziale,
-questa può essere generata a partire da un algoritmo greedy, data la sua bassa complessità computazionale.
+questa può essere generata a partire da un algoritmo \textit{greedy}, data la sua bassa complessità computazionale.
 In questo modo è possibile avere già a disposizione una buona soluzione di base.\\
-Tuttavia, sebbene la tabu search possieda una sola soluzione ad ogni iterazione, è stato pensato che l'algoritmo possa essere lanciato in più thread,
-riuscendo dunque in un certo senso a simulare il mantenimento di più soluzioni dell'algoritmo genetico, passando ai thread chiaramente soluzioni iniziali differenti.
+Tuttavia, sebbene la \textit{Tabu search} possieda una sola soluzione ad ogni iterazione,
+è stato pensato che l'algoritmo possa essere lanciato in più \textit{thread},
+riuscendo dunque in un certo senso a simulare il mantenimento di più soluzioni
+dell'algoritmo genetico, passando ai \textit{thread} chiaramente soluzioni iniziali differenti.

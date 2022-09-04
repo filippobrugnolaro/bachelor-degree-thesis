@@ -8,13 +8,13 @@
 \label{cap:analisi-requisiti}
 %**************************************************************
 
-\noindent \intro{In questo capitolo viene sposta l'analisi dei requisiti effettuata durante lo stage, nella quale vengono descritte le funzionalità tramite i casi d'uso.}\\
+\noindent \intro{In questo capitolo viene sposta l'analisi dei requisiti effettuata durante lo \textit{stage}, nella quale vengono descritte le funzionalità tramite i casi d'uso.}\\
 
 \section{Casi d'uso}
 
 \noindent Per lo studio dei casi di utilizzo del prodotto sono stati creati dei diagrammi.
-I diagrammi dei casi d'uso (in inglese \emph{Use Case Diagram}) sono diagrammi di tipo \gls{umlg} dedicati alla descrizione delle funzioni o servizi offerti da un sistema, così come sono percepiti e utilizzati dagli attori che interagiscono col sistema stesso.
-Essendo il progetto finalizzato alla creazione di un tool per l'automazione di un processo, le interazioni da parte dell'utilizzatore devono essere ovviamente ridotte allo stretto necessario. Per questo motivo i diagrammi dei casi d'uso risultano semplici e in numero ridotto.\\
+I diagrammi dei casi d'uso (in inglese \emph{\textit{Use Case} Diagram}) sono diagrammi di tipo \textit{\gls{umlg}} dedicati alla descrizione delle funzioni o servizi offerti da un sistema, così come sono percepiti e utilizzati dagli attori che interagiscono col sistema stesso.
+Essendo il progetto finalizzato alla creazione di un \textit{tool} per l'automazione di un processo, le interazioni da parte dell'utilizzatore devono essere ovviamente ridotte allo stretto necessario. Per questo motivo i diagrammi dei casi d'uso risultano semplici e in numero ridotto.\\
 
 \noindent A livello formale, i diagrammi dei casi d'uso avranno la seguente forma:
 \begin{center}
@@ -378,7 +378,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 				\item data iniziale di copertura (\hyperref[uc:visualizzazione-data-iniziale-copertura]{UC 4.1.4});
 				\item data finale di copertura (\hyperref[uc:visualizzazione-data-finale-copertura]{UC 4.1.5});
 				\item quantità ordinata (\hyperref[uc:visualizzazione-quantita-ordinata]{UC 4.1.6});
-				\item prezzo parziale (\hyperref[uc:visualizzazione-prezzo-parziale-ord]{UC 4.1.7});
+				\item prezzo parziale (\hyperref[uc:visualizzazione-prezzo-parziale-ord]{UC 4.1.7}).
 			\end{itemize}.
 		\end{enumerate}
 		
@@ -598,7 +598,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 				\item data iniziale di copertura (\hyperref[uc:filtraggio-data-iniziale-copertura]{UC 5.5});
 				\item data finale di copertura (\hyperref[uc:filtraggio-data-finale-copertura]{UC 5.6});
 				\item quantità ordinata (\hyperref[uc:filtraggio-quantita-ordinata]{UC 5.7});
-				\item prezzo parziale (\hyperref[uc:filtraggio-prezzo-parziale-ord]{UC 5.8});
+				\item prezzo parziale (\hyperref[uc:filtraggio-prezzo-parziale-ord]{UC 5.8}).
 			\end{itemize}
 		\end{enumerate}
 		
@@ -1030,7 +1030,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \section{Tracciamento dei requisiti}
 
-\noindent Da un'attenta analisi dei requisiti e degli use case effettuata sul progetto è stata stilata la tabella che traccia i requisiti in rapporto agli use case.\\
+\noindent Da un'attenta analisi dei requisiti e degli \textit{use case} effettuata sul progetto è stata stilata la tabella che traccia i requisiti in rapporto agli \textit{use case}.\\
 Sono stati individuati diversi tipi di requisiti e si è dunque utilizzato un codice identificativo univoco per distinguerli.\\
 Il codice dei requisiti è così strutturato:
 \begin{center}
@@ -1038,18 +1038,18 @@ Il codice dei requisiti è così strutturato:
 \end{center}
 In particolare il tipo può assumere 4 valori, quali:
 \begin{itemize}
-    \item \textbf{F} = funzionale
-    \item \textbf{Q} = qualitativo
-    \item \textbf{P} = performance
-    \item \textbf{V} = vincolo
+    \item \textbf{F} $=$ funzionale;
+    \item \textbf{Q} $=$ qualitativo;
+    \item \textbf{P} $=$ performance;
+    \item \textbf{V} $=$ vincolo.
 \end{itemize}
 Per quanto riguarda la classificazione, invece, si hanno 3 valori possibili:
 \begin{itemize}
-    \item \textbf{O} = obbligatorio
-    \item \textbf{D} = desiderabile
-    \item \textbf{F} = facoltativo
+    \item \textbf{O} $=$ obbligatorio;
+    \item \textbf{D} $=$ desiderabile;
+    \item \textbf{F} $=$ facoltativo.
 \end{itemize}
-Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \ref{tab:requisiti-di-performance} e \ref{tab:requisiti-di-vincolo} suddivise per tipo sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
+Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \ref{tab:requisiti-di-performance} e \ref{tab:requisiti-di-vincolo} suddivise per tipo sono riassunti i requisiti e il loro tracciamento con gli \textit{use case} delineati in fase di analisi.
 
 %comando arraystretch
 \renewcommand{\arraystretch}{1.6}
@@ -1063,7 +1063,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \label{tab:requisiti-funzionali}
 \\ \hline
 \rowcolor{lighter-grayer}
-\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
+\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{\textit{Use Case}} \arraybackslash \\
 \hline 
 \req{R1-F-O}{L'utente deve poter inserire i dati necessari per l'ottimizzazione}{\hyperref[uc:inserimento-dati]{UC1}}
 \req{R2-F-O}{L'utente deve poter inserire la data di inizio previsione}{\hyperref[uc:inserimento-data-inizio-prev]{UC1.1}}
@@ -1114,16 +1114,16 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \label{tab:requisiti-qualitativi}
 \\ \hline
 \rowcolor{lighter-grayer}
-\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
+\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{\textit{Use Case}} \arraybackslash \\
 \hline 
 \req{R37-Q-O}{Deve essere redatto un documento che descrive l'architettura del modulo}{-}
 \req{R38-Q-O}{Deve essere redatto un documento che spieghi le scelte implementative effettuate}{-}
 \req{R39-Q-O}{Il codice deve essere documentato tramite commenti}{-}
-\req{R40-Q-D}{L'algoritmo finale scelto deve generare dei log di chiamata per manutenzioni future}{-}
+\req{R40-Q-D}{L'algoritmo finale scelto deve generare dei \textit{log} di chiamata per manutenzioni future}{-}
 \req{R41-Q-D}{L'algoritmo di ottimizzazione deve essere estensibile}{-}
-\req{R42-Q-D}{I test devono coprire il 60\% del codice}{-}
+\req{R42-Q-D}{I \textit{test} devono coprire il 60\% del codice}{-}
 \req{R43-Q-D}{L'algoritmo utilizza differenti tecniche di ottimizzazione}{-}
-\req{R44-Q-F}{L'algoritmo utilizza il multithreading per cercare più soluzioni ammissibili}{-}
+\req{R44-Q-F}{L'algoritmo utilizza il \textit{multithreading} per cercare più soluzioni ammissibili}{-}
 \end{longtable}
 \end{center}%
 
@@ -1139,7 +1139,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \label{tab:requisiti-di-performance}
 \\ \hline
 \rowcolor{lighter-grayer}
-\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
+\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{\textit{Use Case}} \arraybackslash \\
 \hline 
 \req{R45-P-O}{L'algoritmo di ottimizzazione deve restituire un risultato entro 10 minuti dal tempo di lancio dello stesso}{-}
 \end{longtable}
@@ -1153,7 +1153,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \
 \label{tab:requisiti-di-vincolo}
 \\ \hline
 \rowcolor{lighter-grayer}
-\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{Use Case} \arraybackslash \\
+\centering \textbf{Requisito} & \centering \textbf{Descrizione} & \centering \textbf{\textit{Use Case}} \arraybackslash \\
 \hline  
 \req{R46-V-O}{La \textit{form} deve essere eseguita sull'ambiente di esecuzione \textit{.NET Framework}}{-}
 \req{R47-V-O}{La \textit{form} e l'algoritmo devono essere codificate in $C\#$}{-}
