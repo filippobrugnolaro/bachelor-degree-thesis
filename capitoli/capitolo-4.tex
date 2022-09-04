@@ -27,16 +27,16 @@ componenti che formano il sistema.
 
 \noindent Come si può notare in figura \ref{architettura-generale},
 il flusso del sistema è circolare.
-Si parte dal \textit{database}, dal quale vengono estratti i dati di interesse dalle varie
-tabelle. Successivamente viene fatto il \textit{pre-processing} dei dati,
+Si parte dal \textit{\gls{databaseg}}, dal quale vengono estratti i dati di interesse dalle varie
+tabelle. Successivamente viene fatto il \textit{\gls{preprocessingg}} dei dati,
 in modo tale da poter poi eseguire l'ottimizzazione solo su
 ciò che è di interesse dell'analisi.
 Di seguito viene effettuato il controllo dei vincoli di minimo al termine
 dell'algoritmo così da generare
 una soluzione \gls{ammissibileg}. Se si vuole effettuare una nuova
 analisi è necessario estrarre nuovamente i dati dal
-\textit{database} ed rieseguire il ciclo. Questo è necessario
-in quanto i dati all'interno del \textit{database} possono variare
+\textit{\gls{databaseg}} ed rieseguire il ciclo. Questo è necessario
+in quanto i dati all'interno del \textit{\gls{databaseg}} possono variare
 (esempio: prezzi, date di spedizione...).
 
 \newpage
@@ -511,8 +511,8 @@ sempre un prodotto funzionante.\\
 In particolare, lo sviluppo è stato svolto nel seguente ordine:
 \begin{itemize}
     \item creazione della \textit{\gls{windowsformg}}
-    \item lettura dei dati dal \textit{database}
-    \item \textit{pre-processing} dei dati
+    \item lettura dei dati dal \textit{\gls{databaseg}}
+    \item \textit{\gls{preprocessingg}} dei dati
     \item costruzione dell'algoritmo \textit{greedy}
     \item costruzione di altre scelte \textit{greedy}
     \item costruzione della \textit{Tabu search}
@@ -524,7 +524,7 @@ In particolare, lo sviluppo è stato svolto nel seguente ordine:
 \noindent Quest'ordine ha permesso di concentrarsi su obiettivi specifici,
 facilitandone dunque l'implementazione sia a livello logico che a livello pratico.\\
 
-\noindent Al raggiungimento di ogni \textit{milestone} si
+\noindent Al raggiungimento di ogni \textit{\gls{milestoneg}} si
 organizzava una brevissima discussione con il \textit{tutor}
 in cui veniva verificata la correttezza e la coerenza di quanto
 sviluppato in relazione agli obiettivi preposti.
@@ -641,13 +641,13 @@ Di seguito vegono presentate le tecnologie utilizzate.
  \end{figure}
 \noindent \textit{C\#} è un linguaggio di programmazione multi-paradigma orientato agli oggetti
 sviluppato da \textit{Microsoft}. La sua sintassi e struttura derivano da altri linguaggi nati
-precedentemente, come \textit{C++}, \textit{Java} e \textit{Visual Basic}.\\
+precedentemente, come \textit{\gls{C++g}}, \textit{\gls{javag}} e \textit{\gls{visualbasicg}}.\\
 \textit{C\#} è progettato per essere compatibile con le classi e l’ambiente di compilazione
-del \textit{framework} \textit{.NET}. Supporta \gls{astrazioneg}, \gls{ereditarietag} e polimorfismo
+del \textit{framework} \textit{.NET}. Supporta \gls{astrazioneg}, \gls{ereditarietag} e \gls{polimorfismog}
 fornendo estensibilità e riusabilità del codice.
 È stato ufficialmente approvato come \textit{standard} dalla \textit{ECMA}.\\
 L'azienda, sebbene abbia sviluppato la maggior parte dei moduli
-in \textit{Visual Basic}, sta lentamente traducendo tutto in questo linguaggio.
+in \textit{\gls{visualbasicg}}, sta lentamente traducendo tutto in questo linguaggio.
 
 \subsection*{\textit{Visual Studio 2019}}
 \begin{figure}[!h] 
@@ -658,8 +658,8 @@ in \textit{Visual Basic}, sta lentamente traducendo tutto in questo linguaggio.
 \noindent \textit{Visual Studio 2019} è un ambiente di sviluppo integrato (\gls{ideg}) fornito da \textit{Microsoft}.
 Permette lo sviluppo di \textit{software} per computer, siti web, applicazioni web, servizi web
 e applicazioni \textit{mobile}. È compatibile con tutte le piattaforme di sviluppo
-\textit{software} \textit{Microsoft}, quali \textit{Windows API} e \textit{\gls{windowsformg}}.\\
-\textit{Visual Studio 2019} supporta il \textit{refactoring} del codice e \textit{\gls{intellisenseg}}, uno strumento per
+\textit{software} \textit{Microsoft}, quali \textit{Windows \gls{apig}} e \textit{\gls{windowsformg}}.\\
+\textit{Visual Studio 2019} supporta il \textit{\gls{refactoringg}} del codice e \textit{\gls{intellisenseg}}, uno strumento per
 l’autocompletamento del codice. Il \textit{\gls{debuggerg}} integrato funziona sia a
 livello di codice sorgente che a livello di codice macchina. È compatibile anche con i sistemi di supporto per il controllo del codice,
 come per esempio \textit{Subversion} e \textit{Git}.\\
@@ -686,11 +686,11 @@ elegante.
     \caption{Logo \textit{IBM} \textit{Informix}}
 \end{figure}
 \noindent \textit{IBM} \textit{Informix} è un prodotto di \textit{IBM}. La base di dati \textit{Informix} è usata in molte
-applicazioni \textit{OLTP} ad alto tasso di transazione che operano in vari settori tra cui anche quelli della produzione e dei trasporti.\\
+applicazioni \textit{\gls{oltpg}} ad alto tasso di transazione che operano in vari settori tra cui anche quelli della produzione e dei trasporti.\\
 L’\textit{Informix server} supporta il modello relazionale ad oggetti che permette ad \textit{IBM} di
 offrire estensioni che permettono di effettuare interrogazioni per un dominio specifico
 e archiviazioni per \textit{set} di dati in maniera rapida ed efficiente.
-É in grado di supportare sia \textit{SQL} che \textit{NoSQL}.
+É in grado di supportare sia \textit{\gls{sqlg}} che \textit{\gls{nosqlg}}.
 
 \subsection*{\textit{Git}}
 \begin{figure}[!h] 

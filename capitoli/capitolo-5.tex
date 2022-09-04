@@ -21,14 +21,14 @@ sorgente che documentali.\\
 \noindent Il \textit{tutor} successivamente ha consigliato un piano di \textit{test} basato su una semplice
 esecuzione del programma, variando i suoi parametri, e su un'analisi
 dei risultati, comparandoli con le rispettive query effettuate tramite
-l'apposito sistema di interrogazione del \textit{database}.\\
+l'apposito sistema di interrogazione del \textit{\gls{databaseg}}.\\
 Questo perché l’attività di prova tramite dati reali comprendeva il lavoro
 di \textit{\gls{debugg}} permettendo di risparmiare tempo che sarebbe stato altrimenti
 impiegato nella scrittura di tutti \textit{test}.\\
 
 \noindent Tuttavia, non volendo rinunciare a una parte a mio avviso molto importante dello
 sviluppo, si è deciso di comune accordo di procedere nel seguente modo:
-al termine di ogni \textit{milestone} veniva effettuato il \textit{testing} tramite l'esecuzione del
+al termine di ogni \textit{\gls{milestoneg}} veniva effettuato il \textit{testing} tramite l'esecuzione del
 programma, venivano corretti tutti i \textit{bug} e venivano poi scritti i \textit{test} per tutte
 quelle parti di codice con i casi \textit{border line} in modo tale da riuscire a trovare anche
 piccoli errori non visibili durante l'esecuzione.\\
@@ -41,7 +41,7 @@ codice, dei casi limite.
 \subsection{\textit{Testing} del modulo}
 \noindent Per verificare la correttezza del codice sono stati definiti dei \textit{test} di unità.\\
 Essi sono stati scritti utilizzando il \textit{framework} di \textit{Microsoft} \textit{MSTest} integrato tramite estensioni
-in \textit{Visual Studio} e come metodologia di approccio è stato usato il \textit{pattern AAA} (\textit{Arrange}, \textit{Act}, \textit{Assert}).\\
+in \textit{Visual Studio} e come metodologia di approccio è stato usato il \textit{pattern \gls{aaag}} (\textit{Arrange}, \textit{Act}, \textit{Assert}).\\
 Ogni \textit{test} effettua i seguenti passi:
 \begin{enumerate}
     \item \textbf{\textit{Arrange}:} vengono definite e riempite le strutture dati del problema con dei
@@ -140,7 +140,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qua
     \reqval{R37-Q-O}{Deve essere redatto un documento che descrive l'architettura del modulo}{-}{Soddisfatto}
     \reqval{R38-Q-O}{Deve essere redatto un documento che spieghi le scelte implementative effettuate}{-}{Soddisfatto}
     \reqval{R39-Q-O}{Il codice deve essere documentato tramite commenti}{-}{Soddisfatto}
-    \reqval{R40-Q-D}{L'algoritmo finale scelto deve generare dei \textit{log} di chiamata per manutenzioni future}{-}{Soddisfatto}
+    \reqval{R40-Q-D}{L'algoritmo finale scelto deve generare dei \textit{\gls{logg}} di chiamata per manutenzioni future}{-}{Soddisfatto}
     \reqval{R41-Q-D}{L'algoritmo di ottimizzazione deve essere estensibile}{-}{Soddisfatto}
     \reqval{R42-Q-D}{I \textit{test} devono coprire il 60\% del codice}{-}{Non Soddisfatto}
     \reqval{R43-Q-D}{L'algoritmo utilizza differenti tecniche di ottimizzazione}{-}{Non Soddisfatto}
@@ -194,7 +194,7 @@ Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qua
     \item il numero di iterazioni massime
     \item la scelta della risoluzione dei minimi
 \end{enumerate}
-Dato che il \textit{database} fornitomi dall'azienda conteneva delle incongruenze fra i campi dati
+Dato che il \textit{\gls{databaseg}} fornitomi dall'azienda conteneva delle incongruenze fra i campi dati
 delle rispettive tabelle, si è deciso di raccogliere le rilevazioni su un circoscritto
 numero di articoli.\\
 Questi infatti sono stati prima verificati tramite l'utilizzo del
