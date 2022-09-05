@@ -25,7 +25,7 @@ componenti che formano il sistema.
     \label{architettura-generale}
 \end{figure}
 
-\noindent Come si può notare in figura \ref{architettura-generale},
+\noindent Come si può notare in Figura \ref{architettura-generale},
 il flusso del sistema è circolare.
 Si parte dal \textit{\gls{databaseg}}, dal quale vengono estratti i dati di interesse dalle varie
 tabelle. Successivamente viene fatto il \textit{\gls{preprocessingg}} dei dati,
@@ -45,7 +45,7 @@ in quanto i dati all'interno del \textit{\gls{databaseg}} possono variare
 
 \section{Funzionamento generale}
 \noindent In questa sezione viene descritta una classica interazione dell'utente con il programma.
-Nella figura \ref{diagramma-attivita-Windows form} si riassume il flusso delle interazioni.
+Nella Figura \ref{diagramma-attivita-Windows form} si riassume il flusso delle interazioni.
 
 \begin{figure}[!h] 
     \centering 
@@ -72,7 +72,7 @@ A questo punto la ricerca può terminare oppure può continuare con la possibili
 riguardante lo studio di fattibilità è emerso come la \textit{Tabu search}
 sia il giusto compromesso in termini di efficacia, efficienza
 e complessità a livello implementativo.\\
-In figura \ref{diagramma-attivita-tabu-search}
+In Figura \ref{diagramma-attivita-tabu-search}
 viene rappresentato il funzionamento dell'algoritmo ad alto livello.
 \vspace*{\fill}
 \begin{figure}[!h] 
@@ -102,7 +102,7 @@ si è deciso di mettere ognuno di essi all'interno di una lista.
 Questo approccio è sufficiente per un algoritmo \textit{greedy} ma non per la \textit{Tabu search}.\\
 Infatti è necessario associare alla soluzione anche una funzione di valutazione, in modo tale
 da poter operare il confronto tra la soluzione corrente e quella migliore.\\
-In figura \ref{rappresentazione-soluzione} viene illustrata la forma della soluzione della \textit{Tabu search}.
+In Figura \ref{rappresentazione-soluzione} viene illustrata la forma della soluzione della \textit{Tabu search}.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[width=0.8\columnwidth]{soluzione/soluzione rappresentazione.pdf} 
@@ -113,7 +113,7 @@ In figura \ref{rappresentazione-soluzione} viene illustrata la forma della soluz
 %**************************************************************
 \subsection{Soluzione iniziale}
 \label{sec:soluzione-iniziale}
-\noindent Nella figura \ref{diagramma-attivita-tabu-search} il primo step è la creazione di una soluzione iniziale che
+\noindent Nella Figura \ref{diagramma-attivita-tabu-search} il primo step è la creazione di una soluzione iniziale che
 però la \textit{Tabu search}, a contrario di altri algoritmi, non è in grado di generare da sola. Per ovviare a questo inconveniente
 si può generare una soluzione abbastanza buona tramite un algoritmo \textit{greedy}.
 Le scelte \textit{greedy} implementate sono:
@@ -354,7 +354,7 @@ che approssimasse meglio il comportamento dell'algoritmo.\\
     \end{tabular}
 \end{table}
 
-\noindent É evidente dalla tabella \ref{tab:risultati-f}
+\noindent É evidente dalla Tabella \ref{tab:risultati-f}
 come la funzione $f$ sia migliorativa se, a parità di $PT$,
 si aumenta il numero di articoli ordinati.
 Inoltre $FV$ dovrebbe migliorare anche all'aumentare in contemporanea di $R$ e $PT$ 
@@ -366,7 +366,7 @@ in quanto $1-R$ è uguale a $0$.\\
 Si è optato quindi per la modifica della funzione di valutazione
 e si è ottenuta la funzione $g$.\\
 
-\noindent Si osservi ora la tabella \ref{tab:risultati-g}.
+\noindent Si osservi ora la Tabella \ref{tab:risultati-g}.
 Per cercare di risolvere il primo problema, si è deciso di
 adottare un compromesso andando ad utilizzare il logaritmo naturale.\\
 Dal quinto all'ottavo risultato si può evincere che:
@@ -399,7 +399,7 @@ e $R<1$ come miglioranti persino rispetto a quei
 risultati con $R=1$. Per risolvere questo problema si è andati
 a rimodificare la funzione di valutazione ottenendo $h$.\\
 
-\noindent Si osservi ora la tabella \ref{tab:risultati-h}.
+\noindent Si osservi ora la Tabella \ref{tab:risultati-h}.
 Per risolvere il problema esposto precedentemente si è andato
 a modificare il dominio della funzione aggiungendo una unità.
 In questo modo per ogni valore di $PT$ si avrà che
@@ -564,7 +564,7 @@ applicare al progetto.
 \noindent \paragraph{Nuovo algoritmo}\hfill\\
 La creazione della \textit{Tabu search} e dell'algoritmo \textit{greedy} non esclude
 lo sviluppo di un nuovo algoritmo. Infatti, grazie all'utilizzo del \textit{design
-pattern strategy}, è possibile estendere l'interfaccia
+pattern strategy} \cite{site:refactoring-guru} \cite{site:rcardin}, è possibile estendere l'interfaccia
 \textit{AlgorithmStrategy} e 
 creare il corrispondente oggetto del nuovo algoritmo nella classe \textit{Program}.
 Chiaramente, affinchè la classe sia istanziabile, è necessario
@@ -580,7 +580,7 @@ Tuttavia possono esistere delle scelte che non sono state ancora
 considerate e che portano alla creazione di un algoritmo
 che genera soluzioni migliori.\\
 Grazie all'utilizzo del \textit{design
-pattern strategy} è possibile estendere
+pattern strategy} \cite{site:refactoring-guru} \cite{site:rcardin} è possibile estendere
 la classe astratta \textit{GreedyAlgorithm}, derivante dall'interfaccia
 \textit{AlgorithmStrategy}.\\
 Una possibile scelta potrebbe essere quella di selezionare
@@ -640,7 +640,7 @@ Di seguito vegono presentate le tecnologie utilizzate.
     \includegraphics[scale = 0.04]{loghi/CSharpLogo.pdf} 
     \caption{Logo \textit{C\#}}
  \end{figure}
-\noindent \textit{C\#} è un linguaggio di programmazione multi-paradigma orientato agli oggetti
+\noindent \textit{C\#} \cite{site:csharp-docs} è un linguaggio di programmazione multi-paradigma orientato agli oggetti
 sviluppato da \textit{Microsoft}. La sua sintassi e struttura derivano da altri linguaggi nati
 precedentemente, come \textit{\gls{C++g}}, \textit{\gls{javag}} e \textit{\gls{visualbasicg}}.\\
 \textit{C\#} è progettato per essere compatibile con le classi e l’ambiente di compilazione
@@ -656,8 +656,8 @@ in \textit{\gls{visualbasicg}}, sta lentamente traducendo tutto in questo lingua
     \includegraphics[scale = 0.75]{loghi/VisualStudio2019Logo.pdf} 
     \caption{Logo \textit{Visual Studio 2019}}
  \end{figure}
-\noindent \textit{Visual Studio 2019} è un ambiente di sviluppo integrato (\gls{ideg}) fornito da \textit{Microsoft}.
-Permette lo sviluppo di \textit{software} per computer, siti web, applicazioni web, servizi web
+\noindent \textit{Visual Studio 2019} \cite{site:vs-docs} è un ambiente di sviluppo integrato (\gls{ideg}) fornito da \textit{Microsoft}.
+Permette lo sviluppo di \textit{software} per computer, siti \textit{web}, applicazioni \textit{web}, servizi \textit{web}
 e applicazioni \textit{mobile}. È compatibile con tutte le piattaforme di sviluppo
 \textit{software} \textit{Microsoft}, quali \textit{Windows \gls{apig}} e \textit{\gls{windowsformg}}.\\
 \textit{Visual Studio 2019} supporta il \textit{\gls{refactoringg}} del codice e \textit{\gls{intellisenseg}}, uno strumento per
@@ -673,7 +673,7 @@ programmazione tra i quali \textit{C\#}.
     \includegraphics[scale = 0.35]{loghi/DevExpressLogo.png}
     \caption{Logo \textit{DevExpress}}
 \end{figure}
-\noindent \textit{\gls{devexpressg}} è una compagnia che produce strumenti di sviluppo \textit{software} per
+\noindent \textit{\gls{devexpressg}} \cite{site:devexpress-docs} è una compagnia che produce strumenti di sviluppo \textit{software} per
 \textit{Visual Studio}. In particolare crea estensioni che vengono utilizzate tramite \textit{Visual Studio}
 per velocizzare la scrittura di applicazioni. Gli strumenti da loro forniti sono
 molteplici. In particolare hanno sviluppato controlli \textit{.NET} di interfaccia utente (\textit{UI}) che
@@ -686,7 +686,7 @@ elegante.
     \includegraphics[scale = 0.04]{loghi/InformixLogo.pdf}
     \caption{Logo \textit{IBM} \textit{Informix}}
 \end{figure}
-\noindent \textit{IBM} \textit{Informix} è un prodotto di \textit{IBM}. La base di dati \textit{Informix} è usata in molte
+\noindent \textit{IBM} \textit{Informix} \cite{site:informix-docs} è un prodotto di \textit{IBM}. La base di dati \textit{Informix} è usata in molte
 applicazioni \textit{\gls{oltpg}} ad alto tasso di transazione che operano in vari settori tra cui anche quelli della produzione e dei trasporti.\\
 L’\textit{Informix server} supporta il modello relazionale ad oggetti che permette ad \textit{IBM} di
 offrire estensioni che permettono di effettuare interrogazioni per un dominio specifico
@@ -700,6 +700,6 @@ e archiviazioni per \textit{set} di dati in maniera rapida ed efficiente.
     \includegraphics[scale = 0.4]{loghi/GitLogo.pdf}
     \caption{Logo \textit{Git}}
 \end{figure}
-\noindent \textit{Git} è uno strumento per il controllo di versione distribuito del codice sorgente delle \textit{repository}.\\
+\noindent \textit{Git} \cite{site:wiki} è uno strumento per il controllo di versione distribuito del codice sorgente delle \textit{repository}.\\
 Creato inizialmente per gestire le versioni del \textit{kernel Linux}, al giorno d'oggi è uno dei principali
 strumenti di versionamento del codice e di collaborazione tra gli sviluppatori.
