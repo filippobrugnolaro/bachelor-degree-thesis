@@ -35,7 +35,7 @@ Di seguito viene effettuato il controllo dei vincoli di minimo al termine
 dell'algoritmo così da generare
 una soluzione \gls{ammissibileg}. Se si vuole effettuare una nuova
 analisi è necessario estrarre nuovamente i dati dal
-\textit{\gls{databaseg}} ed rieseguire il ciclo. Questo è necessario
+\textit{\gls{databaseg}} e rieseguire il ciclo. Questo è necessario
 in quanto i dati all'interno del \textit{\gls{databaseg}} possono variare
 (esempio: prezzi, date di spedizione...).
 
@@ -97,7 +97,7 @@ di simulare inutilmente una mossa che potenzialmente potrebbe appartenere alla \
 \noindent Definire una buona rappresentazione della soluzione è fondamentale
 poichè è legata alla creazione del vicinato.\\
 In primis è stata creata una classe che rappresentasse
-il singolo ordine (dataSourceItem) e, dato che gli ordini solitamente sono molteplici,
+il singolo ordine (\textit{dataSourceItem}) e, dato che gli ordini solitamente sono molteplici,
 si è deciso di mettere ognuno di essi all'interno di una lista.
 Questo approccio è sufficiente per un algoritmo \textit{greedy} ma non per la \textit{Tabu search}.\\
 Infatti è necessario associare alla soluzione anche una funzione di valutazione, in modo tale
@@ -118,19 +118,19 @@ però la \textit{Tabu search}, a contrario di altri algoritmi, non è in grado d
 si può generare una soluzione abbastanza buona tramite un algoritmo \textit{greedy}.
 Le scelte \textit{greedy} implementate sono:
 \begin{itemize}
-    \item \textbf{\textit{HighestArtRequestByArt}:} viene scelto
-    il codice articolo più richiesto e comprato ogni
+    \item \textbf{\textit{HighestArtRequestByArt}:} si sceglie
+    il codice articolo più richiesto e viene comprato ogni
     \textit{range} di copertura riferito all'articolo stesso;
-    \item \textbf{\textit{HighestArtRequestByForn}:} viene scelto
+    \item \textbf{\textit{HighestArtRequestByForn}:} si sceglie
     l'articolo più richiesto, il fornitore che
     offre il prezzo minore e vengono comprati tutti i \textit{range}
     di copertura di ogni articolo
     da quel fornitore;
-    \item \textbf{\textit{HighestVariationByArt}:} viene scelto
+    \item \textbf{\textit{HighestVariationByArt}:} si sceglie
     l'articolo con più variazione del prezzo unitario rispetto a quello dell'anno
-    precendente e comprato ogni
+    precendente e viene comprato ogni
     \textit{range} di copertura riferito all'articolo stesso;
-    \item \textbf{\textit{HighestVariationByForn}:} viene scelto
+    \item \textbf{\textit{HighestVariationByForn}:} si sceglie
     l'articolo con più variazione del prezzo unitario rispetto a quello dell'anno
     precendente, il fornitore che
     offre il prezzo minore e vengono comprati tutti i \textit{range}
@@ -221,7 +221,7 @@ la mossa.\\
 É importante sottolineare come l'oggetto \textit{Random} in \textit{C\#}
 debba essere inizializzato tramite un numero, ovvero
 ciò che viene definito come \textit{seed}. Infatti se non si dichiara
-il \textit{seed} all'interno del costruttore, viene utilizzato di default il
+il \textit{seed} all'interno del costruttore, l'oggetto viene inizializzato usando il
 \textit{Current System Time}. Questo risultava un problema poichè, essendo le
 iterazioni molto rapide (a volte anche $<1ms$), si andava ad inizializzare la nuova istanza
 di \textit{Random} allo stesso valore e dunque veniva generato il medesimo
@@ -237,7 +237,7 @@ Permette di evitare dunque cicli infiniti in corrispondenza
 di minimi locali. Questo accade perché tramite la funzione
 $generate\_move\_string()$ ogni mossa
 viene prima codificata e poi viene effettuata una ricerca nella \textit{Tabu list}, impedendo potenzialmente all’algoritmo di riprovarla.
-Se la mossa non viene trovata, questa viene aggiunta nella \textit{Tabu list} sia nel caso in cui venga compiuta che nel caso in cui non
+Se la mossa non viene trovata, questa viene aggiunta nella \textit{Tabu list} sia nel caso in cui l'operazione venga compiuta che nel caso in cui non
 venga compiuta perchè non migliorante.\\
 Per semplificare la codifica si salva solamente la stringa generata dalla funzione che rappresenta la mossa e non l’intera
 soluzione come previsto dalla teoria.
@@ -355,9 +355,9 @@ che approssimasse meglio il comportamento dell'algoritmo.\\
 \end{table}
 
 \noindent É evidente dalla tabella \ref{tab:risultati-f}
-come la funzione $f$ sia migliorativa se il prezzo totale
-degli ordini è minore, ma non lo sia nel caso
-di aumento del numero di articoli ordinati. Questo problema accade
+come la funzione $f$ sia migliorativa se si aumenta il numero di articoli ordinati,
+ma non lo sia nel caso in cui il prezzo totale
+degli ordini è minore. Questo problema accade
 perchè il rapporto tra $R$ e $PT$ è troppo sbilanciato.\\
 Altra problematica è il fatto che la funzione, una volta ordinati
 tutti gli articoli, non riesce a valutare la variabile $PT$
@@ -662,7 +662,7 @@ e applicazioni \textit{mobile}. È compatibile con tutte le piattaforme di svilu
 \textit{Visual Studio 2019} supporta il \textit{\gls{refactoringg}} del codice e \textit{\gls{intellisenseg}}, uno strumento per
 l’autocompletamento del codice. Il \textit{\gls{debuggerg}} integrato funziona sia a
 livello di codice sorgente che a livello di codice macchina. È compatibile anche con i sistemi di supporto per il controllo del codice,
-come per esempio \textit{Subversion} e \textit{Git}.\\
+come per esempio \textit{Subversion} e \textit{\hyperref[sec:git]{Git}}.\\
 \textit{Visual Studio 2019} supporta 36 differenti linguaggi di 
 programmazione tra i quali \textit{C\#}.
 
@@ -670,9 +670,9 @@ programmazione tra i quali \textit{C\#}.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[scale = 0.35]{loghi/DevExpressLogo.png}
-    \caption{Logo \textit{DevExpress}}
+    \caption{Logo \textit{\gls{devexpressg}}}
 \end{figure}
-\noindent \textit{DevExpress} è una compagnia che produce strumenti di sviluppo \textit{software} per
+\noindent \textit{\gls{devexpressg}} è una compagnia che produce strumenti di sviluppo \textit{software} per
 \textit{Visual Studio}. In particolare crea estensioni che vengono utilizzate tramite \textit{Visual Studio}
 per velocizzare la scrittura di applicazioni. Gli strumenti da loro forniti sono
 molteplici. In particolare hanno sviluppato controlli \textit{.NET} di interfaccia utente (\textit{UI}) che
@@ -693,6 +693,7 @@ e archiviazioni per \textit{set} di dati in maniera rapida ed efficiente.
 É in grado di supportare sia \textit{\gls{sqlg}} che \textit{\gls{nosqlg}}.
 
 \subsection*{\textit{Git}}
+\label{sec:git}
 \begin{figure}[!h] 
     \centering 
     \includegraphics[scale = 0.4]{loghi/GitLogo.pdf}

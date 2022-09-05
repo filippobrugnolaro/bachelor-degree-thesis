@@ -199,10 +199,12 @@ delle rispettive tabelle, si è deciso di raccogliere le rilevazioni su un circo
 numero di articoli.\\
 Questi infatti sono stati prima verificati tramite l'utilizzo del
 sistema di query integrato in \textit{\gls{ergdisg}} in modo tale da non ritrovarsi risultati errati
-a causa di circostanze non dipendenti dall'algoritmo.
-\paragraph{Variazione numero massimo di iterazioni}\hfill\\
+a causa di circostanze non dipendenti dall'algoritmo.\\[0.1cm]
+\textbf{Variazione numero massimo di iterazioni}\hfill\\[0.1cm]
 Dati in \textit{input}:
 \begin{itemize}
+    \item tipo di inizializzazione: \textit{HighestArtRequestByArt}
+    \item tipo di risoluzione dei minimi: \textit{Min/Max}
     \item numero massimo di iterazioni non miglioranti: 2500
     \item grandezza della \textit{Tabu list}: 200
     \item tempo di esecuzione massimo: 10 minuti (da requisito \hyperref[tab:requisiti-di-performance]{R45-P-O})
@@ -225,20 +227,19 @@ Dati in \textit{input}:
 \end{table}
 \begin{figure}[!h] 
     \centering
-    \caption{Grafico}
+    \caption{Grafico scostamento/iterazioni}
     \vspace*{0.2cm}
     \includegraphics[scale=0.27]{risultati test/grafico max it.pdf}
  \end{figure}
  \newpage
 \noindent Si osservi la tabella \ref{tab:test-max-it}.\\
 
-Lo scostamento percentuale dei
+\noindent Lo scostamento percentuale dei
 totali inizialmente aumenta, per poi rimanere in stallo raggiunto un certo numero di iterazioni.
 Questo accade poichè, molto probabilmente, si è raggiunto un buon minimo locale e la probabilità
 di trovare una mossa migliorante diminuisce vertiginosamente all'aumentare del numero di
-iterazioni effettuate.
-
-\paragraph{Confronto fra le scelte di risoluzione dei minimi}\hfill\\\\
+iterazioni effettuate.\\
+\paragraph{Confronto fra le scelte di risoluzione dei minimi}\hfill\\[0.1cm]
 Dati in \textit{input}:
 \begin{itemize}
     \item tipo di inizializzazione: \textit{HighestArtRequestByArt}
@@ -264,7 +265,7 @@ Dati in \textit{input}:
 \end{table}
 \begin{figure}[!h] 
     \centering
-    \caption{Grafico}
+    \caption{Grafico scostamento/risoluzione}
     \vspace*{0.2cm}
     \includegraphics[scale=0.27]{risultati test/grafico risoluzione.pdf}
  \end{figure}

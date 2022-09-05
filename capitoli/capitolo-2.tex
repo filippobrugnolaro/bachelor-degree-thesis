@@ -107,7 +107,7 @@ in quel momento, ovvero $y$ stesso.
 \end{itemize}
 %**************************************************************
 \subsection{\textit{Tabu search}}
-\noindent La \textit{Tabu search}\footnote[3]{Per una descrizione più accurata si legga la sezione \hyperref[sec:tabu-search]{4.4}} è un metodo, classificato come \textit{Trajectory Method}, basato su ricerca locale
+\noindent La \textit{Tabu search}\footnote[3]{Per una descrizione più accurata si legga la sezione \hyperref[sec:tabu-search]{4.4}} è un metodo, classificato come \textit{Trajectory Method} (\textit{Metodo a traiettoria}), basato su \gls{ricercalocaleg}
 in grado di eludere l'intrappolamento del metodo in un minimo locale sfruttando costantemente la memoria.\\
 In particolare, oltre a ricordare la migliore soluzione corrente, vengono salvate, in quella che viene definita \textit{Tabu list},
 anche le {$k$} mosse precedentemente effettuate in modo tale da non incombere nel rischio di un ciclo nel breve periodo.\\
@@ -288,7 +288,7 @@ Di seguito si hanno i risultati dell'analisi dei 3 algoritmi eseguiti singolarme
 ma per il problema che si andrà a risolvere non può essere considerato
 molto soddisfacente in quanto le scelte
 non vengono mai rimesse in discussione e potrebbero dunque escludere soluzioni potenzialmente migliori
-(esempio \hyperref[cap:introduzione]{Introduzione}).\\
+(esempio nella sezione §\ref{sec:descrizione-stage-intro}).\\
 Per quanto riguarda l'algoritmo genetico, sebbene fosse interessante per il mantenimento di più soluzioni ad ogni iterazione, si è dimostrato
 molto più lento rispetto ai due precedenti. Inoltre una maggiore complessità realizzativa lo ha portato all'esclusione.\\
 Si è optato quindi per l'utilizzo della \textit{Tabu search} in quanto rappresentava un buon compromesso sia a livello
