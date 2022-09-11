@@ -10,20 +10,20 @@
 
 \noindent \intro{In questo capitolo viene esposto lo studio di fattibilità,
 in cui verranno evidenziati i punti critici, i vantaggi e gli svantaggi delle
-soluzioni analizzate}\\
+soluzioni analizzate.}\\
 
 %**************************************************************
 \section{Introduzione allo studio}
 \noindent Lo studio di fattibilità rappresenta una delle parti più corpose
 del progetto in quanto viene richiesto un ampio periodo di autoapprendimento
-dei principali algoritmi di \gls{ricercaoperativag} e di ottimizzazione combinatoria,
+dei principali algoritmi di \gls{ricercaoperativag} e di Ottimizzazione Combinatoria,
 seguito da un'ulteriore approfondimento attraverso la consultazione di vari \textit{paper}
 disponibili \textit{online}.\\
 
 \noindent Questa prima parte definirà una prima scelta tra gli algoritmi disponibili in base alle informazioni reperite.\\
 
 \noindent La seconda parte invece consiste nello sviluppo di micro-moduli di \textit{test} sulle scelte effettuate
-precedentemente in modo tale da poter effettuare una analisi ed un confronto accurati basati su parametri che verranno
+precedentemente, in modo tale da poter effettuare una analisi ed un confronto accurati basati su parametri che verranno
 definiti successivamente.\\
 
 \noindent Considerando anche il rapporto tra costi e risorse, le soluzioni che sono state identificate come le più plausibili e sottoposte a uno studio più approfondito sono:
@@ -34,21 +34,21 @@ definiti successivamente.\\
 \end{enumerate}
 
 \noindent Prima di proseguire con lo studio di fattibilità, è necessario dichiarare le metriche che sono state
-utilizzate per effetuare un confronto equo tra gli algoritmi. Chiaramente esse derivano dagli obiettivi che
+utilizzate per effetuare un confronto equo tra gli algoritmi. Chiaramente, esse derivano dagli obiettivi che
 l'algoritmo deve soddisfare per risolvere il problema.\\
 Vengono elencati in seguito i parametri:
 \begin{itemize}
-    \item \textbf{Efficienza}: la capacità dell'algoritmo di utilizzare meno risorse possibili per risolvere il problema.
-    \item \textbf{Efficacia}: la capacità dell'algoritmo di risolvere il problema fornendo una soluzione il più possibile corretta.
-    \item \textbf{Complessità implementativa}: quantitavo di risorse temporali impiegate per sviluppare l'algoritmo.
-    \item \textbf{Paper}: dichiarazioni o dati di esperimenti già effettuati \cite{site:paper-chen} \cite{site:paper-roli} \cite{site:paper-carlos}.
+    \item \textbf{Efficienza}: la capacità dell'algoritmo di utilizzare meno risorse di calcolo possibile per risolvere il problema;
+    \item \textbf{Efficacia}: la capacità dell'algoritmo di risolvere il problema fornendo una soluzione il più possibile corretta;
+    \item \textbf{Complessità implementativa}: quantitavo di risorse temporali impiegate per sviluppare l'algoritmo;
+    \item \textbf{Paper}: dichiarazioni o dati di esperimenti già effettuati, come in \cite{site:paper-chen} \cite{site:paper-roli} \cite{site:paper-carlos}.
 \end{itemize}
 
 \newgeometry{a4paper, left=30mm, right=30mm, top=31mm, bottom=30mm}
 
 %**************************************************************
 \section{Soluzioni proposte}
-\noindent Per ogni soluzione proposta viene effettuata una breve introduzione, seguita da vantaggi e svantaggi.
+\noindent Per ogni soluzione proposta, viene effettuata una breve introduzione, seguita da vantaggi e svantaggi.
 Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di \textit{test} si basano su un problema di \textit{string replacement}
 con \textit{input} di lunghezza uguale.\\
 Si è volutamente scelto questo tipo di problema molto semplice poichè, se i micro-moduli fossero stati sviluppati intercalandoli all'interno del contesto,
@@ -56,8 +56,8 @@ si avrebbe avuto un enorme spreco di risorse temporali.
 
 %**************************************************************
 \subsection{Algoritmo \textit{Greedy}}
-\noindent L'algoritmo \textit{greedy} ("\textit{goloso}") viene così chiamato poichè basa la ricerca di una
-soluzione \gls{ammissibileg} ottima sulla scelta, secondo un criterio predefinto, della miglior soluzione disponibile ad ogni passo senza
+\noindent L'algoritmo \textit{greedy} ("\textit{goloso}") viene così chiamato poichè basa la ricerca di una buona
+soluzione \gls{ammissibileg} sulla scelta, secondo un criterio predefinto, della miglior soluzione disponibile ad ogni passo, senza
 rimettere in discussione la scelta appena effettuata.\\
 Di seguito viene presentato lo pseudocodice dell'algoritmo \textit{greedy}.
 
@@ -101,7 +101,7 @@ in quel momento, ovvero $y$ stesso.
 \end{itemize}
 \noindent \paragraph{Aspetti negativi}
 \begin{itemize}
-    \item Possibilmente inefficace, può non raggiungere l'ottimo globale a causa
+    \item Possibilmente inefficace, può non fornire una buona soluzione a causa
     delle scelte \textit{greedy} effettuate ad ogni iterazione che possono scartare soluzioni
     migliori nel lungo periodo.
 \end{itemize}
@@ -113,8 +113,8 @@ In particolare, oltre a ricordare la migliore soluzione corrente, vengono salvat
 anche le {$k$} mosse precedentemente effettuate in modo tale da non incombere nel rischio di un ciclo nel breve periodo.\\
 Viene dunque orientata la ricerca tramite la modifica del vicinato in funzione della storia dell'esplorazione, ma anche tramite la diversificazione dei sottospazi
 di ricerca tramite il passaggio per soluzioni non ammissibili.\\
-L'algoritmo verrà descritto più approfonditamente nella sezione §\hyperref[sec:tabu-search]{4.4}\\
-Di seguito viene presentato lo pseudocodice della \textit{Tabu search}.
+L'algoritmo verrà descritto più approfonditamente nella Sezione §\hyperref[sec:tabu-search]{4.4}\\
+Di seguito viene presentato lo pseudocodice della \textit{Tabu search} (rivisitazione di \cite{site:solid-github}).
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
     \caption{Pseudocodice \textit{string replacement} - \textit{Tabu search}}
@@ -154,9 +154,9 @@ Di seguito viene presentato lo pseudocodice della \textit{Tabu search}.
 Notiamo come il ruolo della {$tabu\_list$} sia fondamentale in quanto, in caso di appartenza della mossa alla {$tabu\_list$}, non fa calcolare e
 conseguentemente fare il confronto con {$funzione\_obiettivo_{best}$}. Inoltre se la {$funzione\_obiettivo_{curr}$} non è migliorante, l'iterazione
 viene comunque contata.\\
-Per quanto riguarda la condizione di {$\textbf{break}$}, essa viene messa poichè, avendo trovato una soluzione migliorante, non è più necessario
-esplorare il vicinato corrente ed è dunque necessario crearne uno nuovo a partire dalla nuova soluzione.\\
-Di seguito vengono elencati i pro e i contro del seguente approccio \cite{site:paper-lo-go} \cite{site:articolo-tabu-search}.\\
+Per quanto riguarda la condizione di {$\textbf{break}$}, essa viene messa poichè, avendo trovato una soluzione migliorante, non si è più interessati a
+esplorare il vicinato corrente e dunque ne viene creato uno nuovo a partire dalla nuova soluzione.\\
+Di seguito vengono elencati i pro e i contro del seguente approccio, come in \cite{site:paper-lo-go} \cite{site:articolo-tabu-search}.\\
 \vspace*{\fill}
 \newpage
 \noindent \paragraph{Aspetti positivi}
@@ -164,12 +164,12 @@ Di seguito vengono elencati i pro e i contro del seguente approccio \cite{site:p
     \item Bassa complessità implementativa;
     \item Bassa complessità computazionale dell'algoritmo;
     \item Velocità di raggiungimento del minimo locale;
-    \item Fuga da ottimi locali;
+    \item Fuga da ottimi locali.
 \end{itemize}
 
 \noindent \paragraph{Aspetti negativi}
 \begin{itemize}
-    \item Possibilmente inefficace, può non raggiungere l'ottimo globale;
+    \item Possibilmente inefficace, può non fornire una buona soluzione;
     \item Difficile calibrazione dei parametri;
     \item Numero di iterazioni necessario può essere molto alto;
     \item Necessità di una soluzione iniziale.
@@ -179,13 +179,14 @@ Di seguito vengono elencati i pro e i contro del seguente approccio \cite{site:p
 \noindent L'algoritmo genetico \cite{site:dispense-de-giovanni} è un metodo, classifcato come \textit{population based}, basato sul concetto che la natura
 abbia la tendenza ad organizzarsi in strutture ottimizzate, in gran parte ispirato
 alle teorie sull'evoluzione di \textit{Charles Darwin}.\\
-\noindent In particolare, ad ogni iterazione, non viene mantenuta una sola soluzione, ma un'insieme di soluzioni, definita anche come popolazione.
+\noindent In particolare, ad ogni iterazione, non viene mantenuta una sola soluzione, ma un insieme di soluzioni, definita anche come popolazione.
 Gli individui (soluzioni) vengono codificati tramite un cromosoma contenente una serie di geni (variabili decisionali del problema) e, per
 ogni individuo appartente alla popolazione, viene associata quella che viene definita come la sua idoneità, tramite l'utilizzo di una
 funzione di \textit{fitness}, che guida il processo di selezione, basato su metodi probabilistici (es: \textit{metodo Montecarlo}, \textit{linear ranking}, \textit{torneo-n}).\\
 Prima di ogni iterazione vengono dunque presi gli individui e verranno accoppiati tramite degli operatori di ricombinazione
 (es: \textit{crossover uniforme}, \textit{cut-point crossover}, \textit{mutazione}...)
-per generare dei figli che assumeranno le migliori caratteristiche dei genitori. Alla fine dell'algoritmo verrà scelta la soluzione con la maggior \textit{fitness} possibile.\\
+per generare dei figli che assumeranno le migliori caratteristiche dei genitori. Alla fine dell'algoritmo, verrà scelta la soluzione con la maggior \textit{fitness} possibile.\\
+Di seguito viene presentato lo pseudocodice della dell'algoritmo genetico (rivisitazione di \cite{site:solid-github}).
 \vspace*{\fill}
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
@@ -194,7 +195,7 @@ per generare dei figli che assumeranno le migliori caratteristiche dei genitori.
     \hspace*{\algorithmicindent} \textbf{\textit{Input}:} {$stringa\_corretta$}, {$crossover\_rate$}, {$mutation\_rate$}, \\\hspace*{54pt}{$max\_iterazioni$}\\
     \hspace*{\algorithmicindent} \textbf{\textit{Output}:} {$sol_{best}, fitness_{best}$}
     \begin{algorithmic}[1]
-        \Procedure{My\_Genetic\_Algorithm}{$stringa\_corretta$, \par$stringa\_errata$, $crossover\_rate$, $mutation\_rate$, $max\_iterazioni$}
+        \Procedure{My\_Genetic\_Algorithm}{$stringa\_corretta$, \par$crossover\_rate$, $mutation\_rate$, $max\_iterazioni$}
         \State {$arr_{str\_corr} \gets codifica(stringa\_corretta)$}
         \State {$lista\_pop \gets inizializza\_pop()$}
         \State {$set\_fitness()$}
@@ -240,19 +241,18 @@ Si noti come, per ogni popolazione, vengano scelti un numero di individui dipend
 e vengano effettuati {$num_{crossover}$} \textit{crossover} scegliendo 2 individui dalla popolazione che fungono da genitori.
 Viene dunque creata una nuova popolazione di figli a cui viene anche applicata una mutazione a un figlio \textit{random} per
 variare il patrimonio genetico, in modo tale da avere più possibilità di trovare buone caratteristiche.\\
-Di seguito vengono elencati i pro e i contro del seguente approccio \cite{site:articolo-alg-gen} \cite{site:paper-lo-go}.\\
+Di seguito vengono elencati i pro e i contro del seguente approccio (come anche riportato in \cite{site:articolo-alg-gen} \cite{site:paper-lo-go}).\\
 
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
     \item Fuga da ottimi locali;
-    \item Analisi di più sottospazi delle soluzioni, grazie alla varietà della popolazione;
-    \item Utilizzo modelli probabilistici.
+    \item Analisi di più sottospazi delle soluzioni, grazie alla varietà della popolazione.
 \end{itemize}
 
 \noindent \paragraph{Aspetti negativi}
 \begin{itemize}
     \item Modesta complessità implementativa;
-    \item Possibilmente inefficace, può non raggiungere l'ottimo globale;
+    \item Possibilmente inefficace, può non fornire una buona soluzione;
     \item Difficile calibrazione dei parametri;
     \item Difficile codifica degli individui in alcuni problemi;
     \item Numero di iterazioni necessario può essere molto alto.
@@ -263,13 +263,36 @@ Di seguito vengono elencati i pro e i contro del seguente approccio \cite{site:a
 \label{conclusione-studio-fattibilita}
 \noindent Lo studio è servito per capire come funzionassero gli algoritmi e quali fossero i loro pregi e difetti.
 Di seguito si hanno i risultati dell'analisi dei 3 algoritmi eseguiti singolarmente.\\
+\\
+\noindent \textbf{Input degli algoritmi}
+\begin{itemize}
+    \item Algoritmo \textit{greedy}:
+    \begin{itemize}
+        \item \textbf{stringa corretta:} \textit{tabusearch};
+        \item \textbf{stringa errata:} \textit{correctnot}.
+    \end{itemize}
+    \item \textit{Tabu search}:
+    \begin{itemize}
+        \item \textbf{stringa corretta:} \textit{tabusearch};
+        \item \textbf{stringa errata:} \textit{correctnot};
+        \item \textbf{capienza tabu list:} 50;
+        \item \textbf{massimo numero di iterazioni:} 500.
+    \end{itemize}
+    \item Algoritmo \textit{greedy}:
+    \begin{itemize}
+        \item \textbf{stringa corretta:} \textit{tabusearch};
+        \item \textbf{\textit{crossover rate}:} 0.5;
+        \item \textbf{\textit{mutation rate}:} 0.7;
+        \item \textbf{massimo numero di iterazioni:} 500.
+    \end{itemize}
+\end{itemize}
 
 \renewcommand{\arraystretch}{1.6}
 
 % tabella con i risultati
 \begin{center}
     \begin{longtable}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
-    \caption{Tabella dei risultati dell'analisi degli algoritmi dopo 10 esecuzioni}
+    \caption{Tabella dei risultati medi dell'analisi degli algoritmi dopo 10 esecuzioni}
     \label{tab:risultati-studio-fattibilita}
     \\ \hline
     \centering \textbf{Tipologia} & \centering \textbf{Efficacia (\%)} & \centering \textbf{Efficienza (ms)} & \centering \textbf{Tempo di realizzazione (h)} \arraybackslash \\
@@ -283,18 +306,20 @@ Di seguito si hanno i risultati dell'analisi dei 3 algoritmi eseguiti singolarme
     \end{longtable}
 \end{center}%
 
+dove:
+\begin{itemize}
+    \item LC = lettere corrette
+    \item LT = lettere totali
+    \item Efficacia = $\sum_{i=1} ^{10}{\frac{LC_i}{LT_i}}$\\
+\end{itemize}
 \noindent L'algoritmo \textit{greedy} risulta il più efficiente ed efficace in questo specifico caso,
 ma per il problema che si andrà a risolvere non può essere considerato
 molto soddisfacente in quanto le scelte
 non vengono mai rimesse in discussione e potrebbero dunque escludere soluzioni potenzialmente migliori
-(esempio nella sezione §\ref{sec:descrizione-stage-intro}).\\
+(esempio nella Sezione §\ref{sec:descrizione-stage-intro}).\\
 Per quanto riguarda l'algoritmo genetico, sebbene fosse interessante per il mantenimento di più soluzioni ad ogni iterazione, si è dimostrato
-molto più lento rispetto ai due precedenti. Inoltre una maggiore complessità realizzativa lo ha portato all'esclusione.\\
+molto più lento rispetto ai due precedenti. Inoltre, una maggiore complessità realizzativa lo ha portato all'esclusione.\\
 Si è optato quindi per l'utilizzo della \textit{Tabu search} in quanto rappresentava un buon compromesso sia a livello
 di efficacia ed efficienza che a livello implementativo. Per quanto riguarda la soluzione iniziale,
 questa può essere generata a partire da un algoritmo \textit{greedy}, data la sua bassa complessità computazionale.
 In questo modo è possibile avere già a disposizione una buona soluzione di base.\\
-Tuttavia, sebbene la \textit{Tabu search} possieda una sola soluzione ad ogni iterazione,
-è stato pensato che l'algoritmo possa essere lanciato in più \textit{thread},
-riuscendo dunque in un certo senso a simulare il mantenimento di più soluzioni
-dell'algoritmo genetico, passando ai \textit{thread} chiaramente soluzioni iniziali differenti.

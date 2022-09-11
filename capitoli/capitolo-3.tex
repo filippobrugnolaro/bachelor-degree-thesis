@@ -8,13 +8,13 @@
 \label{cap:analisi-requisiti}
 %**************************************************************
 
-\noindent \intro{In questo capitolo viene sposta l'analisi dei requisiti effettuata durante lo \textit{stage}, nella quale vengono descritte le funzionalità tramite i casi d'uso.}\\
+\noindent \intro{In questo capitolo viene esposta l'analisi dei requisiti effettuata durante lo \textit{stage}, nella quale vengono descritte le funzionalità tramite i casi d'uso.}\\
 
 \section{Casi d'uso}
 
-\noindent Per lo studio dei casi di utilizzo del prodotto sono stati creati dei diagrammi.
-I diagrammi dei casi d'uso (in inglese \emph{\textit{Use Case} Diagram}) sono diagrammi di tipo \textit{\gls{umlg}} dedicati alla descrizione delle funzioni o servizi offerti da un sistema, così come sono percepiti e utilizzati dagli attori che interagiscono col sistema stesso.
-Essendo il progetto finalizzato alla creazione di un \textit{tool} per l'automazione di un processo, le interazioni da parte dell'utilizzatore devono essere ovviamente ridotte allo stretto necessario. Per questo motivo i diagrammi dei casi d'uso risultano semplici e in numero ridotto.\\
+\noindent Per lo studio dei casi di utilizzo del prodotto, sono stati creati dei diagrammi.
+I diagrammi dei casi d'uso (in inglese \emph{\textit{Use Case} Diagram}) sono diagrammi di tipo \textit{\gls{umlg}} dedicati alla descrizione delle funzioni o servizi offerti da un sistema, così come sono percepiti e utilizzati dagli attori che interagiscono col sistema stesso. \cite{site:wiki}
+Essendo il progetto finalizzato alla creazione di un \textit{tool} per l'automazione di un processo, le interazioni da parte dell'utilizzatore devono essere ovviamente ridotte allo stretto necessario. Per questo motivo, i diagrammi dei casi d'uso risultano semplici e in numero ridotto.\\
 
 \noindent A livello formale, i diagrammi dei casi d'uso avranno la seguente forma:
 \begin{center}
@@ -23,22 +23,25 @@ Essendo il progetto finalizzato alla creazione di un \textit{tool} per l'automaz
 \noindent È importante ribadire come questo formalismo sia gerarchico, ovvero un codice figlio
 può essere codice padre di un suo eventuale codice figlio. Possono essere figli le generalizzazioni e i sottocasi d'uso.\\
 
-\noindent Nella figura di seguito verrà illustrato il diagramma del sistema principale con tutti i casi d'uso.
+\noindent Nella Figura \ref{use-case-sistema-principale} verrà illustrato il diagramma del sistema principale con tutti i casi d'uso.
 \vspace*{\fill}
 \begin{figure}[!h] 
    \centering 
    \includegraphics[width=0.91\columnwidth]{usecase/winform.pdf} 
    \caption{Use case - sistema principale}
+   \label{use-case-sistema-principale}
 \end{figure}
 \vspace*{\fill}
 \newgeometry{a4paper, left=30mm, right=30mm, top=31mm, bottom=30mm}
 
-\noindent \textbf{\large UC 1 - Inserimento dati}
+\noindent \textbf{\large UC 1 - Inserimento dati}\\[0.2cm]
 \label{uc:inserimento-dati}
+\noindent In Figura \ref{use-case-1} viene rappresentato il caso d'uso tramite diagramma \gls{umlg}.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[width=0.95\columnwidth]{usecase/UC 1.pdf} 
     \caption{UC1 - Inserimento dati}
+	\label{use-case-1}
 \end{figure}
 \begin{itemize}
 
@@ -139,8 +142,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente conferma la data di inizio previsione;
-			\item L'utente visualizza un errore generato dalla \textit{form}.
+			\item L'utente conferma la data di inizio previsione.
 		\end{enumerate}
 		
 
@@ -166,8 +168,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente conferma la data di fine previsione;
-			\item L'utente visualizza un errore generato dalla \textit{form}.
+			\item L'utente conferma la data di fine previsione.
 		\end{enumerate}
 		
 
@@ -177,6 +178,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 \end{itemize}
 
 \vspace{0.4cm}
+\newpage
 
 \noindent \textbf{\large UC 2 - Inizio analisi di ottimizzazione}
 \label{uc:inizio-analisi-ottimizzazione}
@@ -204,12 +206,14 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \vspace{0.4cm}
 
-\noindent \textbf{\large UC 3 - Visualizzazione risultati}
+\noindent \textbf{\large UC 3 - Visualizzazione risultati}\\[0.2cm]
 \label{uc:visualizzazione-risultati}
+\noindent In Figura \ref{use-case-3} viene rappresentato il caso d'uso tramite diagramma \gls{umlg}.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[width=0.95\columnwidth]{usecase/UC 3.pdf} 
     \caption{UC3 - Visualizzazione risultati}
+	\label{use-case-3}
 \end{figure}
 \begin{itemize}
 
@@ -223,9 +227,9 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza il totale non ottimizzato (\hyperref[uc:visualizzazione-totale-non-ottimizzato]{UC 3.1});
-			\item L'utente visualizza il totale ottimizzato (\hyperref[uc:visualizzazione-totale-ottimizzato]{UC 3.2});
-			\item L'utente visualizza lo scostamento percentuale dei totali (\hyperref[uc:visualizzazione-scostamento-percentuale-totali]{UC 3.3}).
+			\item L'utente richiede la visualizzazione il totale non ottimizzato (\hyperref[uc:visualizzazione-totale-non-ottimizzato]{UC 3.1});
+			\item L'utente richiede la visualizzazione il totale ottimizzato (\hyperref[uc:visualizzazione-totale-ottimizzato]{UC 3.2});
+			\item L'utente richiede la visualizzazione lo scostamento percentuale dei totali (\hyperref[uc:visualizzazione-scostamento-percentuale-totali]{UC 3.3}).
 		\end{enumerate}
 		
 
@@ -252,7 +256,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza il totale non ottimizzato.
+			\item L'utente richiede la visualizzazione il totale non ottimizzato.
 		\end{enumerate}
 		
 
@@ -277,7 +281,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza il totale ottimizzato.
+			\item L'utente richiede la visualizzazione il totale ottimizzato.
 		\end{enumerate}
 		
 
@@ -302,7 +306,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza lo scostamento percentuale dei totali.
+			\item L'utente richiede la visualizzazione lo scostamento percentuale dei totali.
 		\end{enumerate}
 		
 
@@ -315,13 +319,15 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \newpage
 
-\noindent \textbf{\large UC 4 - Visualizzazione lista degli ordini}
+\noindent \textbf{\large UC 4 - Visualizzazione lista degli ordini}\\[0.2cm]
+\label{uc:visualizzazione-lista-ordini}
+\noindent In Figura \ref{use-case-4} viene rappresentato il caso d'uso tramite diagramma \gls{umlg}.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[width=0.65\columnwidth]{usecase/UC 4.pdf} 
     \caption{UC4 - Visualizzazione lista degli ordini}
+	\label{use-case-4}
 \end{figure}
-\label{uc:visualizzazione-lista-ordini}
 \begin{itemize}
 
 	\item \textbf{Attori primari: }
@@ -334,7 +340,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza la lista degli ordini da effettuare.
+			\item L'utente richiede la visualizzazione la lista degli ordini da effettuare.
 		\end{enumerate}
 		
 
@@ -347,13 +353,15 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \vspace*{\fill}
 
-\noindent \textbf{\large UC 4.1 - Visualizzazione singolo ordine}
+\noindent \textbf{\large UC 4.1 - Visualizzazione singolo ordine}\\[0.2cm]
+\label{uc:visualizzazione-singolo-ordine}
+\noindent In Figura \ref{use-case-4.1} viene rappresentato il caso d'uso tramite diagramma \gls{umlg}.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[width=0.95\columnwidth]{usecase/UC 4.1.pdf} 
     \caption{UC4.1 - Visualizzazione singolo ordine}
+	\label{use-case-4.1}
 \end{figure}
-\label{uc:visualizzazione-singolo-ordine}
 \begin{itemize}
 
 	\item \textbf{Attori primari: }
@@ -370,7 +378,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 	
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza il singolo ordine con tutte le informazioni tra cui:
+			\item L'utente richiede la visualizzazione del singolo ordine con tutte le informazioni tra cui:
 			\begin{itemize}
 				\item codice articolo (\hyperref[uc:visualizzazione-codice-articolo]{UC 4.1.1});
 				\item codice fornitore (\hyperref[uc:visualizzazione-codice-fornitore]{UC 4.1.2});
@@ -404,7 +412,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza il codice articolo del singolo ordine.
+			\item L'utente richiede la visualizzazione del codice articolo del singolo ordine.
 		\end{enumerate}
 		
 
@@ -429,7 +437,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza il codice fornitore del singolo ordine.
+			\item L'utente richiede la visualizzazione del codice fornitore del singolo ordine.
 		\end{enumerate}
 		
 
@@ -456,7 +464,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza la data d'ordine del singolo ordine.
+			\item L'utente richiede la visualizzazione della data d'ordine del singolo ordine.
 		\end{enumerate}
 		
 
@@ -481,7 +489,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza la data iniziale di copertura del singolo ordine.
+			\item L'utente richiede la visualizzazione della data iniziale di copertura del singolo ordine.
 		\end{enumerate}
 		
 
@@ -506,7 +514,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza la data finale di copertura del singolo ordine.
+			\item L'utente richiede la visualizzazione della data finale di copertura del singolo ordine.
 		\end{enumerate}
 		
 
@@ -533,7 +541,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza la quantità ordinata del singolo ordine.
+			\item L'utente richiede la visualizzazione della quantità ordinata del singolo ordine.
 		\end{enumerate}
 		
 
@@ -558,7 +566,7 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 	\item \textbf{Scenario principale: }
 		\begin{enumerate}
-			\item L'utente visualizza il prezzo parziale del singolo ordine.
+			\item L'utente richiede la visualizzazione del prezzo parziale del singolo ordine.
 		\end{enumerate}
 		
 
@@ -569,12 +577,14 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \vspace{0.4cm}
 
-\noindent \textbf{\large UC 5 - Filtraggio dati}
+\noindent \textbf{\large UC 5 - Filtraggio dati}\\[0.2cm]
 \label{uc:filtraggio-dati}
+\noindent In Figura \ref{use-case-5} viene rappresentato il caso d'uso tramite diagramma \gls{umlg}.
 \begin{figure}[!h] 
     \centering 
-    \includegraphics[width=0.95\columnwidth]{usecase/UC 5.pdf} 
+    \includegraphics[width=0.90\columnwidth]{usecase/UC 5.pdf} 
     \caption{UC 5 - Filtraggio dati}
+	\label{use-case-5}
 \end{figure}
 \begin{itemize}
 
@@ -814,12 +824,14 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \newpage
 
-\noindent \textbf{\large UC 6 - Ordinamento della lista degli ordini}
+\noindent \textbf{\large UC 6 - Ordinamento della lista degli ordini}\\[0.2cm]
 \label{uc:ordinamento-elementi-lista}
+\noindent In Figura \ref{use-case-6} viene rappresentato il caso d'uso tramite diagramma \gls{umlg}.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[width=0.95\columnwidth]{usecase/UC 6.pdf} 
     \caption{UC 6 - Ordinamento della lista degli ordini}
+	\label{use-case-6}
 \end{figure}
 \begin{itemize}
 
@@ -1030,13 +1042,13 @@ può essere codice padre di un suo eventuale codice figlio. Possono essere figli
 
 \section{Tracciamento dei requisiti}
 
-\noindent Da un'attenta analisi dei requisiti e degli \textit{use case} effettuata sul progetto è stata stilata la tabella che traccia i requisiti in rapporto agli \textit{use case}.\\
+\noindent Da un'attenta analisi dei requisiti e degli \textit{use case} effettuata sul progetto, è stata stilata la tabella che traccia i requisiti in rapporto agli \textit{use case}.\\
 Sono stati individuati diversi tipi di requisiti e si è dunque utilizzato un codice identificativo univoco per distinguerli.\\
 Il codice dei requisiti è così strutturato:
 \begin{center}
     \textbf{R<NumeroRequisito>-<Tipo>-<Classificazione>}
 \end{center}
-In particolare il tipo può assumere 4 valori, quali:
+In particolare, il tipo può assumere 4 valori, quali:
 \begin{itemize}
     \item \textbf{F} $=$ funzionale;
     \item \textbf{Q} $=$ qualitativo;
@@ -1049,8 +1061,8 @@ Per quanto riguarda la classificazione, invece, si hanno 3 valori possibili:
     \item \textbf{D} $=$ desiderabile;
     \item \textbf{F} $=$ facoltativo.
 \end{itemize}
-Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \ref{tab:requisiti-di-performance} e \ref{tab:requisiti-di-vincolo} suddivise per tipo sono riassunti i requisiti e il loro tracciamento con gli \textit{use case} delineati in fase di analisi.
-
+Nelle Tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi}, \ref{tab:requisiti-di-performance}, \ref{tab:requisiti-di-vincolo}, suddivise per tipo, sono riassunti i requisiti e il loro tracciamento con gli \textit{use case} delineati in fase di analisi.
+La Tabella \ref{tab:requisiti-riepilogo} illustra un riepilogo generale dei requisiti.
 %comando arraystretch
 \renewcommand{\arraystretch}{1.6}
 

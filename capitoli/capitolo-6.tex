@@ -19,9 +19,57 @@ fabbisogni di un dato periodo.\\
 viene determinata una soluzione iniziale tramite un algoritmo \textit{greedy} e poi, attraverso la
 \textit{Tabu search}, si crea una nuova soluzione che viene visualizzata in una lista
 filtrabile contenente tutte le informazioni di ogni ordine.
+
+\section{Consuntivo delle tempistiche}
+\noindent Nella Tabella \ref{tab:attivita-ore-fine} viene esposto il consuntivo orario finale.
+\renewcommand{\arraystretch}{1.6}
+
+% tabella con i risultati
+\begin{center}
+    \begin{longtable}{m{9cm}m{3cm}}
+    \caption{Tabella delle attività con le corrispettive ore consuntivate}
+    \label{tab:attivita-ore-fine}
+    \\ \hline
+    \centering \textbf{Descrizione attività} & \centering \textbf{Ore consuntivate} \arraybackslash \\
+    \hline
+    \centering Analisi del modulo \textit{software}
+    esistente e delle funzionalità da realizzare & \centering 24 \arraybackslash \\
+    \hline
+    \centering Studio di fattibilità e Studio di algoritmi e tecniche di
+    \gls{ricercaoperativag}
+    e Ottimizzazione Combinatoria & \centering 100 \arraybackslash \\
+    \hline
+    \centering Studio delle tecnologie aziendali necessarie allo sviluppo del
+    modulo & \centering 20 (-12) \arraybackslash \\
+    \hline
+    \centering Sviluppo di micro-moduli di \textit{test} per gli algoritmi
+    studiati & \centering 8 \arraybackslash \\
+    \hline
+    \centering Sviluppo modulo effettivo, generazione/lettura dei vincoli
+    e parametrizzazione tramite pesi delle variabili & \centering 96 (+4) \arraybackslash \\
+    \hline
+    \centering \textit{Test} e Validazione & \centering 28 (+8) \arraybackslash \\
+    \hline
+    \centering Stesura della documentazione
+    del prodotto sviluppato & \centering 24 \arraybackslash \\
+    \hline
+    \end{longtable}
+\end{center}%
+
+\noindent È evidente come, rispetto al preventivo nella Tabella
+\ref{tab:attivita-ore-inizio} (Sezione §\ref{sec:pianificazione-lavoro}),
+la gestione delle ore sia stata abbastanza in linea con quanto dichiarato.
+Tuttavia, si può notare come le ore risparmiate per lo studio delle tecnologie
+siano state impiegate in una minima parte nello sviluppo del modulo effettivo e
+la restante parte per il \textit{testing} (vedasi problema del \textit{\gls{databaseg}} nella
+Sezione §\ref{sec:risultati-test}).
+Ciò si è verificato perchè le conoscenze pregresse (come spiegato nella Sezione §\ref{sec:conoscenze-acquisite})
+hanno permesso un'apprendimento più rapido del previsto.
+
+\newgeometry{a4paper, left=30mm, right=30mm, top=31mm, bottom=30mm}
 %**************************************************************
-\section{Raggiungimento degli obiettivi}
-\noindent Come descritto nella sezione §\ref{sec:validazione-requisiti}, il prodotto
+\section{Soddisfacimento dei requisiti}
+\noindent Come descritto nella Sezione §\ref{sec:validazione-requisiti}, il prodotto
 soddisfa la maggior parte delle necessità descritte nell'analisi dei requisiti.
 In particolare sono stati realizzati tutti i requisiti funzionali, la maggior parte
 di quelli qualitativi, tutti quelli di performance e di vincolo.\\
@@ -40,22 +88,73 @@ del soddisfacimento dei requisiti.
     \reqsum{Non Soddisfatti}{0}{2}{1}
     \end{longtable}
 \end{center}%
+
+%**************************************************************
+\section{Raggiungimento degli obiettivi}
+Nella Tabella \ref{tab:raggiungimento-obiettivi} viene illustrato il riepilogo del soddisfacimento degli obiettivi
+\renewcommand{\arraystretch}{1.55}
+
+% tabella con i risultati
+\begin{center}
+    \begin{longtable}{m{3cm}m{9cm}m{2cm}}
+    \caption{Riepologo del soddisfacimento degli obiettivi}
+    \label{tab:raggiungimento-obiettivi}
+    \\ \hline
+    \centering \textbf{Codice Obiettivo} & \centering \textbf{Descrizione Obiettivo} & \centering \textbf{Risultato} \arraybackslash \\
+    \hline
+    \centering OB1 & Sviluppo programmi per inserimento
+    dei vincoli che delimitano il problema & \centering Soddisfatto \arraybackslash \\
+    \hline
+    \centering OB2 & Redazione di un documento che riporti
+    i risultati ottenuti nello studio di fattibilità & \centering Soddisfatto \arraybackslash \\
+    \hline
+    \centering OB3 & Sviluppo di micro-moduli di prototipizzazione degli algoritmi analizzati & \centering Soddisfatto \arraybackslash \\
+    \hline
+    \centering OB4 & Sviluppo modulo \textit{software} per
+    la soluzione del problema & \centering Soddisfatto \arraybackslash \\
+    \hline
+    \centering OB5 & Acquisizione di competenze sull’utilizzo
+    di algoritmi di \gls{ricercaoperativag} e
+    applicazione in un caso reale & \centering Soddisfatto \arraybackslash \\
+    \hline
+    \centering DE1 & Utilizzo di più tecniche e combinazione dei risultati
+    ottenuti o individuazione della miglior soluzione attraverso
+    opportuni \textit{KPI} (\textit{Key Performance Indicator}) & \centering Non Soddisfatto \arraybackslash \\
+    \hline
+    \centering FA1 & Utilizzo del \textit{multithreading}
+    nelle fasi in cui è richiesta una
+    maggiore capacità di calcolo & \centering Non Soddisfatto \arraybackslash \\
+    \hline
+    \end{longtable}
+\end{center}%
+
+\noindent Come si può notare gli obiettivi obbligatori
+sono stati tutti soddisfatti. Questi, infatti, rappresentavano
+il minimo indispensabile per il superamento dell'attività di \textit{stage}.\\
+Gli obiettivi desiderabili e facoltativi non sono stati soddisfatti.
+Il motivo sta nel fatto che non c'è stato il tempo necessario per svolgerli.
+Si è deciso, dunque, di dedicare le ore rimanenti
+al miglioramento della documentazione già esistente, che sarebbe risultata
+più utile rispetto a iniziare un obiettivo che sicuramente non si sarebbe portato a termine.
+
 %**************************************************************
 \section{Conoscenze acquisite}
-\noindent Per la realizzazione di questo progetto sono state fondamentali
-molte nozioni apprese durante il corso di studi, dai linguaggi ai paradigmi.\\
+\label{sec:conoscenze-acquisite}
+\noindent Per la realizzazione di questo progetto, sono state fondamentali
+molte nozioni apprese durante il corso di studi, dai linguaggi ai paradigmi.
+Inoltre, aver appreso in precedenza come modellare e risolvere un problema di ottimizzazione tramite la \gls{ricercaoperativag},
+ha sicuramente aiutato nell'analisi del problema, che altrimenti sarebbe stata certamente più complicata.\\
 Lo \textit{stage} ha permesso però anche di incrementare notevolmente il mio bagaglio
 sia tecnico che personale.
 Vengono ora elencate le principali conoscenze acquisite.
 \paragraph{\textit{Informix}, \textit{C\#} e \textit{MSTest}}\hfill\\\\
 \noindent Per lo sviluppo del progetto mi sono servito principalmente di queste tecnologie:
 \begin{itemize}
-    \item \textit{Informix} per \textit{\gls{databaseg}}
-    \item \textit{C\#} come linguaggio di programmazione
-    \item \textit{MSTest} come \textit{framework} di \textit{test}
+    \item \textit{Informix} per \textit{\gls{databaseg}};
+    \item \textit{C\#} come linguaggio di programmazione;
+    \item \textit{MSTest} come \textit{framework} di \textit{test}.
 \end{itemize}
-\newgeometry{a4paper, left=30mm, right=30mm, top=31mm, bottom=30mm}
-\noindent Non avendole mai affrontate né all’università né in privato ho dovuto
+\noindent Non avendole mai affrontate né all’università né in privato, ho dovuto
 cominciare praticamente da zero, ma poichè struttura, regole e utilizzo sono simili
 a tecnologie conosciute, come ad esempio \textit{MySQL} per \textit{Informix}, \textit{\gls{C++g}} e \textit{\gls{javag}} per \textit{C\#},
 e \textit{\gls{JUnitg}} per \textit{MSTest}, l’apprendimento è stato molto semplificato.
@@ -70,12 +169,12 @@ ben conosciute.\\
 Questo progetto mi ha posto davanti per la prima volta un problema
 non banale da risolvere da solo. Infatti uno studio preliminare forse poco accurato
 mi ha portato a effettuare per buona parte dello \textit{stage} molte domande al \textit{tutor}.
-É chiaro dunque come sia fondamentale capire il problema che si ha di fronte nella
-sua completa interezza prima di iniziare la progettazione e lo sviluppo.
+È chiaro dunque come sia fondamentale capire il problema che si ha di fronte nella
+sua interezza prima di iniziare la progettazione e lo sviluppo.
 
 \paragraph{Gestione delle risorse}\hfill\\\\
 Il mondo universitario pone lo studente a organizzare le sue risorse temporali disponibili
-per preparare al meglio gli esami. Tutto ciò non ha nulla a che vedere con la
+per preparare al meglio gli esami. Tutto ciò, nella mia esperienza, è diverso con la
 gestione delle risorse in ambito aziendale. L'organizzazione diventa fondamentale
 e la schedulazione degli eventi e degli obiettivi diventa imprescindibile.
 Lo svolgimento dello \textit{stage} mi ha permesso dunque di crescere molto su questo aspetto
@@ -83,7 +182,7 @@ che avevo già rafforzato nel corso di \textit{Ingegneria del software}.
 
 %**************************************************************
 \section{Valutazione complessiva}
-\noindent Lo \textit{stage} presso \textit{Ergon Informatica} lo valuto in maniera molto positiva.\\
+\noindent Valuto lo \textit{stage} presso \textit{Ergon Informatica} in maniera molto positiva.\\
 I due mesi trascorsi in azienda sono risultati molto leggeri e piacevoli soprattutto grazie
 ad un ambiente di lavoro molto motivante e, a tratti, anche divertente.\\
 
@@ -97,8 +196,7 @@ dell'azienda.\\
 
 \noindent Per quanto concerne la parte di realizzazione del progetto, tutto è proseguito secondo quanto programmato.\\
 Personalmente ho trovato più difficile la parte di inquadramento del problema e di scelta della funzione di valutazione.
-Quest'ultima è stata particolarmente complessa perchè non esisteva una qualche procedura
-che descrivesse come arrivare a definire la funzione di valutazione, ma bisognava
+Quest'ultima è stata particolarmente complessa perchè ha portato a
 effettuare delle prove empiriche e aggiustare la funzione tentativo dopo tentativo.
 Ho avuto modo di affrontare tematiche nuove legate alla risoluzione di problemi
 relativi al mondo reale e questo mi ha permesso di rimanere costantemente motivato.\\

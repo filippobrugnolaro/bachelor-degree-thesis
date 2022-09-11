@@ -9,7 +9,7 @@
 \label{cap:introduzione}
 %**************************************************************
 
-\noindent \intro{Nel seguente capitolo si introduce brevemente l'azienda ospitante e il progetto affrontato.}\\
+\noindent \intro{In questo capitolo si introduce brevemente l'azienda ospitante e il progetto affrontato.}\\
 
 %Introduzione al contesto applicativo.\\
 
@@ -30,7 +30,7 @@
 \textit{"Ergon Informatica"}) è un'azienda italiana, fondata nel 1988, 
 con sede a Castelfranco Veneto.\\
 Essa si occupa principalmente di soluzioni gestionali per piccole e medie imprese e dello sviluppo di
-\textit{software \gls{erpg}} per i settori dell'alimentare e dei trasporti,
+\textit{software \gls{erpg}} (\textit{Enterprise Resource Planning}) per i settori dell'alimentare e dei trasporti,
 ma completa l'offerta con la vendita di prodotti
 \textit{hardware}, servizi \textit{web} e \textit{hosting}, nonché con progetti di \textit{\gls{serverconsolidationg}} e virtualizzazione di
 sistemi.
@@ -79,7 +79,7 @@ i moduli vengono dunque raggruppati nelle seguenti categorie:
 \end{itemize}
 \end{multicols}
 
-\noindent In generale l'azienda può contare su una vasta gamma di clienti,
+\noindent In generale, l'azienda può contare su una vasta gamma di clienti,
 in quanto i prodotti vengono sviluppati in base alle esigenze di ognuno di essi.
 Il prodotto viene prima creato a partire da uno \textit{standard}
 a cui vengono successivamente aggiunte le varie funzionalità.\\
@@ -90,7 +90,7 @@ far evolvere \textit{\gls{ergdisg}} in una maniera tale da essere sempre in line
 
 
 %**************************************************************
-\section{L'idea}
+\section{L'idea dello stage}
 \noindent Lo \textit{stage} proposto consiste nella progettazione e nello sviluppo di un modulo \textit{software} volto
 ad assistere l'azienda nella fase di approvvigionamento dei prodotti dai propri fornitori, supportandola nello scegliere
 da quale fornitore e quando acquistare i prodotti.
@@ -100,7 +100,7 @@ In pratica il modulo attuale, per ogni prodotto da ordinare, prende in considera
 dell'effettiva copertura del fabbisogno del prodotto stesso. Questo dunque non garantirebbe con certezza una scelta ottimale
 in relazione alle possibilità d'ordine fornite dagli appositi listini e calendario dei fornitori.\\
 
-\noindent Data la natura combinatoria del problema, il nuovo modulo dovrà fornire in tempi ragionevoli una "buona soluzione"
+\noindent Data la natura combinatoria del problema, che richiede di scegliere il mix migliore di acquisti da vari listini, il nuovo modulo dovrà fornire in tempi ragionevoli una "buona soluzione"
 del problema, ovvero tendente il più possibile all'ottimo, e dovrà integrarsi con l'intero sistema \textit{\gls{ergdisg}}.\\
 
 \noindent È previsto inoltre che i dati su cui si è eseguita l'ottimizzazione e il confronto dei risultati vengano visualizzati tramite un'apposita
@@ -114,13 +114,12 @@ interfaccia grafica che verrà sviluppata in linea con l'ambiente di sviluppo de
 \subsection{Introduzione}
 \label{sec:descrizione-stage-intro}
 
-\noindent Lo \textit{stage} consiste nello sviluppo di un algoritmo di ottimizzazione che riesca a diminuire l'eventuale spesa che l'azienda andrebbe
-a sostenere.\\
-L'algoritmo dovrà ottimizzare i risultati calcolati da un modulo preesistente, facente parte della gestione dell' \textit{Area Acquisti}, il quale
-consiglia l'ordinamento della merce basandosi sull'ultima data d'ordine disponibile.\\
+\noindent Lo \textit{stage} consiste nello sviluppo di un algoritmo di ottimizzazione che riesca a diminuire la spesa dell'azienda per gli approvviogionamenti.\\
+L'algoritmo dovrà ottimizzare i risultati calcolati da un modulo preesistente, facente parte della gestione dell'\textit{Area Acquisti}, il quale
+consiglia di procedere con gli acquisti con una priorità basata sull'ultima data d'ordine disponibile.\\
 \noindent La scelta dell'attuale modulo infatti porterebbe a non considerare:
 \begin{itemize}
-    \item \textbf{l'andamento del mercato}: i prezzi sono variabili e dipendono dal periodo nel quale si comprano i prodotti.
+    \item \textbf{l'andamento del mercato}: i prezzi sono variabili e dipendono dal periodo nel quale si comprano i prodotti;
     \item \textbf{i bonus}: i fornitori possono garantire dei bonus in base al raggiungimento di determinati obiettivi di rapporti commerciali.
 \end{itemize}
 \noindent Facciamo un esempio per chiarire in maniera esplicita perchè si devono andare a considerare parametri come questi. Il problema
@@ -174,51 +173,134 @@ Infatti sarrebbe stato opportuno ordinare l'articolo \textit{FEG10} dal fornitor
 Sebbene possa sembrare un risparmio minimo e trascurabile, se applicato a enormi quantità, può
 diventare un notevole risparmio di risorse.\\
 
-\noindent Dopo queste considerazioni è chiaro come il modulo preesistente non garantisca necessariamente una soluzione ottima in termini economici ed è il motivo per il quale
-si è deciso di realizzare un nuovo modulo che vada a considerare determinati parametri.\\
+\noindent Dopo queste considerazioni, è chiaro come il modulo preesistente non garantisca necessariamente una soluzione ottima in termini economici ed è il motivo per il quale
+si è deciso di realizzare un nuovo modulo.\\
 
-\noindent Oltre a ciò, i risultati devono poter essere visualizzati tramite una \textit{\gls{windowsformg}} in cui si dovrà far scegliere all'utente
+\noindent Inoltre, i risultati devono poter essere visualizzati tramite una \textit{\gls{windowsformg}} in cui si dovrà far scegliere all'utente
 anche le date entro cui si vuole fare l'analisi.\\
 
-\noindent Per l'azienda questo \textit{stage} rappresenta un'opportunità per fornire un servizio aggiuntivo ai propri clienti, ma serve anche per avere una base
+\noindent Per l'azienda, lo \textit{stage} di cui si riporta in questa tesi rappresenta un'opportunità per fornire un servizio aggiuntivo ai propri clienti, ma serve anche per avere una base
 dalla quale poter eventualmente estendere il modulo con nuovi algoritmi più efficienti.
 %**************************************************************
 \newpage
 \subsection{Obiettivi}
+\label{sec:obiettivi}
+\noindent Nella Tabella \ref{tab:obiettivi} vengono elencati tutti gli obiettivi previsti dallo \textit{stage} dove
+i codici obiettivo con prefisso \textit{OB} rappresentano gli obiettivi obbligatori, \textit{DE} quelli desiderabili
+e \textit{FA} quelli facoltativi.
 
-\noindent Di seguito vengono elencati tutti gli obiettivi previsti dallo \textit{stage}:
-\begin{itemize}
-    \item Analisi del contesto \textit{\gls{ergdisg}};
-    \item Studio dei principali algoritmi di \gls{ricercaoperativag} e ottimizzazione combinatoria;
-    \item Redazione di uno studio di fattibilità con integrazione di micro-moduli di \textit{test};
-    \item Redazione di un'analisi dei requisiti;
-    \item Sviluppo e codifica del modulo \textit{software} con le tecnologie utilizzate dall'azienda;
-    \item Redazione di documentazione tecnica riguardante le scelte implementative e architetturali effettuate;
-    \item \textit{Report} finale sui risultati ottenuti.
-\end{itemize}
+\renewcommand{\arraystretch}{1.55}
+
+% tabella con i risultati
+\begin{center}
+    \begin{longtable}{m{3cm}m{9cm}}
+    \caption{Tabella degli obiettivi}
+    \label{tab:obiettivi}
+    \\ \hline
+    \centering \textbf{Codice Obiettivo} & \centering \textbf{Descrizione Obiettivo} \arraybackslash \\
+    \hline
+    \centering OB1 & Sviluppo programmi per inserimento
+    dei vincoli che delimitano il problema \arraybackslash \\
+    \hline
+    \centering OB2 & Redazione di un documento che riporti
+    i risultati ottenuti nello studio di fattibilità \arraybackslash \\
+    \hline
+    \centering OB3 & Sviluppo di micro-moduli di prototipizzazione degli algoritmi analizzati \arraybackslash \\
+    \hline
+    \centering OB4 & Sviluppo modulo \textit{software} per
+    la soluzione del problema \arraybackslash \\
+    \hline
+    \centering OB5 & Acquisizione di competenze sull’utilizzo
+    di algoritmi di \gls{ricercaoperativag} e
+    applicazione in un caso reale \arraybackslash \\
+    \hline
+    \centering DE1 & Utilizzo di più tecniche e combinazione dei risultati
+    ottenuti o individuazione della miglior soluzione attraverso
+    opportuni \textit{KPI} (\textit{Key Performance Indicator}) \arraybackslash \\
+    \hline
+    \centering FA1 & Utilizzo del \textit{multithreading}
+    nelle fasi in cui è richiesta una
+    maggiore capacità di calcolo \arraybackslash \\
+    \hline
+    \end{longtable}
+\end{center}%
+
+\subsection{Pianificazione del lavoro}
+\label{sec:pianificazione-lavoro}
+\noindent Lo stage è stato programmato per essere svolto in due mesi di lavoro
+a tempo pieno, per un totale di 320 ore (festività escluse).\\
+\noindent Nella Tabella \ref{tab:attivita-ore-inizio} vengono elencate
+le attività preventivate con le corrispettive ore.
+
+\renewcommand{\arraystretch}{1.55}
+
+% tabella con i risultati
+\begin{center}
+    \begin{longtable}{m{9cm}m{3cm}}
+    \caption{Tabella delle attività con le corrispettive ore preventivate}
+    \label{tab:attivita-ore-inizio}
+    \\ \hline
+    \centering \textbf{Descrizione attività} & \centering \textbf{Ore preventivate} \arraybackslash \\
+    \hline
+    \centering Analisi del modulo \textit{software}
+    esistente e delle funzionalità da realizzare & \centering 24 \arraybackslash \\
+    \hline
+    \centering Studio di fattibilità e Studio di algoritmi e tecniche di
+    \gls{ricercaoperativag}
+    e Ottimizzazione Combinatoria & \centering 100 \arraybackslash \\
+    \hline
+    \centering Studio delle tecnologie aziendali necessarie allo sviluppo del
+    modulo & \centering 32 \arraybackslash \\
+    \hline
+    \centering Sviluppo di micro-moduli di \textit{test} per gli algoritmi
+    studiati & \centering 8 \arraybackslash \\
+    \hline
+    \centering Sviluppo modulo effettivo, generazione/lettura dei vincoli
+    e parametrizzazione tramite pesi delle variabili & \centering 92 \arraybackslash \\
+    \hline
+    \centering \textit{Test} e Validazione & \centering 20 \arraybackslash \\
+    \hline
+    \centering Stesura della documentazione
+    del prodotto sviluppato & \centering 24 \arraybackslash \\
+    \hline
+    \end{longtable}
+\end{center}%
+
+\newpage
+
+\noindent In Figura \ref{gantt-diagramma} viene presentata
+la pianificazione settimanale delle attività comprese tra
+l'11/07/2022 e il 05/09/2022.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{ganttdiagrams/Gantt Stage Ergon.png}
+    \caption{Diagramma di Gantt delle attività}
+    \label{gantt-diagramma}
+\end{figure}
+
 %**************************************************************
 \subsection{Analisi preventiva dei rischi}
-\noindent Durante la fase iniziale dello \textit{stage} sono stati rilevati dei possibili rischi che avrebbero potuto presentarsi
+\noindent Durante la fase iniziale dello \textit{stage}, sono stati rilevati dei possibili rischi che avrebbero potuto presentarsi
 durante il percorso del progetto.\\
 Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In particolare:
 \begin{enumerate}
     \item \textbf{Comprensione e confronto degli algoritmi}\\[0.2cm]
     \textbf{Problema:} il progetto richiede un'ampia fase di studio che riguarda principalmente la teoria
-    delle tecniche per la risoluzione di problemi di \gls{ricercaoperativag} e ottimizzazione combinatoria.
-    Questo poteva portare a presentarsi la possibilità di non comprendere fino in fondo l'algoritmo e poteva essere difficile cogliere e confrontare
+    delle tecniche per la risoluzione di problemi di \gls{ricercaoperativag} e Ottimizzazione Combinatoria.
+    Questo può portare la possibilità di non comprendere fino in fondo l'algoritmo e può essere difficile cogliere e confrontare
     i pregi e difetti di ciascuno di essi.\\[0.2cm]
     \textbf{Soluzione:} è stato organizzato un incontro iniziale con il \textit{tutor}
     per fornire una base da cui poi iniziare una ricerca più approfondita.
     Sono state fornite anche delle dispense utili per rafforzare la base di partenza.
     \item \textbf{Tecnologie e ambiente di sviluppo}\\[0.2cm]
-    \textbf{Problema:} venivano richieste alcune tecnologie, come per esempio \textit{\gls{entityframeworkg}} o
+    \textbf{Problema:} sono richieste alcune tecnologie, come per esempio \textit{\gls{entityframeworkg}} o
     \textit{\gls{devexpressg}} a me assolutamente ignote.
     Sebbene avessi delle basi abbastanza solide di \textit{C\#} derivanti dalla conoscenza di altri linguaggi
     quali \textit{\gls{C++g}} e \textit{\gls{javag}}, venivano richieste tuttavia
-    alcune tecnologie integrate nel linguaggio (\textit{\gls{linqg}}), anch'esse ignote. L'ambiente di sviluppo e
+    alcune tecnologie integrate nel linguaggio, come per esempio le \textit{\gls{linqg}} (\textit{Language-Integrated Query}), anch'esse ignote. L'ambiente di sviluppo e
     l'\textit{\gls{ideg}} non erano mai stati utilizzati.\\[0.2cm]
     \textbf{Soluzione:} sono stati forniti dei riferimenti consigliati per l'autoapprendimento.
-    Tuttavia qualsiasi dubbio ragionevolmente particolare
+    Tuttavia qualsiasi dubbio ulteriore
     poteva essere richiesto al \textit{tutor}. È stato effettuato insieme al \textit{tutor} il \textit{setup} dell'ambiente di sviluppo e la conseguente creazione dei \textit{\gls{databaseg}}.
     \item \textbf{Calibrazione dei parametri e funzione di valutazione}\\[0.2cm]
     \textbf{Problema:} dopo la scelta e l'implementazione dell'algoritmo, è molto importante:
@@ -230,7 +312,6 @@ Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In par
     se implementato correttamente.\\[0.2cm]
     \textbf{Soluzione:} cercare una costruzione e calibrazione per passi e presentarle in una discussione con il \textit{tutor},
     in modo tale da creare una \textit{baseline} su cui basarsi per continuare con i passi successivi.
-
 
 \end{enumerate}
 
@@ -261,9 +342,3 @@ Si sono dunque trovate delle soluzioni che potessero arginare i problemi. In par
     presenta le conclusioni tratte dallo \textit{stage}, comprensivo di conoscenze
     acquisite e considerazioni di carattere personale.
 \end{description}
-
-\noindent Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
-\begin{itemize}
-	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario alla fine del presente documento;
-	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
-\end{itemize}

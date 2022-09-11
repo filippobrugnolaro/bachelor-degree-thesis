@@ -26,14 +26,14 @@ Questo perché l’attività di prova tramite dati reali comprendeva il lavoro
 di \textit{\gls{debugg}} permettendo di risparmiare tempo che sarebbe stato altrimenti
 impiegato nella scrittura di tutti \textit{test}.\\
 
-\noindent Tuttavia, non volendo rinunciare a una parte a mio avviso molto importante dello
+\noindent Tuttavia, non volendo rinunciare ad attività che occupano un ruolo molto importante dello
 sviluppo, si è deciso di comune accordo di procedere nel seguente modo:
 al termine di ogni \textit{\gls{milestoneg}} veniva effettuato il \textit{testing} tramite l'esecuzione del
 programma, venivano corretti tutti i \textit{bug} e venivano poi scritti i \textit{test} per tutte
 quelle parti di codice con i casi \textit{border line} in modo tale da riuscire a trovare anche
 piccoli errori non visibili durante l'esecuzione.\\
 
-\noindent Questa modalità è sembrata il giusto compromesso per non sprecare molto tempo nella
+\noindent Questa modalità è sembrata il giusto compromesso per accelerare la
 fase di \textit{testing} e per fornire allo stesso tempo delle dimostrazioni, sotto forma di
 codice, dei casi limite.
 
@@ -64,18 +64,17 @@ Ogni \textit{test} effettua i seguenti passi:
 \noindent La validazione del codice è stata effettuata dal \textit{\textit{tutor}} aziendale,
 al quale veniva periodicamente illustrato il codice ad alto livello.
 In ogni fase venivano effettuate delle critiche costruttive e dati dei consigli
-da applicare nella fase successiva. Questo tipo di validazione mirava a verificare che il codice avesse certe caratteristiche in termini di leggibilità e correttezza.
+da applicare nella fase successiva. Questo tipo di validazione mirava a verificare che il codice avesse le caratteristiche desiderate in termini di leggibilità e correttezza.
 %**************************************************************
 \subsection{Requisiti}
 \label{sec:validazione-requisiti}
-\noindent Attraverso l’attività di \textit{testing} è stato validato anche il raggiungimento dei requisiti rilevati
+\noindent Attraverso l’attività di \textit{testing}, è stato validato anche il raggiungimento dei requisiti rilevati
 durante l'analisi iniziale.
-Tutti i requisiti obbligatori sono stati raggiunti e rappresentavano la condizione
-necessaria per superare l'attività di \textit{stage}.\\
+Tutti i requisiti obbligatori sono stati raggiunti.\\
 Alcuni requisiti desiderabili e facoltativi non sono stati soddisfatti a causa della mancanza di tempo.
 Tuttavia si è preferito concentrarsi solo su alcuni di essi e soddisfarli pienamente
 piuttosto che eseguirli tutti in modo non esaustivo.\\
-Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qualitativi-validazione}, \ref{tab:requisiti-di-performance-validazione} e \ref{tab:requisiti-di-vincolo-validazione} esposte di seguito viene presentato il risultato della validazione.
+Nelle Tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qualitativi-validazione}, \ref{tab:requisiti-di-performance-validazione} e \ref{tab:requisiti-di-vincolo-validazione} esposte di seguito viene presentato il risultato della validazione.
 
 \begin{center}
     \rowcolors{2}{lightest-grayest}{white}
@@ -188,11 +187,12 @@ Nelle tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qua
     \end{center}%
 
 \subsection{Risultati dei \textit{test}}
+\label{sec:risultati-test}
 \noindent Di seguito vengono illustrati alcuni risultati riguardanti i \textit{test} effettuati sulla
 \textit{Tabu search}, cercando di variare:
 \begin{enumerate}
-    \item il numero di iterazioni massime
-    \item la scelta della risoluzione dei minimi
+    \item il numero di iterazioni massime;
+    \item la scelta della risoluzione dei vincoli.
 \end{enumerate}
 Dato che il \textit{\gls{databaseg}} fornitomi dall'azienda conteneva delle incongruenze fra i campi dati
 delle rispettive tabelle, si è deciso di raccogliere le rilevazioni su un circoscritto
@@ -204,7 +204,7 @@ a causa di circostanze non dipendenti dall'algoritmo.\\[0.1cm]
 Dati in \textit{input}:
 \begin{itemize}
     \item tipo di inizializzazione: \textit{HighestArtRequestByArt}
-    \item tipo di risoluzione dei minimi: \textit{Min/Max}
+    \item tipo di risoluzione dei vincoli: \textit{Min/Max}
     \item numero massimo di iterazioni non miglioranti: 2500
     \item grandezza della \textit{Tabu list}: 200
     \item tempo di esecuzione massimo: 10 minuti (da requisito \hyperref[tab:requisiti-di-performance]{R45-P-O})
@@ -225,21 +225,28 @@ Dati in \textit{input}:
     320.000 & & 23.933,34 & 3,79 \arraybackslash \\ \hline
     \end{tabular}
 \end{table}
+\newpage
+dove:
+\begin{itemize}
+    \item MaxIt $=$ numero massimo di iterazioni;
+    \item PreTot $=$ totale dell'ordine prima dell'operazione di ottimizzazione;
+    \item PostTot $=$ totale dell'ordine dopo l'operazione di ottimizzazione;
+    \item Scostamento $=$ scostamento percentuale fra $PreTot$ e $PostTot$.
+\end{itemize}
 \begin{figure}[!h] 
     \centering
-    \caption{Grafico scostamento/iterazioni}
     \vspace*{0.2cm}
     \includegraphics[scale=0.27]{risultati test/grafico max it.pdf}
- \end{figure}
- \newpage
-\noindent Si osservi la Tabella \ref{tab:test-max-it}.\\
-
+    \caption{Grafico scostamento/iterazioni}
+    \label{grafico-scostamento-iterazioni}
+\end{figure}
+\noindent Si osservino la Tabella \ref{tab:test-max-it} e la Figura \ref{grafico-scostamento-iterazioni}.
 \noindent Lo scostamento percentuale dei
 totali inizialmente aumenta, per poi rimanere in stallo raggiunto un certo numero di iterazioni.
 Questo accade poichè, molto probabilmente, si è raggiunto un buon minimo locale e la probabilità
-di trovare una mossa migliorante diminuisce vertiginosamente all'aumentare del numero di
-iterazioni effettuate.\\
-\paragraph{Confronto fra le scelte di risoluzione dei minimi}\hfill\\[0.1cm]
+di trovare una mossa migliorante diminuisce all'aumentare del numero di
+iterazioni effettuate.\\[0.1cm]
+\textbf{Confronto fra le scelte di risoluzione dei vincoli}\hfill\\[0.1cm]
 Dati in \textit{input}:
 \begin{itemize}
     \item tipo di inizializzazione: \textit{HighestArtRequestByArt}
@@ -251,7 +258,7 @@ Dati in \textit{input}:
 
 \begin{table}[!h]
     \centering
-    \caption{\textit{Test} - scelta di risoluzione dei minimi}
+    \caption{\textit{Test} - scelta di risoluzione dei vincoli}
     \label{tab:test-risoluzione}
     \begin{tabular}{|c|c|c|c|}
     \hline
@@ -263,23 +270,27 @@ Dati in \textit{input}:
     Ricompattamento & & 24.386,09 & 1,97 \arraybackslash \\ \hline
     \end{tabular}
 \end{table}
+\newpage
+dove:
+\begin{itemize}
+    \item Risoluzione = tipo di risoluzione dei vincoli
+    \item PreTot $=$ totale dell'ordine prima dell'operazione di ottimizzazione;
+    \item PostTot $=$ totale dell'ordine dopo l'operazione di ottimizzazione;
+    \item Scostamento $=$ scostamento percentuale fra $PreTot$ e $PostTot$.
+\end{itemize}
 \begin{figure}[!h] 
     \centering
-    \caption{Grafico scostamento/risoluzione}
     \vspace*{0.2cm}
     \includegraphics[scale=0.27]{risultati test/grafico risoluzione.pdf}
- \end{figure}
-
-\newpage
-
-\noindent Si osservi la Tabella \ref{tab:test-risoluzione}.\\
-
-\noindent La scelta peggiore per
-la risoluzione dei minimi è l'utilizzo del metodo proporzionale. Questo risultato non dovrebbe essere una sorpresa.
+    \caption{Grafico scostamento/risoluzione}
+    \label{grafico-scostamento-risoluzione}
+\end{figure}
+\noindent Si osservino la Tabella \ref{tab:test-risoluzione} e la Figura \ref{grafico-scostamento-risoluzione}.
+La scelta peggiore per
+la risoluzione dei vincoli è l'utilizzo del metodo proporzionale. Questo risultato non dovrebbe essere una sorpresa.
 Infatti, nel controllo del minimo relativo
 al singolo ordine, si ha una più alta probabilità di aumentare di una unità la quantità di un ordine
 con prezzo unitario che non corrisponde al minimo.\\
-
 \noindent Il ricompattamento invece provoca lo scostamento maggiore di tutti e questo
 è abbastanza ovvio in quanto è una mossa utile per evitare di comprare
 articoli in eccesso, andando così a ridurre le scorte di magazzino (e conseguentemente anche

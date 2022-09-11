@@ -13,8 +13,7 @@
 %**************************************************************
 \section{Architettura}
 \label{sec:progettazione}
-\noindent Prima di descrivere più in particolare l'algoritmo, è necessario
-fornire un’idea dell’architettura sulla quale si basa l'intero progetto.
+\noindent Prima di descrivere più in particolare l'algoritmo, forniamo un’idea dell’architettura sulla quale si basa l'intero progetto.
 Di seguito è presentato uno schema ad alto livello di come sono strutturate le varie
 componenti che formano il sistema.
 
@@ -34,7 +33,7 @@ ciò che è di interesse dell'analisi.
 Di seguito viene effettuato il controllo dei vincoli di minimo al termine
 dell'algoritmo così da generare
 una soluzione \gls{ammissibileg}. Se si vuole effettuare una nuova
-analisi è necessario estrarre nuovamente i dati dal
+analisi, è necessario estrarre nuovamente i dati dal
 \textit{\gls{databaseg}} e rieseguire il ciclo. Questo è necessario
 in quanto i dati all'interno del \textit{\gls{databaseg}} possono variare
 (esempio: prezzi, date di spedizione...).
@@ -45,7 +44,7 @@ in quanto i dati all'interno del \textit{\gls{databaseg}} possono variare
 
 \section{Funzionamento generale}
 \noindent In questa sezione viene descritta una classica interazione dell'utente con il programma.
-Nella Figura \ref{diagramma-attivita-Windows form} si riassume il flusso delle interazioni.
+Nella Figura \ref{diagramma-attivita-Windows form} si riassume il flusso delle interazioni tramite un diagramma di attività. \cite{site:rcardin}
 
 \begin{figure}[!h] 
     \centering 
@@ -56,9 +55,9 @@ Nella Figura \ref{diagramma-attivita-Windows form} si riassume il flusso delle i
 
 \noindent L'utente, all'apertura della \textit{\gls{windowsformg}}, modifica i parametri di \textit{input} che sono:
 \begin{itemize}
-    \item data di previsione iniziale
-    \item data di previsione finale
-    \item metodo di risoluzione dei vincoli
+    \item data di previsione iniziale;
+    \item data di previsione finale;
+    \item metodo di risoluzione dei vincoli.
 \end{itemize}
 \noindent Dopo aver scelto gli \textit{input}, questi vengono validati in modo tale da bloccare anzitempo
 l'esecuzione in caso di errori.
@@ -68,12 +67,12 @@ A questo punto la ricerca può terminare oppure può continuare con la possibili
 %**************************************************************
 \section{\textit{Tabu search}}
 \label{sec:tabu-search}
-\noindent Nella sezione § \ref{conclusione-studio-fattibilita}
+\noindent Nella Sezione § \ref{conclusione-studio-fattibilita}
 riguardante lo studio di fattibilità è emerso come la \textit{Tabu search}
 sia il giusto compromesso in termini di efficacia, efficienza
 e complessità a livello implementativo.\\
 In Figura \ref{diagramma-attivita-tabu-search}
-viene rappresentato il funzionamento dell'algoritmo ad alto livello.
+viene rappresentato il funzionamento dell'algoritmo ad alto livello tramite un diagramma di attività. \cite{site:rcardin}
 \vspace*{\fill}
 \begin{figure}[!h] 
     \centering 
@@ -102,7 +101,7 @@ si è deciso di mettere ognuno di essi all'interno di una lista.
 Questo approccio è sufficiente per un algoritmo \textit{greedy} ma non per la \textit{Tabu search}.\\
 Infatti è necessario associare alla soluzione anche una funzione di valutazione, in modo tale
 da poter operare il confronto tra la soluzione corrente e quella migliore.\\
-In Figura \ref{rappresentazione-soluzione} viene illustrata la forma della soluzione della \textit{Tabu search}.
+In Figura \ref{rappresentazione-soluzione} viene illustrata la forma della soluzione della \textit{Tabu search} tramite un diagramma delle classi. \cite{site:rcardin}
 \begin{figure}[!h] 
     \centering 
     \includegraphics[width=0.8\columnwidth]{soluzione/soluzione rappresentazione.pdf} 
@@ -113,8 +112,8 @@ In Figura \ref{rappresentazione-soluzione} viene illustrata la forma della soluz
 %**************************************************************
 \subsection{Soluzione iniziale}
 \label{sec:soluzione-iniziale}
-\noindent Nella Figura \ref{diagramma-attivita-tabu-search} il primo step è la creazione di una soluzione iniziale che
-però la \textit{Tabu search}, a contrario di altri algoritmi, non è in grado di generare da sola. Per ovviare a questo inconveniente
+\noindent Nella Figura \ref{diagramma-attivita-tabu-search}, il primo step è la creazione di una soluzione iniziale che
+però la \textit{Tabu search}, a contrario di altri algoritmi, non è in grado di generare da sola. Per ovviare a questo inconveniente,
 si può generare una soluzione abbastanza buona tramite un algoritmo \textit{greedy}.
 Le scelte \textit{greedy} implementate sono:
 \begin{itemize}
@@ -186,8 +185,8 @@ Di seguito viene presentato lo pseudocodice.
 serve invece a filtrare per prezzo minimo tutti i \textit{range} di copertura associati ad ogni codice articolo.
 In pratica per tutti i \textit{range} di copertura di ogni articolo viene preso il record con il fornitore che offre il fabbisogno al prezzo più vantaggioso.\\
 
-\noindent É possibile avere anche un'inizializzazione della soluzione che non sia stata soggetta ad alcuna ottimizzazione.
-In questo caso è stata creata una funzione $initialise\_solution()$ che, dati in \textit{input} gli stessi parametri dell'algoritmo \textit{greedy}, fornisce
+\noindent È possibile avere anche un'inizializzazione della soluzione che non sia stata soggetta ad alcuna ottimizzazione.
+In questo caso, è stata creata una funzione $initialise\_solution()$ che, dati in \textit{input} gli stessi parametri dell'algoritmo \textit{greedy}, fornisce
 come soluzione iniziale proprio quella generata dal modulo già esistente. 
 
 %**************************************************************
@@ -200,7 +199,7 @@ come soluzione iniziale proprio quella generata dal modulo già esistente.
     \item Pre-ordine di un ordine d'acquisto;
     \item Post-ordine di un ordine d'acquisto.
 \end{enumerate}
-Come si può notare non è stata creata la mossa inversa dell'inserimento, ovvero la rimozione di un ordine d'acquisto.
+Come si può notare, non è stata creata la mossa inversa dell'inserimento, ovvero la rimozione di un ordine d'acquisto.
 Il motivo sta nel fatto che rimuovere un ordine di un articolo di cui si ha bisogno non porta sicuramente a un miglioramento
 della funzione di valutazione poichè, essendo l'articolo una necessità, prima o poi verrà aggiunto nuovamente.
 
@@ -214,13 +213,13 @@ per tutti i \textit{range} di copertura di ogni articolo sia necessario sceglier
 combinazione tra data d'ordine e fornitore.\\
 Data la dimensione importante del vicinato non è dunque possibile visitarlo per intero,
 motivo per il quale si è deciso di procedere randomizzando le scelte.
-In particolare ogni mossa viene scelta in maniera casuale cosicché tutte le mosse
+In particolare, ogni mossa viene scelta in maniera casuale cosicché tutte le mosse
 abbiano la stessa probabilità di essere scelte.\\
-Per il medesimo motivo è stato applicato lo stesso principio anche per la scelta dell'articolo su cui applicare
+Per il medesimo motivo, è stato applicato lo stesso principio anche per la scelta dell'articolo su cui applicare
 la mossa.\\
-É importante sottolineare come l'oggetto \textit{Random} in \textit{C\#}
+È importante sottolineare come l'oggetto \textit{Random} in \textit{C\#}
 debba essere inizializzato tramite un numero, ovvero
-ciò che viene definito come \textit{seed}. Infatti se non si dichiara
+ciò che viene definito come \textit{seed}. Infatti, se non si dichiara
 il \textit{seed} all'interno del costruttore, l'oggetto viene inizializzato usando il
 \textit{Current System Time}. Questo risultava un problema poichè, essendo le
 iterazioni molto rapide (a volte anche $<1ms$), si andava ad inizializzare la nuova istanza
@@ -231,7 +230,7 @@ numero, andando a crearsi una situazione indesiderata.
 %**************************************************************
 \subsection{\textit{Tabu List}}
 \label{sec:tabu-list}
-\noindent La \textit{Tabu list} è una lista che memorizza le $k$ mosse precedenti, dove $k$ è uguale
+\noindent La \textit{Tabu list} \cite{site:dispense-de-giovanni} è una lista che memorizza le $k$ mosse precedenti, dove $k$ è uguale
 alla lunghezza della lista che viene definita quando viene creato l'oggetto \textit{TabuSearch}.\\
 Permette di evitare dunque cicli infiniti in corrispondenza
 di minimi locali. Questo accade perché tramite la funzione
@@ -239,8 +238,8 @@ $generate\_move\_string()$ ogni mossa
 viene prima codificata e poi viene effettuata una ricerca nella \textit{Tabu list}, impedendo potenzialmente all’algoritmo di riprovarla.
 Se la mossa non viene trovata, questa viene aggiunta nella \textit{Tabu list} sia nel caso in cui l'operazione venga compiuta che nel caso in cui non
 venga compiuta perchè non migliorante.\\
-Per semplificare la codifica si salva solamente la stringa generata dalla funzione che rappresenta la mossa e non l’intera
-soluzione come previsto dalla teoria.
+Per semplificare la codifica, si salva solamente la stringa generata dalla funzione che rappresenta la mossa e non l’intera
+soluzione.
 Si è deciso inoltre di memorizzare, oltre alla mossa eseguita, anche la sua inversa
 (per esempio l'inversa del pre-ordine è il post-ordine). Così facendo si
 evitano le inversioni immediate che risulterebbero poco sensate e rallenterebbero la ricerca.
@@ -257,10 +256,10 @@ sono i seguenti:
 Chiaramente la funzione di valutazione deve migliorare
 se aumenta il numero di articoli ordinati
 oppure se, a parità di articoli ordinati, il prezzo totale diminuisce.
-Al contrario si ha un peggioramento nel caso in cui, a parità di articoli ordinati,
+Al contrario, si ha un peggioramento nel caso in cui, a parità di articoli ordinati,
 corrisponde un prezzo totale maggiore. Non si potrà mai
 avere invece un peggioramento della funzione di valutazione causato dalla diminuzione del numero di articoli
-ordinati in quanto la mossa è inesistente, come spiegato nella sezione §\ref{sec:mosse}.\\
+ordinati in quanto la mossa è inesistente, come spiegato nella Sezione §\ref{sec:mosse}.\\
 La funzione di valutazione, in questo caso, non può rappresentare perfettamente il
 comportamento dell'algoritmo e definisce dunque un'approssimazione del suo andamento.\\
 Durante la ricerca sono state provate empiricamente 3 funzioni che vengono elencate qui sotto:\\\\\\
@@ -272,16 +271,16 @@ Durante la ricerca sono state provate empiricamente 3 funzioni che vengono elenc
 \\\\\\
 \noindent dove:
 \begin{itemize}
-    \item $PT = $ prezzo totale
-    \item $OE = $ numero di articoli ordinati
-    \item $OT = $ numero di articoli da ordinare
-    \item $R =$ \text{\large $\frac{OE}{OT}$} $=$ rapporto tra gli articoli ordinati e quelli da ordinare
+    \item $PT = $ prezzo totale;
+    \item $OE = $ numero di articoli ordinati;
+    \item $OT = $ numero di articoli da ordinare;
+    \item $R =$ \text{\large $\frac{OE}{OT}$} $=$ rapporto tra gli articoli ordinati e quelli da ordinare.
 \end{itemize}
 \newpage
-\noindent Nelle tabelle \ref{tab:risultati-f}, \ref{tab:risultati-g} e \ref{tab:risultati-h} vengono riportati i risultati che sono stati calcolati
+\noindent Nelle Tabelle \ref{tab:risultati-f}, \ref{tab:risultati-g} e \ref{tab:risultati-h} vengono riportati i risultati che sono stati calcolati
 per capire empiricamente quale fosse la funzione di valutazione
 che approssimasse meglio il comportamento dell'algoritmo.\\
-
+\vspace*{\fill}
 \begin{table}[!h]
     \begin{minipage}{.5\linewidth}
         \caption{Tabella dei risultati di $f$}
@@ -329,7 +328,7 @@ che approssimasse meglio il comportamento dell'algoritmo.\\
         \end{tabular}
     \end{minipage}
 \end{table}
-
+\vspace*{0.2cm}
 \begin{table}[!h]
     \centering
     \caption{Tabella dei risultati di $h$}
@@ -353,8 +352,17 @@ che approssimasse meglio il comportamento dell'algoritmo.\\
     \fval{450.000}{1300}{1,0000}{-0,0000022}
     \end{tabular}
 \end{table}
+\vspace*{\fill}
+\newpage
+\noindent dove:
+\begin{itemize}
+    \item $PT = $ prezzo totale;
+    \item $OE = $ numero di articoli ordinati;
+    \item $OT = $ numero di articoli da ordinare;
+    \item $FV = $ valore della funzione di valutazione.
+\end{itemize}
 
-\noindent É evidente dalla Tabella \ref{tab:risultati-f}
+\noindent È evidente dalla Tabella \ref{tab:risultati-f}
 come la funzione $f$ sia migliorativa se, a parità di $PT$,
 si aumenta il numero di articoli ordinati.
 Inoltre $FV$ dovrebbe migliorare anche all'aumentare in contemporanea di $R$ e $PT$ 
@@ -425,7 +433,7 @@ $R=1$.
 %**************************************************************
 \subsection{Controllo dei vincoli}
 \label{sec:controllo-vincoli}
-\noindent Nel programma i vincoli vengono sempre controllati alla fine dell'esecuzione dell'algoritmo
+\noindent Nel programma, i vincoli vengono sempre controllati alla fine dell'esecuzione dell'algoritmo
 tramite due funzioni:
 \begin{itemize}
     \item $control\_Min\_Order\_Articles()$, con \textit{input} la
@@ -436,7 +444,6 @@ tramite due funzioni:
     la lista dei \textit{bound} dei fornitori e la scelta della
     modalità di risoluzione dei vincoli.
 \end{itemize}
-\newpage
 \noindent La prima funzione controlla per tutti \textit{range} di
 copertura di ogni articolo che l'ordine:
 \begin{enumerate}
@@ -450,9 +457,9 @@ in modo tale da arrivare al minimo.\\
 Il secondo, invece, viene risolto in questo modo:
 \begin{enumerate}
     \item si trova la differenza tra la quantità attuale
-    e quella minima richiesta
-    \item viene eseguito il modulo tra la differenza calcolata al punto 1 e il valore del multiplo
-    \item viene aggiunta alla quantità attuale la differenza tra il valore del multiplo e il valore calcolato al punto precedente 
+    e quella minima richiesta;
+    \item viene eseguito il modulo tra la differenza calcolata al punto 1 e il valore del multiplo;
+    \item viene aggiunta alla quantità attuale la differenza tra il valore del multiplo e il valore calcolato al punto precedente.
 \end{enumerate}
 \vspace*{0.5cm}
 \noindent La seconda funzione, invece, controlla per ogni 
@@ -460,9 +467,9 @@ periodo e per ogni fornitore a cui si abbia fatto
 almeno un ordine che:
 \begin{itemize}
     \item il numero degli articoli totali comprati all'interno
-    del determinato periodo sia maggiore del \textit{bound}
+    del determinato periodo sia maggiore del \textit{bound};
     \item l'importo totale all'interno del periodo sia
-    maggiore del \textit{bound}
+    maggiore del \textit{bound}.
 \end{itemize}
 Per il soddisfacimento di questi due vincoli, l'utente ha la
 possibilità di scegliere quale tra le seguenti tecniche adottare:
@@ -484,11 +491,10 @@ possibilità di scegliere quale tra le seguenti tecniche adottare:
 \noindent Questi controlli, come dichiarato in precedenza, vengono effettuati solo alla fine dall'algoritmo.
 Questo implica che la \textit{Tabu search} può potenzialmente avere, in
 una qualsiasi iterazione, una soluzione non \gls{ammissibileg} e
-continuare ad operare con essa. Tuttavia alla fine dell'esecuzione
-l'algoritmo restituisce una soluzione ottima, che corrisponde
-alla miglior combinazione per tutti i \textit{range} di copertura di
-ogni articolo tra data d'ordine e fornitore. L'ottimo dunque non viene
-influenzato, ma vincolato.\\
+continuare ad operare con essa. Tuttavia, alla fine dell'esecuzione
+l'algoritmo restituisce una soluzione \gls{ammissibileg}, che corrisponde
+alla miglior combinazione trovata per tutti i \textit{range} di copertura di
+ogni articolo tra data d'ordine e fornitore.\\
 Inoltre se si volessero fare i controlli durante l'esecuzione dell'algoritmo,
 oltre a rallentarlo notevolmente, si avrebbe un importante aumento di
 complessità in quanto si dovrebbero salvare le quantità realmente
@@ -505,44 +511,43 @@ di codifica e realizzazione dell'algoritmo.
 %**************************************************************
 \subsection{Organizzazione dello sviluppo}
 \label{sec:organizzazione-sviluppo}
-\noindent Il progetto è stato sviluppato in un
-ordine preciso. Si è cercato di implementare il tutto utilizzando
+\noindent Il progetto è stato sviluppato utilizzando
 un approccio incrementale, in modo tale da avere
 sempre un prodotto funzionante.\\
 In particolare, lo sviluppo è stato svolto nel seguente ordine:
 \begin{itemize}
-    \item creazione della \textit{\gls{windowsformg}}
-    \item lettura dei dati dal \textit{\gls{databaseg}}
-    \item \textit{\gls{preprocessingg}} dei dati
-    \item costruzione dell'algoritmo \textit{greedy}
-    \item costruzione di altre scelte \textit{greedy}
-    \item costruzione della \textit{Tabu search}
-    \item lettura dei vincoli
-    \item costruzione dei vari metodi risolutivi
-    per il soddisfacimento dei vincoli
+    \item creazione della \textit{\gls{windowsformg}};
+    \item lettura dei dati dal \textit{\gls{databaseg}};
+    \item \textit{\gls{preprocessingg}} dei dati;
+    \item costruzione dell'algoritmo \textit{greedy};
+    \item costruzione di altre scelte \textit{greedy};
+    \item costruzione della \textit{Tabu search};
+    \item lettura dei vincoli;
+    \item costruzione dei vari metodi di correzione
+    per il soddisfacimento dei vincoli.
 \end{itemize}
 
 \noindent Quest'ordine ha permesso di concentrarsi su obiettivi specifici,
 facilitandone dunque l'implementazione sia a livello logico che a livello pratico.\\
 
-\noindent Al raggiungimento di ogni \textit{\gls{milestoneg}} si
+\noindent Al raggiungimento di ogni \textit{\gls{milestoneg}}, si
 organizzava una brevissima discussione con il \textit{tutor}
 in cui veniva verificata la correttezza e la coerenza di quanto
 sviluppato in relazione agli obiettivi preposti.
 %**************************************************************
 \subsection{\textit{Log}}
 \label{sec:log}
-\noindent Su richiesta di \textit{Ergon Informatica} è stato aggiunto successivamente il requisito \hyperref[tab:requisiti-qualitativi]{R40-Q-D}
+\noindent Su richiesta di \textit{Ergon Informatica}, è stato aggiunto successivamente il requisito \hyperref[tab:requisiti-qualitativi]{R40-Q-D}
 riguardante lo svolgimento da parte del programma di attività di scrittura
-su \textit{file}. Ad ogni avvio della \textit{Tabu search} viene creato un nuovo
+su \textit{file}. Ad ogni avvio della \textit{Tabu search}, viene creato un nuovo
 \textit{file} denominato come \textit{"Log\_aaaa\_mm\_gg\_hh\_mm\_ss"}
 dove vengono salvati dati ad ogni iterazione, quali:
 \begin{itemize}
-    \item l'iterazione corrente
-    \item cosa è accaduto all'interno dell'iterazione (mossa \textit{tabu}, non migliorante, effettuata)
-    \item il numero di iterazioni non miglioranti
-    \item il tempo di esecuzione corrente
-    \item il valore della funzione di valutazione della migliore soluzione corrente
+    \item l'iterazione corrente;
+    \item cosa è accaduto all'interno dell'iterazione (mossa \textit{tabu}, non migliorante, effettuata);
+    \item il numero di iterazioni non miglioranti;
+    \item il tempo di esecuzione corrente;
+    \item il valore della funzione di valutazione della migliore soluzione corrente.
 \end{itemize}
 Il salvataggio di queste informazioni ha
 l’obiettivo di facilitare il \textit{\gls{debugg}}
@@ -555,11 +560,11 @@ tipologie di inizializzazione differenti.
 \newpage
 
 %**************************************************************
-\subsection{Estensioni del progetto}
+\subsection{Possibili estensioni del progetto}
 \label{sec:estensioni-progetto}
-\noindent Alla fine del percorso di \textit{stage} è stato richiesto di
+\noindent Alla fine del percorso di \textit{stage}, è stato richiesto di
 elencare eventuali \textit{features} ed estensioni che si possono
-applicare al progetto.
+applicare al progetto. Le riportiamo di seguito.
 \vspace*{0.3cm}
 \noindent \paragraph{Nuovo algoritmo}\hfill\\
 La creazione della \textit{Tabu search} e dell'algoritmo \textit{greedy} non esclude
@@ -580,7 +585,7 @@ Tuttavia possono esistere delle scelte che non sono state ancora
 considerate e che portano alla creazione di un algoritmo
 che genera soluzioni migliori.\\
 Grazie all'utilizzo del \textit{design
-pattern strategy} \cite{site:refactoring-guru} \cite{site:rcardin} è possibile estendere
+pattern strategy} \cite{site:refactoring-guru} \cite{site:rcardin}, è possibile estendere
 la classe astratta \textit{GreedyAlgorithm}, derivante dall'interfaccia
 \textit{AlgorithmStrategy}.\\
 Una possibile scelta potrebbe essere quella di selezionare
@@ -600,7 +605,7 @@ Se precedentemente
 la mossa veniva applicata a un solo codice articolo, si potrebbe
 provare ad applicarla a $k$ codici articolo, con $k$
 deciso dal programmatore. Rimane comunque fondamentale mantenere
-la randomicità delle scelte, come spiegato nella sezione §\ref{sec:esplorazione-vicinato}.
+la randomicità delle scelte, come spiegato nella Sezione §\ref{sec:esplorazione-vicinato}.
 \vspace*{0.3cm}
 \noindent \paragraph{\textit{Multithreading}}\hfill\\
 Questa estensione del progetto andrebbe a considerare la
@@ -608,9 +613,7 @@ creazione di più istanze della \textit{Tabu search} e di farle eseguire su più
 L'idea si basa sul fatto che ogni \textit{Tabu search} viene inizializzata
 con una diversa soluzione iniziale in modo tale da diversificare
 la ricerca e intensificarla durante l'esecuzione dell'algoritmo
-vero e proprio. Ciò potrebbe essere paragonabile alla popolazione
-dell'algoritmo genetico dove però, nel caso del \textit{multithreading}, non verrebbe effettuata alcuna
-ricombinazione, ma ogni soluzione verrebbe trattata singolarmente.
+vero e proprio.
 Dopo che tutti i \textit{thread} hanno terminato l'esecuzione, si andrà
 a scegliere la soluzione con la funzione di valutazione minore.
 
@@ -623,7 +626,7 @@ a scegliere la soluzione con la funzione di valutazione minore.
 \noindent Di seguito viene esposta una panoramica delle tecnologie e degli strumenti utilizzati.
 Sono stati tutti imposti da \textit{Ergon Informatica} in quanto sono le tecnologie e gli strumenti
 da loro impiegati per lo sviluppo \textit{software}.\\
-Per l’azienda le caratteristiche determinanti della scelta di queste tecnologie
+Per l’azienda, le caratteristiche determinanti della scelta di queste tecnologie
 sono riconducibili al soddisfacimento delle seguenti necessità e aspettative:
 \begin{itemize}
     \item compatibilità con il sistema \textit{\gls{ergdisg}};
@@ -635,12 +638,7 @@ Di seguito vegono presentate le tecnologie utilizzate.
 
 
 \subsection*{\textit{C\#}}
-\begin{figure}[!h] 
-    \centering 
-    \includegraphics[scale = 0.04]{loghi/CSharpLogo.pdf} 
-    \caption{Logo \textit{C\#}}
- \end{figure}
-\noindent \textit{C\#} \cite{site:csharp-docs} è un linguaggio di programmazione multi-paradigma orientato agli oggetti
+\noindent \textit{C\#} \cite{site:csharp-docs}, il cui logo è rappresentato in Figura \ref{logoCSharp}, è un linguaggio di programmazione multi-paradigma orientato agli oggetti
 sviluppato da \textit{Microsoft}. La sua sintassi e struttura derivano da altri linguaggi nati
 precedentemente, come \textit{\gls{C++g}}, \textit{\gls{javag}} e \textit{\gls{visualbasicg}}.\\
 \textit{C\#} è progettato per essere compatibile con le classi e l’ambiente di compilazione
@@ -649,14 +647,15 @@ fornendo estensibilità e riusabilità del codice.
 È stato ufficialmente approvato come \textit{standard} dalla \textit{ECMA}.\\
 L'azienda, sebbene abbia sviluppato la maggior parte dei moduli
 in \textit{\gls{visualbasicg}}, sta lentamente traducendo tutto in questo linguaggio.
-
-\subsection*{\textit{Visual Studio 2019}}
 \begin{figure}[!h] 
     \centering 
-    \includegraphics[scale = 0.75]{loghi/VisualStudio2019Logo.pdf} 
-    \caption{Logo \textit{Visual Studio 2019}}
+    \includegraphics[scale = 0.04]{loghi/CSharpLogo.pdf} 
+    \caption{Logo \textit{C\#}}
+    \label{logoCSharp}
  \end{figure}
-\noindent \textit{Visual Studio 2019} \cite{site:vs-docs} è un ambiente di sviluppo integrato (\gls{ideg}) fornito da \textit{Microsoft}.
+
+\subsection*{\textit{Visual Studio 2019}}
+\noindent \textit{Visual Studio 2019} \cite{site:vs-docs}, il cui logo è rappresentato in Figura \ref{logoVisualStudio}, è un ambiente di sviluppo integrato (\gls{ideg}) fornito da \textit{Microsoft}.
 Permette lo sviluppo di \textit{software} per computer, siti \textit{web}, applicazioni \textit{web}, servizi \textit{web}
 e applicazioni \textit{mobile}. È compatibile con tutte le piattaforme di sviluppo
 \textit{software} \textit{Microsoft}, quali \textit{Windows \gls{apig}} e \textit{\gls{windowsformg}}.\\
@@ -666,40 +665,49 @@ livello di codice sorgente che a livello di codice macchina. È compatibile anch
 come per esempio \textit{Subversion} e \textit{\hyperref[sec:git]{Git}}.\\
 \textit{Visual Studio 2019} supporta 36 differenti linguaggi di 
 programmazione tra i quali \textit{C\#}.
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[scale = 0.75]{loghi/VisualStudio2019Logo.pdf} 
+    \caption{Logo \textit{Visual Studio 2019}}
+    \label{logoVisualStudio}
+ \end{figure}
 
 \subsection*{\textit{DevExpress}}
+\noindent \textit{\gls{devexpressg}} \cite{site:devexpress-docs}, il cui logo è rappresentato in Figura \ref{logoDevExpress}, è una compagnia che produce strumenti di sviluppo \textit{software} per
+\textit{Visual Studio}. In particolare crea estensioni che vengono utilizzate tramite \textit{Visual Studio}
+per velocizzare la scrittura di applicazioni. Gli strumenti da loro forniti sono
+molteplici. In particolare, hanno sviluppato controlli \textit{.NET} di interfaccia utente (\textit{UI}) che
+rendono più semplice la creazione di ambienti grafici per applicazioni e portano ad un risultato
+elegante. Per lo stage, per esempio, sono stati utilizzati quelli utili per la creazione di \textit{\gls{windowsformg}}.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[scale = 0.35]{loghi/DevExpressLogo.png}
     \caption{Logo \textit{DevExpress}}
+    \label{logoDevExpress}
 \end{figure}
-\noindent \textit{\gls{devexpressg}} \cite{site:devexpress-docs} è una compagnia che produce strumenti di sviluppo \textit{software} per
-\textit{Visual Studio}. In particolare crea estensioni che vengono utilizzate tramite \textit{Visual Studio}
-per velocizzare la scrittura di applicazioni. Gli strumenti da loro forniti sono
-molteplici. In particolare hanno sviluppato controlli \textit{.NET} di interfaccia utente (\textit{UI}) che
-rendono più semplice la creazione di ambienti grafici per applicazioni e portano ad un risultato
-elegante.
 
 \subsection*{\textit{Informix}}
-\begin{figure}[!h] 
-    \centering 
-    \includegraphics[scale = 0.04]{loghi/InformixLogo.pdf}
-    \caption{Logo \textit{IBM} \textit{Informix}}
-\end{figure}
-\noindent \textit{IBM} \textit{Informix} \cite{site:informix-docs} è un prodotto di \textit{IBM}. La base di dati \textit{Informix} è usata in molte
+\noindent \textit{IBM} \textit{Informix} \cite{site:informix-docs}, il cui logo è rappresentato in Figura \ref{logoInformix}, è un \gls{rdbmsg} (\textit{Relational Database Management System}) sviluppato dall'azienda \textit{IBM}. La base di dati \textit{Informix} è usata in molte
 applicazioni \textit{\gls{oltpg}} ad alto tasso di transazione che operano in vari settori tra cui anche quelli della produzione e dei trasporti.\\
 L’\textit{Informix server} supporta il modello relazionale ad oggetti che permette ad \textit{IBM} di
 offrire estensioni che permettono di effettuare interrogazioni per un dominio specifico
 e archiviazioni per \textit{set} di dati in maniera rapida ed efficiente.
-É in grado di supportare sia \textit{\gls{sqlg}} che \textit{\gls{nosqlg}}.
+È in grado di supportare sia \textit{\gls{sqlg}} che \textit{\gls{nosqlg}}.
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[scale = 0.04]{loghi/InformixLogo.pdf}
+    \caption{Logo \textit{IBM} \textit{Informix}}
+    \label{logoInformix}
+\end{figure}
 
 \subsection*{\textit{Git}}
 \label{sec:git}
+\noindent \textit{Git} \cite{site:wiki}, il cui logo è rappresentato in Figura \ref{logoGit}, è uno strumento per il controllo di versione distribuito del codice sorgente delle \textit{repository}.\\
+Creato inizialmente per gestire le versioni del \textit{kernel Linux}, al giorno d'oggi è uno dei principali
+strumenti di versionamento del codice e di collaborazione tra gli sviluppatori.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[scale = 0.4]{loghi/GitLogo.pdf}
     \caption{Logo \textit{Git}}
+    \label{logoGit}
 \end{figure}
-\noindent \textit{Git} \cite{site:wiki} è uno strumento per il controllo di versione distribuito del codice sorgente delle \textit{repository}.\\
-Creato inizialmente per gestire le versioni del \textit{kernel Linux}, al giorno d'oggi è uno dei principali
-strumenti di versionamento del codice e di collaborazione tra gli sviluppatori.
