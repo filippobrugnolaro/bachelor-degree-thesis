@@ -41,7 +41,7 @@ codice, dei casi limite.
 \subsection{\textit{Testing} del modulo}
 \noindent Per verificare la correttezza del codice sono stati definiti dei \textit{test} di unità.\\
 Essi sono stati scritti utilizzando il \textit{framework} di \textit{Microsoft} \textit{MSTest} \cite{site:mstest} integrato tramite estensioni
-in \textit{Visual Studio} e come metodologia di approccio è stato usato il \textit{pattern \gls{aaag}} (\textit{Arrange}, \textit{Act}, \textit{Assert}).\\
+in \textit{Visual Studio} e come metodologia di approccio è stato usato il \textit{pattern \gls{aaag}} $^{[g]}$ (\textit{Arrange}, \textit{Act}, \textit{Assert}).\\
 Ogni \textit{test} effettua i seguenti passi:
 \begin{enumerate}
     \item \textbf{\textit{Arrange}:} vengono definite e riempite le strutture dati del problema con dei
@@ -241,11 +241,10 @@ dove:
     \label{grafico-scostamento-iterazioni}
 \end{figure}
 \noindent Si osservino la Tabella \ref{tab:test-max-it} e la Figura \ref{grafico-scostamento-iterazioni}.
-\noindent Lo scostamento percentuale dei
-totali inizialmente aumenta, per poi rimanere in stallo raggiunto un certo numero di iterazioni.
-Questo accade poichè, molto probabilmente, si è raggiunto un buon minimo locale e la probabilità
-di trovare una mossa migliorante diminuisce all'aumentare del numero di
-iterazioni effettuate.\\[0.1cm]
+\noindent Nell'esempio, lo scostamento percentuale dei
+totali inizialmente aumenta, per poi rimanere in stallo raggiunto un certo numero di iterazioni.\\
+Questo potrebbe accadere poichè, molto probabilmente, si è raggiunto un buon minimo locale e dunque la probabilità
+di trovare una mossa migliorante sarebbe molto bassa.\\[0.1cm]
 \textbf{Confronto fra le scelte di risoluzione dei vincoli}\hfill\\[0.1cm]
 Dati in \textit{input}:
 \begin{itemize}
@@ -286,12 +285,13 @@ dove:
     \label{grafico-scostamento-risoluzione}
 \end{figure}
 \noindent Si osservino la Tabella \ref{tab:test-risoluzione} e la Figura \ref{grafico-scostamento-risoluzione}.
-La scelta peggiore per
-la risoluzione dei vincoli è l'utilizzo del metodo proporzionale. Questo risultato non dovrebbe essere una sorpresa.
-Infatti, nel controllo del minimo relativo
-al singolo ordine, si ha una più alta probabilità di aumentare di una unità la quantità di un ordine
+Nell'esempio, la scelta peggiore per
+la risoluzione dei vincoli risulta essere l'utilizzo del metodo proporzionale.\\
+Questo potrebbe indicare
+che, nel controllo del minimo relativo
+al singolo ordine, si potrebbe avere una più alta probabilità, rispetto agli altri metodi, di aumentare di una unità la quantità di un ordine
 con prezzo unitario che non corrisponde al minimo.\\
-\noindent Il ricompattamento invece provoca lo scostamento maggiore di tutti e questo
-è abbastanza ovvio in quanto è una mossa utile per evitare di comprare
+\noindent Il ricompattamento, invece, sembrerebbe provocare lo scostamento maggiore di tutti.\\
+Questo potrebbe succedere perchè la mossa è pensata per evitare di comprare
 articoli in eccesso, andando così a ridurre le scorte di magazzino (e conseguentemente anche
 il prezzo totale speso).\\

@@ -27,7 +27,7 @@ componenti che formano il sistema.
 \noindent Come si può notare in Figura \ref{architettura-generale},
 il flusso del sistema è circolare.
 Si parte dal \textit{\gls{databaseg}}, dal quale vengono estratti i dati di interesse dalle varie
-tabelle. Successivamente viene fatto il \textit{\gls{preprocessingg}} dei dati,
+tabelle. Successivamente viene fatto il \textit{\gls{preprocessingg}} $^{[g]}$ dei dati,
 in modo tale da poter poi eseguire l'ottimizzazione solo su
 ciò che è di interesse dell'analisi.
 Di seguito viene effettuato il controllo dei vincoli di minimo al termine
@@ -208,11 +208,7 @@ della funzione di valutazione poichè, essendo l'articolo una necessità, prima 
 \label{sec:esplorazione-vicinato}
 \noindent Il vicinato è quell'insieme di soluzioni che possono essere raggiunte
 tramite l'applicazione di una mossa sulla soluzione corrente (chiamata anche \textit{centro del vicinato}).\\
-Si può notare come la dimensione del vicinato in questo problema sia dell'ordine di $O(n!)$ e sia dettata dal fatto che
-per tutti i \textit{range} di copertura di ogni articolo sia necessario scegliere la miglior
-combinazione tra data d'ordine e fornitore.\\
-Data la dimensione importante del vicinato non è dunque possibile visitarlo per intero,
-motivo per il quale si è deciso di procedere randomizzando le scelte.
+Data la sua dimensione importante, si è deciso di procedere randomizzando le scelte.
 In particolare, ogni mossa viene scelta in maniera casuale cosicché tutte le mosse
 abbiano la stessa probabilità di essere scelte.\\
 Per il medesimo motivo, è stato applicato lo stesso principio anche per la scelta dell'articolo su cui applicare
@@ -221,7 +217,8 @@ la mossa.\\
 debba essere inizializzato tramite un numero, ovvero
 ciò che viene definito come \textit{seed}. Infatti, se non si dichiara
 il \textit{seed} all'interno del costruttore, l'oggetto viene inizializzato usando il
-\textit{Current System Time}. Questo risultava un problema poichè, essendo le
+\textit{Current System Time}. Questo risultava un problema poichè, dato che nell'implementazione l'oggetto \textit{Random}
+veniva costruito ad ogni iterazione della \textit{Tabu Search} ed essendo le
 iterazioni molto rapide (a volte anche $<1ms$), si andava ad inizializzare la nuova istanza
 di \textit{Random} allo stesso valore e dunque veniva generato il medesimo
 numero, andando a crearsi una situazione indesiderata.
@@ -433,8 +430,12 @@ $R=1$.
 %**************************************************************
 \subsection{Controllo dei vincoli}
 \label{sec:controllo-vincoli}
-\noindent Nel programma, i vincoli vengono sempre controllati alla fine dell'esecuzione dell'algoritmo
-tramite due funzioni:
+\noindent Nel programma, alcuni vincoli vengono controllati durante l'esecuzione
+della \textit{Tabu search}, altri invece vengono verificati solo alla fine dell'algoritmo.
+Questo implica che la \textit{Tabu search} può potenzialmente avere, in
+una qualsiasi iterazione, una soluzione non \gls{ammissibileg} e
+continuare ad operare con essa.\\
+Il controllo dei vincoli finali viene effettuato tramite due funzioni:
 \begin{itemize}
     \item $control\_Min\_Order\_Articles()$, con \textit{input} la
     lista di ordini effettuati e la lista dei \textit{bound} rispetto
@@ -488,17 +489,15 @@ possibilità di scegliere quale tra le seguenti tecniche adottare:
     e non ordinare articoli in più.
 \end{enumerate}
 \vspace*{0.5cm}
-\noindent Questi controlli, come dichiarato in precedenza, vengono effettuati solo alla fine dall'algoritmo.
-Questo implica che la \textit{Tabu search} può potenzialmente avere, in
-una qualsiasi iterazione, una soluzione non \gls{ammissibileg} e
-continuare ad operare con essa. Tuttavia, alla fine dell'esecuzione
-l'algoritmo restituisce una soluzione \gls{ammissibileg}, che corrisponde
-alla miglior combinazione trovata per tutti i \textit{range} di copertura di
-ogni articolo tra data d'ordine e fornitore.\\
-Inoltre se si volessero fare i controlli durante l'esecuzione dell'algoritmo,
+\noindent Questi controlli, come dichiarato in precedenza, vengono effettuati solo alla fine dall'algoritmo.\\
+Se i vincoli venissero verificati durante l'esecuzione dell'algoritmo,
 oltre a rallentarlo notevolmente, si avrebbe un importante aumento di
 complessità in quanto si dovrebbero salvare le quantità realmente
-necessarie in un'altra lista e operare altri controlli.
+necessarie in un'altra lista e operare altri controlli.\\
+Infine, bisogna ribadire che, al termine dell'esecuzione
+dell'algoritmo e dopo aver verificato i vincoli rimanenti, viene comunque restituita una soluzione \gls{ammissibileg}, che corrisponde
+alla miglior combinazione trovata per tutti i \textit{range} di copertura di
+ogni articolo tra data d'ordine e fornitore.\\
 
 \newpage
 
@@ -530,7 +529,7 @@ In particolare, lo sviluppo è stato svolto nel seguente ordine:
 \noindent Quest'ordine ha permesso di concentrarsi su obiettivi specifici,
 facilitandone dunque l'implementazione sia a livello logico che a livello pratico.\\
 
-\noindent Al raggiungimento di ogni \textit{\gls{milestoneg}}, si
+\noindent Al raggiungimento di ogni \textit{\gls{milestoneg}} $^{[g]}$, si
 organizzava una brevissima discussione con il \textit{tutor}
 in cui veniva verificata la correttezza e la coerenza di quanto
 sviluppato in relazione agli obiettivi preposti.
@@ -550,7 +549,7 @@ dove vengono salvati dati ad ogni iterazione, quali:
     \item il valore della funzione di valutazione della migliore soluzione corrente.
 \end{itemize}
 Il salvataggio di queste informazioni ha
-l’obiettivo di facilitare il \textit{\gls{debugg}}
+l’obiettivo di facilitare il \textit{\gls{debugg}} $^{[g]}$
 del codice e la rilevazione dei dati ottenuti
 dall’algoritmo ad ogni iterazione.\\
 Inoltre questi dati possono essere utilizzati anche in futuro
@@ -640,9 +639,9 @@ Di seguito vegono presentate le tecnologie utilizzate.
 \subsection*{\textit{C\#}}
 \noindent \textit{C\#} \cite{site:csharp-docs}, il cui logo è rappresentato in Figura \ref{logoCSharp}, è un linguaggio di programmazione multi-paradigma orientato agli oggetti
 sviluppato da \textit{Microsoft}. La sua sintassi e struttura derivano da altri linguaggi nati
-precedentemente, come \textit{\gls{C++g}}, \textit{\gls{javag}} e \textit{\gls{visualbasicg}}.\\
+precedentemente, come \textit{\gls{C++g}}, \textit{\gls{javag}} e \textit{\gls{visualbasicg}} $^{[g]}$.\\
 \textit{C\#} è progettato per essere compatibile con le classi e l’ambiente di compilazione
-del \textit{framework} \textit{.NET}. Supporta \gls{astrazioneg}, \gls{ereditarietag} e \gls{polimorfismog}
+del \textit{framework} \textit{.NET}. Supporta \gls{astrazioneg} $^{[g]}$, \gls{ereditarietag} $^{[g]}$ e \gls{polimorfismog} $^{[g]}$
 fornendo estensibilità e riusabilità del codice.
 È stato ufficialmente approvato come \textit{standard} dalla \textit{ECMA}.\\
 L'azienda, sebbene abbia sviluppato la maggior parte dei moduli
@@ -658,9 +657,9 @@ in \textit{\gls{visualbasicg}}, sta lentamente traducendo tutto in questo lingua
 \noindent \textit{Visual Studio 2019} \cite{site:vs-docs}, il cui logo è rappresentato in Figura \ref{logoVisualStudio}, è un ambiente di sviluppo integrato (\gls{ideg}) fornito da \textit{Microsoft}.
 Permette lo sviluppo di \textit{software} per computer, siti \textit{web}, applicazioni \textit{web}, servizi \textit{web}
 e applicazioni \textit{mobile}. È compatibile con tutte le piattaforme di sviluppo
-\textit{software} \textit{Microsoft}, quali \textit{Windows \gls{apig}} e \textit{\gls{windowsformg}}.\\
-\textit{Visual Studio 2019} supporta il \textit{\gls{refactoringg}} del codice e \textit{\gls{intellisenseg}}, uno strumento per
-l’autocompletamento del codice. Il \textit{\gls{debuggerg}} integrato funziona sia a
+\textit{software} \textit{Microsoft}, quali \textit{Windows \gls{apig}} $^{[g]}$ e \textit{\gls{windowsformg}}.\\
+\textit{Visual Studio 2019} supporta il \textit{\gls{refactoringg}} $^{[g]}$ del codice e \textit{\gls{intellisenseg}} $^{[g]}$, uno strumento per
+l’autocompletamento del codice. Il \textit{\gls{debuggerg}} $^{[g]}$ integrato funziona sia a
 livello di codice sorgente che a livello di codice macchina. È compatibile anche con i sistemi di supporto per il controllo del codice,
 come per esempio \textit{Subversion} e \textit{\hyperref[sec:git]{Git}}.\\
 \textit{Visual Studio 2019} supporta 36 differenti linguaggi di 
@@ -687,12 +686,12 @@ elegante. Per lo stage, per esempio, sono stati utilizzati quelli utili per la c
 \end{figure}
 
 \subsection*{\textit{Informix}}
-\noindent \textit{IBM} \textit{Informix} \cite{site:informix-docs}, il cui logo è rappresentato in Figura \ref{logoInformix}, è un \gls{rdbmsg} (\textit{Relational Database Management System}) sviluppato dall'azienda \textit{IBM}. La base di dati \textit{Informix} è usata in molte
-applicazioni \textit{\gls{oltpg}} ad alto tasso di transazione che operano in vari settori tra cui anche quelli della produzione e dei trasporti.\\
+\noindent \textit{IBM} \textit{Informix} \cite{site:informix-docs}, il cui logo è rappresentato in Figura \ref{logoInformix}, è un \gls{rdbmsg} $^{[g]}$ (\textit{Relational Database Management System}) sviluppato dall'azienda \textit{IBM}. La base di dati \textit{Informix} è usata in molte
+applicazioni \textit{\gls{oltpg}} $^{[g]}$ ad alto tasso di transazione che operano in vari settori tra cui anche quelli della produzione e dei trasporti.\\
 L’\textit{Informix server} supporta il modello relazionale ad oggetti che permette ad \textit{IBM} di
 offrire estensioni che permettono di effettuare interrogazioni per un dominio specifico
 e archiviazioni per \textit{set} di dati in maniera rapida ed efficiente.
-È in grado di supportare sia \textit{\gls{sqlg}} che \textit{\gls{nosqlg}}.
+È in grado di supportare sia \textit{\gls{sqlg}} $^{[g]}$ che \textit{\gls{nosqlg}} $^{[g]}$.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[scale = 0.04]{loghi/InformixLogo.pdf}

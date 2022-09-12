@@ -51,13 +51,15 @@ Vengono elencati in seguito i parametri:
 \noindent Per ogni soluzione proposta, viene effettuata una breve introduzione, seguita da vantaggi e svantaggi.
 Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di \textit{test} si basano su un problema di \textit{string replacement}
 con \textit{input} di lunghezza uguale.\\
-Si è volutamente scelto questo tipo di problema molto semplice poichè, se i micro-moduli fossero stati sviluppati intercalandoli all'interno del contesto,
-si avrebbe avuto un enorme spreco di risorse temporali.
+In pratica, date una striga corretta e una errata entrambe di lunghezza $n$, il problema consiste nel correggere i caratteri della stringa errata
+in modo tale da ottenere due stringhe uguali.
+Si è volutamente scelto questo tipo di problema poichè sembrava sufficientemente semplice per poter prendere confidenza con gli algoritmi stessi.
+Se i micro-moduli fossero stati sviluppati intercalandoli all'interno del contesto, si avrebbe avuto un enorme spreco di risorse temporali.
 
 %**************************************************************
 \subsection{Algoritmo \textit{Greedy}}
-\noindent L'algoritmo \textit{greedy} ("\textit{goloso}") viene così chiamato poichè basa la ricerca di una buona
-soluzione \gls{ammissibileg} sulla scelta, secondo un criterio predefinto, della miglior soluzione disponibile ad ogni passo, senza
+\noindent L'algoritmo \textit{greedy} ("\textit{goloso}") \cite{Cormen:algoritmi} viene così chiamato poichè basa la ricerca di una buona
+soluzione \gls{ammissibileg} $^{[g]}$ sulla scelta, secondo un criterio predefinto, della miglior soluzione disponibile ad ogni passo, senza
 rimettere in discussione la scelta appena effettuata.\\
 Di seguito viene presentato lo pseudocodice dell'algoritmo \textit{greedy}.
 
@@ -107,14 +109,21 @@ in quel momento, ovvero $y$ stesso.
 \end{itemize}
 %**************************************************************
 \subsection{\textit{Tabu search}}
-\noindent La \textit{Tabu search} \cite{site:dispense-de-giovanni} è un metodo, classificato come \textit{Trajectory Method} (\textit{Metodo a traiettoria}), basato su \gls{ricercalocaleg}
+\noindent La \textit{Tabu search} \cite{site:dispense-de-giovanni} è un metodo, classificato come \textit{Trajectory Method} (\textit{Metodo a traiettoria}), basato su \gls{ricercalocaleg} $^{[g]}$
 in grado di eludere l'intrappolamento del metodo in un minimo locale sfruttando costantemente la memoria.\\
-In particolare, oltre a ricordare la migliore soluzione corrente, vengono salvate, in quella che viene definita \textit{Tabu list},
+La \gls{ricercalocaleg} si basa sull’idea di migliorare
+una soluzione iniziale esplorandone un intorno
+opportunamente definito. Se l’ottimizzazione
+dell’intorno produce una soluzione migliorante
+il procedimento viene ripetuto
+considerando come soluzione corrente la soluzione
+appena determinata.
+La \textit{Tabu search}, oltre a ricordare la migliore soluzione corrente, salva, in quella che viene definita \textit{Tabu list},
 anche le {$k$} mosse precedentemente effettuate in modo tale da non incombere nel rischio di un ciclo nel breve periodo.\\
 Viene dunque orientata la ricerca tramite la modifica del vicinato in funzione della storia dell'esplorazione, ma anche tramite la diversificazione dei sottospazi
 di ricerca tramite il passaggio per soluzioni non ammissibili.\\
 L'algoritmo verrà descritto più approfonditamente nella Sezione §\hyperref[sec:tabu-search]{4.4}\\
-Di seguito viene presentato lo pseudocodice della \textit{Tabu search} (rivisitazione di \cite{site:solid-github}).
+Di seguito viene presentato lo pseudocodice della \textit{Tabu search} (rivisitazione di \cite{site:solid-github}).\\
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
     \caption{Pseudocodice \textit{string replacement} - \textit{Tabu search}}
@@ -149,16 +158,14 @@ Di seguito viene presentato lo pseudocodice della \textit{Tabu search} (rivisita
         \EndProcedure
     \end{algorithmic}
 \end{algorithm}
-\vspace*{\fill}
+\vspace*{-0.4cm}
 \noindent \paragraph{Osservazioni}\hfill\\
-Notiamo come il ruolo della {$tabu\_list$} sia fondamentale in quanto, in caso di appartenza della mossa alla {$tabu\_list$}, non fa calcolare e
+\noindent Notiamo come il ruolo della {$tabu\_list$} sia fondamentale in quanto, in caso di appartenza della mossa alla {$tabu\_list$}, non fa calcolare e
 conseguentemente fare il confronto con {$funzione\_obiettivo_{best}$}. Inoltre se la {$funzione\_obiettivo_{curr}$} non è migliorante, l'iterazione
 viene comunque contata.\\
 Per quanto riguarda la condizione di {$\textbf{break}$}, essa viene messa poichè, avendo trovato una soluzione migliorante, non si è più interessati a
 esplorare il vicinato corrente e dunque ne viene creato uno nuovo a partire dalla nuova soluzione.\\
 Di seguito vengono elencati i pro e i contro del seguente approccio, come in \cite{site:paper-lo-go} \cite{site:articolo-tabu-search}.\\
-\vspace*{\fill}
-\newpage
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
     \item Bassa complessità implementativa;
@@ -262,7 +269,7 @@ Di seguito vengono elencati i pro e i contro del seguente approccio (come anche 
 \section{Conclusioni dello studio}
 \label{conclusione-studio-fattibilita}
 \noindent Lo studio è servito per capire come funzionassero gli algoritmi e quali fossero i loro pregi e difetti.
-Di seguito si hanno i risultati dell'analisi dei 3 algoritmi eseguiti singolarmente.\\
+Di seguito si hanno i risultati dell'analisi dei 3 algoritmi eseguiti singolarmente su una singola istanza.\\
 \\
 \noindent \textbf{Input degli algoritmi}
 \begin{itemize}
@@ -312,14 +319,16 @@ dove:
     \item LT = lettere totali
     \item Efficacia = $\sum_{i=1} ^{10}{\frac{LC_i}{LT_i}}$\\
 \end{itemize}
-\noindent L'algoritmo \textit{greedy} risulta il più efficiente ed efficace in questo specifico caso,
+\noindent Dai risultati dell'istanza descritta in precedenza, l'algoritmo \textit{greedy} potrebbe risultare
+il più efficiente ed efficace,
 ma per il problema che si andrà a risolvere non può essere considerato
 molto soddisfacente in quanto le scelte
 non vengono mai rimesse in discussione e potrebbero dunque escludere soluzioni potenzialmente migliori
 (esempio nella Sezione §\ref{sec:descrizione-stage-intro}).\\
-Per quanto riguarda l'algoritmo genetico, sebbene fosse interessante per il mantenimento di più soluzioni ad ogni iterazione, si è dimostrato
-molto più lento rispetto ai due precedenti. Inoltre, una maggiore complessità realizzativa lo ha portato all'esclusione.\\
-Si è optato quindi per l'utilizzo della \textit{Tabu search} in quanto rappresentava un buon compromesso sia a livello
-di efficacia ed efficienza che a livello implementativo. Per quanto riguarda la soluzione iniziale,
-questa può essere generata a partire da un algoritmo \textit{greedy}, data la sua bassa complessità computazionale.
-In questo modo è possibile avere già a disposizione una buona soluzione di base.\\
+Si può notare, inoltre, come l'algoritmo genetico, sebbene sia interessante per il mantenimento di più soluzioni ad ogni iterazione,
+abbia richiesto più tempo per essere implementato e sia stato scartato perchè si sarebbe corso il rischio di lasciarlo incompleto, non portando
+dunque a termine gli obiettivi obbligatori dello \textit{stage} descritti nella Sezione §\ref{sec:obiettivi}.\\
+La \textit{Tabu search}, in base anche all'esperienza maturata attraverso lo studio, sembrerebbe rappresentare un buon compromesso sia a livello
+di efficacia ed efficienza che a livello implementativo (come descritto anche in \cite{site:dispense-de-giovanni}).
+Per quanto riguarda la soluzione iniziale, questa potrebbe essere generata a partire da un algoritmo \textit{greedy},
+data la sua bassa complessità computazionale. In questo modo sarebbe possibile avere già a disposizione una buona soluzione di base.\\
