@@ -18,7 +18,7 @@ fabbisogni di un dato periodo.\\
 \noindent Dopo aver inserito tutti gli \textit{input} necessari,
 viene determinata una soluzione iniziale tramite un algoritmo \textit{greedy} e poi, attraverso la
 \textit{Tabu search}, si crea una nuova soluzione che viene visualizzata in una lista
-filtrabile contenente tutte le informazioni di ogni ordine.
+filtrabile e ordinabile contenente tutte le informazioni di ogni ordine.
 
 \section{Consuntivo delle tempistiche}
 \noindent Nella Tabella \ref{tab:attivita-ore-fine} viene esposto il consuntivo orario finale.
@@ -46,12 +46,12 @@ filtrabile contenente tutte le informazioni di ogni ordine.
     studiati & \centering 8 \arraybackslash \\
     \hline
     \centering Sviluppo modulo effettivo, generazione/lettura dei vincoli
-    e parametrizzazione tramite pesi delle variabili & \centering 96 (+4) \arraybackslash \\
+    e parametrizzazione tramite pesi delle variabili & \centering 95 (+3) \arraybackslash \\
     \hline
-    \centering \textit{Test} e Validazione & \centering 28 (+8) \arraybackslash \\
+    \centering \textit{Test} e Validazione & \centering 27 (+7) \arraybackslash \\
     \hline
     \centering Stesura della documentazione
-    del prodotto sviluppato & \centering 24 \arraybackslash \\
+    del prodotto sviluppato & \centering 26 (+2) \arraybackslash \\
     \hline
     \end{longtable}
 \end{center}%
@@ -59,12 +59,13 @@ filtrabile contenente tutte le informazioni di ogni ordine.
 \noindent È evidente come, rispetto al preventivo nella Tabella
 \ref{tab:attivita-ore-inizio} (Sezione §\ref{sec:pianificazione-lavoro}),
 la gestione delle ore sia stata abbastanza in linea con quanto dichiarato.
-Tuttavia, si può notare come le ore risparmiate per lo studio delle tecnologie
-siano state impiegate in una minima parte nello sviluppo del modulo effettivo e
-la restante parte per il \textit{testing} (vedasi problema del \textit{\gls{databaseg}} nella
-Sezione §\ref{sec:risultati-test}).
+Tuttavia, si può notare come si siano risparmiate molte ore per lo studio delle tecnologie.
 Ciò si è verificato perchè le conoscenze pregresse (come spiegato nella Sezione §\ref{sec:conoscenze-acquisite})
 hanno permesso un'apprendimento più rapido del previsto.
+Questo risparmio è stato impiegato in minima parte nello sviluppo del modulo effettivo e nella stesura della documentazione e
+in gran parte parte per il \textit{testing} (vedasi problema del \textit{\gls{databaseg}} nella
+Sezione §\ref{sec:risultati-test}).
+
 
 \newgeometry{a4paper, left=30mm, right=30mm, top=31mm, bottom=30mm}
 %**************************************************************
@@ -119,7 +120,7 @@ Nella Tabella \ref{tab:raggiungimento-obiettivi} viene illustrato il riepilogo d
     \hline
     \centering DE1 & Utilizzo di più tecniche e combinazione dei risultati
     ottenuti o individuazione della miglior soluzione attraverso
-    opportuni \textit{KPI} (\textit{Key Performance Indicator}) & \centering Non Soddisfatto \arraybackslash \\
+    opportuni \textit{KPI} (\textit{Key Performance Indicator}) & \centering Soddisfatto \arraybackslash \\
     \hline
     \centering FA1 & Utilizzo del \textit{multithreading}
     nelle fasi in cui è richiesta una
@@ -128,12 +129,15 @@ Nella Tabella \ref{tab:raggiungimento-obiettivi} viene illustrato il riepilogo d
     \end{longtable}
 \end{center}%
 
-\noindent Come si può notare gli obiettivi obbligatori
+\noindent Come si può notare, gli obiettivi obbligatori
 sono stati tutti soddisfatti. Questi, infatti, rappresentavano
-il minimo indispensabile per il superamento dell'attività di \textit{stage}.\\
-Gli obiettivi desiderabili e facoltativi non sono stati soddisfatti.
-Il motivo sta nel fatto che non c'è stato il tempo necessario per svolgerli.
-Si è deciso, dunque, di dedicare le ore rimanenti
+la condizione necessaria per il superamento dell'attività di \textit{stage}.\\
+L'obiettivo desiderabile è stato soddisfatto poichè si sono utilizzate più tecniche
+di combinazione dei risultati (\textit{Tabu search} con inizializzazione tramite algoritmo \textit{greedy}).\\
+Quello facoltativo, invece, non è stato soddisfatto in quanto
+non c'è stato il tempo necessario per
+svolgerlo.
+Per occupare le pochissime ore rimanenti, si è deciso di dedicarsi
 al miglioramento della documentazione già esistente, che sarebbe risultata
 più utile rispetto a iniziare un obiettivo che sicuramente non si sarebbe portato a termine.
 
@@ -141,8 +145,8 @@ più utile rispetto a iniziare un obiettivo che sicuramente non si sarebbe porta
 \section{Conoscenze acquisite}
 \label{sec:conoscenze-acquisite}
 \noindent Per la realizzazione di questo progetto, sono state fondamentali
-molte nozioni apprese durante il corso di studi, dai linguaggi ai paradigmi.
-Inoltre, aver appreso in precedenza come modellare e risolvere un problema di ottimizzazione tramite la \gls{ricercaoperativag},
+molte nozioni apprese durante il corso di studi.
+Inoltre, aver imparato in precedenza come modellare e risolvere un problema di ottimizzazione tramite tecniche di \gls{ricercaoperativag}
 ha sicuramente aiutato nell'analisi del problema, che altrimenti sarebbe stata certamente più complicata.\\
 Lo \textit{stage} ha permesso però anche di incrementare notevolmente il mio bagaglio
 sia tecnico che personale.
@@ -163,11 +167,12 @@ e grazie anche all'utilizzo di un approccio conosciuto come \textit{learning
 by doing}.
 \paragraph{Analisi e modellazione del problema}\hfill\\\\
 Analizzare e modellare un problema è una delle competenze che si devono apprendere
-in un corso di laurea in informatica. Tuttavia i problemi con cui si ha a che fare
+in un corso di laurea in Informatica.\\
+Tuttavia i problemi di ottimizzazione con cui si ha a che fare
 nel mondo accademico sono molto spesso \textit{standard} e risolvibili tramite tecniche
-ben conosciute.\\
+di \gls{ricercaoperativag} ben conosciute.\\
 Questo progetto mi ha posto davanti per la prima volta un problema
-non banale da risolvere da solo. Infatti uno studio preliminare forse poco accurato
+non banale da risolvere da solo. Infatti uno studio preliminare, forse poco accurato,
 mi ha portato a effettuare per buona parte dello \textit{stage} molte domande al \textit{tutor}.
 È chiaro dunque come sia fondamentale capire il problema che si ha di fronte nella
 sua interezza prima di iniziare la progettazione e lo sviluppo.

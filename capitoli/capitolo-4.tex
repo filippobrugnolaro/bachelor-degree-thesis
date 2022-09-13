@@ -31,11 +31,11 @@ tabelle. Successivamente viene fatto il \textit{\gls{preprocessingg}} $^{[g]}$ d
 in modo tale da poter poi eseguire l'ottimizzazione solo su
 ciò che è di interesse dell'analisi.
 Di seguito viene effettuato il controllo dei vincoli di minimo al termine
-dell'algoritmo così da generare
+dell'algoritmo, così da generare
 una soluzione \gls{ammissibileg}. Se si vuole effettuare una nuova
 analisi, è necessario estrarre nuovamente i dati dal
 \textit{\gls{databaseg}} e rieseguire il ciclo. Questo è necessario
-in quanto i dati all'interno del \textit{\gls{databaseg}} possono variare
+in quanto i dati all'interno del \textit{\gls{databaseg}} possono variare in tempo reale
 (esempio: prezzi, date di spedizione...).
 
 \newpage
@@ -67,8 +67,8 @@ A questo punto la ricerca può terminare oppure può continuare con la possibili
 %**************************************************************
 \section{\textit{Tabu search}}
 \label{sec:tabu-search}
-\noindent Nella Sezione § \ref{conclusione-studio-fattibilita}
-riguardante lo studio di fattibilità è emerso come la \textit{Tabu search}
+\noindent Nella Sezione §\ref{conclusione-studio-fattibilita},
+riguardante lo studio di fattibilità, è emerso come la \textit{Tabu search}
 sia il giusto compromesso in termini di efficacia, efficienza
 e complessità a livello implementativo.\\
 In Figura \ref{diagramma-attivita-tabu-search}
@@ -98,7 +98,7 @@ poichè è legata alla creazione del vicinato.\\
 In primis è stata creata una classe che rappresentasse
 il singolo ordine (\textit{dataSourceItem}) e, dato che gli ordini solitamente sono molteplici,
 si è deciso di mettere ognuno di essi all'interno di una lista.
-Questo approccio è sufficiente per un algoritmo \textit{greedy} ma non per la \textit{Tabu search}.\\
+Questo approccio è sufficiente per un algoritmo \textit{greedy}, ma non per la \textit{Tabu search}.\\
 Infatti è necessario associare alla soluzione anche una funzione di valutazione, in modo tale
 da poter operare il confronto tra la soluzione corrente e quella migliore.\\
 In Figura \ref{rappresentazione-soluzione} viene illustrata la forma della soluzione della \textit{Tabu search} tramite un diagramma delle classi. \cite{site:rcardin}
@@ -183,7 +183,7 @@ Di seguito viene presentato lo pseudocodice.
 
 \noindent La funzione $filtra\_articoli\_per\_min()$, avente come parametro di \textit{input} $l_{tmp}$ (lista con tutti i record che soddisfano i vincoli),
 serve invece a filtrare per prezzo minimo tutti i \textit{range} di copertura associati ad ogni codice articolo.
-In pratica per tutti i \textit{range} di copertura di ogni articolo viene preso il record con il fornitore che offre il fabbisogno al prezzo più vantaggioso.\\
+In pratica, per tutti i \textit{range} di copertura di ogni articolo, viene preso il record con il fornitore che offre il fabbisogno al prezzo più vantaggioso.\\
 
 \noindent È possibile avere anche un'inizializzazione della soluzione che non sia stata soggetta ad alcuna ottimizzazione.
 In questo caso, è stata creata una funzione $initialise\_solution()$ che, dati in \textit{input} gli stessi parametri dell'algoritmo \textit{greedy}, fornisce
@@ -208,7 +208,7 @@ della funzione di valutazione poichè, essendo l'articolo una necessità, prima 
 \label{sec:esplorazione-vicinato}
 \noindent Il vicinato è quell'insieme di soluzioni che possono essere raggiunte
 tramite l'applicazione di una mossa sulla soluzione corrente (chiamata anche \textit{centro del vicinato}).\\
-Data la sua dimensione importante, si è deciso di procedere randomizzando le scelte.
+Data la dimensione importante del vicinato, si è deciso di procedere randomizzando le scelte.
 In particolare, ogni mossa viene scelta in maniera casuale cosicché tutte le mosse
 abbiano la stessa probabilità di essere scelte.\\
 Per il medesimo motivo, è stato applicato lo stesso principio anche per la scelta dell'articolo su cui applicare
@@ -233,7 +233,7 @@ Permette di evitare dunque cicli infiniti in corrispondenza
 di minimi locali. Questo accade perché tramite la funzione
 $generate\_move\_string()$ ogni mossa
 viene prima codificata e poi viene effettuata una ricerca nella \textit{Tabu list}, impedendo potenzialmente all’algoritmo di riprovarla.
-Se la mossa non viene trovata, questa viene aggiunta nella \textit{Tabu list} sia nel caso in cui l'operazione venga compiuta che nel caso in cui non
+Nella nostra implementazione, se la mossa non viene trovata, questa viene aggiunta nella \textit{Tabu list} sia nel caso in cui l'operazione venga compiuta che nel caso in cui non
 venga compiuta perchè non migliorante.\\
 Per semplificare la codifica, si salva solamente la stringa generata dalla funzione che rappresenta la mossa e non l’intera
 soluzione.
@@ -270,8 +270,8 @@ Durante la ricerca sono state provate empiricamente 3 funzioni che vengono elenc
 \begin{itemize}
     \item $PT = $ prezzo totale;
     \item $OE = $ numero di articoli ordinati;
-    \item $OT = $ numero di articoli da ordinare;
-    \item $R =$ \text{\large $\frac{OE}{OT}$} $=$ rapporto tra gli articoli ordinati e quelli da ordinare.
+    \item $OT = $ numero di articoli totali da ordinare;
+    \item $R =$ \text{\large $\frac{OE}{OT}$} $=$ rapporto tra gli articoli ordinati e quelli totali da ordinare.
 \end{itemize}
 \newpage
 \noindent Nelle Tabelle \ref{tab:risultati-f}, \ref{tab:risultati-g} e \ref{tab:risultati-h} vengono riportati i risultati che sono stati calcolati
@@ -355,7 +355,7 @@ che approssimasse meglio il comportamento dell'algoritmo.\\
 \begin{itemize}
     \item $PT = $ prezzo totale;
     \item $OE = $ numero di articoli ordinati;
-    \item $OT = $ numero di articoli da ordinare;
+    \item $OT = $ numero di articoli totali da ordinare;
     \item $FV = $ valore della funzione di valutazione.
 \end{itemize}
 
@@ -386,7 +386,7 @@ risolto il problema perchè nei primi tre risultati
 $FV$ aumenta e solo nel quarto $FV$ inizia a decrescere.
 Questo potrebbe sembrare un problema, ma in realtà non lo è in
 quanto la mossa disponibile nella \textit{Tabu search} inserisce
-un solo elemento per volta riconducendoci quindi
+un solo elemento per volta, riconducendoci quindi
 più verosimilmente alle casistiche dell'intervallo che va dal quinto all'ottavo risultato.\\
 
 \noindent Per il secondo problema invece si è dovuto procedere per casi in
@@ -424,7 +424,7 @@ $R=1$.
     locale e terminare la procedura;
     \item \textbf{Tempo massimo di esecuzione:}  durata temporale oltre
     la quale il programma si ferma automaticamente. Questo serve per venire incontro a
-    bisogni di rapidità di risposta da parte dell’azienda.
+    bisogni di rapidità di risposta da parte dell’azienda (da requisito \hyperref[tab:requisiti-di-performance]{R45-P-O}).
     
 \end{itemize}
 %**************************************************************
@@ -485,7 +485,7 @@ possibilità di scegliere quale tra le seguenti tecniche adottare:
     dichiarato dal \textit{bound}.
     \item \textbf{Ricompattamento:} consiste nel selezionare l'ordine
     successivo con lo stesso fornitore, con il prezzo minimo e
-    non appartenente al periodo in modo tale da anticipare l'acquisto
+    non appartenente al periodo in questione, in modo tale da anticipare l'acquisto
     e non ordinare articoli in più.
 \end{enumerate}
 \vspace*{0.5cm}
@@ -494,7 +494,7 @@ Se i vincoli venissero verificati durante l'esecuzione dell'algoritmo,
 oltre a rallentarlo notevolmente, si avrebbe un importante aumento di
 complessità in quanto si dovrebbero salvare le quantità realmente
 necessarie in un'altra lista e operare altri controlli.\\
-Infine, bisogna ribadire che, al termine dell'esecuzione
+Infine bisogna ribadire che, al termine dell'esecuzione
 dell'algoritmo e dopo aver verificato i vincoli rimanenti, viene comunque restituita una soluzione \gls{ammissibileg}, che corrisponde
 alla miglior combinazione trovata per tutti i \textit{range} di copertura di
 ogni articolo tra data d'ordine e fornitore.\\
@@ -596,9 +596,9 @@ che ha la minor media delle variazioni dei suoi articoli.
 Le mosse attuali della \textit{Tabu search} sono semplici e rapide,
 creando una bassa perturbazione della miglior soluzione corrente
 (o \textit{centro del vicinato}). Tuttavia potrebbe essere necessaria
-una qualche mossa più complessa in modo tale da visitare
+una qualche mossa più complessa, in modo tale da visitare
 più velocemente lo spazio delle soluzioni.\\
-Per esempio si potrebbe pensare di aumentare la molteplicità
+Per esempio, si potrebbe pensare di aumentare la molteplicità
 di applicazione della mossa.\\
 Se precedentemente
 la mossa veniva applicata a un solo codice articolo, si potrebbe
@@ -673,11 +673,11 @@ programmazione tra i quali \textit{C\#}.
 
 \subsection*{\textit{DevExpress}}
 \noindent \textit{\gls{devexpressg}} \cite{site:devexpress-docs}, il cui logo è rappresentato in Figura \ref{logoDevExpress}, è una compagnia che produce strumenti di sviluppo \textit{software} per
-\textit{Visual Studio}. In particolare crea estensioni che vengono utilizzate tramite \textit{Visual Studio}
+\textit{Visual Studio}. In particolare, crea estensioni che vengono utilizzate tramite \textit{Visual Studio}
 per velocizzare la scrittura di applicazioni. Gli strumenti da loro forniti sono
-molteplici. In particolare, hanno sviluppato controlli \textit{.NET} di interfaccia utente (\textit{UI}) che
+molteplici. Hanno sviluppato, per esempio, controlli \textit{.NET} di interfaccia utente (\textit{UI}) che
 rendono più semplice la creazione di ambienti grafici per applicazioni e portano ad un risultato
-elegante. Per lo stage, per esempio, sono stati utilizzati quelli utili per la creazione di \textit{\gls{windowsformg}}.
+elegante. Per quanto riguarda lo \textit{stage}, sono stati utilizzati quelli utili per la creazione di \textit{\gls{windowsformg}}.
 \begin{figure}[!h] 
     \centering 
     \includegraphics[scale = 0.35]{loghi/DevExpressLogo.png}

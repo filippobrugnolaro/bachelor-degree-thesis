@@ -20,10 +20,10 @@ sorgente che documentali.\\
 
 \noindent Il \textit{tutor} successivamente ha consigliato un piano di \textit{test} basato su una semplice
 esecuzione del programma, variando i suoi parametri, e su un'analisi
-dei risultati, comparandoli con le rispettive query effettuate tramite
+dei risultati, comparandoli con le rispettive \textit{query} effettuate tramite
 l'apposito sistema di interrogazione del \textit{\gls{databaseg}}.\\
 Questo perché l’attività di prova tramite dati reali comprendeva il lavoro
-di \textit{\gls{debugg}} permettendo di risparmiare tempo che sarebbe stato altrimenti
+di \textit{\gls{debugg}}, permettendo di risparmiare tempo che sarebbe stato altrimenti
 impiegato nella scrittura di tutti \textit{test}.\\
 
 \noindent Tuttavia, non volendo rinunciare ad attività che occupano un ruolo molto importante dello
@@ -192,13 +192,13 @@ Nelle Tabelle \ref{tab:requisiti-funzionali-validazione}, \ref{tab:requisiti-qua
 \textit{Tabu search}, cercando di variare:
 \begin{enumerate}
     \item il numero di iterazioni massime;
-    \item la scelta della risoluzione dei vincoli.
+    \item la scelta della risoluzione dei vincoli (descritti nella Sezione §\ref{sec:controllo-vincoli}).
 \end{enumerate}
 Dato che il \textit{\gls{databaseg}} fornitomi dall'azienda conteneva delle incongruenze fra i campi dati
 delle rispettive tabelle, si è deciso di raccogliere le rilevazioni su un circoscritto
-numero di articoli.\\
+numero di articoli (10).\\
 Questi infatti sono stati prima verificati tramite l'utilizzo del
-sistema di query integrato in \textit{\gls{ergdisg}} in modo tale da non ritrovarsi risultati errati
+sistema di \textit{query} integrato in \textit{\gls{ergdisg}}, in modo tale da non ritrovarsi risultati errati
 a causa di circostanze non dipendenti dall'algoritmo.\\[0.1cm]
 \textbf{Variazione numero massimo di iterazioni}\hfill\\[0.1cm]
 Dati in \textit{input}:
@@ -285,8 +285,7 @@ dove:
     \label{grafico-scostamento-risoluzione}
 \end{figure}
 \noindent Si osservino la Tabella \ref{tab:test-risoluzione} e la Figura \ref{grafico-scostamento-risoluzione}.
-Nell'esempio, la scelta peggiore per
-la risoluzione dei vincoli risulta essere l'utilizzo del metodo proporzionale.\\
+Nell'esempio, l'utilizzo del metodo proporzionale sembrerebbe provocare lo scostamento minore di tutti.\\
 Questo potrebbe indicare
 che, nel controllo del minimo relativo
 al singolo ordine, si potrebbe avere una più alta probabilità, rispetto agli altri metodi, di aumentare di una unità la quantità di un ordine

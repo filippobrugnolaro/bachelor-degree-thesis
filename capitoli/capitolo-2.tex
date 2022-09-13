@@ -23,7 +23,7 @@ disponibili \textit{online}.\\
 \noindent Questa prima parte definirà una prima scelta tra gli algoritmi disponibili in base alle informazioni reperite.\\
 
 \noindent La seconda parte invece consiste nello sviluppo di micro-moduli di \textit{test} sulle scelte effettuate
-precedentemente, in modo tale da poter effettuare una analisi ed un confronto accurati basati su parametri che verranno
+precedentemente, in modo tale da poter effettuare un'analisi e un confronto accurati basati su parametri che verranno
 definiti successivamente.\\
 
 \noindent Considerando anche il rapporto tra costi e risorse, le soluzioni che sono state identificate come le più plausibili e sottoposte a uno studio più approfondito sono:
@@ -49,12 +49,12 @@ Vengono elencati in seguito i parametri:
 %**************************************************************
 \section{Soluzioni proposte}
 \noindent Per ogni soluzione proposta, viene effettuata una breve introduzione, seguita da vantaggi e svantaggi.
-Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di \textit{test} si basano su un problema di \textit{string replacement}
-con \textit{input} di lunghezza uguale.\\
+Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di \textit{test} si basano sul problema di \textit{string replacement}.\\
 In pratica, date una striga corretta e una errata entrambe di lunghezza $n$, il problema consiste nel correggere i caratteri della stringa errata
 in modo tale da ottenere due stringhe uguali.
 Si è volutamente scelto questo tipo di problema poichè sembrava sufficientemente semplice per poter prendere confidenza con gli algoritmi stessi.
-Se i micro-moduli fossero stati sviluppati intercalandoli all'interno del contesto, si avrebbe avuto un enorme spreco di risorse temporali.
+Se i micro-moduli fossero stati sviluppati intercalandoli all'interno del contesto del problema da risolvere, si avrebbe avuto un
+enorme spreco di risorse temporali.
 
 %**************************************************************
 \subsection{Algoritmo \textit{Greedy}}
@@ -73,13 +73,13 @@ Di seguito viene presentato lo pseudocodice dell'algoritmo \textit{greedy}.
         \Procedure{My\_Greedy\_Algorithm}{$stringa\_corretta$, $stringa\_errata$}
         \State {$array_{str\_err} \gets generate\_array(stringa\_errata)$}
         \State {$array_{str\_corr} \gets generate\_array(stringa\_corretta)$}
-        \State {$funzione\_obiettivo \gets array_{str\_corr}.Length$}
+        \State {$funzione\_obiettivo \gets calcola\_fo(array_{str\_corr}$, $array_{str\_err})$}
         \State {$pos \gets 0$}
         \ForAll {$element \in array_{str\_err}$}
             \If {$element \neq array_{str\_corr}[pos]$}
                 \State $element = array_{str\_corr}[pos]$
+                \State {$funzione\_obiettivo \gets funzione\_obiettivo - 1$}
             \EndIf
-            \State {$funzione\_obiettivo \gets funzione\_obiettivo - 1$}
             \State {$pos \gets pos + 1$}
         \EndFor
         \State \Return {$funzione\_obiettivo$}
@@ -92,8 +92,8 @@ Come si può notare, l'algoritmo \textit{greedy} è molto intuitivo e, in questo
 anche banale.
 Infatti, ad ogni iterazione, definiti $x$ come l'elemento in posizione $pos$ nella
 stringa errata e $y$ come l'elemento, nella stessa posizione, nella stringa corretta,
-se $x \neq y$ si effettua un replace di $x$ con la scelta migliore disponibile
-in quel momento, ovvero $y$ stesso.
+se $x \neq y$, si effettua un replace di $x$ con la scelta migliore disponibile
+in quel momento, ovvero $y$ stesso; se $x = y$, non è necessario effettuare alcuna operazione.
 
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
@@ -141,7 +141,7 @@ Di seguito viene presentato lo pseudocodice della \textit{Tabu search} (rivisita
             \While{$vicinato.Length > 0$ \textbf{and} $conta < max\_iterazioni$}
                 \State {$vicino_{migl} \gets ottieni\_miglior\_vicino(vicinato)$}
                 \If {$vicino_{migl} \not\in tabu\_list$}
-                    \State {$funzione\_obiettivo_{curr} \gets calculate\_fo(vicino_{migl})$}
+                    \State {$funzione\_obiettivo_{curr} \gets calcola\_fo(vicino_{migl})$}
                     \If {$funzione\_obiettivo_{curr} < funzione\_obiettivo_{best}$}
                         \State Inserisci {$vicino_{migl}$} nella {$tabu\_list$} considerando la {$capienza\_tabu\_list$}
                         \State $sol_{curr} \gets vicino_{migl}$
@@ -163,9 +163,7 @@ Di seguito viene presentato lo pseudocodice della \textit{Tabu search} (rivisita
 \noindent Notiamo come il ruolo della {$tabu\_list$} sia fondamentale in quanto, in caso di appartenza della mossa alla {$tabu\_list$}, non fa calcolare e
 conseguentemente fare il confronto con {$funzione\_obiettivo_{best}$}. Inoltre se la {$funzione\_obiettivo_{curr}$} non è migliorante, l'iterazione
 viene comunque contata.\\
-Per quanto riguarda la condizione di {$\textbf{break}$}, essa viene messa poichè, avendo trovato una soluzione migliorante, non si è più interessati a
-esplorare il vicinato corrente e dunque ne viene creato uno nuovo a partire dalla nuova soluzione.\\
-Di seguito vengono elencati i pro e i contro del seguente approccio, come in \cite{site:paper-lo-go} \cite{site:articolo-tabu-search}.\\
+Di seguito vengono elencati i pro e i contro del seguente approccio (come descritto in \cite{site:paper-lo-go} \cite{site:articolo-tabu-search}).\\
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
     \item Bassa complessità implementativa;
@@ -193,7 +191,7 @@ funzione di \textit{fitness}, che guida il processo di selezione, basato su meto
 Prima di ogni iterazione vengono dunque presi gli individui e verranno accoppiati tramite degli operatori di ricombinazione
 (es: \textit{crossover uniforme}, \textit{cut-point crossover}, \textit{mutazione}...)
 per generare dei figli che assumeranno le migliori caratteristiche dei genitori. Alla fine dell'algoritmo, verrà scelta la soluzione con la maggior \textit{fitness} possibile.\\
-Di seguito viene presentato lo pseudocodice della dell'algoritmo genetico (rivisitazione di \cite{site:solid-github}).
+Di seguito viene presentato lo pseudocodice dell'algoritmo genetico (rivisitazione di \cite{site:solid-github}).
 \vspace*{\fill}
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
@@ -248,7 +246,7 @@ Si noti come, per ogni popolazione, vengano scelti un numero di individui dipend
 e vengano effettuati {$num_{crossover}$} \textit{crossover} scegliendo 2 individui dalla popolazione che fungono da genitori.
 Viene dunque creata una nuova popolazione di figli a cui viene anche applicata una mutazione a un figlio \textit{random} per
 variare il patrimonio genetico, in modo tale da avere più possibilità di trovare buone caratteristiche.\\
-Di seguito vengono elencati i pro e i contro del seguente approccio (come anche riportato in \cite{site:articolo-alg-gen} \cite{site:paper-lo-go}).\\
+Di seguito vengono elencati i pro e i contro del seguente approccio (come riportato in \cite{site:articolo-alg-gen} \cite{site:paper-lo-go}).\\
 
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
@@ -322,12 +320,12 @@ dove:
 \noindent Dai risultati dell'istanza descritta in precedenza, l'algoritmo \textit{greedy} potrebbe risultare
 il più efficiente ed efficace,
 ma per il problema che si andrà a risolvere non può essere considerato
-molto soddisfacente in quanto le scelte
+molto soddisfacente, in quanto le scelte
 non vengono mai rimesse in discussione e potrebbero dunque escludere soluzioni potenzialmente migliori
 (esempio nella Sezione §\ref{sec:descrizione-stage-intro}).\\
 Si può notare, inoltre, come l'algoritmo genetico, sebbene sia interessante per il mantenimento di più soluzioni ad ogni iterazione,
-abbia richiesto più tempo per essere implementato e sia stato scartato perchè si sarebbe corso il rischio di lasciarlo incompleto, non portando
-dunque a termine gli obiettivi obbligatori dello \textit{stage} descritti nella Sezione §\ref{sec:obiettivi}.\\
+abbia richiesto più tempo per essere implementato. Si è deciso di scartarlo perchè si sarebbe corso il rischio di lasciare il lavoro incompleto,
+non portando dunque a termine gli obiettivi obbligatori dello \textit{stage} descritti nella Sezione §\ref{sec:obiettivi}.\\
 La \textit{Tabu search}, in base anche all'esperienza maturata attraverso lo studio, sembrerebbe rappresentare un buon compromesso sia a livello
 di efficacia ed efficienza che a livello implementativo (come descritto anche in \cite{site:dispense-de-giovanni}).
 Per quanto riguarda la soluzione iniziale, questa potrebbe essere generata a partire da un algoritmo \textit{greedy},
