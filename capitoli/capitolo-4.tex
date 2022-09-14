@@ -86,7 +86,7 @@ appartiene o meno alla \textit{Tabu list} e poi viene verificato se la soluzione
 Se i controlli venissero invertiti, si rischierebbe, calcolando
 la funzione di valutazione e confrontandola con quella della soluzione corrente,
 di simulare inutilmente una mossa che potenzialmente potrebbe appartenere alla \textit{Tabu list}.
-Inoltre, diversamente da quanto previsto normalmente dalla Tabu Search \cite{siteS:dispense-de-giovanni},
+Inoltre, diversamente da quanto previsto normalmente dalla \textit{Tabu search} \cite{siteS:dispense-de-giovanni},
 lo schema adottato aggiorna la \textit{Tabu search} anche in presenza di mosse non miglioranti.
 \vspace*{\fill}
 
@@ -435,7 +435,8 @@ $R=1$.
 \label{sec:controllo-vincoli}
 \noindent Nel programma, alcuni vincoli vengono controllati durante l'esecuzione
 della \textit{Tabu search} (data di spedizione maggiore del giorno attuale,
-data di arrivo della spedizione minore della data di inizio copertura etc.), altri invece vengono verificati solo alla fine dell'algoritmo (descritti successivamente).
+data di arrivo della spedizione minore della data di inizio copertura etc.),
+altri invece vengono verificati solo alla fine dell'algoritmo (descritti successivamente).
 Questo implica che la \textit{Tabu search} può potenzialmente avere, in
 una qualsiasi iterazione, una soluzione non \gls{ammissibileg} e
 continuare ad operare con essa.\\
