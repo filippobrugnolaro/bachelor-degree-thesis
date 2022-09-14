@@ -100,7 +100,7 @@ poichè è legata alla creazione del vicinato.\\
 In primis è stata creata una classe che rappresentasse
 il singolo ordine (\textit{dataSourceItem}) e, dato che gli ordini solitamente sono molteplici,
 si è deciso di mettere ognuno di essi all'interno di una lista.
-Questo approccio è sufficiente per un algoritmo \textit{greedy}, ma non per la \textit{Tabu search}.\\
+Questo approccio è sufficiente per un algoritmo \textit{greedy}, ma non per la \textit{Tabu search}.
 Infatti è necessario associare alla soluzione anche una funzione di valutazione, in modo tale
 da poter operare il confronto tra la soluzione corrente e quella migliore.\\
 In Figura \ref{rappresentazione-soluzione} viene illustrata la forma della soluzione della \textit{Tabu search} tramite un diagramma delle classi \cite{siteH:rcardin}.
@@ -367,7 +367,7 @@ come la funzione $f$ sia migliorativa se, a parità di $PT$,
 si aumenta il numero di articoli ordinati.
 Inoltre $FV$ dovrebbe migliorare anche all'aumentare in contemporanea di $R$ e $PT$ 
 poichè si andrebbe a coprire più fabbisogni, ma ciò non succede. Questo problema accade
-perchè il rapporto tra $R$ e $PT$ è troppo sbilanciato.\\
+perchè il rapporto tra $R$ e $PT$ è troppo sbilanciato.
 Altra problematica è il fatto che la funzione, una volta ordinati
 tutti gli articoli, non riesce a valutare la variabile $PT$
 in quanto $1-R$ è uguale a $0$.\\
@@ -556,7 +556,7 @@ dove vengono salvati dati ad ogni iterazione, quali:
 Il salvataggio di queste informazioni ha
 l’obiettivo di facilitare il \textit{\gls{debugg}} $^{[g]}$
 del codice e la rilevazione dei dati ottenuti
-dall’algoritmo ad ogni iterazione.\\
+dall’algoritmo ad ogni iterazione.
 Inoltre questi dati possono essere utilizzati anche in futuro
 per operare confronti fra esecuzioni della \textit{Tabu search} con
 tipologie di inizializzazione differenti.
@@ -587,7 +587,7 @@ Le scelte \textit{greedy} esistenti sono utilizzate per andare
 a creare degli algoritmi che forniscono buone soluzioni.
 Tuttavia possono esistere delle scelte che non sono state ancora
 considerate e che portano alla creazione di un algoritmo
-che genera soluzioni migliori.\\
+che genera soluzioni migliori.
 Grazie all'utilizzo del \textit{design
 pattern strategy} \cite{siteG:refactoring-guru} \cite{siteH:rcardin}, è possibile estendere
 la classe astratta \textit{GreedyAlgorithm}, derivante dall'interfaccia
@@ -666,7 +666,7 @@ e applicazioni \textit{mobile}. È compatibile con tutte le piattaforme di svilu
 \textit{Visual Studio 2019} supporta il \textit{\gls{refactoringg}} $^{[g]}$ del codice e \textit{\gls{intellisenseg}} $^{[g]}$, uno strumento per
 l’autocompletamento del codice. Il \textit{\gls{debuggerg}} $^{[g]}$ integrato funziona sia a
 livello di codice sorgente che a livello di codice macchina. È compatibile anche con i sistemi di supporto per il controllo del codice,
-come per esempio \textit{Subversion} e \textit{\hyperref[sec:git]{Git}}.\\
+come per esempio \textit{Subversion} e \textit{\hyperref[sec:git]{Git}}.
 \textit{Visual Studio 2019} supporta 36 differenti linguaggi di 
 programmazione tra i quali \textit{C\#}.
 \begin{figure}[!h] 
@@ -706,7 +706,7 @@ e archiviazioni per \textit{set} di dati in maniera rapida ed efficiente.
 
 \subsection*{\textit{Git}}
 \label{sec:git}
-\noindent \textit{Git} \cite{siteE:wiki}, il cui logo è rappresentato in Figura \ref{logoGit}, è uno strumento per il controllo di versione distribuito del codice sorgente delle \textit{repository}.\\
+\noindent \textit{Git} \cite{siteE:wiki}, il cui logo è rappresentato in Figura \ref{logoGit}, è uno strumento per il controllo di versione distribuito del codice sorgente delle \textit{repository}.
 Creato inizialmente per gestire le versioni del \textit{kernel Linux}, al giorno d'oggi è uno dei principali
 strumenti di versionamento del codice e di collaborazione tra gli sviluppatori.
 \begin{figure}[!h] 
