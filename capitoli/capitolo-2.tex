@@ -34,14 +34,14 @@ definiti successivamente.\\
 \end{enumerate}
 
 \noindent Prima di proseguire con lo studio di fattibilità, è necessario dichiarare le metriche che sono state
-utilizzate per effetuare un confronto equo tra gli algoritmi. Chiaramente, esse derivano dagli obiettivi che
+utilizzate per effettuare un confronto equo tra gli algoritmi. Chiaramente, esse derivano dagli obiettivi che
 l'algoritmo deve soddisfare per risolvere il problema.\\
 Vengono elencati in seguito i parametri:
 \begin{itemize}
     \item \textbf{Efficienza}: la capacità dell'algoritmo di utilizzare meno risorse di calcolo possibile per risolvere il problema;
     \item \textbf{Efficacia}: la capacità dell'algoritmo di risolvere il problema fornendo una soluzione il più possibile corretta;
     \item \textbf{Complessità implementativa}: quantitavo di risorse temporali impiegate per sviluppare l'algoritmo;
-    \item \textbf{Paper}: dichiarazioni o dati di esperimenti già effettuati, come in \cite{site:paper-chen} \cite{site:paper-roli} \cite{site:paper-carlos}.
+    \item \textbf{Paper}: dichiarazioni o dati di esperimenti già effettuati, come in \cite{siteA:paper-chen} \cite{siteR:paper-roli} \cite{siteU:paper-carlos}.
 \end{itemize}
 
 \newgeometry{a4paper, left=30mm, right=30mm, top=31mm, bottom=30mm}
@@ -49,11 +49,11 @@ Vengono elencati in seguito i parametri:
 %**************************************************************
 \section{Soluzioni proposte}
 \noindent Per ogni soluzione proposta, viene effettuata una breve introduzione, seguita da vantaggi e svantaggi.
-Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di \textit{test} si basano sul problema di \textit{string replacement}.\\
-In pratica, date una striga corretta e una errata entrambe di lunghezza $n$, il problema consiste nel correggere i caratteri della stringa errata
+Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di \textit{test} si basano sul problema di \textit{string replacement}.
+In questo problema, date una striga corretta e una errata entrambe di lunghezza $n$, il problema consiste nel correggere i caratteri della stringa errata
 in modo tale da ottenere due stringhe uguali.
 Si è volutamente scelto questo tipo di problema poichè sembrava sufficientemente semplice per poter prendere confidenza con gli algoritmi stessi.
-Se i micro-moduli fossero stati sviluppati intercalandoli all'interno del contesto del problema da risolvere, si avrebbe avuto un
+Se i micro-moduli di \textit{test} fossero stati sviluppati intercalandoli all'interno del contesto del problema da risolvere, si avrebbe avuto un
 enorme spreco di risorse temporali.
 
 %**************************************************************
@@ -61,7 +61,7 @@ enorme spreco di risorse temporali.
 \noindent L'algoritmo \textit{greedy} ("\textit{goloso}") \cite{Cormen:algoritmi} viene così chiamato poichè basa la ricerca di una buona
 soluzione \gls{ammissibileg} $^{[g]}$ sulla scelta, secondo un criterio predefinto, della miglior soluzione disponibile ad ogni passo, senza
 rimettere in discussione la scelta appena effettuata.\\
-Di seguito viene presentato lo pseudocodice dell'algoritmo \textit{greedy}.
+Di seguito viene presentato lo pseudocodice dell'algoritmo \textit{greedy} per il problema in esame.
 
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
@@ -109,12 +109,12 @@ in quel momento, ovvero $y$ stesso; se $x = y$, non è necessario effettuare alc
 \end{itemize}
 %**************************************************************
 \subsection{\textit{Tabu search}}
-\noindent La \textit{Tabu search} \cite{site:dispense-de-giovanni} è un metodo, classificato come \textit{Trajectory Method} (\textit{Metodo a traiettoria}), basato su \gls{ricercalocaleg} $^{[g]}$
+\noindent La \textit{Tabu search} \cite{siteS:dispense-de-giovanni} è un metodo, classificato come \textit{Trajectory Method} (\textit{Metodo a traiettoria}), basato su \gls{ricercalocaleg} $^{[g]}$
 in grado di eludere l'intrappolamento del metodo in un minimo locale sfruttando costantemente la memoria.\\
 La \gls{ricercalocaleg} si basa sull’idea di migliorare
 una soluzione iniziale esplorandone un intorno
 opportunamente definito. Se l’ottimizzazione
-dell’intorno produce una soluzione migliorante
+dell’intorno produce una soluzione migliorante,
 il procedimento viene ripetuto
 considerando come soluzione corrente la soluzione
 appena determinata.
@@ -122,8 +122,8 @@ La \textit{Tabu search}, oltre a ricordare la migliore soluzione corrente, salva
 anche le {$k$} mosse precedentemente effettuate in modo tale da non incombere nel rischio di un ciclo nel breve periodo.\\
 Viene dunque orientata la ricerca tramite la modifica del vicinato in funzione della storia dell'esplorazione, ma anche tramite la diversificazione dei sottospazi
 di ricerca tramite il passaggio per soluzioni non ammissibili.\\
-L'algoritmo verrà descritto più approfonditamente nella Sezione §\hyperref[sec:tabu-search]{4.4}\\
-Di seguito viene presentato lo pseudocodice della \textit{Tabu search} (rivisitazione di \cite{site:solid-github}).\\
+L'algoritmo verrà descritto più approfonditamente nella Sezione §\hyperref[sec:tabu-search]{4.4}.\\
+Di seguito viene presentato lo pseudocodice della \textit{Tabu search} per il problema in esame (rivisitazione dell'algoritmo proposto in \cite{siteO:solid-github}).\\
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
     \caption{Pseudocodice \textit{string replacement} - \textit{Tabu search}}
@@ -161,9 +161,9 @@ Di seguito viene presentato lo pseudocodice della \textit{Tabu search} (rivisita
 \vspace*{-0.4cm}
 \noindent \paragraph{Osservazioni}\hfill\\
 \noindent Notiamo come il ruolo della {$tabu\_list$} sia fondamentale in quanto, in caso di appartenza della mossa alla {$tabu\_list$}, non fa calcolare e
-conseguentemente fare il confronto con {$funzione\_obiettivo_{best}$}. Inoltre se la {$funzione\_obiettivo_{curr}$} non è migliorante, l'iterazione
+conseguentemente fare il confronto con {$funzione\_obiettivo_{best}$}. Inoltre, se la {$funzione\_obiettivo_{curr}$} non è migliorante, l'iterazione
 viene comunque contata.\\
-Di seguito vengono elencati i pro e i contro del seguente approccio (come descritto in \cite{site:paper-lo-go} \cite{site:articolo-tabu-search}).\\
+Di seguito vengono elencati i pro e i contro del seguente approccio (come descritto in \cite{siteQ:paper-lo-go} \cite{siteT:articolo-tabu-search}).\\
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
     \item Bassa complessità implementativa;
@@ -181,17 +181,17 @@ Di seguito vengono elencati i pro e i contro del seguente approccio (come descri
 \end{itemize}
 %**************************************************************
 \subsection{Algoritmo genetico}
-\noindent L'algoritmo genetico \cite{site:dispense-de-giovanni} è un metodo, classifcato come \textit{population based}, basato sul concetto che la natura
+\noindent L'algoritmo genetico \cite{siteS:dispense-de-giovanni} è un metodo, classifcato come \textit{population based}, basato sul concetto che la natura
 abbia la tendenza ad organizzarsi in strutture ottimizzate, in gran parte ispirato
 alle teorie sull'evoluzione di \textit{Charles Darwin}.\\
 \noindent In particolare, ad ogni iterazione, non viene mantenuta una sola soluzione, ma un insieme di soluzioni, definita anche come popolazione.
 Gli individui (soluzioni) vengono codificati tramite un cromosoma contenente una serie di geni (variabili decisionali del problema) e, per
 ogni individuo appartente alla popolazione, viene associata quella che viene definita come la sua idoneità, tramite l'utilizzo di una
 funzione di \textit{fitness}, che guida il processo di selezione, basato su metodi probabilistici (es: \textit{metodo Montecarlo}, \textit{linear ranking}, \textit{torneo-n}).\\
-Prima di ogni iterazione vengono dunque presi gli individui e verranno accoppiati tramite degli operatori di ricombinazione
+Prima di ogni iterazione vengono dunque presi gli individui e verranno in seguito accoppiati tramite degli operatori di ricombinazione
 (es: \textit{crossover uniforme}, \textit{cut-point crossover}, \textit{mutazione}...)
 per generare dei figli che assumeranno le migliori caratteristiche dei genitori. Alla fine dell'algoritmo, verrà scelta la soluzione con la maggior \textit{fitness} possibile.\\
-Di seguito viene presentato lo pseudocodice dell'algoritmo genetico (rivisitazione di \cite{site:solid-github}).
+Di seguito viene presentato lo pseudocodice dell'algoritmo genetico per il problema in esame (rivisitazione dell'algoritmo proposto in \cite{siteO:solid-github}).
 \vspace*{\fill}
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
@@ -246,19 +246,20 @@ Si noti come, per ogni popolazione, vengano scelti un numero di individui dipend
 e vengano effettuati {$num_{crossover}$} \textit{crossover} scegliendo 2 individui dalla popolazione che fungono da genitori.
 Viene dunque creata una nuova popolazione di figli a cui viene anche applicata una mutazione a un figlio \textit{random} per
 variare il patrimonio genetico, in modo tale da avere più possibilità di trovare buone caratteristiche.\\
-Di seguito vengono elencati i pro e i contro del seguente approccio (come riportato in \cite{site:articolo-alg-gen} \cite{site:paper-lo-go}).\\
+Di seguito vengono elencati i pro e i contro del seguente approccio (come riportato in \cite{siteP:articolo-alg-gen} \cite{siteQ:paper-lo-go}).\\
 
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
     \item Fuga da ottimi locali;
     \item Analisi di più sottospazi delle soluzioni, grazie alla varietà della popolazione.
+    \item possibilità di esplorare facilmente diverse aree dello spazio di ricerca, grazie a componenti stocastiche
 \end{itemize}
 
 \noindent \paragraph{Aspetti negativi}
 \begin{itemize}
     \item Modesta complessità implementativa;
     \item Possibilmente inefficace, può non fornire una buona soluzione;
-    \item Difficile calibrazione dei parametri;
+    \item Difficile calibrazione dei parametri per la forte presenza di componenti stocastiche;
     \item Difficile codifica degli individui in alcuni problemi;
     \item Numero di iterazioni necessario può essere molto alto.
 \end{itemize}
@@ -315,7 +316,7 @@ dove:
 \begin{itemize}
     \item LC = lettere corrette
     \item LT = lettere totali
-    \item Efficacia = $\sum_{i=1} ^{10}{\frac{LC_i}{LT_i}}$\\
+    \item Efficacia = $10 \cdot \sum_{i=1} ^{10}{\frac{LC_i}{LT_i}}$\\
 \end{itemize}
 \noindent Dai risultati dell'istanza descritta in precedenza, l'algoritmo \textit{greedy} potrebbe risultare
 il più efficiente ed efficace,
@@ -327,6 +328,6 @@ Si può notare, inoltre, come l'algoritmo genetico, sebbene sia interessante per
 abbia richiesto più tempo per essere implementato. Si è deciso di scartarlo perchè si sarebbe corso il rischio di lasciare il lavoro incompleto,
 non portando dunque a termine gli obiettivi obbligatori dello \textit{stage} descritti nella Sezione §\ref{sec:obiettivi}.\\
 La \textit{Tabu search}, in base anche all'esperienza maturata attraverso lo studio, sembrerebbe rappresentare un buon compromesso sia a livello
-di efficacia ed efficienza che a livello implementativo (come descritto anche in \cite{site:dispense-de-giovanni}).
+di efficacia ed efficienza che a livello implementativo (come descritto anche in \cite{siteS:dispense-de-giovanni}).
 Per quanto riguarda la soluzione iniziale, questa potrebbe essere generata a partire da un algoritmo \textit{greedy},
 data la sua bassa complessità computazionale. In questo modo sarebbe possibile avere già a disposizione una buona soluzione di base.\\
