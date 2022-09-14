@@ -50,7 +50,7 @@ Vengono elencati in seguito i parametri:
 \section{Soluzioni proposte}
 \noindent Per ogni soluzione proposta, viene effettuata una breve introduzione, seguita da vantaggi e svantaggi.
 Gli pseudocodici che descrivono in maniera sintetica i micro-moduli di \textit{test} si basano sul problema di \textit{string replacement}.
-In questo problema, date una striga corretta e una errata entrambe di lunghezza $n$, il problema consiste nel correggere i caratteri della stringa errata
+In questo problema, date una striga corretta e una errata entrambe di lunghezza $n$, si vogliono correggere i caratteri della stringa errata
 in modo tale da ottenere due stringhe uguali.
 Si è volutamente scelto questo tipo di problema poichè sembrava sufficientemente semplice per poter prendere confidenza con gli algoritmi stessi.
 Se i micro-moduli di \textit{test} fossero stati sviluppati intercalandoli all'interno del contesto del problema da risolvere, si avrebbe avuto un
@@ -61,7 +61,7 @@ enorme spreco di risorse temporali.
 \noindent L'algoritmo \textit{greedy} ("\textit{goloso}") \cite{Cormen:algoritmi} viene così chiamato poichè basa la ricerca di una buona
 soluzione \gls{ammissibileg} $^{[g]}$ sulla scelta, secondo un criterio predefinto, della miglior soluzione disponibile ad ogni passo, senza
 rimettere in discussione la scelta appena effettuata.\\
-Di seguito viene presentato lo pseudocodice dell'algoritmo \textit{greedy} per il problema in esame.
+Di seguito viene presentato lo pseudocodice dell'algoritmo \textit{greedy} pensato per il problema in esame.
 
 \begin{algorithm}[!h]
     \captionsetup{labelformat=empty}
@@ -251,8 +251,8 @@ Di seguito vengono elencati i pro e i contro del seguente approccio (come riport
 \noindent \paragraph{Aspetti positivi}
 \begin{itemize}
     \item Fuga da ottimi locali;
-    \item Analisi di più sottospazi delle soluzioni, grazie alla varietà della popolazione.
-    \item possibilità di esplorare facilmente diverse aree dello spazio di ricerca, grazie a componenti stocastiche
+    \item Analisi di più sottospazi delle soluzioni, grazie alla varietà della popolazione;
+    \item Possibilità di esplorare facilmente diverse aree dello spazio di ricerca, grazie a componenti stocastiche.
 \end{itemize}
 
 \noindent \paragraph{Aspetti negativi}
@@ -314,8 +314,8 @@ Di seguito si hanno i risultati dell'analisi dei 3 algoritmi eseguiti singolarme
 
 dove:
 \begin{itemize}
-    \item LC = lettere corrette
-    \item LT = lettere totali
+    \item LC = lettere corrette;
+    \item LT = lettere totali;
     \item Efficacia = $10 \cdot \sum_{i=1} ^{10}{\frac{LC_i}{LT_i}}$\\
 \end{itemize}
 \noindent Dai risultati dell'istanza descritta in precedenza, l'algoritmo \textit{greedy} potrebbe risultare
